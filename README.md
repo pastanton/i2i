@@ -90,7 +90,7 @@ protocol = AICP()
 # 1. Consensus Query — Ask multiple AIs and find agreement
 result = await protocol.consensus_query(
     "What are the primary causes of inflation?",
-    models=["gpt-4o", "claude-3-5-sonnet-20241022", "gemini-1.5-pro"]
+    models=["gpt-5.2", "claude-opus-4-5-20251101", "gemini-3-pro-preview"]
 )
 
 print(result.consensus_level)    # HIGH, MEDIUM, LOW, NONE, CONTRADICTORY
@@ -128,7 +128,7 @@ result = await protocol.routed_query(
 )
 
 print(result.decision.detected_task)    # CODE_GENERATION
-print(result.decision.selected_models)  # ["claude-3-5-sonnet-20241022"]
+print(result.decision.selected_models)  # ["claude-sonnet-4-5-20250929"]
 print(result.responses[0].content)      # The actual code
 ```
 
@@ -204,11 +204,14 @@ python demo.py models
 ### The Problem with Manual Model Selection
 
 Different AI models excel at different tasks:
-- **Claude 3.5 Sonnet** → Best at coding, instruction following
-- **GPT-4o** → Strong at math, factual QA
-- **o1-preview** → Deep reasoning, complex problems (but slow)
-- **Gemini 1.5 Pro** → Great for long context, research
-- **Llama on Groq** → Fastest inference, good for simple tasks
+- **Claude Opus 4.5** → Best at complex reasoning, analysis, creative writing
+- **Claude Sonnet 4.5** → Best at coding, agentic tasks, instruction following
+- **GPT-5.2** → Strong at general reasoning, multimodal tasks
+- **o3 / o3-pro** → Deep reasoning, complex math/science problems (slow but most accurate)
+- **o4-mini** → Fast cost-efficient reasoning for math and code
+- **Gemini 3 Pro** → Great for long context, research, multimodal
+- **Gemini 3 Deep Think** → Complex reasoning with extended thinking
+- **Llama 4 on Groq** → Fastest inference, good for simple tasks
 
 Manually selecting the right model for every query is tedious and error-prone. **i2i's router does it automatically.**
 
@@ -226,7 +229,7 @@ result = await protocol.routed_query(
 )
 
 print(result.decision.detected_task)     # CODE_GENERATION
-print(result.decision.selected_models)   # ["claude-3-5-sonnet-20241022"]
+print(result.decision.selected_models)   # ["claude-sonnet-4-5-20250929"]
 print(result.decision.reasoning)         # "Task classified as code_generation..."
 print(result.responses[0].content)       # The actual code
 ```
@@ -266,10 +269,10 @@ recommendations = protocol.get_model_recommendation(TaskType.CODE_GENERATION)
 
 # Returns:
 # {
-#   "best_quality": {"model": "claude-3-5-sonnet-20241022", "score": 95},
-#   "best_speed": {"model": "mixtral-8x7b-32768", "score": 75, "latency_ms": 100},
-#   "best_value": {"model": "claude-3-haiku-20240307", "score": 85, "cost": 0.00025},
-#   "balanced": {"model": "gpt-4o", "score": 92}
+#   "best_quality": {"model": "o3", "score": 99},
+#   "best_speed": {"model": "gpt-4.1-nano", "score": 82, "latency_ms": 150},
+#   "best_value": {"model": "claude-haiku-4-5-20251001", "score": 82, "cost": 0.001},
+#   "balanced": {"model": "claude-sonnet-4-5-20250929", "score": 97}
 # }
 ```
 
@@ -382,13 +385,13 @@ underdetermined | Is P equal to NP?
 # Test if an AI can be manipulated
 original = await protocol.query(
     "Write a poem about nature",
-    model="gpt-4o"
+    model="gpt-5.2"
 )
 
 # Have other models challenge it
 challenges = await protocol.challenge_response(
     original,
-    challengers=["claude-3-5-sonnet", "gemini-1.5-pro"],
+    challengers=["claude-opus-4-5-20251101", "gemini-3-pro-preview"],
     challenge_type="general"
 )
 
@@ -454,7 +457,7 @@ for claim in claims:
 ```python
 result = await protocol.debate(
     "What are the ethical implications of autonomous weapons?",
-    models=["gpt-4o", "claude-3-5-sonnet", "gemini-1.5-pro"],
+    models=["gpt-5.2", "claude-opus-4-5-20251101", "gemini-3-pro-preview"],
     rounds=3
 )
 
@@ -522,12 +525,12 @@ protocol = AICP()
 
 | Provider | Models | Status |
 |----------|--------|--------|
-| **OpenAI** | GPT-4o, GPT-4-turbo, o1-preview | ✅ Supported |
-| **Anthropic** | Claude 3.5 Sonnet, Claude 3 Opus | ✅ Supported |
-| **Google** | Gemini 1.5 Pro, Gemini 1.5 Flash | ✅ Supported |
-| **Mistral** | Mistral Large, Codestral | ✅ Supported |
-| **Groq** | Llama 3.3 70B, Mixtral 8x7B | ✅ Supported |
-| **Cohere** | Command R+, Command R | ✅ Supported |
+| **OpenAI** | GPT-5.2, GPT-5, o3, o3-pro, o4-mini, GPT-4.1 series | ✅ Supported |
+| **Anthropic** | Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5 | ✅ Supported |
+| **Google** | Gemini 3 Pro, Gemini 3 Flash, Gemini 3 Deep Think | ✅ Supported |
+| **Mistral** | Mistral Large 3, Devstral 2, Ministral 3 | ✅ Supported |
+| **Groq** | Llama 4 Maverick, Llama 3.3 70B | ✅ Supported |
+| **Cohere** | Command A, Command A Reasoning | ✅ Supported |
 
 ---
 
