@@ -11,6 +11,7 @@
 <p align="center">
   <a href="#installation">Installation</a> •
   <a href="#quick-start">Quick Start</a> •
+  <a href="#the-mcip-protocol">MCIP Protocol</a> •
   <a href="#why-i2i">Why i2i?</a> •
   <a href="#use-cases">Use Cases</a> •
   <a href="#api-reference">API Reference</a> •
@@ -44,6 +45,75 @@ You ask an AI a question. It gives you a confident answer. But:
 ### Origin Story
 
 This project emerged from an actual conversation between Claude (Anthropic) and ChatGPT (OpenAI), where they discussed the philosophical implications of AI-to-AI dialogue. ChatGPT observed that some questions are "well-formed but idle" — coherent but non-action-guiding. That insight became a core feature: **epistemic classification**.
+
+---
+
+## The MCIP Protocol
+
+### What is MCIP?
+
+**MCIP** (Multi-model Consensus and Inference Protocol) is the formal specification that powers i2i. While i2i is the Python implementation, MCIP is the underlying protocol standard that defines how AI models should communicate, verify, and reach consensus.
+
+Think of it like HTTP vs web browsers — **MCIP is the protocol, i2i is one implementation** of that protocol.
+
+### Why a Protocol?
+
+We designed MCIP as an open standard because:
+
+1. **Interoperability**: Any system can implement MCIP, regardless of language or platform
+2. **Consistency**: Standardized message formats ensure predictable behavior
+3. **Extensibility**: New features can be added without breaking existing implementations
+4. **Transparency**: The protocol is fully documented and open for review
+
+### Protocol Components
+
+MCIP defines five core components:
+
+| Component | Purpose |
+|-----------|---------|
+| **Message Schema** | Standardized request/response format for all AI interactions |
+| **Consensus Mechanism** | Algorithms for detecting agreement levels between models |
+| **Verification Protocol** | How models fact-check and challenge each other |
+| **Epistemic Taxonomy** | Classification system for question answerability |
+| **Routing Specification** | Rules for intelligent model selection |
+
+### Message Format
+
+All MCIP messages follow a standardized JSON schema:
+
+```json
+{
+  "mcip_version": "0.2.0",
+  "message_type": "consensus_query",
+  "query": "What causes inflation?",
+  "models": ["gpt-5.2", "claude-opus-4-5-20251101"],
+  "options": {
+    "require_consensus": true,
+    "min_consensus_level": "medium",
+    "verify_result": true
+  }
+}
+```
+
+### Protocol Versioning
+
+MCIP follows semantic versioning:
+- **Major** (1.x.x): Breaking changes to message format
+- **Minor** (x.1.x): New features, backwards compatible
+- **Patch** (x.x.1): Bug fixes, clarifications
+
+Current version: **0.2.0** (Draft)
+
+### Implementing MCIP
+
+To create an MCIP-compliant implementation:
+
+1. Support the standard message schema
+2. Implement at least one provider adapter
+3. Support consensus detection with standard levels (HIGH/MEDIUM/LOW/NONE/CONTRADICTORY)
+4. Implement epistemic classification
+
+See the full specification: [RFC-MCIP.md](./RFC-MCIP.md)
 
 ---
 
@@ -544,31 +614,6 @@ The RFC defines:
 - Verification protocols
 - Epistemic classification taxonomy
 - Provider adapter requirements
-
----
-
-### Routing Strategies
-
-| Strategy | Description |
-|----------|-------------|
-| `BEST_QUALITY` | Select model with highest task score |
-| `BEST_SPEED` | Prioritize low-latency models |
-| `BEST_VALUE` | Optimize for cost-effectiveness |
-| `BALANCED` | Balance quality, speed, and cost |
-| `ENSEMBLE` | Use multiple models, synthesize responses |
-| `FALLBACK_CHAIN` | Try models in order until success |
-
-### Task Types
-
-| Type | Examples |
-|------|----------|
-| `CODE_GENERATION` | "Write a function", "implement", "create class" |
-| `MATHEMATICAL` | "Calculate", "solve", "prove theorem" |
-| `CREATIVE_WRITING` | "Write a story", "compose poem", "creative" |
-| `FACTUAL_QA` | "What is", "who was", "define" |
-| `LOGICAL_REASONING` | "Deduce", "if-then", "implies" |
-| `RESEARCH` | "Analyze", "compare", "investigate" |
-| ... | (20+ task types supported) |
 
 ---
 

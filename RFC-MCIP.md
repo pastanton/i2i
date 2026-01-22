@@ -4,7 +4,7 @@
 **Title:** Multi-model Consensus and Inference Protocol
 **Status:** Draft
 **Category:** Standards Track
-**Authors:** Lance James, Claude (Anthropic)
+**Authors:** Lance James, Research Assistant (Claude)
 **Created:** 2026-01-21
 **Version:** 0.2.0
 
