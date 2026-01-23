@@ -10,6 +10,7 @@ import sys
 sys.path.insert(0, '..')
 
 from i2i import AICP, EpistemicType, ConsensusLevel
+from i2i.config import get_consensus_models
 
 
 async def main():
@@ -33,9 +34,11 @@ async def main():
     print("Query: What causes inflation?")
 
     try:
+        # Use configurable defaults (set via env vars or i2i.config)
+        models = get_consensus_models()[:2]  # Use first 2 for demo
         result = await protocol.consensus_query(
             "What causes inflation? Give a brief answer.",
-            models=["gpt-4o", "claude-3-5-sonnet-20241022"]  # Use 2 models for demo
+            models=models
         )
 
         print(f"\nConsensus Level: {result.consensus_level.value}")

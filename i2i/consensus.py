@@ -18,6 +18,7 @@ from .schema import (
     ConfidenceLevel,
 )
 from .providers import ProviderRegistry
+from .config import get_synthesis_models
 
 
 class ConsensusEngine:
@@ -306,8 +307,8 @@ Synthesized answer:"""
             content=synthesis_prompt,
         )
 
-        # Try to use a capable model for synthesis
-        synthesis_models = ["gpt-4o", "claude-3-5-sonnet-20241022", "gemini-1.5-pro"]
+        # Try to use a capable model for synthesis (configurable)
+        synthesis_models = get_synthesis_models()
         for model in synthesis_models:
             try:
                 response = await self.registry.query(message, model)

@@ -18,6 +18,7 @@ import os
 
 from .schema import Response, ConfidenceLevel
 from .providers import ProviderRegistry, ProviderAdapter
+from .config import get_classifier_model
 
 
 class TaskType(str, Enum):
@@ -919,8 +920,11 @@ class TaskClassifier:
     async def classify_with_ai(
         self,
         query: str,
-        classifier_model: str = "claude-3-haiku-20240307"
+        classifier_model: Optional[str] = None
     ) -> Tuple[TaskType, float]:
+        # Use config default if not specified
+        if classifier_model is None:
+            classifier_model = get_classifier_model()
         """Use an AI model to classify the task (more accurate but slower)."""
         if not self.registry:
             return self.classify(query)

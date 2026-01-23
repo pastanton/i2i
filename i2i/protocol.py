@@ -24,6 +24,7 @@ from .consensus import ConsensusEngine
 from .verification import VerificationEngine
 from .epistemic import EpistemicClassifier
 from .router import ModelRouter, TaskType, RoutingStrategy, RoutingResult
+from .config import get_consensus_models
 
 
 class AICP:
@@ -162,11 +163,8 @@ class AICP:
 
     def _get_default_models(self) -> List[str]:
         """Get default models for consensus queries."""
-        # Prefer diversity across providers
-        preferred = [
-            "gpt-4o",
-            "claude-3-5-sonnet-20241022",
-            "gemini-1.5-pro",
+        # Get from config (can be overridden via env vars or programmatically)
+        preferred = get_consensus_models() + [
             "llama-3.3-70b-versatile",
             "mistral-large-latest",
         ]

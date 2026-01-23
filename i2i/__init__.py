@@ -25,6 +25,13 @@ from .router import (
     RoutingResult,
     ModelCapability,
 )
+from .config import (
+    ModelDefaults,
+    get_config,
+    set_config,
+    get_consensus_models,
+    get_classifier_model,
+)
 
 __version__ = "0.2.0"
 __all__ = [
@@ -48,4 +55,10 @@ __all__ = [
     "RoutingDecision",
     "RoutingResult",
     "ModelCapability",
+    # Configuration
+    "ModelDefaults",
+    "get_config",
+    "set_config",
+    "get_consensus_models",
+    "get_classifier_model",
 ]

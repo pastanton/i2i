@@ -146,6 +146,32 @@ COHERE_API_KEY=...
 
 You need **at least 2 providers** for consensus features.
 
+### Configuring Default Models
+
+Models are **not hardcoded**. Configure defaults via environment variables:
+
+```env
+# Default models for consensus queries
+I2I_CONSENSUS_MODEL_1=gpt-4.1
+I2I_CONSENSUS_MODEL_2=claude-sonnet-4-5-20250929
+I2I_CONSENSUS_MODEL_3=gemini-2.0-flash
+
+# Model for task classification (routing)
+I2I_CLASSIFIER_MODEL=claude-haiku-3-5-20241022
+```
+
+Or programmatically:
+
+```python
+from i2i import set_config, ModelDefaults
+
+# Use your preferred models
+set_config(ModelDefaults(
+    consensus_models=["ollama/llama3.2:8b", "ollama/mistral:7b"],
+    classifier_model="ollama/phi3:mini"
+))
+```
+
 ---
 
 ## Quick Start

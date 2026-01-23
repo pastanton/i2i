@@ -23,6 +23,7 @@ from .schema import (
     EpistemicType,
 )
 from .providers import ProviderRegistry
+from .config import get_epistemic_models
 
 
 class EpistemicClassifier:
@@ -49,15 +50,23 @@ class EpistemicClassifier:
             EpistemicClassification with analysis
         """
         if classifier_models is None:
-            # Use capable models for classification - prefer what's available
+            # Use configurable defaults, filtering to what's actually available
+            configured = get_epistemic_models()
             available = self.registry.list_configured_providers()
             classifier_models = []
-            if "anthropic" in available:
-                classifier_models.append("claude-3-5-sonnet-20241022")
-            if "openai" in available:
-                classifier_models.append("gpt-4o")
-            if "google" in available:
-                classifier_models.append("gemini-1.5-pro")
+            for model in configured:
+                # Check if the provider for this model is configured
+                provider = model.split("/")[0] if "/" in model else None
+                if provider is None:
+                    # Infer provider from model name
+                    if "claude" in model.lower():
+                        provider = "anthropic"
+                    elif "gpt" in model.lower():
+                        provider = "openai"
+                    elif "gemini" in model.lower():
+                        provider = "google"
+                if provider and provider in available:
+                    classifier_models.append(model)
             if not classifier_models:
                 raise ValueError("No classifiers available. Configure at least one provider.")
 
