@@ -16,8 +16,8 @@ import asyncio
 import json
 import os
 
-from .schema import Response, ConfidenceLevel
-from .providers import ProviderRegistry, ProviderAdapter
+from .schema import Response
+from .providers import ProviderRegistry
 
 
 class TaskType(str, Enum):
@@ -1165,7 +1165,7 @@ class ModelRouter:
                         response = await provider.query(query, model=model_id)
                         responses.append(response)
                         break  # Success, stop trying
-                except Exception as e:
+                except Exception:
                     continue  # Try next model
 
         elif strategy == RoutingStrategy.ENSEMBLE:

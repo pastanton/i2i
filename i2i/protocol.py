@@ -6,7 +6,6 @@ providing a unified API for consensus queries, cross-verification,
 epistemic classification, and multi-model orchestration.
 """
 
-import asyncio
 from typing import List, Optional, Dict, Any
 
 from .schema import (

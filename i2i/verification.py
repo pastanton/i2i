@@ -5,7 +5,6 @@ This module enables AI models to verify, challenge, and critique
 each other's responses.
 """
 
-import asyncio
 from typing import List, Optional, Dict, Any
 
 from .schema import (
@@ -13,7 +12,6 @@ from .schema import (
     MessageType,
     Response,
     VerificationResult,
-    ConfidenceLevel,
 )
 from .providers import ProviderRegistry
 

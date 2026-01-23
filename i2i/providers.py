@@ -9,7 +9,7 @@ import os
 import asyncio
 import time
 from abc import ABC, abstractmethod
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, List
 from dotenv import load_dotenv
 
 from .schema import Message, Response, ConfidenceLevel

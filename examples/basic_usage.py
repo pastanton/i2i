@@ -9,7 +9,7 @@ import asyncio
 import sys
 sys.path.insert(0, '..')
 
-from i2i import AICP, EpistemicType, ConsensusLevel
+from i2i import AICP
 
 
 async def main():

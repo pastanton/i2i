@@ -5,19 +5,17 @@ This module analyzes responses from multiple AI models to determine
 levels of agreement, identify divergences, and synthesize consensus answers.
 """
 
-import asyncio
-from typing import List, Dict, Optional, Tuple
-from collections import defaultdict
+from typing import Dict, List, Optional, Tuple
 
+from .providers import ProviderRegistry
 from .schema import (
+    ConfidenceLevel,
+    ConsensusLevel,
+    ConsensusResult,
     Message,
     MessageType,
     Response,
-    ConsensusResult,
-    ConsensusLevel,
-    ConfidenceLevel,
 )
-from .providers import ProviderRegistry
 
 
 class ConsensusEngine:
@@ -68,7 +66,9 @@ class ConsensusEngine:
             raise ValueError("All model queries failed")
 
         # Analyze consensus
-        consensus_level, agreement_matrix = await self._analyze_consensus(valid_responses)
+        consensus_level, agreement_matrix = await self._analyze_consensus(
+            valid_responses
+        )
 
         # Identify divergences
         divergences = self._identify_divergences(valid_responses, agreement_matrix)
@@ -153,20 +153,111 @@ class ConsensusEngine:
         words2 = set(text2.lower().split())
 
         # Remove common stop words
-        stop_words = {'the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been',
-                      'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will',
-                      'would', 'could', 'should', 'may', 'might', 'must', 'shall',
-                      'can', 'to', 'of', 'in', 'for', 'on', 'with', 'at', 'by',
-                      'from', 'as', 'into', 'through', 'during', 'before', 'after',
-                      'above', 'below', 'between', 'under', 'again', 'further',
-                      'then', 'once', 'here', 'there', 'when', 'where', 'why',
-                      'how', 'all', 'each', 'few', 'more', 'most', 'other', 'some',
-                      'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so',
-                      'than', 'too', 'very', 'just', 'and', 'but', 'if', 'or',
-                      'because', 'until', 'while', 'this', 'that', 'these', 'those',
-                      'i', 'you', 'he', 'she', 'it', 'we', 'they', 'what', 'which',
-                      'who', 'whom', 'whose', 'my', 'your', 'his', 'her', 'its',
-                      'our', 'their'}
+        stop_words = {
+            "the",
+            "a",
+            "an",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "have",
+            "has",
+            "had",
+            "do",
+            "does",
+            "did",
+            "will",
+            "would",
+            "could",
+            "should",
+            "may",
+            "might",
+            "must",
+            "shall",
+            "can",
+            "to",
+            "of",
+            "in",
+            "for",
+            "on",
+            "with",
+            "at",
+            "by",
+            "from",
+            "as",
+            "into",
+            "through",
+            "during",
+            "before",
+            "after",
+            "above",
+            "below",
+            "between",
+            "under",
+            "again",
+            "further",
+            "then",
+            "once",
+            "here",
+            "there",
+            "when",
+            "where",
+            "why",
+            "how",
+            "all",
+            "each",
+            "few",
+            "more",
+            "most",
+            "other",
+            "some",
+            "such",
+            "no",
+            "nor",
+            "not",
+            "only",
+            "own",
+            "same",
+            "so",
+            "than",
+            "too",
+            "very",
+            "just",
+            "and",
+            "but",
+            "if",
+            "or",
+            "because",
+            "until",
+            "while",
+            "this",
+            "that",
+            "these",
+            "those",
+            "i",
+            "you",
+            "he",
+            "she",
+            "it",
+            "we",
+            "they",
+            "what",
+            "which",
+            "who",
+            "whom",
+            "whose",
+            "my",
+            "your",
+            "his",
+            "her",
+            "its",
+            "our",
+            "their",
+        }
 
         words1 = words1 - stop_words
         words2 = words2 - stop_words
@@ -184,13 +275,6 @@ class ConsensusEngine:
         """
         Check if responses contain explicit contradictions.
         """
-        # Look for explicit disagreement markers
-        disagreement_markers = [
-            "no", "not", "false", "incorrect", "wrong",
-            "disagree", "contrary", "opposite", "however",
-            "actually", "in fact"
-        ]
-
         # Simple heuristic: if responses have opposite boolean conclusions
         positive_count = 0
         negative_count = 0
@@ -199,9 +283,15 @@ class ConsensusEngine:
             content_lower = resp.content.lower()
 
             # Check for affirmative vs negative conclusions
-            if any(marker in content_lower[:200] for marker in ["yes", "correct", "true", "right"]):
+            if any(
+                marker in content_lower[:200]
+                for marker in ["yes", "correct", "true", "right"]
+            ):
                 positive_count += 1
-            if any(marker in content_lower[:200] for marker in ["no", "incorrect", "false", "wrong"]):
+            if any(
+                marker in content_lower[:200]
+                for marker in ["no", "incorrect", "false", "wrong"]
+            ):
                 negative_count += 1
 
         # Contradiction if there's a split
@@ -222,13 +312,15 @@ class ConsensusEngine:
                 if i < j:
                     similarity = agreement_matrix[r1.model][r2.model]
                     if similarity < 0.5:  # Significant divergence
-                        divergences.append({
-                            "models": [r1.model, r2.model],
-                            "similarity": similarity,
-                            "summary": f"{r1.model} and {r2.model} diverge significantly",
-                            "model_1_stance": r1.content[:200] + "...",
-                            "model_2_stance": r2.content[:200] + "...",
-                        })
+                        divergences.append(
+                            {
+                                "models": [r1.model, r2.model],
+                                "similarity": similarity,
+                                "summary": f"{r1.model} and {r2.model} diverge significantly",
+                                "model_1_stance": r1.content[:200] + "...",
+                                "model_2_stance": r2.content[:200] + "...",
+                            }
+                        )
 
         return divergences
 
@@ -282,10 +374,9 @@ class ConsensusEngine:
         Uses one of the models to create a synthesis.
         """
         # Build a synthesis prompt
-        responses_text = "\n\n".join([
-            f"Model {r.model}:\n{r.content}"
-            for r in responses
-        ])
+        responses_text = "\n\n".join(
+            [f"Model {r.model}:\n{r.content}" for r in responses]
+        )
 
         synthesis_prompt = f"""Multiple AI models were asked: "{query}"
 
@@ -316,7 +407,9 @@ Synthesized answer:"""
                 continue
 
         # Fallback: return the response with highest confidence
-        best_response = max(responses, key=lambda r: self._confidence_score(r.confidence))
+        best_response = max(
+            responses, key=lambda r: self._confidence_score(r.confidence)
+        )
         return best_response.content
 
     def _confidence_score(self, confidence: ConfidenceLevel) -> int:

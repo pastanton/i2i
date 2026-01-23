@@ -454,7 +454,7 @@ async def _route_async(query: str, strategy_str: str, execute: bool):
 
     # Show execution result if requested
     if execute and result:
-        console.print(f"\n[bold green]═══ Execution Result ═══[/bold green]")
+        console.print("\n[bold green]═══ Execution Result ═══[/bold green]")
         console.print(f"[dim]Actual latency: {result.actual_latency_ms:.0f}ms[/dim]\n")
 
         for resp in result.responses:
