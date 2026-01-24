@@ -11,7 +11,7 @@ Use the CLI to manage configuration:
     i2i config show           # Show current config
     i2i config set models.classifier gpt-5.2
     i2i config add models.consensus o3
-    i2i config remove models.consensus gpt-4o
+    i2i config remove models.consensus gemini-3-flash-preview
     i2i config reset          # Reset to defaults
 """
 
@@ -168,7 +168,7 @@ class Config:
         models = config.get("models.consensus")
         config.set("models.classifier", "gpt-5.2")
         config.add("models.consensus", "o3")
-        config.remove("models.consensus", "gpt-4o")
+        config.remove("models.consensus", "gemini-3-flash-preview")
         config.save()
     """
 
