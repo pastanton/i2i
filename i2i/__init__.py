@@ -14,6 +14,8 @@ from .schema import (
     EpistemicClassification,
     EpistemicType,
     ConsensusLevel,
+    ModelStatistics,
+    StatisticalConsensusResult,
 )
 from .providers import ProviderRegistry
 from .router import (
@@ -35,7 +37,18 @@ from .config import (
     get_synthesis_models,
     get_verification_models,
     get_epistemic_models,
+    get_statistical_mode_config,
+    is_statistical_mode_enabled,
+    get_statistical_n_runs,
+    get_statistical_temperature,
     DEFAULTS,
+)
+from .embeddings import (
+    EmbeddingProvider,
+    cosine_similarity,
+    compute_centroid,
+    compute_std_dev,
+    consistency_score,
 )
 from .search import (
     SearchBackend,
@@ -58,6 +71,8 @@ __all__ = [
     "EpistemicClassification",
     "EpistemicType",
     "ConsensusLevel",
+    "ModelStatistics",
+    "StatisticalConsensusResult",
     # Provider management
     "ProviderRegistry",
     # Routing
@@ -79,6 +94,16 @@ __all__ = [
     "get_synthesis_models",
     "get_verification_models",
     "get_epistemic_models",
+    "get_statistical_mode_config",
+    "is_statistical_mode_enabled",
+    "get_statistical_n_runs",
+    "get_statistical_temperature",
+    # Embeddings
+    "EmbeddingProvider",
+    "cosine_similarity",
+    "compute_centroid",
+    "compute_std_dev",
+    "consistency_score",
     # Search/RAG
     "SearchBackend",
     "SearchResult",

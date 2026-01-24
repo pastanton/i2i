@@ -58,6 +58,15 @@ DEFAULTS = {
         "max_rounds": 3,
         "require_unanimous": False,
     },
+    "statistical_mode": {
+        "enabled": False,  # Feature flag - set True to enable by default
+        "n_runs": 5,  # Number of runs per model
+        "temperature": 0.7,  # Temperature for variance (0 = deterministic)
+        "outlier_threshold": 2.0,  # Standard deviations for outlier detection
+        "use_embeddings": True,  # Use embedding-based similarity (vs Jaccard)
+        "embedding_model": "text-embedding-3-small",  # OpenAI embedding model
+        "parallel_queries": True,  # Run n queries in parallel
+    },
     "providers": {
         "openai": {"enabled": True, "timeout_ms": 30000},
         "anthropic": {"enabled": True, "timeout_ms": 30000},
@@ -155,6 +164,20 @@ def apply_env_overrides(config: Dict[str, Any]) -> Dict[str, Any]:
         config["routing"]["default_strategy"] = os.getenv("I2I_ROUTING_STRATEGY")
     if os.getenv("I2I_USE_AI_CLASSIFIER"):
         config["routing"]["use_ai_classifier"] = os.getenv("I2I_USE_AI_CLASSIFIER").lower() == "true"
+
+    # Statistical mode overrides
+    if os.getenv("I2I_STATISTICAL_MODE"):
+        config["statistical_mode"]["enabled"] = os.getenv("I2I_STATISTICAL_MODE").lower() == "true"
+    if os.getenv("I2I_STATISTICAL_N_RUNS"):
+        config["statistical_mode"]["n_runs"] = int(os.getenv("I2I_STATISTICAL_N_RUNS"))
+    if os.getenv("I2I_STATISTICAL_TEMPERATURE"):
+        config["statistical_mode"]["temperature"] = float(os.getenv("I2I_STATISTICAL_TEMPERATURE"))
+    if os.getenv("I2I_STATISTICAL_OUTLIER_THRESHOLD"):
+        config["statistical_mode"]["outlier_threshold"] = float(os.getenv("I2I_STATISTICAL_OUTLIER_THRESHOLD"))
+    if os.getenv("I2I_STATISTICAL_USE_EMBEDDINGS"):
+        config["statistical_mode"]["use_embeddings"] = os.getenv("I2I_STATISTICAL_USE_EMBEDDINGS").lower() == "true"
+    if os.getenv("I2I_STATISTICAL_EMBEDDING_MODEL"):
+        config["statistical_mode"]["embedding_model"] = os.getenv("I2I_STATISTICAL_EMBEDDING_MODEL")
 
     return config
 
@@ -375,3 +398,33 @@ def get_verification_models() -> List[str]:
 def get_epistemic_models() -> List[str]:
     """Get default models for epistemic classification."""
     return get_config().epistemic_models
+
+
+def get_statistical_mode_config() -> Dict[str, Any]:
+    """Get statistical mode configuration."""
+    return get_config().get("statistical_mode", DEFAULTS["statistical_mode"])
+
+
+def is_statistical_mode_enabled() -> bool:
+    """Check if statistical mode is enabled by default."""
+    return get_config().get("statistical_mode.enabled", False)
+
+
+def get_statistical_n_runs() -> int:
+    """Get the number of runs per model for statistical mode."""
+    return get_config().get("statistical_mode.n_runs", 5)
+
+
+def get_statistical_temperature() -> float:
+    """Get the temperature for statistical mode queries."""
+    return get_config().get("statistical_mode.temperature", 0.7)
+
+
+def get_statistical_outlier_threshold() -> float:
+    """Get the outlier detection threshold (in standard deviations)."""
+    return get_config().get("statistical_mode.outlier_threshold", 2.0)
+
+
+def get_embedding_model() -> str:
+    """Get the embedding model for statistical similarity."""
+    return get_config().get("statistical_mode.embedding_model", "text-embedding-3-small")
