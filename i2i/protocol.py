@@ -18,13 +18,14 @@ from .schema import (
     EpistemicClassification,
     EpistemicType,
     ConsensusLevel,
+    StatisticalConsensusResult,
 )
 from .providers import ProviderRegistry
 from .consensus import ConsensusEngine
 from .verification import VerificationEngine
 from .epistemic import EpistemicClassifier
 from .router import ModelRouter, TaskType, RoutingStrategy, RoutingResult
-from .config import get_consensus_models
+from .config import get_consensus_models, is_statistical_mode_enabled
 
 
 class AICP:
@@ -136,6 +137,9 @@ class AICP:
         query: str,
         models: Optional[List[str]] = None,
         context: Optional[List[Message]] = None,
+        statistical_mode: Optional[bool] = None,
+        n_runs: Optional[int] = None,
+        temperature: Optional[float] = None,
     ) -> ConsensusResult:
         """
         Query multiple models and analyze their consensus.
@@ -147,17 +151,81 @@ class AICP:
             query: The question/prompt
             models: Models to query (uses defaults if None)
             context: Optional conversation context
+            statistical_mode: Enable n-run statistical analysis (default from config)
+            n_runs: Number of runs per model for statistical mode
+            temperature: Temperature for statistical mode queries
 
         Returns:
-            ConsensusResult with analysis of agreement/disagreement
+            ConsensusResult (or StatisticalConsensusResult if statistical_mode=True)
         """
         if models is None:
             # Default to a diverse set of models
             models = self._get_default_models()
 
-        return await self.consensus_engine.query_for_consensus(
+        # Check if statistical mode should be used
+        use_statistical = statistical_mode if statistical_mode is not None else is_statistical_mode_enabled()
+
+        if use_statistical:
+            return await self.consensus_engine.query_for_consensus_statistical(
+                query=query,
+                models=models,
+                n_runs=n_runs,
+                temperature=temperature,
+                context=context,
+            )
+        else:
+            return await self.consensus_engine.query_for_consensus(
+                query=query,
+                models=models,
+                context=context,
+            )
+
+    async def consensus_query_statistical(
+        self,
+        query: str,
+        models: Optional[List[str]] = None,
+        n_runs: int = 5,
+        temperature: float = 0.7,
+        outlier_threshold: float = 2.0,
+        context: Optional[List[Message]] = None,
+    ) -> StatisticalConsensusResult:
+        """
+        Query multiple models with statistical analysis (n runs per model).
+
+        This method queries each model n times and computes variance to
+        estimate model confidence. Models with lower variance (more consistent)
+        are weighted higher in the consensus calculation.
+
+        Use this for:
+        - Higher confidence answers with uncertainty quantification
+        - Detecting when models are uncertain (high intra-model variance)
+        - Identifying outlier/hallucinated responses
+        - Weighted consensus based on model consistency
+
+        Args:
+            query: The question/prompt
+            models: Models to query (uses defaults if None)
+            n_runs: Number of runs per model (default 5)
+            temperature: Temperature for queries (default 0.7, must be > 0)
+            outlier_threshold: Std devs for outlier detection (default 2.0)
+            context: Optional conversation context
+
+        Returns:
+            StatisticalConsensusResult with variance analysis per model
+
+        Note:
+            This method costs n_runs times more than standard consensus_query.
+            With n_runs=5 and 3 models, you'll make 15 API calls.
+        """
+        if models is None:
+            models = self._get_default_models()
+
+        return await self.consensus_engine.query_for_consensus_statistical(
             query=query,
             models=models,
+            n_runs=n_runs,
+            temperature=temperature,
+            outlier_threshold=outlier_threshold,
             context=context,
         )
 
