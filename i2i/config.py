@@ -17,34 +17,34 @@ class ModelDefaults:
 
     # Primary models for consensus queries
     consensus_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_CONSENSUS_MODEL_1", "gpt-4.1"),
+        os.getenv("I2I_CONSENSUS_MODEL_1", "gpt-5.2"),
         os.getenv("I2I_CONSENSUS_MODEL_2", "claude-sonnet-4-5-20250929"),
-        os.getenv("I2I_CONSENSUS_MODEL_3", "gemini-2.0-flash"),
+        os.getenv("I2I_CONSENSUS_MODEL_3", "gemini-3-flash-preview"),
     ])
 
     # Model for task classification in routing
     classifier_model: str = field(
-        default_factory=lambda: os.getenv("I2I_CLASSIFIER_MODEL", "claude-haiku-3-5-20241022")
+        default_factory=lambda: os.getenv("I2I_CLASSIFIER_MODEL", "claude-haiku-4-5-20251001")
     )
 
     # Models for synthesis operations
     synthesis_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_SYNTHESIS_MODEL_1", "gpt-4.1"),
+        os.getenv("I2I_SYNTHESIS_MODEL_1", "gpt-5.2"),
         os.getenv("I2I_SYNTHESIS_MODEL_2", "claude-sonnet-4-5-20250929"),
-        os.getenv("I2I_SYNTHESIS_MODEL_3", "gemini-2.0-flash"),
+        os.getenv("I2I_SYNTHESIS_MODEL_3", "gemini-3-flash-preview"),
     ])
 
     # Models for verification
     verification_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_VERIFICATION_MODEL_1", "gpt-4.1"),
+        os.getenv("I2I_VERIFICATION_MODEL_1", "gpt-5.2"),
         os.getenv("I2I_VERIFICATION_MODEL_2", "claude-sonnet-4-5-20250929"),
     ])
 
     # Models for epistemic classification
     epistemic_models: List[str] = field(default_factory=lambda: [
         os.getenv("I2I_EPISTEMIC_MODEL_1", "claude-sonnet-4-5-20250929"),
-        os.getenv("I2I_EPISTEMIC_MODEL_2", "gpt-4.1"),
-        os.getenv("I2I_EPISTEMIC_MODEL_3", "gemini-2.0-flash"),
+        os.getenv("I2I_EPISTEMIC_MODEL_2", "gpt-5.2"),
+        os.getenv("I2I_EPISTEMIC_MODEL_3", "gemini-3-flash-preview"),
     ])
 
 
