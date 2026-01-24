@@ -26,14 +26,19 @@ from .router import (
     ModelCapability,
 )
 from .config import (
-    ModelDefaults,
+    Config,
     get_config,
     set_config,
+    reset_config,
     get_consensus_models,
     get_classifier_model,
+    get_synthesis_models,
+    get_verification_models,
+    get_epistemic_models,
+    DEFAULTS,
 )
 
-__version__ = "0.2.0"
+__version__ = "0.1.0"
 __all__ = [
     # Core protocol
     "AICP",
@@ -56,9 +61,14 @@ __all__ = [
     "RoutingResult",
     "ModelCapability",
     # Configuration
-    "ModelDefaults",
+    "Config",
+    "DEFAULTS",
     "get_config",
     "set_config",
+    "reset_config",
     "get_consensus_models",
     "get_classifier_model",
+    "get_synthesis_models",
+    "get_verification_models",
+    "get_epistemic_models",
 ]
