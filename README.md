@@ -169,6 +169,49 @@ COHERE_API_KEY=...
 
 You need **at least 2 providers** for consensus features.
 
+### Local Models (Ollama)
+
+i2i supports local models via [Ollama](https://ollama.com) for **cost-free, offline operation**:
+
+```bash
+# Install Ollama (https://ollama.com/download)
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Start Ollama server
+ollama serve
+
+# Pull models
+ollama pull llama3.2
+ollama pull mistral
+ollama pull codellama
+
+# Verify i2i detects Ollama
+python demo.py status
+```
+
+Supported Ollama models: `llama3.2`, `llama3.1`, `llama2`, `mistral`, `mixtral`, `codellama`, `deepseek-coder`, `phi3`, `gemma2`, `qwen2.5`
+
+Use local models in consensus queries:
+
+```python
+# Free consensus with local models
+result = await protocol.consensus_query(
+    "What is Python?",
+    models=["llama3.2", "mistral", "phi3"]
+)
+```
+
+```bash
+# CLI usage
+python demo.py consensus "What is Python?" --models llama3.2,mistral
+```
+
+Environment configuration:
+```env
+# Custom Ollama server (default: http://localhost:11434)
+OLLAMA_BASE_URL=http://localhost:11434
+```
+
 ### Configuring Default Models
 
 Models are **not hardcoded**. Configure via `config.json`, environment variables, or CLI:

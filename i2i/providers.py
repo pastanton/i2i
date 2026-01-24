@@ -455,6 +455,102 @@ class CohereAdapter(ProviderAdapter):
         )
 
 
+class OllamaAdapter(ProviderAdapter):
+    """Adapter for Ollama local models."""
+
+    def __init__(self):
+        self.base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+
+    @property
+    def provider_name(self) -> str:
+        return "ollama"
+
+    @property
+    def available_models(self) -> List[str]:
+        return [
+            "llama3.2", "llama3.1", "llama2",
+            "mistral", "mixtral",
+            "codellama", "deepseek-coder",
+            "phi3", "gemma2", "qwen2.5",
+        ]
+
+    def is_configured(self) -> bool:
+        """Check if Ollama is running."""
+        try:
+            import httpx
+            r = httpx.get(f"{self.base_url}/api/tags", timeout=2.0)
+            return r.status_code == 200
+        except Exception:
+            return False
+
+    def get_running_models(self) -> List[str]:
+        """Fetch actually available models from Ollama."""
+        try:
+            import httpx
+            r = httpx.get(f"{self.base_url}/api/tags", timeout=5.0)
+            if r.status_code == 200:
+                data = r.json()
+                return [m["name"].split(":")[0] for m in data.get("models", [])]
+        except Exception:
+            pass
+        return []
+
+    async def query(self, message: Message, model: str) -> Response:
+        """Query Ollama /api/chat endpoint."""
+        import httpx
+
+        start_time = time.time()
+
+        # Build messages array
+        messages = []
+        if message.context:
+            for ctx_msg in message.context:
+                role = "assistant" if ctx_msg.sender else "user"
+                messages.append({"role": role, "content": ctx_msg.content})
+        messages.append({"role": "user", "content": message.content})
+
+        # Call Ollama API
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            response = await client.post(
+                f"{self.base_url}/api/chat",
+                json={
+                    "model": model,
+                    "messages": messages,
+                    "stream": False,
+                }
+            )
+            response.raise_for_status()
+            data = response.json()
+
+        latency_ms = (time.time() - start_time) * 1000
+        content = data.get("message", {}).get("content", "")
+
+        return Response(
+            message_id=message.id,
+            model=f"ollama/{model}",
+            content=content,
+            confidence=self._extract_confidence(content),
+            input_tokens=data.get("prompt_eval_count"),
+            output_tokens=data.get("eval_count"),
+            latency_ms=latency_ms,
+        )
+
+    def _extract_confidence(self, content: str) -> ConfidenceLevel:
+        """Heuristically extract confidence from response content."""
+        content_lower = content.lower()
+        if any(phrase in content_lower for phrase in ["i'm certain", "definitely", "absolutely", "i'm confident"]):
+            return ConfidenceLevel.VERY_HIGH
+        elif any(phrase in content_lower for phrase in ["i believe", "likely", "probably"]):
+            return ConfidenceLevel.HIGH
+        elif any(phrase in content_lower for phrase in ["i think", "possibly", "might"]):
+            return ConfidenceLevel.MEDIUM
+        elif any(phrase in content_lower for phrase in ["i'm not sure", "uncertain", "hard to say"]):
+            return ConfidenceLevel.LOW
+        elif any(phrase in content_lower for phrase in ["i don't know", "impossible to determine"]):
+            return ConfidenceLevel.VERY_LOW
+        return ConfidenceLevel.MEDIUM
+
+
 class ProviderRegistry:
     """
     Registry of all available AI providers.
@@ -474,6 +570,7 @@ class ProviderRegistry:
         self._register_adapter(MistralAdapter())
         self._register_adapter(GroqAdapter())
         self._register_adapter(CohereAdapter())
+        self._register_adapter(OllamaAdapter())
 
     def _register_adapter(self, adapter: ProviderAdapter):
         """Register a provider adapter."""
