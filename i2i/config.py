@@ -1,66 +1,345 @@
 """
 Configuration module for i2i.
 
-Centralizes model defaults and makes them configurable via environment
-variables or programmatic override. No more hardcoded model names scattered
-throughout the codebase.
+Supports multiple configuration sources with the following priority:
+1. Environment variables (highest priority)
+2. User config file (~/.i2i/config.json)
+3. Project config file (./config.json)
+4. Built-in defaults (lowest priority)
+
+Use the CLI to manage configuration:
+    i2i config show           # Show current config
+    i2i config set models.classifier gpt-5.2
+    i2i config add models.consensus o3
+    i2i config remove models.consensus gpt-4o
+    i2i config reset          # Reset to defaults
 """
 
 import os
-from dataclasses import dataclass, field
-from typing import List, Optional
+import json
+from pathlib import Path
+from dataclasses import dataclass, field, asdict
+from typing import List, Optional, Dict, Any
+from copy import deepcopy
 
 
-@dataclass
-class ModelDefaults:
-    """Default models for various operations. All configurable."""
+# Default configuration - built-in fallback
+DEFAULTS = {
+    "version": "1.0",
+    "models": {
+        "consensus": [
+            "gpt-5.2",
+            "claude-sonnet-4-5-20250929",
+            "gemini-3-flash-preview",
+        ],
+        "classifier": "claude-haiku-4-5-20251001",
+        "synthesis": [
+            "gpt-5.2",
+            "claude-sonnet-4-5-20250929",
+            "gemini-3-flash-preview",
+        ],
+        "verification": [
+            "gpt-5.2",
+            "claude-sonnet-4-5-20250929",
+        ],
+        "epistemic": [
+            "claude-sonnet-4-5-20250929",
+            "gpt-5.2",
+            "gemini-3-flash-preview",
+        ],
+    },
+    "routing": {
+        "default_strategy": "balanced",
+        "use_ai_classifier": False,
+        "fallback_enabled": True,
+    },
+    "consensus": {
+        "min_agreement_threshold": 0.7,
+        "max_rounds": 3,
+        "require_unanimous": False,
+    },
+    "providers": {
+        "openai": {"enabled": True, "timeout_ms": 30000},
+        "anthropic": {"enabled": True, "timeout_ms": 30000},
+        "google": {"enabled": True, "timeout_ms": 30000},
+        "mistral": {"enabled": True, "timeout_ms": 30000},
+        "groq": {"enabled": True, "timeout_ms": 30000},
+        "cohere": {"enabled": True, "timeout_ms": 30000},
+    },
+}
 
-    # Primary models for consensus queries
-    consensus_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_CONSENSUS_MODEL_1", "gpt-5.2"),
-        os.getenv("I2I_CONSENSUS_MODEL_2", "claude-sonnet-4-5-20250929"),
-        os.getenv("I2I_CONSENSUS_MODEL_3", "gemini-3-flash-preview"),
-    ])
 
-    # Model for task classification in routing
-    classifier_model: str = field(
-        default_factory=lambda: os.getenv("I2I_CLASSIFIER_MODEL", "claude-haiku-4-5-20251001")
-    )
+def get_config_paths() -> List[Path]:
+    """Get list of config file paths in priority order."""
+    paths = []
 
-    # Models for synthesis operations
-    synthesis_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_SYNTHESIS_MODEL_1", "gpt-5.2"),
-        os.getenv("I2I_SYNTHESIS_MODEL_2", "claude-sonnet-4-5-20250929"),
-        os.getenv("I2I_SYNTHESIS_MODEL_3", "gemini-3-flash-preview"),
-    ])
+    # User config directory
+    user_config = Path.home() / ".i2i" / "config.json"
+    if user_config.exists():
+        paths.append(user_config)
 
-    # Models for verification
-    verification_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_VERIFICATION_MODEL_1", "gpt-5.2"),
-        os.getenv("I2I_VERIFICATION_MODEL_2", "claude-sonnet-4-5-20250929"),
-    ])
+    # Project config (current directory)
+    project_config = Path.cwd() / "config.json"
+    if project_config.exists():
+        paths.append(project_config)
 
-    # Models for epistemic classification
-    epistemic_models: List[str] = field(default_factory=lambda: [
-        os.getenv("I2I_EPISTEMIC_MODEL_1", "claude-sonnet-4-5-20250929"),
-        os.getenv("I2I_EPISTEMIC_MODEL_2", "gpt-5.2"),
-        os.getenv("I2I_EPISTEMIC_MODEL_3", "gemini-3-flash-preview"),
-    ])
+    # Package default config
+    package_config = Path(__file__).parent.parent / "config.json"
+    if package_config.exists():
+        paths.append(package_config)
+
+    return paths
 
 
-# Global config instance - can be replaced at runtime
-_config: Optional[ModelDefaults] = None
+def get_user_config_path() -> Path:
+    """Get the user config path (creates directory if needed)."""
+    user_dir = Path.home() / ".i2i"
+    user_dir.mkdir(exist_ok=True)
+    return user_dir / "config.json"
 
 
-def get_config() -> ModelDefaults:
-    """Get the current configuration. Creates default if not set."""
+def load_json_config(path: Path) -> Dict[str, Any]:
+    """Load configuration from a JSON file."""
+    try:
+        with open(path, 'r') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError) as e:
+        return {}
+
+
+def deep_merge(base: Dict, override: Dict) -> Dict:
+    """Deep merge two dictionaries, with override taking precedence."""
+    result = deepcopy(base)
+    for key, value in override.items():
+        if key in result and isinstance(result[key], dict) and isinstance(value, dict):
+            result[key] = deep_merge(result[key], value)
+        else:
+            result[key] = deepcopy(value)
+    return result
+
+
+def apply_env_overrides(config: Dict[str, Any]) -> Dict[str, Any]:
+    """Apply environment variable overrides to config."""
+    config = deepcopy(config)
+
+    # Model overrides
+    env_mappings = {
+        "I2I_CONSENSUS_MODEL_1": ("models", "consensus", 0),
+        "I2I_CONSENSUS_MODEL_2": ("models", "consensus", 1),
+        "I2I_CONSENSUS_MODEL_3": ("models", "consensus", 2),
+        "I2I_CLASSIFIER_MODEL": ("models", "classifier"),
+        "I2I_SYNTHESIS_MODEL_1": ("models", "synthesis", 0),
+        "I2I_SYNTHESIS_MODEL_2": ("models", "synthesis", 1),
+        "I2I_SYNTHESIS_MODEL_3": ("models", "synthesis", 2),
+        "I2I_VERIFICATION_MODEL_1": ("models", "verification", 0),
+        "I2I_VERIFICATION_MODEL_2": ("models", "verification", 1),
+        "I2I_EPISTEMIC_MODEL_1": ("models", "epistemic", 0),
+        "I2I_EPISTEMIC_MODEL_2": ("models", "epistemic", 1),
+        "I2I_EPISTEMIC_MODEL_3": ("models", "epistemic", 2),
+    }
+
+    for env_var, path in env_mappings.items():
+        value = os.getenv(env_var)
+        if value:
+            if len(path) == 2:
+                # Direct assignment (e.g., classifier)
+                config[path[0]][path[1]] = value
+            elif len(path) == 3:
+                # List index assignment
+                section, key, idx = path
+                if idx < len(config[section][key]):
+                    config[section][key][idx] = value
+
+    # Routing overrides
+    if os.getenv("I2I_ROUTING_STRATEGY"):
+        config["routing"]["default_strategy"] = os.getenv("I2I_ROUTING_STRATEGY")
+    if os.getenv("I2I_USE_AI_CLASSIFIER"):
+        config["routing"]["use_ai_classifier"] = os.getenv("I2I_USE_AI_CLASSIFIER").lower() == "true"
+
+    return config
+
+
+class Config:
+    """
+    Configuration manager for i2i.
+
+    Usage:
+        config = Config.load()
+        models = config.get("models.consensus")
+        config.set("models.classifier", "gpt-5.2")
+        config.add("models.consensus", "o3")
+        config.remove("models.consensus", "gpt-4o")
+        config.save()
+    """
+
+    def __init__(self, data: Optional[Dict[str, Any]] = None):
+        self._data = data or deepcopy(DEFAULTS)
+        self._source_path: Optional[Path] = None
+
+    @classmethod
+    def load(cls, path: Optional[Path] = None) -> "Config":
+        """Load configuration from files and environment."""
+        # Start with defaults
+        data = deepcopy(DEFAULTS)
+
+        # Load and merge config files (lowest to highest priority)
+        if path:
+            paths = [path]
+        else:
+            paths = list(reversed(get_config_paths()))  # Reverse so highest priority is last
+
+        source_path = None
+        for config_path in paths:
+            file_config = load_json_config(config_path)
+            if file_config:
+                data = deep_merge(data, file_config)
+                source_path = config_path
+
+        # Apply environment variable overrides (highest priority)
+        data = apply_env_overrides(data)
+
+        config = cls(data)
+        config._source_path = source_path
+        return config
+
+    @classmethod
+    def load_defaults(cls) -> "Config":
+        """Load only the built-in defaults."""
+        return cls(deepcopy(DEFAULTS))
+
+    def get(self, key: str, default: Any = None) -> Any:
+        """
+        Get a configuration value using dot notation.
+
+        Examples:
+            config.get("models.consensus")
+            config.get("routing.default_strategy")
+            config.get("providers.openai.timeout_ms")
+        """
+        parts = key.split(".")
+        value = self._data
+        try:
+            for part in parts:
+                if isinstance(value, list):
+                    value = value[int(part)]
+                else:
+                    value = value[part]
+            return value
+        except (KeyError, IndexError, TypeError):
+            return default
+
+    def set(self, key: str, value: Any) -> None:
+        """
+        Set a configuration value using dot notation.
+
+        Examples:
+            config.set("models.classifier", "gpt-5.2")
+            config.set("routing.use_ai_classifier", True)
+        """
+        parts = key.split(".")
+        target = self._data
+        for part in parts[:-1]:
+            if isinstance(target, list):
+                target = target[int(part)]
+            else:
+                if part not in target:
+                    target[part] = {}
+                target = target[part]
+
+        final_key = parts[-1]
+        if isinstance(target, list):
+            target[int(final_key)] = value
+        else:
+            target[final_key] = value
+
+    def add(self, key: str, value: Any) -> bool:
+        """
+        Add a value to a list configuration.
+
+        Returns True if added, False if already exists.
+        """
+        current = self.get(key)
+        if not isinstance(current, list):
+            raise ValueError(f"{key} is not a list")
+        if value not in current:
+            current.append(value)
+            return True
+        return False
+
+    def remove(self, key: str, value: Any) -> bool:
+        """
+        Remove a value from a list configuration.
+
+        Returns True if removed, False if not found.
+        """
+        current = self.get(key)
+        if not isinstance(current, list):
+            raise ValueError(f"{key} is not a list")
+        if value in current:
+            current.remove(value)
+            return True
+        return False
+
+    def save(self, path: Optional[Path] = None) -> Path:
+        """Save configuration to a file."""
+        if path is None:
+            path = get_user_config_path()
+
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, 'w') as f:
+            json.dump(self._data, f, indent=2)
+
+        self._source_path = path
+        return path
+
+    def reset(self) -> None:
+        """Reset configuration to defaults."""
+        self._data = deepcopy(DEFAULTS)
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Return configuration as a dictionary."""
+        return deepcopy(self._data)
+
+    @property
+    def source_path(self) -> Optional[Path]:
+        """Path of the loaded config file, if any."""
+        return self._source_path
+
+    # Convenience properties for common access patterns
+    @property
+    def consensus_models(self) -> List[str]:
+        return self.get("models.consensus", [])
+
+    @property
+    def classifier_model(self) -> str:
+        return self.get("models.classifier", "claude-haiku-4-5-20251001")
+
+    @property
+    def synthesis_models(self) -> List[str]:
+        return self.get("models.synthesis", [])
+
+    @property
+    def verification_models(self) -> List[str]:
+        return self.get("models.verification", [])
+
+    @property
+    def epistemic_models(self) -> List[str]:
+        return self.get("models.epistemic", [])
+
+
+# Global config instance - lazy loaded
+_config: Optional[Config] = None
+
+
+def get_config() -> Config:
+    """Get the global configuration instance."""
     global _config
     if _config is None:
-        _config = ModelDefaults()
+        _config = Config.load()
     return _config
 
 
-def set_config(config: ModelDefaults) -> None:
+def set_config(config: Config) -> None:
     """Override the global configuration."""
     global _config
     _config = config
@@ -72,7 +351,7 @@ def reset_config() -> None:
     _config = None
 
 
-# Convenience accessors
+# Convenience accessors (backwards compatible)
 def get_consensus_models() -> List[str]:
     """Get default models for consensus queries."""
     return get_config().consensus_models

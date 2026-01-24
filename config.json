@@ -1,0 +1,62 @@
+{
+  "$schema": "./config.schema.json",
+  "version": "1.0",
+  "models": {
+    "consensus": [
+      "gpt-5.2",
+      "claude-sonnet-4-5-20250929",
+      "gemini-3-flash-preview"
+    ],
+    "classifier": "claude-haiku-4-5-20251001",
+    "synthesis": [
+      "gpt-5.2",
+      "claude-sonnet-4-5-20250929",
+      "gemini-3-flash-preview"
+    ],
+    "verification": [
+      "gpt-5.2",
+      "claude-sonnet-4-5-20250929"
+    ],
+    "epistemic": [
+      "claude-sonnet-4-5-20250929",
+      "gpt-5.2",
+      "gemini-3-flash-preview"
+    ]
+  },
+  "routing": {
+    "default_strategy": "balanced",
+    "use_ai_classifier": false,
+    "fallback_enabled": true
+  },
+  "consensus": {
+    "min_agreement_threshold": 0.7,
+    "max_rounds": 3,
+    "require_unanimous": false
+  },
+  "providers": {
+    "openai": {
+      "enabled": true,
+      "timeout_ms": 30000
+    },
+    "anthropic": {
+      "enabled": true,
+      "timeout_ms": 30000
+    },
+    "google": {
+      "enabled": true,
+      "timeout_ms": 30000
+    },
+    "mistral": {
+      "enabled": true,
+      "timeout_ms": 30000
+    },
+    "groq": {
+      "enabled": true,
+      "timeout_ms": 30000
+    },
+    "cohere": {
+      "enabled": true,
+      "timeout_ms": 30000
+    }
+  }
+}

@@ -1,0 +1,424 @@
+"""
+CLI for i2i - AI-to-AI Communication Protocol.
+
+Commands:
+    i2i config show              Show current configuration
+    i2i config get KEY           Get a specific config value
+    i2i config set KEY VALUE     Set a config value
+    i2i config add KEY VALUE     Add a value to a list
+    i2i config remove KEY VALUE  Remove a value from a list
+    i2i config reset             Reset to defaults
+    i2i config init              Initialize config file
+    i2i models list              List available models
+    i2i models info MODEL        Show model capabilities
+"""
+
+import json
+import sys
+from pathlib import Path
+from typing import Optional, List
+
+import typer
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+from rich.syntax import Syntax
+from rich import print as rprint
+
+from .config import Config, get_config, get_user_config_path, DEFAULTS
+from .providers import ProviderRegistry
+from .router import DEFAULT_MODEL_CAPABILITIES, TaskType
+
+app = typer.Typer(
+    name="i2i",
+    help="i2i - AI-to-AI Communication Protocol CLI",
+    no_args_is_help=True,
+)
+config_app = typer.Typer(help="Manage i2i configuration")
+models_app = typer.Typer(help="Manage and inspect models")
+
+app.add_typer(config_app, name="config")
+app.add_typer(models_app, name="models")
+
+console = Console()
+
+
+# ============ Config Commands ============
+
+@config_app.command("show")
+def config_show(
+    json_output: bool = typer.Option(False, "--json", "-j", help="Output as JSON"),
+):
+    """Show current configuration."""
+    config = Config.load()
+
+    if json_output:
+        console.print(Syntax(json.dumps(config.to_dict(), indent=2), "json"))
+        return
+
+    # Pretty print with rich
+    console.print(Panel.fit("[bold]i2i Configuration[/bold]"))
+
+    if config.source_path:
+        console.print(f"[dim]Loaded from: {config.source_path}[/dim]\n")
+    else:
+        console.print("[dim]Using built-in defaults[/dim]\n")
+
+    # Models section
+    console.print("[bold cyan]Models[/bold cyan]")
+    table = Table(show_header=True, header_style="bold")
+    table.add_column("Type")
+    table.add_column("Model(s)")
+
+    table.add_row("Consensus", ", ".join(config.consensus_models))
+    table.add_row("Classifier", config.classifier_model)
+    table.add_row("Synthesis", ", ".join(config.synthesis_models))
+    table.add_row("Verification", ", ".join(config.verification_models))
+    table.add_row("Epistemic", ", ".join(config.epistemic_models))
+
+    console.print(table)
+
+    # Routing section
+    console.print("\n[bold cyan]Routing[/bold cyan]")
+    routing = config.get("routing", {})
+    console.print(f"  Strategy: {routing.get('default_strategy', 'balanced')}")
+    console.print(f"  AI Classifier: {routing.get('use_ai_classifier', False)}")
+    console.print(f"  Fallback: {routing.get('fallback_enabled', True)}")
+
+    # Consensus section
+    console.print("\n[bold cyan]Consensus[/bold cyan]")
+    consensus = config.get("consensus", {})
+    console.print(f"  Agreement Threshold: {consensus.get('min_agreement_threshold', 0.7)}")
+    console.print(f"  Max Rounds: {consensus.get('max_rounds', 3)}")
+
+
+@config_app.command("get")
+def config_get(
+    key: str = typer.Argument(..., help="Config key (dot notation, e.g., models.consensus)"),
+):
+    """Get a specific configuration value."""
+    config = Config.load()
+    value = config.get(key)
+
+    if value is None:
+        console.print(f"[red]Key not found: {key}[/red]")
+        raise typer.Exit(1)
+
+    if isinstance(value, (dict, list)):
+        console.print(Syntax(json.dumps(value, indent=2), "json"))
+    else:
+        console.print(value)
+
+
+@config_app.command("set")
+def config_set(
+    key: str = typer.Argument(..., help="Config key (dot notation)"),
+    value: str = typer.Argument(..., help="Value to set"),
+    save_to: Optional[Path] = typer.Option(None, "--save-to", "-o", help="Save to specific path"),
+):
+    """Set a configuration value."""
+    config = Config.load()
+
+    # Try to parse value as JSON for complex types
+    try:
+        parsed_value = json.loads(value)
+    except json.JSONDecodeError:
+        # Treat as string, but convert booleans
+        if value.lower() == "true":
+            parsed_value = True
+        elif value.lower() == "false":
+            parsed_value = False
+        else:
+            try:
+                parsed_value = float(value) if "." in value else int(value)
+            except ValueError:
+                parsed_value = value
+
+    config.set(key, parsed_value)
+    save_path = config.save(save_to)
+
+    console.print(f"[green]Set {key} = {parsed_value}[/green]")
+    console.print(f"[dim]Saved to: {save_path}[/dim]")
+
+
+@config_app.command("add")
+def config_add(
+    key: str = typer.Argument(..., help="Config key for a list (e.g., models.consensus)"),
+    value: str = typer.Argument(..., help="Value to add"),
+    save_to: Optional[Path] = typer.Option(None, "--save-to", "-o", help="Save to specific path"),
+):
+    """Add a value to a list configuration."""
+    config = Config.load()
+
+    try:
+        if config.add(key, value):
+            save_path = config.save(save_to)
+            console.print(f"[green]Added '{value}' to {key}[/green]")
+            console.print(f"[dim]Saved to: {save_path}[/dim]")
+        else:
+            console.print(f"[yellow]'{value}' already exists in {key}[/yellow]")
+    except ValueError as e:
+        console.print(f"[red]Error: {e}[/red]")
+        raise typer.Exit(1)
+
+
+@config_app.command("remove")
+def config_remove(
+    key: str = typer.Argument(..., help="Config key for a list"),
+    value: str = typer.Argument(..., help="Value to remove"),
+    save_to: Optional[Path] = typer.Option(None, "--save-to", "-o", help="Save to specific path"),
+):
+    """Remove a value from a list configuration."""
+    config = Config.load()
+
+    try:
+        if config.remove(key, value):
+            save_path = config.save(save_to)
+            console.print(f"[green]Removed '{value}' from {key}[/green]")
+            console.print(f"[dim]Saved to: {save_path}[/dim]")
+        else:
+            console.print(f"[yellow]'{value}' not found in {key}[/yellow]")
+    except ValueError as e:
+        console.print(f"[red]Error: {e}[/red]")
+        raise typer.Exit(1)
+
+
+@config_app.command("reset")
+def config_reset(
+    confirm: bool = typer.Option(False, "--yes", "-y", help="Skip confirmation"),
+    save_to: Optional[Path] = typer.Option(None, "--save-to", "-o", help="Save to specific path"),
+):
+    """Reset configuration to defaults."""
+    if not confirm:
+        confirm = typer.confirm("Reset configuration to defaults?")
+
+    if confirm:
+        config = Config.load_defaults()
+        save_path = config.save(save_to)
+        console.print("[green]Configuration reset to defaults[/green]")
+        console.print(f"[dim]Saved to: {save_path}[/dim]")
+    else:
+        console.print("[yellow]Cancelled[/yellow]")
+
+
+@config_app.command("init")
+def config_init(
+    path: Optional[Path] = typer.Option(None, "--path", "-p", help="Path for config file"),
+    force: bool = typer.Option(False, "--force", "-f", help="Overwrite existing file"),
+):
+    """Initialize a new configuration file."""
+    if path is None:
+        path = get_user_config_path()
+
+    if path.exists() and not force:
+        console.print(f"[yellow]Config file already exists: {path}[/yellow]")
+        console.print("Use --force to overwrite")
+        raise typer.Exit(1)
+
+    config = Config.load_defaults()
+    config.save(path)
+
+    console.print(f"[green]Created config file: {path}[/green]")
+    console.print("\nEdit this file or use 'i2i config set' to customize.")
+
+
+@config_app.command("path")
+def config_path():
+    """Show configuration file paths."""
+    from .config import get_config_paths
+
+    console.print("[bold]Config file search paths (in priority order):[/bold]\n")
+
+    user_path = get_user_config_path()
+    console.print(f"  1. [cyan]{user_path}[/cyan]", end="")
+    console.print(" [green](exists)[/green]" if user_path.exists() else " [dim](not found)[/dim]")
+
+    project_path = Path.cwd() / "config.json"
+    console.print(f"  2. [cyan]{project_path}[/cyan]", end="")
+    console.print(" [green](exists)[/green]" if project_path.exists() else " [dim](not found)[/dim]")
+
+    package_path = Path(__file__).parent.parent / "config.json"
+    console.print(f"  3. [cyan]{package_path}[/cyan]", end="")
+    console.print(" [green](exists)[/green]" if package_path.exists() else " [dim](not found)[/dim]")
+
+
+# ============ Models Commands ============
+
+@models_app.command("list")
+def models_list(
+    provider: Optional[str] = typer.Option(None, "--provider", "-p", help="Filter by provider"),
+    configured_only: bool = typer.Option(False, "--configured", "-c", help="Only show configured providers"),
+):
+    """List available models."""
+    registry = ProviderRegistry()
+
+    if configured_only:
+        available = registry.list_available_models()
+    else:
+        # Show all models from capabilities
+        available = {}
+        for model_id, cap in DEFAULT_MODEL_CAPABILITIES.items():
+            if cap.provider not in available:
+                available[cap.provider] = []
+            available[cap.provider].append(model_id)
+
+    if provider:
+        available = {k: v for k, v in available.items() if k == provider}
+
+    if not available:
+        console.print("[yellow]No models found[/yellow]")
+        return
+
+    for prov, models in sorted(available.items()):
+        is_configured = prov in registry.list_configured_providers()
+        status = "[green]configured[/green]" if is_configured else "[red]not configured[/red]"
+
+        console.print(f"\n[bold cyan]{prov}[/bold cyan] ({status})")
+        for model in sorted(models):
+            cap = DEFAULT_MODEL_CAPABILITIES.get(model)
+            if cap:
+                cost = f"${cap.cost_per_1k_tokens:.4f}/1k"
+                latency = f"{cap.avg_latency_ms}ms"
+                console.print(f"  - {model} [dim]({cost}, ~{latency})[/dim]")
+            else:
+                console.print(f"  - {model}")
+
+
+@models_app.command("info")
+def models_info(
+    model: str = typer.Argument(..., help="Model ID to inspect"),
+):
+    """Show detailed information about a model."""
+    cap = DEFAULT_MODEL_CAPABILITIES.get(model)
+
+    if not cap:
+        console.print(f"[red]Model not found: {model}[/red]")
+        console.print("\nAvailable models:")
+        for m in sorted(DEFAULT_MODEL_CAPABILITIES.keys()):
+            console.print(f"  - {m}")
+        raise typer.Exit(1)
+
+    console.print(Panel.fit(f"[bold]{model}[/bold]"))
+
+    console.print(f"\n[bold]Provider:[/bold] {cap.provider}")
+    console.print(f"[bold]Context Window:[/bold] {cap.context_window:,} tokens")
+    console.print(f"[bold]Max Output:[/bold] {cap.max_output_tokens:,} tokens")
+    console.print(f"[bold]Avg Latency:[/bold] {cap.avg_latency_ms}ms")
+    console.print(f"[bold]Cost:[/bold] ${cap.cost_per_1k_tokens:.4f}/1k tokens")
+
+    # Capabilities
+    console.print("\n[bold cyan]Capabilities:[/bold cyan]")
+    caps = []
+    if cap.supports_vision:
+        caps.append("vision")
+    if cap.supports_function_calling:
+        caps.append("function calling")
+    if cap.supports_json_mode:
+        caps.append("JSON mode")
+    if cap.supports_streaming:
+        caps.append("streaming")
+    console.print(f"  {', '.join(caps) if caps else 'None'}")
+
+    # Quality scores
+    console.print("\n[bold cyan]Quality Scores:[/bold cyan]")
+    console.print(f"  Reasoning: {cap.reasoning_depth}/100")
+    console.print(f"  Creativity: {cap.creativity_score}/100")
+    console.print(f"  Instruction Following: {cap.instruction_following}/100")
+    console.print(f"  Factual Accuracy: {cap.factual_accuracy}/100")
+
+    # Task scores
+    if cap.task_scores:
+        console.print("\n[bold cyan]Task Scores:[/bold cyan]")
+        table = Table(show_header=False)
+        table.add_column("Task", style="dim")
+        table.add_column("Score")
+
+        for task, score in sorted(cap.task_scores.items(), key=lambda x: -x[1]):
+            bar = "█" * int(score / 10) + "░" * (10 - int(score / 10))
+            table.add_row(task, f"{bar} {score}")
+
+        console.print(table)
+
+
+@models_app.command("compare")
+def models_compare(
+    models: List[str] = typer.Argument(..., help="Models to compare (2 or more)"),
+):
+    """Compare multiple models side by side."""
+    if len(models) < 2:
+        console.print("[red]Please specify at least 2 models to compare[/red]")
+        raise typer.Exit(1)
+
+    caps = []
+    for model in models:
+        cap = DEFAULT_MODEL_CAPABILITIES.get(model)
+        if not cap:
+            console.print(f"[red]Model not found: {model}[/red]")
+            raise typer.Exit(1)
+        caps.append(cap)
+
+    table = Table(title="Model Comparison")
+    table.add_column("Attribute", style="bold")
+    for model in models:
+        table.add_column(model)
+
+    # Basic info
+    table.add_row("Provider", *[c.provider for c in caps])
+    table.add_row("Context", *[f"{c.context_window:,}" for c in caps])
+    table.add_row("Max Output", *[f"{c.max_output_tokens:,}" for c in caps])
+    table.add_row("Latency", *[f"{c.avg_latency_ms}ms" for c in caps])
+    table.add_row("Cost/1k", *[f"${c.cost_per_1k_tokens:.4f}" for c in caps])
+    table.add_row("", *["" for _ in caps])  # Spacer
+    table.add_row("[bold]Quality[/bold]", *["" for _ in caps])
+    table.add_row("Reasoning", *[f"{c.reasoning_depth}" for c in caps])
+    table.add_row("Creativity", *[f"{c.creativity_score}" for c in caps])
+    table.add_row("Instructions", *[f"{c.instruction_following}" for c in caps])
+    table.add_row("Accuracy", *[f"{c.factual_accuracy}" for c in caps])
+
+    console.print(table)
+
+
+# ============ Main Entry Point ============
+
+@app.command("version")
+def version():
+    """Show i2i version."""
+    console.print("i2i v0.1.0")
+
+
+@app.command("status")
+def status():
+    """Show i2i status and configured providers."""
+    registry = ProviderRegistry()
+    config = Config.load()
+
+    console.print(Panel.fit("[bold]i2i Status[/bold]"))
+
+    # Providers
+    console.print("\n[bold cyan]Providers:[/bold cyan]")
+    configured = registry.list_configured_providers()
+    all_providers = ["openai", "anthropic", "google", "mistral", "groq", "cohere"]
+
+    for prov in all_providers:
+        if prov in configured:
+            console.print(f"  [green]✓[/green] {prov}")
+        else:
+            console.print(f"  [red]✗[/red] {prov} [dim](API key not set)[/dim]")
+
+    # Current models
+    console.print("\n[bold cyan]Active Models:[/bold cyan]")
+    console.print(f"  Consensus: {', '.join(config.consensus_models)}")
+    console.print(f"  Classifier: {config.classifier_model}")
+
+    # Config source
+    if config.source_path:
+        console.print(f"\n[dim]Config: {config.source_path}[/dim]")
+
+
+def main():
+    """Main entry point."""
+    app()
+
+
+if __name__ == "__main__":
+    main()
