@@ -212,6 +212,62 @@ Environment configuration:
 OLLAMA_BASE_URL=http://localhost:11434
 ```
 
+### LiteLLM Proxy (100+ Models)
+
+i2i integrates with [LiteLLM](https://litellm.ai) for unified access to 100+ LLMs through a single OpenAI-compatible proxy. Benefits include cost tracking, guardrails, load balancing, and avoiding multiple API key configurations.
+
+```bash
+# Install LiteLLM
+pip install 'litellm[proxy]'
+
+# Start proxy with a single model
+litellm --model gpt-4o --port 4000
+
+# Or with config file for multiple models
+litellm --config litellm_config.yaml --port 4000
+
+# Verify i2i detects LiteLLM
+python demo.py status
+```
+
+Example `litellm_config.yaml`:
+```yaml
+model_list:
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: sk-...
+  - model_name: claude-3-opus
+    litellm_params:
+      model: anthropic/claude-3-opus-20240229
+      api_key: sk-ant-...
+```
+
+Use LiteLLM models in consensus queries:
+
+```python
+# Access any model through LiteLLM proxy
+result = await protocol.consensus_query(
+    "What is Python?",
+    models=["litellm/gpt-4o", "litellm/claude-3-opus"]
+)
+```
+
+```bash
+# CLI usage
+python demo.py consensus "What is Python?" --models litellm/gpt-4o,litellm/claude-3-opus
+```
+
+Environment configuration:
+```env
+# LiteLLM proxy settings (defaults shown)
+LITELLM_API_BASE=http://localhost:4000
+LITELLM_API_KEY=sk-1234
+
+# Optional: specify available models (otherwise fetched from /models endpoint)
+LITELLM_MODELS=gpt-4o,claude-3-opus,llama3.1
+```
+
 ### Configuring Default Models
 
 Models are **not hardcoded**. Configure via `config.json`, environment variables, or CLI:
@@ -701,6 +757,8 @@ protocol = AICP()
 | **Mistral** | Mistral Large 3, Devstral 2, Ministral 3 | ✅ Supported |
 | **Groq** | Llama 4 Maverick, Llama 3.3 70B | ✅ Supported |
 | **Cohere** | Command A, Command A Reasoning | ✅ Supported |
+| **Ollama** | Llama 3.2, Mistral, CodeLlama, Phi-3, Gemma 2, etc. | ✅ Supported (Local) |
+| **LiteLLM** | 100+ models via unified proxy | ✅ Supported |
 
 ---
 
@@ -740,6 +798,9 @@ The RFC defines:
 │  ┌────────┐ ┌──────────┐ ┌────────┐ ┌────────┐ ┌───────────┐   │
 │  │ OpenAI │ │Anthropic │ │ Google │ │Mistral │ │Groq/Llama │   │
 │  └────────┘ └──────────┘ └────────┘ └────────┘ └───────────┘   │
+│  ┌────────┐ ┌──────────┐                                        │
+│  │ Ollama │ │ LiteLLM  │  ← Local & Proxy providers             │
+│  └────────┘ └──────────┘                                        │
 └─────────────────────────────────────────────────────────────────┘
 ```
 

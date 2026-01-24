@@ -1,11 +1,12 @@
 """Tests for i2i provider adapters."""
 
 import pytest
-from unittest.mock import patch, MagicMock, AsyncMock
+from unittest.mock import patch, MagicMock, AsyncMock, PropertyMock
 import httpx
 
 from i2i.providers import (
     OllamaAdapter,
+    LiteLLMAdapter,
     ProviderRegistry,
 )
 from i2i.schema import Message, MessageType, Response, ConfidenceLevel
@@ -258,3 +259,211 @@ class TestProviderRegistryWithOllama:
         with patch.object(registry._adapters["ollama"], "is_configured", return_value=True):
             providers = registry.list_configured_providers()
             assert "ollama" in providers
+
+
+class TestLiteLLMAdapter:
+    """Tests for LiteLLMAdapter class."""
+
+    @pytest.fixture
+    def adapter(self):
+        """Create a LiteLLMAdapter instance."""
+        return LiteLLMAdapter()
+
+    def test_provider_name(self, adapter):
+        """Provider name should be 'litellm'."""
+        assert adapter.provider_name == "litellm"
+
+    def test_default_api_base(self, adapter):
+        """Default API base should be localhost:4000."""
+        assert adapter.api_base == "http://localhost:4000"
+
+    def test_default_api_key(self, adapter):
+        """Default API key should be set."""
+        assert adapter.api_key == "sk-1234"
+
+    def test_custom_api_base_from_env(self):
+        """API base should be configurable via environment variable."""
+        with patch.dict("os.environ", {"LITELLM_API_BASE": "http://proxy:8000"}):
+            adapter = LiteLLMAdapter()
+            assert adapter.api_base == "http://proxy:8000"
+
+    def test_custom_api_key_from_env(self):
+        """API key should be configurable via environment variable."""
+        with patch.dict("os.environ", {"LITELLM_API_KEY": "my-secret-key"}):
+            adapter = LiteLLMAdapter()
+            assert adapter.api_key == "my-secret-key"
+
+    def test_models_from_env(self):
+        """Models should be configurable via environment variable."""
+        with patch.dict("os.environ", {"LITELLM_MODELS": "gpt-4,claude-3,mistral"}):
+            adapter = LiteLLMAdapter()
+            models = adapter.available_models
+            assert "gpt-4" in models
+            assert "claude-3" in models
+            assert "mistral" in models
+
+    def test_models_from_env_handles_whitespace(self):
+        """Models from env should handle whitespace."""
+        with patch.dict("os.environ", {"LITELLM_MODELS": " gpt-4 , claude-3 "}):
+            adapter = LiteLLMAdapter()
+            models = adapter.available_models
+            assert "gpt-4" in models
+            assert "claude-3" in models
+
+    def test_is_configured_returns_false_when_not_running(self, adapter):
+        """is_configured should return False when proxy is not running."""
+        adapter.api_base = "http://localhost:99999"  # Invalid port
+        assert adapter.is_configured() is False
+
+    def test_is_configured_returns_true_when_running(self, adapter):
+        """is_configured should return True when proxy responds."""
+        with patch("httpx.get") as mock_get:
+            mock_response = MagicMock()
+            mock_response.status_code = 200
+            mock_get.return_value = mock_response
+            assert adapter.is_configured() is True
+
+    def test_is_configured_handles_connection_error(self, adapter):
+        """is_configured should return False on connection errors."""
+        with patch("httpx.get", side_effect=httpx.ConnectError("Connection refused")):
+            assert adapter.is_configured() is False
+
+    def test_fetch_models_returns_list(self, adapter):
+        """_fetch_models should return list of model IDs."""
+        with patch("httpx.get") as mock_get:
+            mock_response = MagicMock()
+            mock_response.status_code = 200
+            mock_response.json.return_value = {
+                "data": [
+                    {"id": "gpt-4"},
+                    {"id": "claude-3-opus"},
+                ]
+            }
+            mock_get.return_value = mock_response
+
+            models = adapter._fetch_models()
+            assert "gpt-4" in models
+            assert "claude-3-opus" in models
+
+    def test_fetch_models_returns_empty_on_error(self, adapter):
+        """_fetch_models should return empty list on error."""
+        with patch("httpx.get", side_effect=Exception("Connection error")):
+            models = adapter._fetch_models()
+            assert models == []
+
+    def test_fetch_models_caches_result(self, adapter):
+        """_fetch_models should cache the result."""
+        adapter._models = ["cached-model"]
+        assert adapter._fetch_models() == ["cached-model"]
+
+    @pytest.mark.asyncio
+    async def test_query_returns_response(self, adapter):
+        """query should return a Response object."""
+        message = Message(
+            type=MessageType.QUERY,
+            content="What is 2+2?",
+        )
+
+        # Mock the OpenAI client
+        mock_completion = MagicMock()
+        mock_completion.choices = [MagicMock(message=MagicMock(content="The answer is 4."))]
+        mock_completion.usage = MagicMock(prompt_tokens=10, completion_tokens=5)
+
+        mock_client = AsyncMock()
+        mock_client.chat.completions.create.return_value = mock_completion
+
+        with patch.object(adapter, '_client', mock_client):
+            response = await adapter.query(message, "gpt-4")
+
+            assert isinstance(response, Response)
+            assert response.content == "The answer is 4."
+            assert response.model == "litellm/gpt-4"
+            assert response.input_tokens == 10
+            assert response.output_tokens == 5
+
+    @pytest.mark.asyncio
+    async def test_query_builds_correct_messages(self, adapter):
+        """query should build correct messages array."""
+        context_msg = Message(
+            type=MessageType.QUERY,
+            content="Previous message",
+            sender="assistant",
+        )
+        message = Message(
+            type=MessageType.QUERY,
+            content="Follow-up question",
+            context=[context_msg],
+        )
+
+        mock_completion = MagicMock()
+        mock_completion.choices = [MagicMock(message=MagicMock(content="Response"))]
+        mock_completion.usage = None
+
+        mock_client = AsyncMock()
+        mock_client.chat.completions.create.return_value = mock_completion
+
+        with patch.object(adapter, '_client', mock_client):
+            await adapter.query(message, "gpt-4")
+
+            call_args = mock_client.chat.completions.create.call_args
+            messages = call_args.kwargs.get("messages", call_args[1].get("messages"))
+            assert len(messages) == 2
+            assert messages[0]["role"] == "assistant"
+            assert messages[1]["role"] == "user"
+
+    def test_extract_confidence_very_high(self, adapter):
+        """_extract_confidence should detect VERY_HIGH confidence."""
+        assert adapter._extract_confidence("I'm certain this is correct.") == ConfidenceLevel.VERY_HIGH
+
+    def test_extract_confidence_high(self, adapter):
+        """_extract_confidence should detect HIGH confidence."""
+        assert adapter._extract_confidence("I believe this is accurate.") == ConfidenceLevel.HIGH
+
+    def test_extract_confidence_medium(self, adapter):
+        """_extract_confidence should detect MEDIUM confidence."""
+        assert adapter._extract_confidence("I think this might work.") == ConfidenceLevel.MEDIUM
+
+    def test_extract_confidence_low(self, adapter):
+        """_extract_confidence should detect LOW confidence."""
+        assert adapter._extract_confidence("I'm not sure about this.") == ConfidenceLevel.LOW
+
+    def test_extract_confidence_very_low(self, adapter):
+        """_extract_confidence should detect VERY_LOW confidence."""
+        assert adapter._extract_confidence("I don't know the answer.") == ConfidenceLevel.VERY_LOW
+
+    def test_extract_confidence_default(self, adapter):
+        """_extract_confidence should default to MEDIUM."""
+        assert adapter._extract_confidence("The answer is 42.") == ConfidenceLevel.MEDIUM
+
+
+class TestProviderRegistryWithLiteLLM:
+    """Tests for ProviderRegistry including LiteLLMAdapter."""
+
+    def test_registry_includes_litellm(self):
+        """ProviderRegistry should include LiteLLMAdapter."""
+        registry = ProviderRegistry()
+        assert "litellm" in registry._adapters
+        assert isinstance(registry._adapters["litellm"], LiteLLMAdapter)
+
+    def test_get_adapter_with_litellm_prefix(self):
+        """get_adapter should work with litellm/model format."""
+        registry = ProviderRegistry()
+        adapter = registry.get_adapter("litellm/gpt-4")
+        assert isinstance(adapter, LiteLLMAdapter)
+
+    def test_list_available_models_includes_litellm_when_configured(self):
+        """list_available_models should include LiteLLM when running."""
+        registry = ProviderRegistry()
+
+        with patch.object(registry._adapters["litellm"], "is_configured", return_value=True):
+            with patch.object(type(registry._adapters["litellm"]), "available_models", new_callable=PropertyMock, return_value=["gpt-4", "claude-3"]):
+                models = registry.list_available_models()
+                assert "litellm" in models
+
+    def test_list_configured_providers_includes_litellm_when_running(self):
+        """list_configured_providers should include LiteLLM when running."""
+        registry = ProviderRegistry()
+
+        with patch.object(registry._adapters["litellm"], "is_configured", return_value=True):
+            providers = registry.list_configured_providers()
+            assert "litellm" in providers

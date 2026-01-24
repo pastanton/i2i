@@ -551,6 +551,111 @@ class OllamaAdapter(ProviderAdapter):
         return ConfidenceLevel.MEDIUM
 
 
+class LiteLLMAdapter(ProviderAdapter):
+    """Adapter for LiteLLM proxy (unified access to 100+ LLMs)."""
+
+    def __init__(self):
+        self.api_base = os.getenv("LITELLM_API_BASE", "http://localhost:4000")
+        self.api_key = os.getenv("LITELLM_API_KEY", "sk-1234")
+        self._client = None
+        self._models = None
+
+    @property
+    def provider_name(self) -> str:
+        return "litellm"
+
+    @property
+    def available_models(self) -> List[str]:
+        """Return available models from env var or fetch from proxy."""
+        env_models = os.getenv("LITELLM_MODELS", "")
+        if env_models:
+            return [m.strip() for m in env_models.split(",") if m.strip()]
+        return self._fetch_models()
+
+    def _fetch_models(self) -> List[str]:
+        """Fetch available models from LiteLLM /models endpoint."""
+        if self._models is not None:
+            return self._models
+        try:
+            import httpx
+            r = httpx.get(
+                f"{self.api_base}/models",
+                headers={"Authorization": f"Bearer {self.api_key}"},
+                timeout=5.0
+            )
+            if r.status_code == 200:
+                data = r.json()
+                self._models = [m["id"] for m in data.get("data", [])]
+                return self._models
+        except Exception:
+            pass
+        return []
+
+    def is_configured(self) -> bool:
+        """Check if LiteLLM proxy is reachable."""
+        try:
+            import httpx
+            r = httpx.get(f"{self.api_base}/health", timeout=2.0)
+            return r.status_code == 200
+        except Exception:
+            return False
+
+    @property
+    def client(self):
+        if self._client is None:
+            from openai import AsyncOpenAI
+            self._client = AsyncOpenAI(
+                api_key=self.api_key,
+                base_url=f"{self.api_base}/v1"
+            )
+        return self._client
+
+    async def query(self, message: Message, model: str) -> Response:
+        start_time = time.time()
+
+        # Build messages array
+        messages = []
+        if message.context:
+            for ctx_msg in message.context:
+                role = "assistant" if ctx_msg.sender else "user"
+                messages.append({"role": role, "content": ctx_msg.content})
+        messages.append({"role": "user", "content": message.content})
+
+        response = await self.client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=0.7,
+        )
+
+        latency = (time.time() - start_time) * 1000
+        content = response.choices[0].message.content
+
+        return Response(
+            message_id=message.id,
+            model=f"litellm/{model}",
+            content=content,
+            confidence=self._extract_confidence(content),
+            input_tokens=response.usage.prompt_tokens if response.usage else None,
+            output_tokens=response.usage.completion_tokens if response.usage else None,
+            latency_ms=latency,
+        )
+
+    def _extract_confidence(self, content: str) -> ConfidenceLevel:
+        """Heuristically extract confidence from response content."""
+        content_lower = content.lower()
+        if any(phrase in content_lower for phrase in ["i'm certain", "definitely", "absolutely", "i'm confident"]):
+            return ConfidenceLevel.VERY_HIGH
+        elif any(phrase in content_lower for phrase in ["i believe", "likely", "probably"]):
+            return ConfidenceLevel.HIGH
+        elif any(phrase in content_lower for phrase in ["i think", "possibly", "might"]):
+            return ConfidenceLevel.MEDIUM
+        elif any(phrase in content_lower for phrase in ["i'm not sure", "uncertain", "hard to say"]):
+            return ConfidenceLevel.LOW
+        elif any(phrase in content_lower for phrase in ["i don't know", "impossible to determine"]):
+            return ConfidenceLevel.VERY_LOW
+        return ConfidenceLevel.MEDIUM
+
+
 class ProviderRegistry:
     """
     Registry of all available AI providers.
@@ -571,6 +676,7 @@ class ProviderRegistry:
         self._register_adapter(GroqAdapter())
         self._register_adapter(CohereAdapter())
         self._register_adapter(OllamaAdapter())
+        self._register_adapter(LiteLLMAdapter())
 
     def _register_adapter(self, adapter: ProviderAdapter):
         """Register a provider adapter."""
