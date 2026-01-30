@@ -18,6 +18,8 @@
 \usepackage{listings}
 \usepackage{subcaption}
 \usepackage[margin=1in]{geometry}
+\usepackage[numbers]{natbib}
+\bibliographystyle{unsrtnat}
 
 \hypersetup{
     colorlinks=true,
@@ -88,23 +90,23 @@ We address these challenges with \textbf{MCIP (Multi-model Consensus and Inferen
 
 \subsection{Multi-Agent LLM Systems}
 
-Recent work explores LLM-based multi-agent systems for improved reasoning. \citet{du2023debate} demonstrate that multi-agent debate improves factuality and mathematical reasoning, with agents proposing and debating responses over multiple rounds. \citet{yazici2026consensus} study opinion consensus formation among networked LLMs, applying classical consensus models to predict group behavior. Our work differs by providing a \emph{standardized protocol} for consensus rather than ad-hoc debate frameworks.
+Recent work explores LLM-based multi-agent systems for improved reasoning. \cite{du2023debate} demonstrate that multi-agent debate improves factuality and mathematical reasoning, with agents proposing and debating responses over multiple rounds. \cite{yazici2026consensus} study opinion consensus formation among networked LLMs, applying classical consensus models to predict group behavior. Our work differs by providing a \emph{standardized protocol} for consensus rather than ad-hoc debate frameworks.
 
-\citet{ruan2025agreement} address the challenge of reaching agreement among reasoning LLM agents, while \citet{wu2024debate} provide a controlled study of multi-agent debate in logical reasoning. The recent LatentMAS framework \cite{zou2025latentmas} enables communication through latent representations rather than text, achieving 14.6\% accuracy gains with 70-83\% token reduction for same-architecture models.
+\cite{ruan2025agreement} address the challenge of reaching agreement among reasoning LLM agents, while \cite{wu2024debate} provide a controlled study of multi-agent debate in logical reasoning. The recent LatentMAS framework \cite{zou2025latentmas} enables communication through latent representations rather than text, achieving 14.6\% accuracy gains with 70-83\% token reduction for same-architecture models.
 
 \subsection{Self-Consistency and Verification}
 
 Self-consistency \cite{wang2022selfconsistency} samples diverse reasoning paths from a single model and marginalizes to find consistent answers, achieving 17.9\% improvement on GSM8K. Our approach extends this to \emph{cross-model} consistency, leveraging architectural diversity rather than sampling diversity.
 
-For verification, \citet{chen2025toolmad} propose Tool-MAD, combining multi-agent debate with tool augmentation for fact verification. \citet{he2025debatetruth} introduce DebateCV for claim verification through structured debate. We provide a more general verification protocol applicable to any claim type.
+For verification, \cite{chen2025toolmad} propose Tool-MAD, combining multi-agent debate with tool augmentation for fact verification. \cite{he2025debatetruth} introduce DebateCV for claim verification through structured debate. We provide a more general verification protocol applicable to any claim type.
 
 \subsection{Uncertainty Quantification}
 
-Epistemic uncertainty in LLMs remains challenging. \citet{nel2025kalshibench} evaluate calibration via prediction markets, finding models often overconfident. \citet{li2025esi} propose semantic-preserving interventions for uncertainty quantification. Our epistemic classification takes a different approach: rather than quantifying confidence on a continuum, we categorize questions by their \emph{answerability structure}.
+Epistemic uncertainty in LLMs remains challenging. \cite{nel2025kalshibench} evaluate calibration via prediction markets, finding models often overconfident. \cite{li2025esi} propose semantic-preserving interventions for uncertainty quantification. Our epistemic classification takes a different approach: rather than quantifying confidence on a continuum, we categorize questions by their \emph{answerability structure}.
 
 \subsection{Model Routing and Selection}
 
-Intelligent model selection has emerged as a practical concern given the proliferation of specialized models. \citet{khan2025art} present ART, using tournament-style ELO ranking for response optimization. Our routing mechanism differs by maintaining explicit capability profiles per model and task type, enabling predictive selection before query execution.
+Intelligent model selection has emerged as a practical concern given the proliferation of specialized models. \cite{khan2025art} present ART, using tournament-style ELO ranking for response optimization. Our routing mechanism differs by maintaining explicit capability profiles per model and task type, enabling predictive selection before query execution.
 
 \section{The MCIP Protocol}
 \label{sec:protocol}
@@ -127,7 +129,7 @@ MCIP is designed around four principles:
 
 All MCIP messages conform to a standardized JSON schema:
 
-\begin{lstlisting}[language=json]
+\begin{lstlisting}
 {
   "id": "uuid-v4",
   "type": "QUERY|VERIFY|CHALLENGE|CLASSIFY",
