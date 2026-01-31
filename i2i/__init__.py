@@ -14,6 +14,8 @@ from .schema import (
     EpistemicClassification,
     EpistemicType,
     ConsensusLevel,
+    ModelStatistics,
+    StatisticalConsensusResult,
     # Multimodal support
     ContentType,
     Attachment,
@@ -38,8 +40,19 @@ from .config import (
     get_synthesis_models,
     get_verification_models,
     get_epistemic_models,
+    get_statistical_mode_config,
+    is_statistical_mode_enabled,
+    get_statistical_n_runs,
+    get_statistical_temperature,
     feature_enabled,
     DEFAULTS,
+)
+from .embeddings import (
+    EmbeddingProvider,
+    cosine_similarity,
+    compute_centroid,
+    compute_std_dev,
+    consistency_score,
 )
 from .consensus import (
     ConsensusEngine,
@@ -69,6 +82,8 @@ __all__ = [
     "EpistemicClassification",
     "EpistemicType",
     "ConsensusLevel",
+    "ModelStatistics",
+    "StatisticalConsensusResult",
     # Multimodal support
     "ContentType",
     "Attachment",
@@ -101,7 +116,17 @@ __all__ = [
     "get_synthesis_models",
     "get_verification_models",
     "get_epistemic_models",
+    "get_statistical_mode_config",
+    "is_statistical_mode_enabled",
+    "get_statistical_n_runs",
+    "get_statistical_temperature",
     "feature_enabled",
+    # Embeddings
+    "EmbeddingProvider",
+    "cosine_similarity",
+    "compute_centroid",
+    "compute_std_dev",
+    "consistency_score",
     # Search/RAG
     "SearchBackend",
     "SearchResult",

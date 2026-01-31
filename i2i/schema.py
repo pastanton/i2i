@@ -350,5 +350,57 @@ class DivergenceReport(BaseModel):
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
 
+class ModelStatistics(BaseModel):
+    """
+    Per-model statistics from n runs (statistical consensus mode).
+
+    This captures the variance/consistency of a single model's responses
+    across multiple runs, enabling confidence estimation.
+    """
+    model: str
+    n_runs: int
+    centroid_embedding: Optional[List[float]] = None  # Mean position in embedding space
+    intra_model_std_dev: float = 0.0  # Spread of responses (lower = more consistent)
+    consistency_score: float = 1.0  # 1 / (1 + std_dev), higher = more confident
+    representative_response: Optional[Response] = None  # Response closest to centroid
+    outlier_indices: List[int] = Field(default_factory=list)  # Indices of outlier responses
+    all_responses: List[Response] = Field(default_factory=list)  # All n responses
+
+
+class StatisticalConsensusResult(BaseModel):
+    """
+    Enhanced consensus result with statistical measures from n-run averaging.
+
+    When statistical_mode is enabled, each model is queried n times and
+    variance is computed to estimate model confidence and detect outliers.
+    """
+    # Core query info
+    query: str
+    models_queried: List[str]
+
+    # Statistical configuration
+    n_runs_per_model: int
+    temperature: float
+
+    # Per-model statistics
+    model_statistics: Dict[str, ModelStatistics] = Field(default_factory=dict)
+
+    # Aggregate consensus (same as ConsensusResult)
+    consensus_level: ConsensusLevel
+    consensus_answer: Optional[str] = None
+    divergences: List[Dict[str, Any]] = Field(default_factory=list)
+    agreement_matrix: Optional[Dict[str, Dict[str, float]]] = None
+    clusters: Optional[List[List[str]]] = None
+
+    # Statistical enhancements
+    weighted_consensus_embedding: Optional[List[float]] = None  # Inverse-variance weighted centroid
+    overall_confidence: float = 0.0  # Aggregate confidence based on inter/intra variance
+    total_queries: int = 0  # n_runs * num_models
+    total_cost_multiplier: float = 1.0  # Cost relative to single-query mode
+
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+
+
 # Update forward references
 Message.model_rebuild()
+ModelStatistics.model_rebuild()

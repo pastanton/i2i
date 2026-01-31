@@ -4,15 +4,19 @@ Consensus and divergence detection for multi-model queries.
 This module analyzes responses from multiple AI models to determine
 levels of agreement, identify divergences, and synthesize consensus answers.
 
-Supports homogeneous consortium detection and optimization when models
-are from the same family (e.g., all Claude, all GPT).
+Supports:
+1. Standard mode: Query each model once, compute pairwise similarity
+2. Statistical mode: Query each model n times, compute variance for confidence
+3. Homogeneous consortium detection and optimization when models
+   are from the same family (e.g., all Claude, all GPT).
 """
 
 import asyncio
 import logging
 from enum import Enum
-from typing import List, Dict, Optional, Tuple, Set
+from typing import List, Dict, Optional, Tuple, Set, Any
 from collections import defaultdict
+import numpy as np
 
 from .schema import (
     Message,
@@ -21,9 +25,29 @@ from .schema import (
     ConsensusResult,
     ConsensusLevel,
     ConfidenceLevel,
+    ModelStatistics,
+    StatisticalConsensusResult,
 )
 from .providers import ProviderRegistry
-from .config import get_synthesis_models, feature_enabled
+from .config import (
+    get_synthesis_models,
+    get_statistical_mode_config,
+    is_statistical_mode_enabled,
+    get_statistical_n_runs,
+    get_statistical_temperature,
+    get_statistical_outlier_threshold,
+    feature_enabled,
+)
+from .embeddings import (
+    EmbeddingProvider,
+    compute_centroid,
+    compute_std_dev,
+    find_outliers,
+    find_representative,
+    compute_weighted_centroid,
+    consistency_score,
+    cosine_similarity,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -473,3 +497,261 @@ Synthesized answer:"""
             ConfidenceLevel.VERY_LOW: 1,
         }
         return scores.get(confidence, 3)
+
+    # ==================== Statistical Mode ====================
+
+    async def query_for_consensus_statistical(
+        self,
+        query: str,
+        models: List[str],
+        n_runs: Optional[int] = None,
+        temperature: Optional[float] = None,
+        outlier_threshold: Optional[float] = None,
+        context: Optional[List[Message]] = None,
+    ) -> StatisticalConsensusResult:
+        """
+        Query multiple models with n runs each for statistical consensus.
+
+        This method runs each model n times and computes variance to
+        estimate model confidence. Models with lower variance are weighted
+        higher in the consensus.
+
+        Args:
+            query: The question/prompt to send
+            models: List of model identifiers to query
+            n_runs: Number of runs per model (default from config)
+            temperature: Temperature for queries (default from config)
+            outlier_threshold: Std devs for outlier detection (default from config)
+            context: Optional conversation context
+
+        Returns:
+            StatisticalConsensusResult with variance analysis
+        """
+        # Get config defaults
+        config = get_statistical_mode_config()
+        n_runs = n_runs or config.get("n_runs", 5)
+        temperature = temperature if temperature is not None else config.get("temperature", 0.7)
+        outlier_threshold = outlier_threshold or config.get("outlier_threshold", 2.0)
+
+        # Initialize embedding provider
+        embedding_provider = EmbeddingProvider()
+
+        # Create the message
+        message = Message(
+            type=MessageType.QUERY,
+            content=query,
+            context=context,
+        )
+
+        # Query each model n times in parallel
+        all_model_responses: Dict[str, List[Response]] = {}
+        all_tasks = []
+
+        for model in models:
+            model_tasks = [
+                self._query_with_temperature(message, model, temperature)
+                for _ in range(n_runs)
+            ]
+            all_tasks.extend([(model, task) for task in model_tasks])
+
+        # Flatten and execute all queries in parallel
+        flat_tasks = [task for _, task in all_tasks]
+        results = await asyncio.gather(*flat_tasks, return_exceptions=True)
+
+        # Organize results by model
+        idx = 0
+        for model in models:
+            all_model_responses[model] = []
+            for _ in range(n_runs):
+                result = results[idx]
+                if isinstance(result, Response):
+                    all_model_responses[model].append(result)
+                else:
+                    print(f"Error from {model} run {idx}: {result}")
+                idx += 1
+
+        # Filter models with at least 1 successful response
+        valid_models = [m for m in models if all_model_responses[m]]
+        if not valid_models:
+            raise ValueError("All model queries failed")
+
+        # Compute statistics for each model
+        model_statistics: Dict[str, ModelStatistics] = {}
+        model_centroids: List[np.ndarray] = []
+        model_variances: List[float] = []
+
+        for model in valid_models:
+            responses = all_model_responses[model]
+            stats = await self._compute_model_statistics(
+                model, responses, embedding_provider, outlier_threshold
+            )
+            model_statistics[model] = stats
+
+            if stats.centroid_embedding:
+                model_centroids.append(np.array(stats.centroid_embedding))
+                model_variances.append(stats.intra_model_std_dev ** 2)
+
+        # Compute inter-model consensus using representative responses
+        representative_responses = [
+            stats.representative_response
+            for stats in model_statistics.values()
+            if stats.representative_response
+        ]
+
+        # Analyze consensus on representative responses
+        consensus_level, agreement_matrix = await self._analyze_consensus(representative_responses)
+
+        # Identify divergences
+        divergences = self._identify_divergences(representative_responses, agreement_matrix)
+
+        # Cluster responses
+        clusters = self._cluster_responses(representative_responses, agreement_matrix)
+
+        # Compute weighted consensus centroid
+        weighted_centroid = None
+        if model_centroids and model_variances:
+            weighted_centroid = compute_weighted_centroid(model_centroids, model_variances)
+
+        # Compute overall confidence
+        avg_consistency = sum(s.consistency_score for s in model_statistics.values()) / len(model_statistics)
+
+        # Synthesize consensus answer
+        consensus_answer = None
+        if consensus_level in [ConsensusLevel.HIGH, ConsensusLevel.MEDIUM]:
+            consensus_answer = await self._synthesize_consensus(query, representative_responses)
+
+        return StatisticalConsensusResult(
+            query=query,
+            models_queried=valid_models,
+            n_runs_per_model=n_runs,
+            temperature=temperature,
+            model_statistics=model_statistics,
+            consensus_level=consensus_level,
+            consensus_answer=consensus_answer,
+            divergences=divergences,
+            agreement_matrix=agreement_matrix,
+            clusters=clusters,
+            weighted_consensus_embedding=weighted_centroid.tolist() if weighted_centroid is not None else None,
+            overall_confidence=avg_consistency,
+            total_queries=len(valid_models) * n_runs,
+            total_cost_multiplier=float(n_runs),
+        )
+
+    async def _query_with_temperature(
+        self,
+        message: Message,
+        model: str,
+        temperature: float,
+    ) -> Response:
+        """Query a model with specific temperature setting."""
+        # Note: temperature parameter would need to be passed through the provider
+        # For now, we use the default provider query
+        # TODO: Add temperature parameter to provider adapters
+        return await self.registry.query(message, model)
+
+    async def _compute_model_statistics(
+        self,
+        model: str,
+        responses: List[Response],
+        embedding_provider: EmbeddingProvider,
+        outlier_threshold: float,
+    ) -> ModelStatistics:
+        """
+        Compute statistics for a single model's n responses.
+
+        Args:
+            model: Model identifier
+            responses: List of n responses from the model
+            embedding_provider: Provider for text embeddings
+            outlier_threshold: Std devs for outlier detection
+
+        Returns:
+            ModelStatistics with variance analysis
+        """
+        if not responses:
+            return ModelStatistics(
+                model=model,
+                n_runs=0,
+                consistency_score=0.0,
+            )
+
+        # Get embeddings for all responses
+        texts = [r.content for r in responses]
+        embeddings = await embedding_provider.embed_batch(texts)
+
+        # Compute centroid
+        centroid = compute_centroid(embeddings)
+
+        # Compute standard deviation
+        std_dev = compute_std_dev(embeddings, centroid)
+
+        # Find outliers
+        outlier_indices = find_outliers(embeddings, centroid, outlier_threshold)
+
+        # Find representative response (closest to centroid)
+        representative_idx = find_representative(embeddings, centroid)
+        representative = responses[representative_idx]
+
+        return ModelStatistics(
+            model=model,
+            n_runs=len(responses),
+            centroid_embedding=centroid.tolist(),
+            intra_model_std_dev=std_dev,
+            consistency_score=consistency_score(std_dev),
+            representative_response=representative,
+            outlier_indices=outlier_indices,
+            all_responses=responses,
+        )
+
+    async def _analyze_consensus_with_embeddings(
+        self,
+        responses: List[Response],
+        embedding_provider: EmbeddingProvider,
+    ) -> Tuple[ConsensusLevel, Dict[str, Dict[str, float]]]:
+        """
+        Analyze consensus using embedding-based similarity.
+
+        This is more accurate than Jaccard similarity for semantic comparison.
+        """
+        if len(responses) < 2:
+            return ConsensusLevel.HIGH, {}
+
+        # Get embeddings
+        texts = [r.content for r in responses]
+        embeddings = await embedding_provider.embed_batch(texts)
+
+        # Build agreement matrix
+        agreement_matrix = {}
+        for i, r1 in enumerate(responses):
+            agreement_matrix[r1.model] = {}
+            for j, r2 in enumerate(responses):
+                if i == j:
+                    agreement_matrix[r1.model][r2.model] = 1.0
+                else:
+                    similarity = cosine_similarity(embeddings[i], embeddings[j])
+                    agreement_matrix[r1.model][r2.model] = float(similarity)
+
+        # Compute average pairwise similarity
+        similarities = []
+        for i in range(len(responses)):
+            for j in range(i + 1, len(responses)):
+                similarities.append(
+                    agreement_matrix[responses[i].model][responses[j].model]
+                )
+
+        avg_similarity = sum(similarities) / len(similarities) if similarities else 1.0
+
+        # Determine consensus level
+        if avg_similarity >= 0.85:
+            level = ConsensusLevel.HIGH
+        elif avg_similarity >= 0.6:
+            level = ConsensusLevel.MEDIUM
+        elif avg_similarity >= 0.3:
+            level = ConsensusLevel.LOW
+        else:
+            if self._has_contradictions(responses):
+                level = ConsensusLevel.CONTRADICTORY
+            else:
+                level = ConsensusLevel.NONE
+
+        return level, agreement_matrix
