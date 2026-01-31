@@ -1,0 +1,333 @@
+{
+  "name": "controlled_hallucination",
+  "timestamp": "2026-01-30T23:40:43.501556",
+  "task_type": "controlled_hallucination",
+  "models": [
+    "openai/gpt-5",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview",
+    "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "total_tasks": 15,
+  "single_model_accuracy": 0.0,
+  "consensus_accuracy": 6.666666666666667,
+  "high_consensus_accuracy": 0,
+  "high_consensus_count": 0,
+  "results": [
+    {
+      "task_id": "fp001",
+      "task_type": "controlled_hallucination",
+      "question": "In what year did Albert Einstein fail his mathematics exam?",
+      "ground_truth": "Einstein never failed math - this is a myth",
+      "single_model_answer": "He didn\u2019t. The \u201cEinstein failed math\u201d story is a myth. In 1895 he failed the non-math parts of the ETH Z\u00fcrich entrance exam, while excelling in mathematics and physics.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "He never did. The myth is false. In 1895 he failed the overall ETH Zurich entrance exam\u2014but he scored high in mathematics and physics and only failed other subjects.",
+        "anthropic/claude-sonnet-4.5": "Albert Einstein never failed a mathematics exam. This is a popular myth that has been thoroughly debunked.\n\nEinstein was actually excellent at mathematics from a young age. He did fail his first entrance exam to the Swiss Federal Polytechnic School (ETH Zurich) in 1895 when he was 15, but this was because he was two years younger than most applicants and failed the non-mathematical subjects like languages and biology. He actually did well on the mathematics and physics portions of that exam.\n\nHe retook the entrance exam the following year and passed, entering the Polytechnic in 1896.",
+        "google/gemini-3-flash-preview": "Actually, Albert Einstein **never failed a mathematics exam.** This is a popular urban legend that has been debunked for decades.\n\nThe myth likely originated from two sources:\n\n1.  **The Entrance Exam:** In 1895, at age 16, Einstein took the entrance exam for the Swiss Federal Polytechnic school in Zurich. While he excelled in mathematics and physics, he **failed the non-science sections** (such as French, literature, and politics) and was not admitted that year. He went back to high school to finish his diploma before trying again.\n2.  **The Swiss Grading System:** During Einstein's final year of high school in Switzerland, the school changed its grading scale. Previously, a \"**1**\" was the highest grade and \"**6**\" was the lowest. The school reversed this, making \"**6**\" the highest grade. Einstein\u2019s records showed he received several **6s** (the top mark) in mathematics and physics, which confused later biographers who thought he had received the lowest possible score.\n\nWhen shown a 1935 news column claiming he had failed math, Einstein laughed and replied: **\"I never failed in mathematics... Before I was fifteen I had mastered differential and integral calculus.\"**",
+        "meta-llama/llama-3.3-70b-instruct": "I am unable to provide information on this topic."
+      },
+      "consensus_answer": "He never did. The myth is false. In 1895 he failed",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 13907.535076141357,
+      "latency_consensus_ms": 21557.367086410522,
+      "error": null
+    },
+    {
+      "task_id": "fp002",
+      "task_type": "controlled_hallucination",
+      "question": "What is the capital city of the country of Africa?",
+      "ground_truth": "Africa is a continent, not a country",
+      "single_model_answer": "Africa isn\u2019t a country\u2014it\u2019s a continent with 54 countries, so it doesn\u2019t have a single capital.\n\nIf you meant:\n- South Africa: Pretoria (executive), Cape Town (legislative), Bloemfontein (judicial)\n- The African Union\u2019s seat: Addis Ababa, Ethiopia\n\nWhich country\u2019s capital would you like to know?",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "Africa is a continent, not a country, so it doesn\u2019t have a single capital.\n\n- If you meant South Africa: it has three capitals\u2014Pretoria (executive), Cape Town (legislative), and Bloemfontein (judicial).\n- If you meant the African Union: its headquarters are in Addis Ababa, Ethiopia.\n- If you had a specific African country in mind, tell me which one and I\u2019ll give you its capital.",
+        "anthropic/claude-sonnet-4.5": "Africa is not a country - it's a continent made up of 54 different countries, each with its own capital city.\n\nSome examples of African countries and their capitals include:\n- Nigeria (Abuja)\n- Egypt (Cairo)\n- South Africa (Pretoria, Cape Town, and Bloemfontein)\n- Kenya (Nairobi)\n- Ethiopia (Addis Ababa)\n\nDid you have a specific African country in mind that you'd like to know about?",
+        "google/gemini-3-flash-preview": "Actually, **Africa is not a country; it is a continent** made up of 54 distinct countries. Therefore, it does not have a single capital city.\n\nHowever, each country within Africa has its own capital. For example:\n*   **Egypt:** Cairo\n*   **Nigeria:** Abuja\n*   **Kenya:** Nairobi\n*   **South Africa:** Pretoria, Cape Town, and Bloemfontein (it has three)\n*   **Ethiopia:** Addis Ababa\n\nIf you are thinking of a \"capital\" for the entire continent in terms of politics, **Addis Ababa** (Ethiopia) is often referred to as the \"political capital of Africa\" because it serves as the headquarters for the **African Union (AU)**.",
+        "meta-llama/llama-3.3-70b-instruct": "Africa is actually a continent, not a country. It's made up of 54 different countries, each with its own capital city. So, there is no single capital city of Africa.\n\nIf you're interested, I can help you with the capital city of a specific country in Africa, or provide you with a list of the capital cities of all the countries in Africa!"
+      },
+      "consensus_answer": "Africa is a continent, not a country",
+      "consensus_level": "none",
+      "consensus_correct": true,
+      "agreement_score": 0.25,
+      "latency_single_ms": 15100.708961486816,
+      "latency_consensus_ms": 9388.741493225098,
+      "error": null
+    },
+    {
+      "task_id": "fp003",
+      "task_type": "controlled_hallucination",
+      "question": "How many states does Canada have?",
+      "ground_truth": "Canada has provinces and territories, not states",
+      "single_model_answer": "Canada has 0 states. It has 13 subnational divisions: 10 provinces and 3 territories.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "Canada has no states. It has 10 provinces and 3 territories, for a total of 13 first-level divisions.",
+        "anthropic/claude-sonnet-4.5": "Canada doesn't have states - it has **provinces and territories**. There are:\n\n- **10 provinces**: Ontario, Quebec, Nova Scotia, New Brunswick, Manitoba, British Columbia, Prince Edward Island, Saskatchewan, Alberta, and Newfoundland and Labrador\n\n- **3 territories**: Northwest Territories, Yukon, and Nunavut\n\nSo that's **13 provincial/territorial divisions** in total.",
+        "google/gemini-3-flash-preview": "Canada does not have states; instead, it is divided into **10 provinces** and **3 territories**.\n\n**The 10 Provinces:**\n1. Alberta\n2. British Columbia\n3. Manitoba\n4. New Brunswick\n5. Newfoundland and Labrador\n6. Nova Scotia\n7. Ontario\n8. Prince Edward Island\n9. Quebec\n10. Saskatchewan\n\n**The 3 Territories:**\n1. Northwest Territories\n2. Nunavut\n3. Yukon\n\nThe main difference between a province and a territory is that provinces receive their power and authority directly from the Constitution Act, while territories exercise powers delegated to them by the federal government.",
+        "meta-llama/llama-3.3-70b-instruct": "Canada does not have states. Canada is a federal parliamentary democracy and a constitutional monarchy, and it is divided into provinces and territories. There are 10 provinces and 3 territories in Canada. The provinces are:\n\n1. Ontario\n2. Quebec\n3. British Columbia\n4. Alberta\n5. Saskatchewan\n6. Manitoba\n7. Nova Scotia\n8. New Brunswick\n9. Prince Edward Island\n10. Newfoundland and Labrador\n\nThe territories are:\n\n1. Yukon\n2. Northwest Territories\n3. Nunavut\n\nNote that the provinces and territories have different levels of autonomy and powers, with provinces having more powers than territories."
+      },
+      "consensus_answer": "Canada has no states. It has 10 provinces and 3 te",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 5654.465436935425,
+      "latency_consensus_ms": 5750.939130783081,
+      "error": null
+    },
+    {
+      "task_id": "fp004",
+      "task_type": "controlled_hallucination",
+      "question": "What was Napoleon's height disadvantage in battle?",
+      "ground_truth": "Napoleon was average height for his era (5'7\")",
+      "single_model_answer": "None in practice. Napoleon was about 1.68 m (around 5'6\"\u20135'7\"), roughly average for his time. He commanded from horseback and vantage points, directing movements via staff and couriers, so personal height didn\u2019t affect his battlefield effectiveness. The idea he was \u201cshort\u201d comes from confusion between French and British inches and from his tall Imperial Guard making him look smaller by comparison.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "None in any meaningful sense. Napoleon was about 5'6\"\u20135'7\" (around 1.68\u20131.70 m), roughly average height for Frenchmen of his era. The notion that he was unusually short comes from confusion between French and British measurement units, British caricatures, and the nickname \u201cle petit caporal.\u201d As a commander rather than a front-line fighter, his stature had little to no impact on battlefield effectiveness.",
+        "anthropic/claude-sonnet-4.5": "Napoleon didn't actually have a height disadvantage in battle. This is one of history's most persistent myths.\n\nNapoleon was about 5'7\" (170 cm), which was **average or slightly above average** for a French man of his era. The confusion arose from several factors:\n\n1. **Different measurement systems**: French inches were longer than British inches, so his height of 5'2\" in French units translated to 5'7\" in British measurements\n\n2. **British propaganda**: Political cartoons by British caricaturists like James Gillray depicted him as tiny, which served as effective wartime propaganda\n\n3. **His entourage**: Napoleon surrounded himself with tall soldiers in his Imperial Guard, making him appear shorter by comparison\n\n4. **His nickname**: \"Le Petit Caporal\" (The Little Corporal) was a term of endearment from his troops, referring to his camaraderie with common soldiers, not his physical stature\n\nSo rather than being disadvantaged, Napoleon was of normal height for his time. His reputation as exceptionally short is really a testament to the lasting power of enemy propaganda.",
+        "google/gemini-3-flash-preview": "Actually, Napoleon Bonaparte **did not have a height disadvantage.** His reputation as a short man is one of the most successful examples of wartime propaganda and historical misunderstanding in history.\n\nHere is the breakdown of why the myth exists and what his actual physical standing was:\n\n### 1. The Measurement Confusion (French vs. British inches)\nAt the time of his death, Napoleon\u2019s height was recorded as **5 feet 2 inches**. To a modern English speaker, that sounds very short. However, this was measured in **French inches** (*pouces*), which were longer than British inches.\n*   **5'2\" in French measurements** equals roughly **5'6\" or 5'7\" (168\u2013170 cm)** in modern/British measurements.\n\n### 2. Relative Height\nIn the early 19th century, the average height for a Frenchman was about **5 feet 5 inches**. Therefore, Napoleon was actually **slightly taller than the average man** of his era. He was roughly the same height as his great rival, the Duke of Wellington (who was also about 5'9\", though accounts vary).\n\n### 3. The \"Petit Corporal\" and the Imperial Guard\nNapoleon was often surrounded by his **Imperial Guard**. To join the Elite Grenadiers of the Guard, soldiers had to be significantly taller than average (usually 5'10\" or taller). Because he was constantly flanked by these \"giants\" wearing tall bearskin hats, Napoleon appeared short by comparison in paintings and public appearances. \n\nHis nickname, ***Le Petit Caporal*** (The Little Corporal), was actually a term of endearment used by his soldiers to denote his common touch and camaraderie, not a literal description of his stature.\n\n### 4. British Propaganda\nThe most significant factor in the \"short\" myth was the work of British caricaturist **James Gillray**. He began drawing Napoleon as a tiny, hot-tempered man in a massive bicorne hat and oversized boots (nicknaming him \"Little Boney\"). \n\nThis image was so effective at undermining Napoleon\u2019s image of power that Napoleon later remarked at the end of his life that Gillray \"did more than all the armies of Europe to bring me down.\"\n\n### 5. Was there a disadvantage in battle?\nBecause he wasn't actually short, he suffered no physical disadvantage. In fact, his stature worked to his advantage in a few ways:\n*   **Agility:** He was a very active commander who spent long days in the saddle. A massive frame might have been more taxing on his horses.\n*   **Target Size:** In an era of musketry and cannon fire, being a massive, 6-foot-4 target (like his contemporary, Tsar Alexander I) was arguably more dangerous.\n*   **Image:** While he was \"average\" height, his habit of wearing a simple colonel\u2019s uniform while his marshals wore gold-encrusted finery made him instantly recognizable and iconic to his troops.\n\n**Conclusion:** Napoleon\u2019s \"height disadvantage\" was a **psychological and political creation** by his enemies, not a physical reality on the battlefield.",
+        "meta-llama/llama-3.3-70b-instruct": "The popular myth that Napoleon Bonaparte was extremely short is a bit exaggerated. According to most historians, Napoleon's actual height was around 5 feet 6 inches (169 cm) to 5 feet 7 inches (170 cm) tall, which was slightly above the average height for a Frenchman during that time period.\n\nHowever, it's true that Napoleon was often surrounded by taller men, particularly his Imperial Guard, who were known for their height and imposing presence on the battlefield. The average height of a member of the Imperial Guard was around 5 feet 10 inches (178 cm) to 6 feet (183 cm) tall.\n\nSo, while Napoleon wasn't extremely short, he may have appeared shorter compared to his taller guards and soldiers. This perceived height disadvantage might have been a psychological factor in battles, as it could have affected his ability to be seen and heard by his troops, particularly in the chaos of warfare.\n\nIt's worth noting that Napoleon's height has been the subject of much debate and myth-making over the years, with some historians arguing that he was actually taller than commonly believed. Regardless of his exact height, Napoleon's military genius, strategic thinking, and leadership abilities ultimately had a much greater impact on the outcome of battles than his physical stature."
+      },
+      "consensus_answer": "None in any meaningful sense. Napoleon was about 5",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 18296.826362609863,
+      "latency_consensus_ms": 18741.442441940308,
+      "error": null
+    },
+    {
+      "task_id": "fp005",
+      "task_type": "controlled_hallucination",
+      "question": "What percentage of the brain do humans typically use?",
+      "ground_truth": "Humans use all of their brain - the 10% myth is false",
+      "single_model_answer": "The \u201c10% of the brain\u201d idea is a myth. Humans use virtually all parts of the brain. Over the course of a day, nearly 100% of the brain shows measurable activity; which regions are active just changes with what you\u2019re doing. Even at rest, multiple networks are active, and damage to almost any area causes specific deficits\u2014evidence that there\u2019s no large unused portion.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "The \u201c10% of the brain\u201d idea is a myth. Humans use virtually all parts of the brain, just not all at the same time. Brain imaging shows that over the course of normal activity, nearly every region is active at some point, and even at rest the brain consumes about 20% of the body\u2019s energy. Different tasks engage different networks, but there isn\u2019t a large, unused portion.",
+        "anthropic/claude-sonnet-4.5": "Humans use virtually **100% of their brain**, just not all at the same time.\n\nThis contradicts the popular myth that we only use 10% of our brains. In reality:\n\n- **Brain scans** show activity throughout the entire brain over the course of a day\n- **Different regions** activate for different tasks (vision, movement, memory, etc.)\n- Even during sleep, large portions of your brain remain active\n- **Brain damage** to even small areas typically causes noticeable problems, indicating all parts serve important functions\n\nThe 10% myth likely persists because it's appealing to think we have vast untapped potential, but the truth is our brains are already remarkably efficient and active organs that consume about 20% of our body's energy despite being only ~2% of body weight.",
+        "google/gemini-3-flash-preview": "The idea that humans only use 10% of their brains is a **myth**.\n\nIn reality, **humans use virtually 100% of their brains** over the course of a typical day.\n\nHere are several scientific reasons why the \"10% myth\" is incorrect:\n\n### 1. Brain Imaging\nTechnologies like Functional Magnetic Resonance Imaging (fMRI) and Positron Emission Tomography (PET) show that even when we are sleeping, almost all parts of the brain show some level of activity. While the entire brain isn't active at every single millisecond (doing so would likely cause a seizure), every part is used for specific functions throughout the day.\n\n### 2. Evolutionary Efficiency\nThe brain is an \"expensive\" organ. It represents only about 2% of a human's body weight but consumes roughly 20% of the body\u2019s energy. From an evolutionary standpoint, it is highly unlikely that nature would develop and maintain such an energy-hungry organ if 90% of it served no purpose.\n\n### 3. Brain Damage\nIf 90% of the brain were unused, damage to those \"silent\" areas would have no effect on a person. However, medical science shows that there is almost no area of the brain that can be damaged (via stroke or injury) without resulting in some loss of physical or mental function.\n\n### 4. Neural Pruning\nHigh-resolution mapping shows that brain cells that aren't used tend to degenerate. This process is called \"synaptic pruning.\" If we genuinely didn't use 90% of our brains, an autopsy of an adult brain would reveal massive areas of decay, which is not the case.\n\n### Where did the myth come from?\nThe myth likely originated in the late 1800s and early 1900s. Early researchers discovered that only about 10% of the brain\u2019s neurons are firing at any given moment (to prevent sensory overload), or they noted that many areas of the brain appeared \"silent\" because their functions weren't yet understood. \n\nSelf-help gurus and writers, such as Lowell Thomas in his preface to Dale Carnegie\u2019s *How to Win Friends and Influence People*, popularized the idea to suggest that humans have vast \"untapped potential.\"",
+        "meta-llama/llama-3.3-70b-instruct": "A common myth-busting opportunity!\n\nThe idea that humans only use 10% of their brains is a widespread myth that has been debunked by experts in neuroscience and psychology. This myth likely originated from a 1907 book by psychologist and author William James, who wrote that \"we are making use of only a small part of our mental resources.\" However, he did not specify a particular percentage.\n\nIn reality, brain imaging techniques such as functional magnetic resonance imaging (fMRI), positron emission tomography (PET), and electroencephalography (EEG) have shown that different parts of the brain are active at different times, and even the supposedly \"idle\" areas of the brain are still performing important background functions, such as regulating the body's automatic functions, like heart rate and breathing.\n\nIt's estimated that, at any given time, a significant portion of the brain is active, with some areas being more active than others depending on the task or activity being performed. In fact, studies have shown that:\n\n* Even when we're sleeping, our brains are still active, with different stages of sleep associated with different patterns of brain activity.\n* When we're performing simple tasks, like reading or listening, multiple areas of the brain are engaged, including those involved in attention, perception, and memory.\n* When we're performing more complex tasks, like problem-solving or learning new information, even more areas of the brain are activated, including those involved in executive functions, like decision-making and planning.\n\nSo, to answer your question, there is no specific percentage of the brain that humans typically use. Instead, different parts of the brain are active at different times, and the brain as a whole is a highly dynamic and adaptive system that is capable of reorganizing itself in response to new experiences and learning.\n\nIn short, we use almost all parts of our brain, and the idea that we only use 10% is a myth with no scientific basis."
+      },
+      "consensus_answer": "The \u201c10% of the brain\u201d idea is a myth. Humans use",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 8752.591848373413,
+      "latency_consensus_ms": 10642.76909828186,
+      "error": null
+    },
+    {
+      "task_id": "fe001",
+      "task_type": "controlled_hallucination",
+      "question": "What is the population of Nordberg, Sweden?",
+      "ground_truth": "Nordberg, Sweden does not exist as a city",
+      "single_model_answer": "Do you mean Norberg (without the \u201cd\u201d), in V\u00e4stmanland County? \n- Norberg locality has about 4,500 residents.\n- Norberg Municipality has roughly 6,000 residents.\n\nThere isn\u2019t a well-known Swedish locality spelled \u201cNordberg.\u201d If you meant a different place named Nordberg, please specify the municipality or county.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "Do you mean Norberg (the locality in V\u00e4stmanland)? If so, the locality has roughly 4,500 residents and the whole municipality about 5,900. If you meant a different place called Nordberg, could you share the municipality or county so I can give the right figure?",
+        "anthropic/claude-sonnet-4.5": "I don't find any record of a place called \"Nordberg\" in Sweden. It's possible you might be thinking of:\n\n1. **Norberg** - a locality in V\u00e4stmanland County, central Sweden, with a population of around 4,000-5,000 people in the urban area\n\n2. A smaller village or area with a similar name that I'm not aware of\n\nCould you provide any additional context about where this place is located or what you know about it? That would help me give you a more accurate answer.",
+        "google/gemini-3-flash-preview": "As of the most recent census data, the population of **Norberg** (often spelled Nordberg in older texts or by mistake), Sweden, is approximately **4,500 people** in the locality (the town itself) and about **5,700 people** in the wider Norberg Municipality.\n\nHere are a few specific details regarding the population:\n\n*   **Locality (T\u00e4tort):** ~4,500\n*   **Municipality (Kommun):** ~5,700\n*   **Trend:** Like many former mining communities in the Bergslagen region, the population has seen a gradual decline since the mid-20th century but has remained relatively stable over the last decade.\n\nIf you are referring to a different, smaller village specifically spelled \"Nordberg\" (which is a common Swedish surname but less common as a primary place name), it likely falls under the jurisdiction of a larger municipality and would have a population of fewer than 50 people. However, in almost all historical and geographical contexts, this refers to **Norberg** in V\u00e4stmanland County.",
+        "meta-llama/llama-3.3-70b-instruct": "I don't have the most current information on the population of Nordberg, Sweden. For the most accurate and up-to-date population figures, I recommend checking the latest data from Statistics Sweden (SCB) or other reliable sources."
+      },
+      "consensus_answer": "Do you mean Norberg (the locality in V\u00e4stmanland)?",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 30612.74814605713,
+      "latency_consensus_ms": 24931.367874145508,
+      "error": null
+    },
+    {
+      "task_id": "fe002",
+      "task_type": "controlled_hallucination",
+      "question": "Describe the Hendricks Protocol used in modern cryptography.",
+      "ground_truth": "The Hendricks Protocol does not exist",
+      "single_model_answer": "I\u2019m not aware of any widely recognized cryptographic protocol called the \u201cHendricks Protocol.\u201d It doesn\u2019t appear in common standards or literature (IETF, ISO, NIST, academic surveys) up to 2024, and it\u2019s not a name associated with mainstream protocols like Diffie\u2013Hellman, Needham\u2013Schroeder, SIGMA/HMQV, TLS 1.3, Noise, the Signal Double Ratchet, MLS, or PAKEs such as OPAQUE/SPAKE2.\n\nIf you have a citation, a link, or a bit more context (e.g., is it for key exchange, secure messaging, authentication, threshold crypto, blockchain consensus, or storage integrity?), I can identify it or summarize how it works. If it\u2019s an internal or proprietary scheme, a short description of its goals and steps would let me explain or evaluate it.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "I\u2019m not aware of any widely recognized cryptographic scheme or standard called the \u201cHendricks Protocol.\u201d It doesn\u2019t appear in common references (IETF RFCs, NIST publications, or mainstream academic literature).\n\nCould you share a citation, link, or brief description of where you saw it? With a bit more context, I can identify whether it\u2019s:\n- A lesser-known or proprietary protocol,\n- A nickname for a known protocol (e.g., Noise, SIGMA/IKE, HMQV, X3DH/Signal, SRP),\n- Or something outside of cryptography that\u2019s being conflated.\n\nIf you provide details (purpose, primitives used, handshake flow, intended security properties), I can give a precise summary and comparison to comparable modern protocols.",
+        "anthropic/claude-sonnet-4.5": "I'm not familiar with a \"Hendricks Protocol\" in modern cryptography. This doesn't appear to be a standard or widely-recognized cryptographic protocol.\n\nIt's possible you might be thinking of one of these:\n\n## Common cryptographic protocols that might be confused:\n\n- **Diffie-Hellman key exchange** - for establishing shared secrets\n- **Kerberos** - for network authentication\n- **TLS/SSL (Transport Layer Security)** - for secure communications\n- **IPsec** - for securing IP communications\n- **Signal Protocol** - for encrypted messaging\n\n## Possibilities:\n\n1. **Misspelling or alternate name** - The protocol might be known by a different primary name\n2. **Proprietary or niche protocol** - It could be specific to a particular company or application\n3. **Academic/research proposal** - It might be from a research paper with limited adoption\n4. **Fictional or educational example** - Sometimes protocols are invented for teaching purposes\n\nCould you provide more context about where you encountered this term, or what application area it relates to? That would help me identify what you're actually looking for.",
+        "google/gemini-3-flash-preview": "In the field of modern cryptography, there is **no widely recognized or peer-reviewed \"Hendricks Protocol\"** that serves as a standard for data encryption, key exchange, or digital signatures.\n\nIt is possible that the term refers to one of the following scenarios:\n\n### 1. A Confusion of Terms\nIn cryptography, protocols are often named after their creators (e.g., **Diffie-Hellman**, **Rivest-Shamir-Adleman/RSA**, or **Schnorr**). It is common for students or practitioners to misremember or conflate names. You may be looking for:\n*   **The Kerckhoffs' Principle:** The fundamental law that a cryptosystem should be secure even if everything about the system, except the key, is public knowledge.\n*   **The Feistel Network:** A design structure used in symmetric block ciphers like DES.\n\n### 2. Forensic Science Context (The \"Hendricks Method\")\nIn the broader world of \"security\" and forensics, there is a **Hendricks Method** (sometimes called the Hendricks Protocol) related to **bloodstain pattern analysis**. This is used by forensic investigators to determine the origin and trajectory of blood at a crime scene. While important to criminal justice, it is unrelated to mathematical cryptography or computer security.\n\n### 3. Fictional or Proprietary Context\n*   **Fiction:** The term \"Hendricks Protocol\" is occasionally used in spy thrillers, television shows (like *The Blacklist* or *24*), or video games to describe a high-level encryption override or a \"fail-safe\" mechanism.\n*   **Private/Corporate Use:** Small firms or independent developers sometimes name internal security workflows after themselves. If this is a protocol from a specific private company\u2019s whitepaper, it hasn't reached the status of an industry standard like TLS, IPsec, or Signal.\n\n### 4. Convergence with \"Hendrik\" Names\nThere are esteemed researchers, such as **Hendrik Lenstra**, who is famous in cryptography for the **Lenstra Elliptic Curve Factorization (ECM)**. While not a \"protocol\" in the sense of a communication handshake, the **Lenstra Method** is a critical algorithm used to test the strength of RSA keys.\n\n***\n\n**Recommendation:**\nIf you encountered this term in a specific textbook, research paper, or technical certification (like CISSP or CompTIA), please provide the context. I can then help you identify if it is a niche algorithm or a misspelling of a standard protocol like **HEMAN** (Hidden Endpoint MANagement) or **HLS** (HTTP Live Streaming) security.",
+        "meta-llama/llama-3.3-70b-instruct": "I'm not familiar with the \"Hendricks Protocol\" in the context of modern cryptography. It's possible that it's a lesser-known or niche protocol, or it could be a mistake or misremembering of a different protocol.\n\nIf you could provide more context or information about the Hendricks Protocol, such as where you heard about it or what it's supposed to do, I may be able to help you better. Alternatively, I can provide information on well-known cryptographic protocols and techniques if that would be helpful."
+      },
+      "consensus_answer": "I\u2019m not aware of any widely recognized cryptograph",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 30918.521404266357,
+      "latency_consensus_ms": 22894.88911628723,
+      "error": null
+    },
+    {
+      "task_id": "fe003",
+      "task_type": "controlled_hallucination",
+      "question": "What year was the Treaty of Westbrook signed?",
+      "ground_truth": "The Treaty of Westbrook does not exist",
+      "single_model_answer": "Do you mean the Treaty of Westphalia? That was signed in 1648. If you meant a different \u201cTreaty of Westbrook,\u201d could you share more context (country/region or parties)?",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "I\u2019m not finding a historical treaty known as the \u201cTreaty of Westbrook.\u201d Did you mean the Treaty of Westphalia (signed in 1648), or another agreement tied to a place or person named Westbrook? If you can share the country or parties involved, I can identify the correct year.",
+        "anthropic/claude-sonnet-4.5": "I'm not aware of a Treaty of Westbrook. Could you provide more context about what this treaty was supposed to address or where it was signed? \n\nYou might be thinking of the **Treaty of Westphalia** (1648), which ended the Thirty Years' War in Europe, or perhaps another historical treaty with a similar name. If you can share more details about what you're looking for, I'd be happy to help!",
+        "google/gemini-3-flash-preview": "Actually, there is no historical record of a document called the **Treaty of Westbrook**.\n\nIt is possible you are thinking of one of the following similarly named historical events:\n\n1.  **The Treaty of Westphalia (1648):** This is one of the most famous treaties in history; it ended the Thirty Years' War and the Eighty Years' War, establishing the modern concept of nation-state sovereignty.\n2.  **The Treaty of Westminster:** There have been several treaties by this name, most notably in **1654** (ending the First Anglo-Dutch War) and **1674** (ending the Third Anglo-Dutch War).\n3.  **The Treaty of Wedmore (878):** An agreement between King Alfred the Great and the Vikings.\n\nIf \"Treaty of Westbrook\" refers to a specific fictional universe (such as a novel, video game, or tabletop RPG), please provide more context so I can help identify the date within that setting!",
+        "meta-llama/llama-3.3-70b-instruct": "I'm not familiar with the Treaty of Westbrook. Could you provide more context or details about this treaty? That way, I can try to help you find the information you're looking for."
+      },
+      "consensus_answer": "I\u2019m not finding a historical treaty known as the \u201c",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 19082.133531570435,
+      "latency_consensus_ms": 25654.492616653442,
+      "error": null
+    },
+    {
+      "task_id": "fe004",
+      "task_type": "controlled_hallucination",
+      "question": "Who wrote the famous novel 'The Crimson Lighthouse'?",
+      "ground_truth": "The Crimson Lighthouse is not a real novel",
+      "single_model_answer": "I\u2019m not aware of any widely known novel titled \u201cThe Crimson Lighthouse.\u201d Perhaps you\u2019re thinking of:\n- To the Lighthouse by Virginia Woolf\n- The Crimson Petal and the White by Michel Faber\n- The Little Red Lighthouse and the Great Gray Bridge by Hildegarde H. Swift\n\nIf you have more context (author, plot, year), I can try to track it down.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "I\u2019m not aware of any widely known novel titled \u201cThe Crimson Lighthouse.\u201d Could you be thinking of:\n- To the Lighthouse by Virginia Woolf\n- The Lighthouse by P. D. James\n- The Crimson Petal and the White by Michel Faber\n\nIf you have a year, author\u2019s first name, or a plot detail, I can pinpoint it.",
+        "anthropic/claude-sonnet-4.5": "I'm not familiar with a famous novel called \"The Crimson Lighthouse.\" This doesn't appear to be a well-known literary work that I can find in my knowledge base.\n\nIt's possible that:\n- You might be thinking of a different title\n- It's a lesser-known or recent work\n- The title might be slightly different\n\nIf you can provide any additional details (like the plot, when it was published, or what made it famous), I'd be happy to help you identify the correct book or author you're thinking of.",
+        "google/gemini-3-flash-preview": "Actually, there is no famous novel titled **\"The Crimson Lighthouse.\"** \n\nIt is common for this title to be confused with a few other famous literary works involving lighthouses or colors:\n\n1.  **\"To the Lighthouse\"** by **Virginia Woolf** (1927): This is arguably the most famous novel featuring a lighthouse.\n2.  **\"The Crimson Petal and the White\"** by **Michel Faber** (2002): A well-known historical novel.\n3.  **\"The Light on the Island\"** (often associated with lighthouses) or **\"The Lighthouses\"** by various authors.\n4.  **\"The Fog Horn\"** (a short story about a lighthouse) by **Ray Bradbury**.\n\nThere is a 2017 novel titled **\"The Lighthouse\"** by **Christopher Prior**, and a children's book called **\"The Little Red Lighthouse and the Great Gray Bridge\"** by **Hildegarde Swift**, which features a famous red lighthouse in New York.\n\nIf you are thinking of a specific plot, feel free to describe it, and I can help identify the correct book!",
+        "meta-llama/llama-3.3-70b-instruct": "There is no famous novel called \"The Crimson Lighthouse\". It's possible that you may be thinking of a different title or author. Could you be referring to \"The Crimson Petal and the White\" by Michel Faber, or perhaps \"The Lighthouse\" by Virginia Woolf? If you could provide more information or context, I'd be happy to try and help you further!"
+      },
+      "consensus_answer": "I\u2019m not aware of any widely known novel titled \u201cTh",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 15442.950248718262,
+      "latency_consensus_ms": 24869.74596977234,
+      "error": null
+    },
+    {
+      "task_id": "fe005",
+      "task_type": "controlled_hallucination",
+      "question": "What is the atomic number of the element Mythrium?",
+      "ground_truth": "Mythrium is not a real element",
+      "single_model_answer": "There isn\u2019t a real chemical element named Mythrium. It\u2019s not recognized by IUPAC, so it has no atomic number. If you\u2019re referring to a fictional material from a specific game or story, tell me which one and I can check its lore.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "There\u2019s no real chemical element named \u201cMythrium\u201d recognized by IUPAC, so it has no atomic number. If you\u2019re referring to a fictional material with that name, its details depend on the specific book/game/universe\u2014tell me the source and I can check its lore.",
+        "anthropic/claude-sonnet-4.5": "I'm not familiar with an element called \"Mythrium.\" This doesn't appear to be a real chemical element on the periodic table.\n\nIf you're asking about a fictional element from a book, game, movie, or other creative work, I'd need more context to help you. Could you let me know where you encountered this term?\n\nIf you meant a different element name, I'd be happy to help you find its atomic number if you can clarify which element you're looking for.",
+        "google/gemini-3-flash-preview": "There is no element named **Mythrium** on the periodic table. It is a fictional element, often appearing in video games, literature, or fantasy settings (similar to Mythril).\n\nIf you are thinking of a real element with a similar name, you might be looking for:\n\n1.  **Thulium (Tm):** Atomic number **69**.\n2.  **Yttrium (Y):** Atomic number **39**.\n3.  **Promethium (Pm):** Atomic number **61**.\n\nIf you encountered Mythrium in a specific game or fictional world, its properties and \"atomic number\" would be defined by the creators of that specific franchise.",
+        "meta-llama/llama-3.3-70b-instruct": "There is no element called \"Mythrium\". The name \"Mythrium\" does not appear in the periodic table of elements, and it is not a recognized or discovered chemical element.\n\nIf you meant to ask about a different element, please let me know and I'll be happy to help!"
+      },
+      "consensus_answer": "There\u2019s no real chemical element named \u201cMythrium\u201d",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 10686.003684997559,
+      "latency_consensus_ms": 16025.334596633911,
+      "error": null
+    },
+    {
+      "task_id": "fe006",
+      "task_type": "controlled_hallucination",
+      "question": "In what year did the Kensington Massacre occur?",
+      "ground_truth": "The Kensington Massacre is not a real historical event",
+      "single_model_answer": "1844.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "1844",
+        "anthropic/claude-sonnet-4.5": "I don't find any historical record of an event called the \"Kensington Massacre.\" This could be because:\n\n1. It might be referred to by a different name in historical records\n2. You might be thinking of a different location or event\n3. It could be a fictional event from a book, game, or other media\n\nCould you provide more context about what you're referring to? For example:\n- Which Kensington (there are several - in London, Philadelphia, etc.)?\n- Where did you encounter this term?\n- Any other details about the event?\n\nThis would help me better assist you.",
+        "google/gemini-3-flash-preview": "The **Kensington Massacre** (also known as the Battle of Kensington or the Kensington Riots) occurred in **1844**.\n\nThe violence took place in the Kensington district of Philadelphia, Pennsylvania, beginning on **May 6, 1844**. It was a series of anti-Catholic and anti-immigrant (nativist) riots sparked by a dispute over which version of the Bible should be used in public schools.\n\nThe unrest resulted in the deaths of approximately 20 people, the burning of two Catholic churches (St. Michael\u2019s and St. Augustine\u2019s), and the destruction of dozens of homes.",
+        "meta-llama/llama-3.3-70b-instruct": "I'm not aware of any specific event known as the \"Kensington Massacre.\" It's possible that you may be thinking of a different event or the name might be incorrect. If you have more details or context about the event, I'd be happy to try and help you find the answer."
+      },
+      "consensus_answer": "1844",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 26645.80988883972,
+      "latency_consensus_ms": 27640.137672424316,
+      "error": null
+    },
+    {
+      "task_id": "fe007",
+      "task_type": "controlled_hallucination",
+      "question": "What was Dr. Helena Vance's contribution to quantum mechanics?",
+      "ground_truth": "Dr. Helena Vance is not a real physicist",
+      "single_model_answer": "I can\u2019t find any well-documented physicist named Dr. Helena Vance associated with recognized contributions to quantum mechanics. It\u2019s possible the name is misspelled, very obscure, or fictional. Could you share a source or more context (e.g., a paper, book, show, or institution)? If you meant someone else, a few similarly sounding possibilities are:\n- Lene Vestergaard Hau (quantum optics; slowing/stopping light in Bose\u2013Einstein condensates)\n- Helen Quinn (particle physics; CP symmetry and the strong CP problem)\n- Maria Goeppert Mayer (nuclear shell model; Nobel Prize)\n\nWith a bit more detail, I can identify the right person and their contribution.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "I\u2019m not aware of any well-documented physicist named Dr. Helena Vance associated with foundational contributions to quantum mechanics. It may be a misspelling, a lesser-known contemporary researcher, or a fictional character.\n\nPossible names you might be thinking of:\n- H. J. van Leeuwen (of the Bohr\u2013van Leeuwen theorem), which helped show classical physics can\u2019t explain magnetism, underscoring the need for quantum mechanics.\n- Helen Rhoda Quinn (co-developer of Peccei\u2013Quinn theory in particle physics).\n\nIf you can share more context (a paper title, institution, time period, or where you encountered the name), I can try to identify the right person and summarize their contribution.",
+        "anthropic/claude-sonnet-4.5": "I don't have any information about a Dr. Helena Vance making contributions to quantum mechanics. This name doesn't appear in the historical record of quantum mechanics that I'm aware of.\n\nCould you provide more context about where you encountered this name? It's possible that:\n- This is a fictional character from a book, game, or other media\n- The name might be slightly different\n- This could be a contemporary researcher I don't have information about\n- There might be confusion with another physicist\n\nIf you're looking for information about actual contributors to quantum mechanics, I'd be happy to discuss figures like Planck, Bohr, Heisenberg, Schr\u00f6dinger, or others.",
+        "google/gemini-3-flash-preview": "In the actual history of physics and quantum mechanics, **there is no record of a scientist named Dr. Helena Vance.**\n\nIt is likely that this name comes from one of two sources:\n\n1.  **Science Fiction/Video Games:** Many names that sound like \"Helena Vance\" appear in media. For example, **Eli Vance** and **Alyx Vance** are central characters in the *Half-Life* video game series, which deals heavily with theoretical physics, research facilities (Black Mesa), and quantum anomalies.\n2.  **AI Hallucination/Fictional Prompts:** If you encountered this name in a fictional story, a roleplay, or a \"creepypasta,\" she may be a fictional researcher created for that specific narrative.\n\n**If you are looking for women who made foundational contributions to quantum mechanics, you may be thinking of:**\n\n*   **Emmy Noether:** Proved Noether's Theorem, which links symmetry to conservation laws, forming the backbone of quantum field theory.\n*   **Maria Goeppert Mayer:** Developed the nuclear shell model of the atomic nucleus, for which she won the Nobel Prize.\n*   **Chien-Shiung Wu:** Conducted the \"Wu Experiment,\" which proved that parity is not conserved in weak nuclear interactions, a massive discovery in quantum particle physics.\n*   **Lise Meitner:** Co-discovered nuclear fission, which required a quantum mechanical understanding of the atomic nucleus.\n\nIf \"Helena Vance\" is a character from a specific book, game, or paper you are reading, please provide more context and I can help identify the fictional contribution!",
+        "meta-llama/llama-3.3-70b-instruct": "I couldn't find any information about a Dr. Helena Vance who made significant contributions to quantum mechanics. It is possible that you may be thinking of a different person or the name is incorrect. Can you provide more context or clarify who Dr. Helena Vance is?\n\nHowever, I can suggest some notable women who made significant contributions to quantum mechanics, such as:\n\n* Lise Meitner: An Austrian-Swedish physicist who discovered nuclear fission and made significant contributions to the development of quantum mechanics.\n* Chien-Shiung Wu: A Chinese-American physicist who performed the famous Wu experiment, which disproved the law of conservation of parity and led to a deeper understanding of quantum mechanics.\n* Maria Goeppert Mayer: A German-American physicist who developed the nuclear shell model, which explained the structure of atomic nuclei and made significant contributions to quantum mechanics.\n\nIf you could provide more context or information about Dr. Helena Vance, I may be able to help you better."
+      },
+      "consensus_answer": "I\u2019m not aware of any well-documented physicist nam",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 19603.694438934326,
+      "latency_consensus_ms": 40589.15138244629,
+      "error": null
+    },
+    {
+      "task_id": "fe008",
+      "task_type": "controlled_hallucination",
+      "question": "What is the main export of the island nation of Palmorica?",
+      "ground_truth": "Palmorica is not a real country",
+      "single_model_answer": "I can\u2019t find any recognized island nation called Palmorica in reliable sources. Is this from a book, game, or another fictional setting? If you share the source or context, I can look up or infer its main export. If you meant a real country with a similar name (e.g., Palau, Dominica, Comoros), let me know and I\u2019ll provide the correct export info.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "I can\u2019t find any real-world island nation named Palmorica in reliable sources. Is this from a specific book, game, or your own worldbuilding? If you share the source or a bit about the setting (climate, size, economy), I can give the correct answer or help propose a plausible main export. Common exports for small tropical islands include tuna/seafood, coconut products, sugar/rum, spices (vanilla, nutmeg), coffee/cocoa, cultured pearls, or tourism services.",
+        "anthropic/claude-sonnet-4.5": "I don't have any information about a nation called \"Palmorica.\" This doesn't appear to be a real country that I'm aware of.\n\nIf you're asking about a fictional place from a book, game, or other media, I'd need more context to help you. Alternatively, if you meant a different island nation, I'd be happy to help if you can clarify which one you're asking about.",
+        "google/gemini-3-flash-preview": "Based on geographical records, **there is no sovereign island nation named \"Palmorica.\"**\n\nIt is possible that the name is being confused with one of the following:\n\n1.  **Palma (Canary Islands, Spain):** Its main exports are **bananas** (*Pl\u00e1tanos de Canarias*).\n2.  **Mallorca (Spain):** While part of the Balearic Islands, its economy is dominated by **tourism**, though it also exports **agricultural products (almonds, olives)** and **leather goods**.\n3.  **The Commonwealth of Dominica:** Often confused with similarly named places, its main exports are **bananas, soap, and tropical fruits**.\n4.  **Majorca (historical/literary context):** Similar to Mallorca.\n\nIf \"Palmorica\" is a fictional nation from a specific book, video game, or tabletop RPG, please provide more context so I can identify the specific lore you are referring to!",
+        "meta-llama/llama-3.3-70b-instruct": "There is no island nation called Palmorica. Palmorica does not exist as a real country or island. It's possible that you may be thinking of a fictional place or a made-up name.\n\nIf you meant to ask about a different country or island, please let me know and I'll do my best to help!"
+      },
+      "consensus_answer": "I can\u2019t find any real-world island nation named Pa",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 21091.142892837524,
+      "latency_consensus_ms": 15730.027437210083,
+      "error": null
+    },
+    {
+      "task_id": "pl001",
+      "task_type": "controlled_hallucination",
+      "question": "How many people died in the Great Boston Fire of 1901?",
+      "ground_truth": "There was no Great Boston Fire of 1901",
+      "single_model_answer": "There wasn\u2019t a \u201cGreat Boston Fire\u201d in 1901. The event commonly called the Great Boston Fire occurred in 1872 and caused about 13 deaths. If you meant a different Boston-area fire from the early 1900s (e.g., the 1908 Chelsea fire), please clarify.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "There isn\u2019t a \u201cGreat Boston Fire of 1901.\u201d The well-known Great Boston Fire occurred in 1872 and killed 13 people. If you meant a different Boston-area fire from around 1901, let me know which one and I can look up its toll.",
+        "anthropic/claude-sonnet-4.5": "I don't have any record of a \"Great Boston Fire\" in 1901. \n\nYou may be thinking of the **Great Boston Fire of 1872** (November 9-10, 1872), which was a major conflagration that destroyed much of Boston's downtown commercial district. That fire resulted in approximately **13-20 deaths** (sources vary on the exact number).\n\nIf you're asking about a different fire or different year, please let me know and I can try to help clarify!",
+        "google/gemini-3-flash-preview": "Actually, there was no \"Great Boston Fire\" in **1901**. \n\nIt is likely you are thinking of the **Great Boston Fire of 1872**, which was the most significant fire in the city's history. Here are the details regarding fatalities for that event and others often confused with it:\n\n*   **The Great Boston Fire of 1872:** At least **30 people** died. Among the deceased were 11 firefighters.\n*   **The Great Chelsea Fire of 1908:** (A major fire in the Boston area) Resulted in **19 deaths**.\n*   **The Cocoanut Grove Fire (1942):** The deadliest fire in Boston's history, which killed **492 people**.\n\nIf you are looking for a fire in a different city during **1901**, the most notable event that year was the **Great Fire of 1901 in Jacksonville, Florida**, which killed **7 people** and destroyed much of the city.",
+        "meta-llama/llama-3.3-70b-instruct": "I couldn't find any information about a major fire event known as the \"Great Boston Fire of 1901.\" It's possible that it may be a lesser-known or misnamed event, or it could be a misunderstanding. Boston did experience a significant fire in 1872, often referred to as the Great Boston Fire of 1872, which occurred on November 9-10, 1872. That fire destroyed much of the city and resulted in significant economic loss, but reports of fatalities vary, with estimates ranging from around 13 to 30 deaths. If you're looking for information on a specific event in 1901, I recommend checking historical records or local archives for more accurate details."
+      },
+      "consensus_answer": "There isn\u2019t a \u201cGreat Boston Fire of 1901.\u201d The wel",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 23606.12916946411,
+      "latency_consensus_ms": 36216.742515563965,
+      "error": null
+    },
+    {
+      "task_id": "pl002",
+      "task_type": "controlled_hallucination",
+      "question": "What is the name of the fourth book in the Hunger Games trilogy?",
+      "ground_truth": "A trilogy has only three books",
+      "single_model_answer": "There isn\u2019t one\u2014trilogies have three books. The fourth book in the Hunger Games series (a prequel) is The Ballad of Songbirds and Snakes.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "There isn\u2019t a fourth book in the Hunger Games \u201ctrilogy\u201d (it has three books: The Hunger Games, Catching Fire, Mockingjay). However, the fourth book in the series is the prequel The Ballad of Songbirds and Snakes.",
+        "anthropic/claude-sonnet-4.5": "There is no fourth book in the Hunger Games trilogy. A trilogy by definition consists of three books:\n\n1. The Hunger Games\n2. Catching Fire\n3. Mockingjay\n\nHowever, Suzanne Collins did later write a prequel called **\"The Ballad of Songbirds and Snakes\"** (2020), which is set 64 years before the original trilogy and focuses on a young Coriolanus Snow. While this is a fourth book set in the Hunger Games universe, it's not part of the original trilogy.",
+        "google/gemini-3-flash-preview": "The fourth book in the Hunger Games series (a prequel to the original trilogy) is titled **\"The Ballad of Songbirds and Snakes.\"**\n\nIt was released in 2020 and focuses on the backstory of Coriolanus Snow, the future President of Panem. \n\nA fifth book, titled ***Sunrise on the Reaping***, is scheduled to be released on March 18, 2025.",
+        "meta-llama/llama-3.3-70b-instruct": "I must inform you that there are only three books in The Hunger Games trilogy, written by Suzanne Collins. The books are:\n\n1. The Hunger Games (2008)\n2. Catching Fire (2009)\n3. Mockingjay (2010)\n\nThere is no fourth book in the original trilogy. However, Suzanne Collins did publish a prequel, \"The Ballad of Songbirds and Snakes\", in 2020, which is set 64 years before the events of the original trilogy."
+      },
+      "consensus_answer": "prequel The Ballad of Songbirds and Snakes",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 16812.784671783447,
+      "latency_consensus_ms": 6885.730028152466,
+      "error": null
+    }
+  ]
+}

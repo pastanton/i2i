@@ -1,0 +1,78 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T20:13:17.533624",
+  "task_type": "factual_qa",
+  "total_tasks": 3,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "The capital of Australia is Canberra. I am highly confident in this information, as it is a well-documented and widely recognized fact. There are no significant caveats or limitations associated with this information.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 1991.6622638702393,
+      "latency_consensus_ms": 1995.4330921173096,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "'1984' was written by George Orwell. My confidence level in this information is very high, as it is a well-documented fact. There are no significant caveats or limitations associated with this answer.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "low",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 1331.3899040222168,
+      "latency_consensus_ms": 1327.4571895599365,
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The largest ocean on Earth is the Pacific Ocean. It covers an area of about 63 million square miles (165 million square kilometers), making it larger than all of Earth's landmasses combined. My confidence level in this information is very high, as it is a well-established fact in geography. There are no significant caveats or limitations to this information.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 2450.3390789031982,
+      "latency_consensus_ms": 2120.4886436462402,
+      "error": null
+    }
+  ],
+  "single_model_accuracy": 100.0,
+  "consensus_accuracy": 0.0,
+  "high_consensus_accuracy": 0,
+  "medium_consensus_accuracy": 0,
+  "low_consensus_accuracy": 0,
+  "avg_latency_single_ms": 1924.4637489318848,
+  "avg_latency_consensus_ms": 1814.4596417744954,
+  "consensus_level_distribution": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "NONE/CONTRADICTORY": 0
+  }
+}

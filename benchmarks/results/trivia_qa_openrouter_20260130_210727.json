@@ -1,0 +1,438 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T21:07:27.852543",
+  "task_type": "factual_qa",
+  "models": [
+    "openai/gpt-5",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview",
+    "meta-llama/llama-3.3-70b-instruct"
+  ],
+  "total_tasks": 20,
+  "single_model_accuracy": 90.0,
+  "consensus_accuracy": 95.0,
+  "high_consensus_accuracy": 100.0,
+  "high_consensus_count": 17,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "Canberra.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Canberra.",
+        "anthropic/claude-sonnet-4.5": "The capital of Australia is **Canberra**.\n\nCanberra is located in the Australian Capital Territory (ACT) in southeastern Australia, between Sydney and Melbourne. It was purpose-built as the capital and officially became the seat of government in 1913.",
+        "google/gemini-3-flash-preview": "The capital of Australia is **Canberra**.",
+        "meta-llama/llama-3.3-70b-instruct": "The capital of Australia is Canberra."
+      },
+      "consensus_answer": "Canberra",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5333.571434020996,
+      "latency_consensus_ms": 4920.658111572266,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "George Orwell.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "George Orwell (the pen name of Eric Arthur Blair).",
+        "anthropic/claude-sonnet-4.5": "George Orwell wrote '1984'. The novel was published in 1949.",
+        "google/gemini-3-flash-preview": "**George Orwell** wrote *1984*. It was published in 1949.",
+        "meta-llama/llama-3.3-70b-instruct": "The classic dystopian novel \"1984\" was written by George Orwell."
+      },
+      "consensus_answer": "George Orwell",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3304.9674034118652,
+      "latency_consensus_ms": 6236.360788345337,
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The Pacific Ocean\u2014it covers about 165 million square kilometers (63 million square miles), making it the largest.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "The Pacific Ocean.",
+        "anthropic/claude-sonnet-4.5": "The Pacific Ocean is the largest ocean on Earth. It covers approximately 165 million square kilometers (about 63 million square miles), which is roughly 46% of the world's ocean surface and about one-third of the total Earth's surface area.",
+        "google/gemini-3-flash-preview": "The largest ocean on Earth is the **Pacific Ocean**.\n\nIt covers more than 60 million square miles (155 million square kilometers), making it larger than all of Earth's landmasses combined. It also contains the Mariana Trench, the deepest point on Earth.",
+        "meta-llama/llama-3.3-70b-instruct": "The largest ocean on Earth is the Pacific Ocean. It covers an area of approximately 155.6 million square kilometers (60.1 million square miles) and accounts for about 46% of the Earth's total ocean area. The Pacific Ocean is also the deepest ocean, with its lowest point being the Mariana Trench, which has a maximum depth of about 11,000 meters (36,000 feet)."
+      },
+      "consensus_answer": "Pacific Ocean",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 12489.649295806885,
+      "latency_consensus_ms": 6152.3473262786865,
+      "error": null
+    },
+    {
+      "task_id": "tqa004",
+      "task_type": "factual_qa",
+      "question": "In which year did the Titanic sink?",
+      "ground_truth": "1912",
+      "single_model_answer": "1912",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "1912.",
+        "anthropic/claude-sonnet-4.5": "The Titanic sank in 1912. Specifically, it struck an iceberg and sank in the early morning hours of April 15, 1912, during its maiden voyage from Southampton to New York City.",
+        "google/gemini-3-flash-preview": "The RMS Titanic sank on **April 15, 1912**.",
+        "meta-llama/llama-3.3-70b-instruct": "The Titanic sank on April 15, 1912. It struck an iceberg and sank during its maiden voyage from Southampton to New York City."
+      },
+      "consensus_answer": "1912",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 6533.0259799957275,
+      "latency_consensus_ms": 4209.77520942688,
+      "error": null
+    },
+    {
+      "task_id": "tqa005",
+      "task_type": "factual_qa",
+      "question": "What element has the chemical symbol 'Fe'?",
+      "ground_truth": "Iron",
+      "single_model_answer": "Iron.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Iron",
+        "anthropic/claude-sonnet-4.5": "The element with the chemical symbol 'Fe' is **iron**.\n\nThe symbol comes from iron's Latin name, *ferrum*.",
+        "google/gemini-3-flash-preview": "The chemical symbol **Fe** stands for **Iron**.\n\nIt comes from the Latin word for iron, *ferrum*.",
+        "meta-llama/llama-3.3-70b-instruct": "The element with the chemical symbol 'Fe' is Iron."
+      },
+      "consensus_answer": "Iron",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 7760.85901260376,
+      "latency_consensus_ms": 4063.4214878082275,
+      "error": null
+    },
+    {
+      "task_id": "tqa006",
+      "task_type": "factual_qa",
+      "question": "Who was the first person to walk on the Moon?",
+      "ground_truth": "Neil Armstrong",
+      "single_model_answer": "Neil Armstrong. He first walked on the Moon on July 20, 1969, during NASA\u2019s Apollo 11 mission.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Neil Armstrong, on July 20, 1969, during NASA\u2019s Apollo 11 mission.",
+        "anthropic/claude-sonnet-4.5": "Neil Armstrong was the first person to walk on the Moon. He stepped onto the lunar surface on July 20, 1969, during the Apollo 11 mission, famously saying \"That's one small step for man, one giant leap for mankind.\"",
+        "google/gemini-3-flash-preview": "The first person to walk on the Moon was **Neil Armstrong**.\n\nOn July 20, 1969, as part of the NASA Apollo 11 mission, Armstrong stepped onto the lunar surface and famously declared: *\"That's one small step for [a] man, one giant leap for mankind.\"*\n\nHe was followed shortly after by **Buzz Aldrin**, making them the first two humans to set foot on the Moon.",
+        "meta-llama/llama-3.3-70b-instruct": "The first person to walk on the Moon was Neil Armstrong. He stepped out of the lunar module Eagle and onto the Moon's surface on July 20, 1969, as part of the Apollo 11 mission. His famous words, \"That's one small step for man, one giant leap for mankind,\" were broadcast live around the world. Armstrong was followed by Edwin \"Buzz\" Aldrin, who also walked on the Moon's surface during the mission."
+      },
+      "consensus_answer": "Neil Armstrong",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5262.05039024353,
+      "latency_consensus_ms": 3342.806100845337,
+      "error": null
+    },
+    {
+      "task_id": "tqa007",
+      "task_type": "factual_qa",
+      "question": "What is the smallest country in the world by area?",
+      "ground_truth": "Vatican City",
+      "single_model_answer": "Vatican City\u2014the microstate within Rome\u2014is the smallest country in the world, at about 0.49 square kilometers (0.19 square miles).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Vatican City. It\u2019s an independent city\u2011state within Rome, about 0.49 km\u00b2 (0.19 sq mi).",
+        "anthropic/claude-sonnet-4.5": "The smallest country in the world by area is **Vatican City**, with an area of approximately 0.44 square kilometers (about 0.17 square miles or 110 acres). It is located entirely within the city of Rome, Italy, and serves as the spiritual and administrative center of the Roman Catholic Church.",
+        "google/gemini-3-flash-preview": "The smallest country in the world by area is **Vatican City**.\n\nIt covers only about **0.44 square kilometers** (approximately 109 acres) and is an enclave located entirely within the city of Rome, Italy.",
+        "meta-llama/llama-3.3-70b-instruct": "The smallest country in the world by area is the Vatican City, with an area of approximately 0.44 km\u00b2 (0.17 sq mi). It is an independent city-state located within Rome, Italy, and is the headquarters of the Catholic Church. The Vatican City is home to numerous iconic landmarks, including St. Peter's Basilica and the Sistine Chapel."
+      },
+      "consensus_answer": "Vatican City",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 7177.973508834839,
+      "latency_consensus_ms": 4996.921539306641,
+      "error": null
+    },
+    {
+      "task_id": "tqa008",
+      "task_type": "factual_qa",
+      "question": "Which planet is known as the Red Planet?",
+      "ground_truth": "Mars",
+      "single_model_answer": "Mars.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Mars.",
+        "anthropic/claude-sonnet-4.5": "Mars is known as the Red Planet. It gets this nickname from its reddish appearance, which is caused by iron oxide (rust) on its surface.",
+        "google/gemini-3-flash-preview": "**Mars** is known as the Red Planet.\n\nIt gets this nickname because its surface is covered in iron oxide (rust), which gives the planet its reddish appearance.",
+        "meta-llama/llama-3.3-70b-instruct": "The best answer is Mars"
+      },
+      "consensus_answer": "Mars",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1184.767484664917,
+      "latency_consensus_ms": 3454.4224739074707,
+      "error": null
+    },
+    {
+      "task_id": "tqa009",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Canada?",
+      "ground_truth": "Ottawa",
+      "single_model_answer": "Ottawa.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Ottawa.",
+        "anthropic/claude-sonnet-4.5": "The capital of Canada is Ottawa, located in the province of Ontario.",
+        "google/gemini-3-flash-preview": "The capital of Canada is **Ottawa**.",
+        "meta-llama/llama-3.3-70b-instruct": "The capital of Canada is Ottawa."
+      },
+      "consensus_answer": "Ottawa",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3361.600637435913,
+      "latency_consensus_ms": 5175.74667930603,
+      "error": null
+    },
+    {
+      "task_id": "tqa010",
+      "task_type": "factual_qa",
+      "question": "Who painted 'The Starry Night'?",
+      "ground_truth": "Vincent van Gogh",
+      "single_model_answer": "Vincent van Gogh.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Vincent van Gogh.",
+        "anthropic/claude-sonnet-4.5": "Vincent van Gogh painted 'The Starry Night' in 1889 while he was staying at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France.",
+        "google/gemini-3-flash-preview": "**Vincent van Gogh** painted *The Starry Night*. He created the masterpiece in June 1889 while staying at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France.",
+        "meta-llama/llama-3.3-70b-instruct": "The famous painting \"The Starry Night\" was painted by the Dutch post-impressionist artist Vincent van Gogh in 1889. It is one of his most iconic and enduring works, depicting the view from the east-facing window of his asylum room at Saint-R\u00e9my-de-Provence, just before sunrise. The painting is known for its swirling clouds, stars, and village below, set against a dark and dreamy night sky."
+      },
+      "consensus_answer": "Vincent van Gogh",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5233.475208282471,
+      "latency_consensus_ms": 4186.800718307495,
+      "error": null
+    },
+    {
+      "task_id": "tqa011",
+      "task_type": "factual_qa",
+      "question": "What is the tallest mountain in the world?",
+      "ground_truth": "Mount Everest",
+      "single_model_answer": "Mount Everest, at about 8,848.86 meters (29,031.7 feet) above sea level. \nIf measuring from base to summit, Mauna Kea in Hawaii is taller overall (about 10,210 meters), but much of it is underwater.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Mount Everest is the highest mountain above sea level at 8,848.86 m (29,031.7 ft). \nIf \u201ctallest\u201d is measured from base to summit, Mauna Kea in Hawaii is tallest at about 10,210 m (33,500 ft), though only ~4,207 m (13,803 ft) above sea level.",
+        "anthropic/claude-sonnet-4.5": "Mount Everest is the tallest mountain in the world, standing at 8,849 meters (29,032 feet) above sea level. It's located in the Himalayas on the border between Nepal and Tibet.",
+        "google/gemini-3-flash-preview": "The answer depends on how you measure the mountain:\n\n**1. Highest altitude (Above Sea Level)**\n**Mount Everest** is the tallest mountain in the world when measured from sea level to peak. Its summit is **29,032 feet (8,849 meters)** high. It is located in the Himalayas on the border between Nepal and China.\n\n**2. Tallest from Base to Peak**\n**Mauna Kea** in Hawaii is technically the tallest mountain if measured from the very bottom to the top. While its peak is only 13,803 feet above sea level, its base sits on the ocean floor. From the bottom of the ocean to the summit, it measures about **33,500 feet (10,210 meters)**, making it much taller than Everest from base to tip.\n\n**3. Closest to Space**\n**Mount Chimborazo** in Ecuador is the point on Earth closest to the stars. Because the Earth bulges at the center (the equator), and Chimborazo sits nearly on the equator, its peak is further away from the Earth's center than Mount Everest's peak.",
+        "meta-llama/llama-3.3-70b-instruct": "The tallest mountain in the world is Mount Everest, located in the Himalayas on the border between Nepal and Tibet, China. It stands at an elevation of 8,848.86 meters (29,031.7 feet) above sea level."
+      },
+      "consensus_answer": "Mount Everest",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 7115.169048309326,
+      "latency_consensus_ms": 9578.559160232544,
+      "error": null
+    },
+    {
+      "task_id": "tqa012",
+      "task_type": "factual_qa",
+      "question": "In what year did World War I begin?",
+      "ground_truth": "1914",
+      "single_model_answer": "1914",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "1914",
+        "anthropic/claude-sonnet-4.5": "World War I began in 1914.",
+        "google/gemini-3-flash-preview": "World War I began in **1914**.",
+        "meta-llama/llama-3.3-70b-instruct": "I'm not sure about the exact year World War I began. It's important to verify historical events with reliable sources. Could you please check a trusted history resource or database for the most accurate information?"
+      },
+      "consensus_answer": "1914",
+      "consensus_level": "medium",
+      "consensus_correct": true,
+      "agreement_score": 0.75,
+      "latency_single_ms": 3850.8782386779785,
+      "latency_consensus_ms": 4303.65514755249,
+      "error": null
+    },
+    {
+      "task_id": "tqa013",
+      "task_type": "factual_qa",
+      "question": "What is the chemical formula for water?",
+      "ground_truth": "H2O",
+      "single_model_answer": "H2O \u2014 two hydrogen atoms bonded to one oxygen atom.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "H2O",
+        "anthropic/claude-sonnet-4.5": "The chemical formula for water is **H\u2082O**.\n\nThis means each water molecule consists of 2 hydrogen atoms (H) and 1 oxygen atom (O).",
+        "google/gemini-3-flash-preview": "The chemical formula for water is **H\u2082O**.\n\nThis means that each molecule of water is made up of **two hydrogen atoms** and **one oxygen atom**.",
+        "meta-llama/llama-3.3-70b-instruct": "The chemical formula for water is H2O."
+      },
+      "consensus_answer": "H2O",
+      "consensus_level": "low",
+      "consensus_correct": true,
+      "agreement_score": 0.5,
+      "latency_single_ms": 3771.860122680664,
+      "latency_consensus_ms": 3314.3036365509033,
+      "error": null
+    },
+    {
+      "task_id": "tqa014",
+      "task_type": "factual_qa",
+      "question": "Who invented the telephone?",
+      "ground_truth": "Alexander Graham Bell",
+      "single_model_answer": "Alexander Graham Bell is widely credited with inventing the telephone; he received the first U.S. patent for it on March 7, 1876. That said, others made important contributions, including Antonio Meucci, Elisha Gray, and Johann Philipp Reis.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Alexander Graham Bell is widely credited with inventing the first practical telephone; he received the U.S. patent in 1876. (Others, like Elisha Gray and Antonio Meucci, also worked on similar devices.)",
+        "anthropic/claude-sonnet-4.5": "Alexander Graham Bell is credited with inventing the telephone. He was awarded the first US patent for the invention in 1876. However, it's worth noting that Elisha Gray filed a patent caveat for a similar device on the same day, and Antonio Meucci had developed earlier telephone-like devices but failed to maintain his patent. The invention of the telephone involved contributions from multiple inventors, though Bell received the historic patent and credit.",
+        "google/gemini-3-flash-preview": "The invention of the telephone is most commonly credited to **Alexander Graham Bell**, who was the first to be granted a United States patent for the device on March 7, 1876.\n\nHowever, the history of the telephone is a subject of historical debate involving several other inventors who were working on similar technology at the same time:\n\n1.  **Alexander Graham Bell:** He successfully transmitted the first intelligible speech on March 10, 1876, famously saying to his assistant, \"Mr. Watson, come here, I want to see you.\"\n2.  **Elisha Gray:** An American engineer who designed a telephone using a water microphone. He filed a \"patent caveat\" (a notice of intent to file a patent) on the same day as Bell, but Bell\u2019s lawyer arrived at the patent office a few hours earlier.\n3.  **Antonio Meucci:** An Italian immigrant who developed a voice-communication device in 1849. He filed a caveat for his \"teletrofono\" in 1871 but was unable to afford the fee to renew it. In 2002, the U.S. House of Representatives passed a resolution recognizing Meucci\u2019s contributions to the invention.\n4.  **Johann Philipp Reis:** A German scientist who constructed a \"Reis telephone\" in 1860. It could transmit musical notes and some muffled speech, but it was not legally considered a commercially practical telephone at the time.\n\n**Summary:** While **Bell** is officially credited as the inventor due to his patent and successful commercialization, the telephone was the result of work by multiple people over several decades.",
+        "meta-llama/llama-3.3-70b-instruct": "The invention of the telephone is a matter of some debate, as there were several individuals who worked on similar devices around the same time. However, the most widely credited inventor of the telephone is Alexander Graham Bell, a Scottish-born scientist and inventor.\n\nBell filed the first patent for a telephone on March 7, 1876, and is often credited with developing the first practical telephone. He was working on a device that could transmit the human voice over wires, and his design used a diaphragm, a needle, and a receiver to convert sound waves into electrical signals.\n\nHowever, another inventor, Elisha Gray, had also been working on a similar device, and he filed a caveat for a telephone patent on February 14, 1876, just hours after Bell filed his patent. Gray's design was similar to Bell's, but it used a water microphone instead of a diaphragm.\n\nThere is also evidence that an Italian inventor named Antonio Meucci had developed a telephone-like device as early as the 1840s, but he did not file a patent for it. Meucci's device used a mouthpiece and a receiver to transmit sound, but it was not practical for long-distance communication.\n\nOverall, while there were several individuals who contributed to the development of the telephone, Alexander Graham Bell is generally credited with inventing the first practical telephone and filing the first patent for the device."
+      },
+      "consensus_answer": "Alexander Graham Bell",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 6480.47947883606,
+      "latency_consensus_ms": 7105.808258056641,
+      "error": null
+    },
+    {
+      "task_id": "tqa015",
+      "task_type": "factual_qa",
+      "question": "What is the longest river in the world?",
+      "ground_truth": "Nile",
+      "single_model_answer": "The Nile River is generally considered the longest (~6,650 km), though some measurements argue the Amazon may be slightly longer.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Traditionally, the Nile River is recognized as the longest, at about 6,650 km (4,130 miles). However, some measurements argue the Amazon is slightly longer depending on how headwaters and the estuary are defined; the Amazon is unquestionably the largest by water volume.",
+        "anthropic/claude-sonnet-4.5": "The Nile River is generally considered the longest river in the world, at approximately 6,650 kilometers (4,130 miles) in length. It flows through northeastern Africa, primarily through Egypt and Sudan.\n\nHowever, there is some debate about this, as the Amazon River in South America is sometimes cited as the longest, depending on how the measurements are taken and which tributary is considered the true source. The Amazon is typically measured at around 6,400 kilometers (4,000 miles), though some studies suggest it could be longer than the Nile.",
+        "google/gemini-3-flash-preview": "The answer depends on how you measure a river, but historically and geographically, there are two main contenders:\n\n1. **The Nile:** Traditionally, the Nile is considered the longest river in the world, measuring approximately **4,130 miles (6,650 km)**. It flows through northeastern Africa and empties into the Mediterranean Sea.\n\n2. **The Amazon:** Some modern studies and satellite measurements suggest that the Amazon River is actually longer, measuring about **4,345 miles (6,992 km)** if its source is traced back to a different starting point in Peru. \n\n**The consensus:**\n*   Most encyclopedias and the Guinness World Records still list the **Nile** as the longest.\n*   The **Amazon** is undisputedly the **largest** river by volume of water and the size of its drainage basin.",
+        "meta-llama/llama-3.3-70b-instruct": "The longest river in the world is the Nile River, which is approximately 6,695 kilometers (4,160 miles) long. It flows through 11 countries in northeastern Africa, including Egypt, Sudan, and Ethiopia, before emptying into the Mediterranean Sea. The Nile River is not only the longest river in the world but also one of the most historically and culturally significant, having supported ancient civilizations such as the Egyptians and the Nubians.\n\nHowever, it's worth noting that there is some debate about whether the Nile or the Amazon River is the longest. Some sources consider the Amazon River to be the longest, with a length of around 6,800 kilometers (4,230 miles), while others argue that the Nile is still the longest due to its more consistent and well-defined course. Nonetheless, the Nile River is widely recognized as the longest river in the world by most geographers and scientists."
+      },
+      "consensus_answer": "Nile",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 9004.865169525146,
+      "latency_consensus_ms": 12227.909088134766,
+      "error": null
+    },
+    {
+      "task_id": "tqa016",
+      "task_type": "factual_qa",
+      "question": "Which country has the largest population?",
+      "ground_truth": "China",
+      "single_model_answer": "India\u2014about 1.4 billion people (as of 2024).",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "India. It surpassed China around 2023 and now has the world\u2019s largest population (over 1.4 billion).",
+        "anthropic/claude-sonnet-4.5": "China and India have very similar populations, with recent estimates suggesting **India** has overtaken **China** as the world's most populous country.\n\nAs of 2024, India's population is estimated at approximately 1.44 billion people, while China's is approximately 1.42 billion. India's population continues to grow while China's has begun to decline.",
+        "google/gemini-3-flash-preview": "As of 2023, **India** has the largest population in the world.\n\nFor several decades, China held the top spot, but according to United Nations estimates, India surpassed China in April 2023. India's population is currently estimated to be over **1.43 billion** people.",
+        "meta-llama/llama-3.3-70b-instruct": "As of my knowledge cutoff in 2023, the country with the largest population is China, with a population of approximately 1.443 billion people. However, according to the United Nations, India is expected to surpass China as the most populous country by 2027, with a projected population of 1.454 billion people.\n\nIt's worth noting that population figures can vary depending on the source and date, but as of my knowledge cutoff, China remains the country with the largest population."
+      },
+      "consensus_answer": "China",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 7899.320602416992,
+      "latency_consensus_ms": 6431.457757949829,
+      "error": null
+    },
+    {
+      "task_id": "tqa017",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Brazil?",
+      "ground_truth": "Brasilia",
+      "single_model_answer": "Bras\u00edlia.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5": "Bras\u00edlia.",
+        "anthropic/claude-sonnet-4.5": "The capital of Brazil is **Bras\u00edlia**.\n\nBras\u00edlia became the capital in 1960, replacing Rio de Janeiro. It was a planned city, designed by urban planner L\u00facio Costa and architect Oscar Niemeyer, and is located in the central part of the country.",
+        "google/gemini-3-flash-preview": "The capital of Brazil is **Bras\u00edlia**.",
+        "meta-llama/llama-3.3-70b-instruct": "The capital of Brazil is Bras\u00edlia."
+      },
+      "consensus_answer": "Bras\u00edlia.",
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "agreement_score": 0.25,
+      "latency_single_ms": 3637.006998062134,
+      "latency_consensus_ms": 5482.646226882935,
+      "error": null
+    },
+    {
+      "task_id": "tqa018",
+      "task_type": "factual_qa",
+      "question": "Who wrote 'Hamlet'?",
+      "ground_truth": "William Shakespeare",
+      "single_model_answer": "William Shakespeare.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "William Shakespeare.",
+        "anthropic/claude-sonnet-4.5": "William Shakespeare wrote 'Hamlet'. It's one of his most famous tragedies, believed to have been written between 1599 and 1601.",
+        "google/gemini-3-flash-preview": "**William Shakespeare** wrote *Hamlet*. He is believed to have written the play between 1599 and 1601.",
+        "meta-llama/llama-3.3-70b-instruct": "The play 'Hamlet' was written by the renowned English playwright William Shakespeare."
+      },
+      "consensus_answer": "William Shakespeare",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4613.303899765015,
+      "latency_consensus_ms": 3937.927722930908,
+      "error": null
+    },
+    {
+      "task_id": "tqa019",
+      "task_type": "factual_qa",
+      "question": "What is the hardest natural substance on Earth?",
+      "ground_truth": "Diamond",
+      "single_model_answer": "Diamond.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Diamond.",
+        "anthropic/claude-sonnet-4.5": "Diamond is the hardest natural substance on Earth. It ranks 10 on the Mohs hardness scale, which is the highest rating. Diamond's exceptional hardness comes from its crystal structure, where each carbon atom is bonded to four other carbon atoms in an extremely strong tetrahedral arrangement.",
+        "google/gemini-3-flash-preview": "The hardest natural substance on Earth is **diamond**.\n\nIn the field of mineralogy, hardness is measured using the **Mohs scale**, which ranges from 1 to 10. Diamonds sit at the very top with a rating of **10**.\n\nHere are a few quick facts about why they are so hard:\n\n*   **Atomic Structure:** Diamonds are made entirely of carbon atoms arranged in a \"crystal lattice\" structure. Each carbon atom is bonded to four others in a strong tetrahedral shape.\n*   **Covalent Bonding:** The atoms are held together by covalent bonds, which are the strongest type of chemical bond.\n*   **Industrial Use:** Because of their hardness, diamonds are used not just for jewelry, but for heavy-duty industrial tasks like cutting, drilling, and grinding other extremely hard materials.\n\n**Is there anything harder?**\nWhile diamond is the hardest *natural* substance, scientists have created certain synthetic materials (like **aggregated diamond nanorods**) that are slightly harder. There is also a rare mineral called **Lonsdaleite** (found at meteorite impact sites) that is theoretically 58% harder than diamond, but in its natural state, it usually contains impurities that make it softer than a pure diamond.",
+        "meta-llama/llama-3.3-70b-instruct": "The hardest natural substance on Earth is diamond. Diamonds are made up of pure carbon that has been subjected to extremely high temperatures and pressures deep within the Earth's mantle over millions of years. This process, known as crystallization, forms a unique crystal structure that gives diamonds their exceptional hardness.\n\nDiamonds have a hardness of 10 on the Mohs hardness scale, which is the highest rating on the scale. The Mohs hardness scale ranks minerals from 1 (softest) to 10 (hardest) based on their scratch resistance. Diamonds are so hard that they can scratch any other substance, including other diamonds.\n\nDiamonds owe their hardness to the strong covalent bonds between the carbon atoms in their crystal structure. These bonds are incredibly strong and resistant to deformation, which makes diamonds extremely durable and resistant to wear and tear.\n\nOther natural substances, such as corundum (rubies and sapphires) and topaz, are also very hard, but they are not as hard as diamonds. Diamonds are truly unique in their hardness and are widely used in industrial and jewelry applications where their exceptional durability is valued."
+      },
+      "consensus_answer": "Diamond",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 9205.060243606567,
+      "latency_consensus_ms": 15388.407468795776,
+      "error": null
+    },
+    {
+      "task_id": "tqa020",
+      "task_type": "factual_qa",
+      "question": "In which city is the Eiffel Tower located?",
+      "ground_truth": "Paris",
+      "single_model_answer": "Paris, France.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5": "Paris, France.",
+        "anthropic/claude-sonnet-4.5": "The Eiffel Tower is located in **Paris**, France.",
+        "google/gemini-3-flash-preview": "The Eiffel Tower is located in **Paris**, France.",
+        "meta-llama/llama-3.3-70b-instruct": "The Eiffel Tower is located in Paris, France."
+      },
+      "consensus_answer": "Paris",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 10635.81109046936,
+      "latency_consensus_ms": 3443.354606628418,
+      "error": null
+    }
+  ]
+}

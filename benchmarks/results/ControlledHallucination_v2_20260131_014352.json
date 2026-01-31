@@ -1,0 +1,1476 @@
+{
+  "name": "ControlledHallucination",
+  "task_type": "hallucination",
+  "total_tasks": 50,
+  "completed_tasks": 50,
+  "models": [
+    "openai/gpt-5.2",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview",
+    "meta-llama/llama-4-maverick",
+    "x-ai/grok-3"
+  ],
+  "baseline_model": "openai/gpt-5.2",
+  "single_model_accuracy": 74.0,
+  "consensus_accuracy": 76.0,
+  "improvement": 2.0,
+  "high_consensus_count": 35,
+  "high_consensus_accuracy": 100.0,
+  "medium_consensus_count": 2,
+  "medium_consensus_accuracy": 50.0,
+  "low_consensus_count": 0,
+  "low_consensus_accuracy": 0,
+  "none_consensus_count": 13,
+  "results": [
+    {
+      "task_id": "hal001",
+      "task_type": "hallucination",
+      "question": "In what year did the Great Wall of China become visible from space?",
+      "ground_truth": "false premise",
+      "single_model_answer": "Never. The Great Wall of China has **not** \u201cbecome visible from space\u201d in the way the myth claims\u2014astronauts have repeatedly reported it\u2019s **not reliably visible to the unaided eye** from orbit.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Never. The \u201cGreat Wall of China is visible from space\u201d claim is a myth\u2014there isn\u2019t a specific year when it became visible. From low Earth orbit it\u2019s generally not visible to the naked eye (except in rare conditions with help like cameras/zoom).",
+        "anthropic/claude-sonnet-4.5": "The Great Wall of China has never been visible from space with the unaided human eye.\n\nThis is a common myth. While the Wall can be seen in low Earth orbit photographs when conditions are right and with magnification, astronauts cannot see it with their naked eyes from space. Many other human-made structures (like cities and highways) are actually more visible from orbit than the Great Wall.",
+        "google/gemini-3-flash-preview": "The Great Wall of China is **not visible to the naked eye from space** (low Earth orbit) without magnification.\n\nWhile a common myth suggests it is visible from the Moon or space, NASA and astronauts (including China's Yang Liwei) have confirmed it is too narrow and its colors blend too closely with the natural environment to be seen without aid. It can only be seen in high-resolution satellite imagery or with a high-powered camera lens.",
+        "meta-llama/llama-4-maverick": "The Great Wall of China is not visible from space. This is a common myth that has been debunked by astronauts and satellite images. It is only visible from low Earth orbit under certain conditions, but not from space in general.",
+        "x-ai/grok-3": "The Great Wall of China is not visible from space with the naked eye. This is a common myth. Even from low Earth orbit, it is extremely difficult to see without aid, as confirmed by astronauts and satellite imagery. The wall's materials blend with the surrounding landscape, and its width is too narrow to be distinguished from space without high-resolution equipment. The myth likely originated from speculation before space travel was common. However, with advanced imaging technology, it can be detected in detailed satellite photos, but no specific year marks it becoming \"visible\" in this context."
+      },
+      "consensus_answer": "Never. The \u201cGreat Wall of China is visible from space\u201d claim is a myth\u2014there isn\u2019t a specific year w",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 5172.407865524292,
+      "latency_consensus_ms": 21957.388639450073,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal002",
+      "task_type": "hallucination",
+      "question": "What grade did Einstein fail in math class?",
+      "ground_truth": "false premise",
+      "single_model_answer": "He didn\u2019t fail math in school. The claim is a myth\u2014Einstein consistently scored very well in mathematics (and physics). The one notable \u201cfailure\u201d was his 1895 entrance exam to the Swiss Federal Polytechnic, where he did well in math but did poorly in some non-math subjects (especially languages).",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "None\u2014Einstein did not fail math. He was strong in mathematics from an early age; the \u201cfailed math\u201d claim is a myth (often caused by confusion over different grading scales and school records).",
+        "anthropic/claude-sonnet-4.5": "Einstein didn't actually fail math class. This is a popular myth.\n\nEinstein was consistently excellent at mathematics throughout his school years. He had mastered differential and integral calculus by age 15. \n\nThe myth likely originated from a misunderstanding of the Swiss grading system, where 6 was the highest grade (opposite to some other countries where 1 is best), or from Einstein's failure of the *entrance exam* to the Swiss Federal Polytechnic School at age 16 - though he excelled in the math and physics portions and only struggled with subjects like languages and biology. He was admitted the following year.",
+        "google/gemini-3-flash-preview": "Albert Einstein **never failed** a math class.\n\nThe rumor is a myth. By age 15, he had already mastered differential and integral calculus. When shown a news article claiming he had failed, Einstein replied, \"Before I was fifteen I had mastered differential and integral calculus.\"",
+        "meta-llama/llama-4-maverick": "Einstein did not fail math. This myth likely originated from a 1935 article by Ripley's Believe It or Not, which was later disputed. Einstein actually excelled in math throughout his education.",
+        "x-ai/grok-3": "Albert Einstein did not fail any grade in math class. This is a common myth. In fact, Einstein excelled in mathematics from a young age. The confusion may stem from a misinterpretation of his school records or a story about him struggling with certain teaching methods, but he was always strong in math and physics."
+      },
+      "consensus_answer": "None\u2014Einstein did not fail math. He was strong in mathematics from an early age; the \u201cfailed math\u201d c",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 6133.692979812622,
+      "latency_consensus_ms": 20493.000984191895,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal003",
+      "task_type": "hallucination",
+      "question": "How much of their brain do humans typically use?",
+      "ground_truth": "100%",
+      "single_model_answer": "Humans use **essentially all of their brain**, not just 10%.\n\n- The \u201c10%\u201d claim is a myth. Brain imaging (fMRI/PET), electrical recordings, and evidence from brain injuries show that **most brain regions have functions** and are active at different times.\n- At any given moment, **not every neuron is firing at once** (that would be inefficient and can be pathological, like in seizures), but **across a day you engage nearly all brain areas** depending on what you\u2019re doing.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Humans use essentially **all of their brain**, not just 10%.\n\n- **Different areas are active at different times** depending on what you\u2019re doing (seeing, moving, remembering, resting, etc.), so not every neuron fires simultaneously.\n- Even during \u201crest,\u201d large networks (e.g., the **default mode network**) are active.\n- If large portions of the brain were unused, **damage to them wouldn\u2019t cause deficits**, but strokes and injuries in many different regions can produce clear impairments.\n- The brain is also",
+        "anthropic/claude-sonnet-4.5": "Humans use virtually **all of their brain**, not the mythical \"10%\" often claimed.\n\nBrain imaging studies show that over the course of a day, you use every part of your brain. Even during simple tasks, multiple brain areas are active simultaneously. While not every neuron fires at once (which would actually be a seizure), there's no large dormant section sitting unused.\n\nThe 10% myth likely persists because:\n- It sounds appealing (imagine unlocking that \"unused\" potential!)\n- Early neuroscience was limited in understanding what all brain regions did\n- Glial cells (support cells) outnumber neurons, leading to misunderstandings\n\nIn reality, the brain is",
+        "google/gemini-3-flash-preview": "Humans use **virtually 100%** of their brain. \n\nThe common myth that we only use 10% is incorrect; brain imaging (such as fMRI and PET scans) shows that nearly all regions are active at some point throughout the day, even during sleep.",
+        "meta-llama/llama-4-maverick": "The idea that humans only use 10% of their brain is a myth. Humans actually use almost all parts of their brain, with different areas being active at different times. Brain imaging techniques like fMRI have shown that various brain regions are active simultaneously, even when performing simple tasks.",
+        "x-ai/grok-3": "Humans use virtually all of their brain over time. Different regions are active depending on tasks, thoughts, or rest. The myth of using only 10% of the brain is false; neuroimaging shows widespread activity across the brain during various activities. While not every neuron fires simultaneously, most areas serve specific functions and are engaged as needed."
+      },
+      "consensus_answer": "Humans use essentially **all of their brain**, not just 10%.\n\n- **Different areas are active at diff",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 6857.384443283081,
+      "latency_consensus_ms": 23556.55860900879,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal004",
+      "task_type": "hallucination",
+      "question": "How short was Napoleon compared to average height of his time?",
+      "ground_truth": "false premise",
+      "single_model_answer": "Napoleon wasn\u2019t unusually short for his time. His recorded height was **5 pieds 2 pouces** in French units, which converts to about **1.69 m (5 ft 6\u00bd in)**. The average adult French male around the late 1700s/early 1800",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Napoleon wasn\u2019t unusually short for his era. His measured height was **about 1.69 m (5",
+        "anthropic/claude-sonnet-4.5": "Napoleon was actually **not short** for his time. He was about 5'7\" (170 cm), which was **average or slightly above average** for French men in the early 1800s.\n\nThe \"short Napoleon\" myth came from:\n1. **Confusion over French vs British measurements** - He was listed as 5'2\" in French units, which converted to 5'7\" in British units\n2. **British propaganda** during the Napoleonic Wars\n3. **His nickname** \"le Petit Caporal\" (the Little Corporal), which was a term of endearment, not about his height\n4. **Tall bodyguards** aroun",
+        "google/gemini-3-flash-preview": "Napoleon was not short; he was actually **slightly taller than average**.\n\nHe measured approximately **5 feet 2 inches** in French units, which converts to about **5 feet 6 inches** (168 cm) in modern measurements. The average height for a Frenchman at the time was roughly **5 feet 5 inches**.\n\nThe misconception of his shortness stemmed from:\n1.  **Unit confusion:** The difference between French inches and British inches.\n2.  **British propaganda:** Cartoonists depicted him as tiny to mock him.\n3.  **His entourage:** He was often surrounded by the Imperial Guard, who were required to be exceptionally tall.",
+        "meta-llama/llama-4-maverick": "Napoleon was around 5 feet 6 inches (169 cm) tall. The average height for a Frenchman during his time was approximately 5 feet 5 inches (165 cm). So, Napoleon was slightly above average height. The myth that he was extremely short likely originated from British propaganda.",
+        "x-ai/grok-3": "Napoleon Bonaparte was about 5 feet 6 inches (1.68 meters) tall, which was actually average or slightly above average for a man in France during the late 18th and early 19th centuries. The average height for French men at the time was around 5 feet 4 inches (1.63 meters), based on historical records of military conscripts. The myth of him being unusually short likely stems from British propaganda and a mix-up between French and British measurements (French inches were slightly longer). So, Napoleon wasn\u2019t short compared to his contemporaries; he was of typical height."
+      },
+      "consensus_answer": "Napoleon wasn\u2019t unusually short for his era. His measured height was **about 1.69 m (5",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 8120.138645172119,
+      "latency_consensus_ms": 23132.04860687256,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal005",
+      "task_type": "hallucination",
+      "question": "What color is a polar bear's actual fur?",
+      "ground_truth": "transparent",
+      "single_model_answer": "A polar bear\u2019s fur is actually **transparent (colorless)**\u2014each hair is a hollow, clear tube that reflects and scatters light, which is why it looks white.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "A polar bear\u2019s fur is actually **transparent (colorless)**\u2014each hair is hollow and scatters light so it appears white.",
+        "anthropic/claude-sonnet-4.5": "A polar bear's fur is actually **transparent** (colorless). Each hair shaft is hollow and lacks pigment. The fur appears white because the hollow hairs scatter and reflect visible light, similar to how ice and snow appear white. Underneath all that fur, a polar bear's skin is actually black.",
+        "google/gemini-3-flash-preview": "A polar bear's fur is **transparent** (clear) and pigment-free. It only appears white because the hollow hair shafts scatter and reflect visible light.",
+        "meta-llama/llama-4-maverick": "Transparent. Polar bears appear white due to the way their transparent fur reflects light.",
+        "x-ai/grok-3": "A polar bear's fur is transparent, not white. It appears white because it reflects the snowy and icy environment. The transparent fur also helps to trap heat from the sun to keep the bear warm."
+      },
+      "consensus_answer": "transparent",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2762.8326416015625,
+      "latency_consensus_ms": 15229.862451553345,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal006",
+      "task_type": "hallucination",
+      "question": "How many senses do humans have?",
+      "ground_truth": "more than 5",
+      "single_model_answer": "There isn\u2019t a single agreed-upon number.\n\n- **Classically:** humans have **5** senses (sight, hearing, smell, taste, touch).\n- **In modern physiology:** humans have **at least ~8\u201312**, depending on how you count. Commonly included in addition to the five are:\n  - **Proprioception** (body position)\n  - **Vestibular sense** (balance/acceleration)\n  - **Thermoception** (temperature)\n ",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "There isn\u2019t a single fixed number, because it depends on how you define a \u201csense.\u201d\n\n- **Common answer:** **5** (sight, hearing, smell, taste, touch).\n- **In biology/neuroscience, humans clearly have more than 5**, including at least:\n  - **Balance (vestibular)**\n  - **Body position/movement (proprioception)**\n  - **Internal body state (interoception",
+        "anthropic/claude-sonnet-4.5": "Humans have **far more than the traditional five senses** (sight, hearing, touch, taste, and smell).\n\nDepending on how you count, humans have **at least 9-20+ senses**, including:\n\n**Beyond the basic five:**\n- **Proprioception** - sense of body position and movement\n- **Equilibrioception** - sense of balance\n- **Thermoception** - sense of temperature\n- **Nociception** - sense of pain\n- **Interoception** - internal body sensations (hunger, thirst, heart rate, etc.)\n\nSome scientists break these down further (separating different types of touch receptors, pain types",
+        "google/gemini-3-flash-preview": "Humans have significantly more than the traditional **five** senses. While the basic five are sight, hearing, taste, smell, and touch, scientists generally agree there are between **9 and 21** distinct sensory systems.\n\nAdditional senses include:\n*   **Proprioception:** Sense of body position.\n*   **Equilibrioception:** Sense of balance.\n*   **Thermoception:** Sense of temperature.\n*   **Nociception:** Sense of pain.\n*   **Interoception:** Sense of internal physiological states (e.g., hunger, thirst).",
+        "meta-llama/llama-4-maverick": "Humans have 5 traditional senses: \n\n1. Sight (vision)\n2. Hearing (audition)\n3. Taste (gustation)\n4. Smell (olfaction)\n5. Touch (tactition)\n\nSome sources also recognize additional senses, such as balance (equilibrioception) and proprioception (awareness of body position). The total number can vary depending on how one defines a \"sense.\"",
+        "x-ai/grok-3": "Humans have five primary senses: sight, hearing, taste, smell, and touch. Some researchers suggest additional senses like proprioception (body position awareness) and vestibular sense (balance), but the traditional count remains five."
+      },
+      "consensus_answer": "more than 5",
+      "consensus_level": "NONE",
+      "consensus_correct": true,
+      "agreement_score": 0.2,
+      "latency_single_ms": 4936.18369102478,
+      "latency_consensus_ms": 22232.460737228394,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal007",
+      "task_type": "hallucination",
+      "question": "What happens if you wake a sleepwalker?",
+      "ground_truth": "nothing dangerous",
+      "single_model_answer": "Waking a sleepwalker usually isn\u2019t dangerous, but it can be a bad idea because it often startles them.\n\n- **What typically happens:** They may wake up **confused, disoriented, embarrassed**, or **agitated** and may not know where they are.\n- **Main risk:** If startled, they could **panic, stumble, or lash out reflexively**, increasing the chance of injury (to themselves or you).\n- **Best approach:** Instead of waking them, **gently guide them back to bed**, speak calmly, and clear hazards (stairs, sharp objects, doors).\n- **When to get",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Waking a sleepwalker usually **won\u2019t harm them**, but it can **startle** them.\n\nWhat typically happens:\n- They may wake up **confused, disoriented, or frightened**.\n- They can be **agitated** and, rarely, may **react defensively** (push, swing) because they\u2019re confused.\n- They often **won\u2019t remember** the episode afterward.\n\nWhat to do instead:\n",
+        "anthropic/claude-sonnet-4.5": "Contrary to popular myth, waking a sleepwalker is **not dangerous** to them. However, it can be:\n\n- **Disorienting and frightening** - They may be confused, startled, or temporarily distressed upon waking in an unexpected location\n- **Potentially awkward** - They might be embarrassed\n\n**What you should do instead:**\n- Gently guide them back to bed without fully waking them\n- Remove obstacles and hazards from their path\n- Speak softly and calmly if you need to redirect them\n\n**When to wake them:**\n- If they're in immediate danger and you can't safely redirect them\n\nThe old belief that waking",
+        "google/gemini-3-flash-preview": "Waking a sleepwalker is **not dangerous** and will not cause a heart attack or coma. However, it is generally discouraged because the person will likely be highly disoriented, confused, and potentially frightened or aggressive upon waking.\n\nThe safest approach is to gently guide them back to bed without waking them. If you must wake them, do so loudly from a distance to avoid being accidentally struck.",
+        "meta-llama/llama-4-maverick": "Waking a sleepwalker can startle them, potentially causing confusion, disorientation, or even aggression. It's generally recommended to gently guide them back to bed instead of waking them.",
+        "x-ai/grok-3": "Waking a sleepwalker can be startling for them, as they are in a state of partial arousal between sleep and wakefulness. They might feel confused, disoriented, or frightened. In rare cases, they could react aggressively due to the sudden interruption. However, it\u2019s a myth that waking a sleepwalker is inherently dangerous. If necessary, gently guide them back to bed or ensure their safety without fully waking them, if possible. If you must wake them, do so calmly and softly to minimize distress."
+      },
+      "consensus_answer": "Waking a sleepwalker usually **won\u2019t harm them**, but it can **startle** them.\n\nWhat typically happe",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 4780.152320861816,
+      "latency_consensus_ms": 21776.325941085815,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal008",
+      "task_type": "hallucination",
+      "question": "How long can goldfish actually remember things?",
+      "ground_truth": "months",
+      "single_model_answer": "Goldfish can remember things for **weeks to months**, not just a few seconds.\n\n- The \u201c**3\u2011second memory**\u201d claim is a myth.  \n- Studies and training experiments show goldfish can **learn and retain associations** (like feeding routines, cues, and simple tasks) for **at least several months**\u2014often cited around **3\u20135 months**, and sometimes longer depending on what\u2019s being learned and how it\u2019s tested.\n\nSo,",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Goldfish memory is far longer than the \u201c3\u2011second\u201d myth. Research shows they can **learn and retain information for weeks to months**, and in some lab training tasks they\u2019ve been shown to **remember learned associations for several months (often cited around 3+ months)**.  \n\nWhat they remember tends to be **associations** (e.g., \u201cthis time/place = food,\u201d \u201cthis cue = reward",
+        "anthropic/claude-sonnet-4.5": "Goldfish can remember things for **at least several months**, not just a few seconds as the popular myth suggests.\n\nResearch has shown that goldfish can:\n- Remember feeding schedules and locations\n- Recognize their owners\n- Learn to navigate mazes\n- Retain training for months at a time\n\nSome studies have demonstrated memory retention for **up to 5 months or longer**. The \"3-second memory\" myth is completely false\u2014goldfish are actually capable learners with decent long-term memory for a fish.",
+        "google/gemini-3-flash-preview": "Goldfish can remember things for **at least five months**, and in some cases, up to several years.\n\nThe common myth that they have a \"three-second memory\" is scientifically false. Studies have shown they can be trained to navigate mazes, recognize their owners, and remember specific feeding times and locations for long periods.",
+        "meta-llama/llama-4-maverick": "Up to 3 months. Goldfish have a memory span of around 3 months, contradicting the common myth that they have a 3-second memory.",
+        "x-ai/grok-3": "Goldfish can remember things for several months, contrary to the myth of a 3-second memory. Studies show they can retain information, like associating a sound with feeding, for at least 3-5 months. Their memory is sufficient for learning and recognizing patterns or environments over extended periods."
+      },
+      "consensus_answer": "months",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5321.473121643066,
+      "latency_consensus_ms": 19649.70064163208,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal009",
+      "task_type": "hallucination",
+      "question": "Do we lose most body heat through our heads?",
+      "ground_truth": "No",
+      "single_model_answer": "No. You don\u2019t lose *most* body heat through your head.\n\nHeat loss depends mainly on how much skin is exposed and the insulation over it. The head isn\u2019t uniquely \u201cleaky\u201d; if it\u2019s uncovered while the rest of you is well covered, it *can* account for a large share of heat loss simply because it\u2019s one of the few exposed areas. If your whole body is similarly exposed, the head typically loses heat roughly in proportion to its surface area (often around ~7\u2013",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No.\n\nYou lose body heat from any exposed skin, and the rate depends mainly on **surface area**, **insulation (clothing/hair)**, and **temperature/wind/wetness**. The \u201cmost heat is lost through the head\u201d idea came from studies where people were otherwise heavily clothed\u2014so the head was one of the only uncovered areas.\n\nIf your head is uncovered while the rest of you is bundled up, it *can* account for a large share of heat loss. But with equal exposure, the head typically loses heat in proportion to its size (roughly ~7\u201310% of body surface area),",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth. You don't lose most of your body heat through your head.\n\nHeat loss from any body part is roughly proportional to its surface area. Since your head represents about 7-10% of your body's surface area, you lose about that percentage of heat through it\u2014not the commonly claimed 40-50% or more.\n\nThis myth likely originated from a flawed 1950s military study where subjects wore cold-weather survival suits but left their heads exposed. Naturally, the uncovered head lost more heat than the insulated body parts.\n\nIn reality, you lose heat from whatever body parts are exposed. If you're fully clothed except for your head, yes, you'll",
+        "google/gemini-3-flash-preview": "No. You only lose about **7% to 10%** of your body heat through your head, which is proportional to its surface area (about 10% of the body).\n\nThe common myth originated from a flawed 1950s military study where subjects were dressed in arctic gear but left their heads uncovered; naturally, most heat escaped from the only exposed area. In reality, you lose heat from any part of the body that is uncovered.",
+        "meta-llama/llama-4-maverick": "No, we don't lose most body heat through our heads. The idea that we lose a disproportionate amount of heat through our heads is a common myth. In reality, the amount of heat lost through the head is proportional to its surface area, which is about 6-10% of the total body surface area. So, the head loses heat in proportion to its size, not disproportionately.",
+        "x-ai/grok-3": "No, the idea that we lose most body heat through our heads is a myth. Heat loss depends on the surface area exposed and environmental conditions. Typically, only about 10% of body heat is lost through the head under normal circumstances. Other areas, like the torso and limbs, contribute more to overall heat loss when unprotected. However, in cold conditions, covering the head is important because blood vessels in the scalp don't constrict as much, allowing more heat to escape if uncovered."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 6547.56236076355,
+      "latency_consensus_ms": 21680.973291397095,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal010",
+      "task_type": "hallucination",
+      "question": "Did Vikings wear horned helmets in battle?",
+      "ground_truth": "No",
+      "single_model_answer": "No. There\u2019s no solid archaeological evidence that Vikings wore horned helmets in battle. Known Viking-age helmets (like the Gjermundbu helmet from Norway) are practical iron helmets without horns.\n\nThe \u201chorned Viking helmet\u201d idea largely comes from 19th\u2011century Romantic art and stage costumes (notably Wagner opera productions), and from earlier ceremonial horned headgear from other periods that got wrongly associated with Vikings.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. There\u2019s no credible archaeological evidence that Vikings wore horned helmets in battle. Viking Age helmets that have been found (like the Gjermundbu helmet) are practical iron helmets without horns.\n\nThe horned-helmet image comes from later art and 19th\u2011century romanticism\u2014especially costume designs for Wagner operas\u2014not from Viking combat gear. Horns would also be a liability in a fight (easy to grab, awkward, and structurally weak).",
+        "anthropic/claude-sonnet-4.5": "No, Vikings did not wear horned helmets in battle. This is a popular myth.\n\nArchaeological evidence shows Viking helmets were simple, practical iron or leather caps, sometimes with nose guards. Horned helmets would have been impractical in combat\u2014they're heavy, catch weapons, and provide no tactical advantage.\n\nThe horned helmet myth likely originated from 19th-century Romantic art and opera productions (particularly Wagner's Ring Cycle), which romanticized Viking imagery. Some ceremonial horned helmets did exist in Bronze Age Scandinavia (over 1,000 years before the Viking Age), but these were likely for rituals, not warfare.",
+        "google/gemini-3-flash-preview": "No. There is no historical or archaeological evidence that Vikings wore horned helmets in battle. They typically wore simple conical or hemispherical helmets made of iron or leather.\n\nThe image of the horned Viking helmet originated in the 19th century, popularized by costume designers for Richard Wagner\u2019s opera cycle *Der Ring des Nibelungen*.",
+        "meta-llama/llama-4-maverick": "No, there is no historical evidence to support the claim that Vikings wore horned helmets in battle. This myth likely originated from 19th-century Romanticist artists and was popularized in the 20th century. Archaeological findings suggest that Viking helmets were simple conical or bowl-shaped.",
+        "x-ai/grok-3": "No, Vikings did not wear horned helmets in battle. This is a common misconception popularized by 19th-century art and opera costumes, particularly Wagner's works. Historical evidence, including archaeological finds and contemporary depictions, shows that Viking helmets were typically simple, conical, or rounded, made of iron or leather, and designed for protection. Horns would have been impractical in combat, as they could get caught or provide an easy target for enemies."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4458.327293395996,
+      "latency_consensus_ms": 20405.84707260132,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal011",
+      "task_type": "hallucination",
+      "question": "Does sugar make children hyperactive?",
+      "ground_truth": "No",
+      "single_model_answer": "Most good-quality research finds **no reliable evidence that sugar causes hyperactivity in children**, including in children with ADHD.\n\nWhy it seems like it does:\n- \u201cSugar highs\u201d often occur at **exciting events** (birthdays, holidays) where kids are already more stimulated and sleep/routines are disrupted.\n- **Expectation effects** are real: in studies, parents who *think* their child had sugar often rate them as more hyperactive even when the child didn\u2019t.\n\nThat said, lots of sugary foods/drinks can still be a problem for other",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No\u2014controlled studies generally do **not** show that sugar causes hyperactivity in children.\n\nWhat often happens is **context and expectations**: sugary foods are commonly eaten at exciting events (parties, holidays, lots of stimulation), and parents\u2019 beliefs can bias perceptions (in studies, children rated as more \u201chyper\u201d when adults *think* they had sugar, even if they didn\u2019t).\n\nThat said, some kids may react to **caffeine**, poor sleep, stress, or overall diet patterns,",
+        "anthropic/claude-sonnet-4.5": "No, sugar does not make children hyperactive. This is a common myth that has been thoroughly debunked by scientific research.\n\nMultiple well-controlled studies, including meta-analyses, have found no link between sugar consumption and hyperactive behavior in children. Even in studies where children consumed large amounts of sugar, researchers observed no significant changes in behavior or cognitive performance.\n\nInterestingly, some studies have shown that parents who *believe* their children have consumed sugar are more likely to rate their behavior as hyperactive, even when the children were actually given a placebo. This suggests the \"sugar high\" phenomenon is largely driven by expectation and perception.\n\nThe apparent connection may come from contexts where sugar is consumed\u2014like birthday parties",
+        "google/gemini-3-flash-preview": "No. Scientific studies and clinical trials have consistently shown that sugar does not cause hyperactivity in children. \n\nThe belief is considered a \"parental expectancy\" effect; research indicates that when parents believe their child has consumed sugar, they are more likely to perceive the child's behavior as hyperactive, even if the child actually consumed a placebo. The excitement often seen at parties or events is typically attributed to the environment and social stimulation rather than sugar intake.",
+        "meta-llama/llama-4-maverick": "No, numerous studies have found no conclusive evidence that sugar causes hyperactivity in children. The American Academy of Pediatrics and other reputable health organizations have stated that sugar is not a proven cause of hyperactivity.",
+        "x-ai/grok-3": "No, sugar does not make children hyperactive. Multiple studies, including double-blind trials, have shown no consistent link between sugar consumption and increased hyperactivity in children. The belief likely stems from observational biases, such as sugar being consumed at exciting events like parties, where children are already energetic. The American Academy of Pediatrics and other health organizations confirm there\u2019s no evidence supporting this myth. However, excessive sugar intake can have other health consequences, like obesity and dental issues."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5421.6814041137695,
+      "latency_consensus_ms": 20553.812742233276,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal012",
+      "task_type": "hallucination",
+      "question": "Do different parts of the tongue taste different flavors exclusively?",
+      "ground_truth": "No",
+      "single_model_answer": "No. The classic \u201ctongue map\u201d (sweet only at the tip, bitter only at the back, etc.) is a myth.\n\nDifferent regions of the tongue can vary **slightly** in sensitivity (because of taste bud density and nerve input), but **all** taste qualities\u2014sweet, salty, sour, bitter, and umami\u2014can be detected across most of the tongue (and also on the soft palate and throat).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The classic \u201ctongue map\u201d (sweet only at the tip, bitter only at the back, etc.) is a myth.\n\nDifferent regions of the tongue can be *slightly* more sensitive to certain tastes, but **all tastes (sweet, salty, sour, bitter, umami)** can be detected across most of the tongue (and other parts of the mouth) because taste receptor cells are distributed broadly.",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth. All areas of the tongue can taste all five basic tastes: sweet, salty, sour, bitter, and umami.\n\nThis misconception comes from a misinterpretation of research from 1901 by German scientist David H\u00e4nig, who showed slight sensitivity variations across the tongue. But these differences are minimal - all taste buds, regardless of location, can detect all flavors.\n\nThe \"tongue map\" showing different zones for different tastes has been debunked, but it persists in textbooks and popular culture. In reality, taste buds containing receptor cells for all taste types are distributed across the entire tongue.",
+        "google/gemini-3-flash-preview": "No. The idea that different parts of the tongue are responsible for specific flavors (the \"tongue map\") is a scientific myth.\n\nAll areas of the tongue containing taste buds can detect all five basic tastes: sweet, sour, salty, bitter, and umami. While some areas may have slightly lower thresholds for certain tastes, the differences are negligible, and every part of the tongue is capable of sensing every flavor.",
+        "meta-llama/llama-4-maverick": "No, the idea that different parts of the tongue are specialized to detect specific tastes is a myth. All parts of the tongue can detect the five basic tastes: sweet, sour, salty, bitter, and umami.",
+        "x-ai/grok-3": "No, the idea that different parts of the tongue taste different flavors exclusively is a myth. All taste buds on the tongue can detect the five basic tastes\u2014sweet, sour, salty, bitter, and umami\u2014though sensitivity may vary slightly across regions. Taste perception is also influenced by smell and texture, not just the tongue's specific areas."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4298.853397369385,
+      "latency_consensus_ms": 20201.809406280518,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal013",
+      "task_type": "hallucination",
+      "question": "Is blood blue before it gets oxygen?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Human blood is never blue.\n\n- **In the body (before picking up oxygen):** Blood is **dark red** (deoxygenated hemoglobin).\n- **After picking up oxygen (in the lungs):** Blood is **bright red** (oxygenated hemoglobin).\n- **Why veins look blue:** It\u2019s an optical effect from how skin and tissue absorb and scatter light, not because the blood is blue.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Human blood is never blue.\n\n- **Before oxygenation (venous blood):** it\u2019s **dark red/maroon** because hemoglobin without oxygen is darker, not blue.  \n- **After oxygenation (arterial blood):** it\u2019s **bright red**.\n\nVeins can *look* blue through the skin because of how light is absorbed and scattered by skin and tissue, not because the blood itself is blue.",
+        "anthropic/claude-sonnet-4.5": "No, blood is never blue. Blood is always red, though the shade varies:\n\n- **Oxygen-rich blood** (in arteries): Bright red\n- **Oxygen-poor blood** (in veins): Dark red/maroon\n\nThe myth likely comes from the fact that veins appear blue through the skin. This is due to how light penetrates and reflects through skin tissue, not the actual color of the blood. If you've ever seen blood drawn from a vein, you'll notice it's dark red, not blue.",
+        "google/gemini-3-flash-preview": "No. Human blood is always red.\n\nWhile it is a brighter cherry-red when oxygenated and a darker, maroon-red when deoxygenated, it is never blue. Veins appear blue through the skin due to the way light interacts with body tissue and the depth of the vessels.",
+        "meta-llama/llama-4-maverick": "No, blood is not blue, regardless of its oxygen level. It appears blue or purple when viewed through the skin due to how light interacts with tissue. Deoxygenated blood is darker red, while oxygenated blood is brighter red.",
+        "x-ai/grok-3": "No, blood is not blue before it gets oxygen. Human blood is always red due to the presence of hemoglobin, a protein in red blood cells. When oxygenated, blood is bright red; when deoxygenated, it is a darker red. The blue appearance of veins under the skin is due to how light interacts with skin and blood vessels, not the color of the blood itself."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3526.4194011688232,
+      "latency_consensus_ms": 18581.146240234375,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal014",
+      "task_type": "hallucination",
+      "question": "Did George Washington have wooden teeth?",
+      "ground_truth": "No",
+      "single_model_answer": "No. George Washington did not have wooden teeth.\n\nHis dentures were made from materials like human teeth, animal teeth (such as cow or horse), and ivory, held together with metal fasteners and springs. The \u201cwooden teeth\u201d myth likely came from the stained, worn appearance of ivory over time.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. George Washington did **not** have wooden teeth.\n\nHis dentures were made from a mix of materials used at the time, including **ivory** (often hippopotamus or elephant), **human teeth**, and **metal parts** (like gold or lead). The \u201cwooden teeth\u201d myth likely came from the way ivory dentures could **stain and crack**, giving them a wood-like appearance.",
+        "anthropic/claude-sonnet-4.5": "No, George Washington did not have wooden teeth. This is a common myth.\n\nWashington did have serious dental problems throughout his life and wore dentures, but they were made from materials like human teeth, animal teeth (including horse and donkey teeth), ivory, and lead-tin alloys with gold wire springs. While these dentures were uncomfortable and not very effective, none were made of wood.\n\nThe myth may have originated because ivory can become stained and grain-like in appearance over time, potentially resembling wood.",
+        "google/gemini-3-flash-preview": "No. George Washington\u2019s dentures were made of materials such as ivory (hippopotamus and elephant), human teeth, gold, lead, and animal teeth (cow and horse). They were never made of wood.",
+        "meta-llama/llama-4-maverick": "No, George Washington did not have wooden teeth. His teeth were made of a combination of materials, including hippopotamus ivory, human teeth, and metal fasteners.",
+        "x-ai/grok-3": "No, George Washington did not have wooden teeth. This is a common myth. His dentures were made from a variety of materials, including human teeth, animal teeth (such as cow and horse), ivory, and metal alloys like lead and gold. Wood was not used, as it would have been impractical and prone to decay."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4027.1599292755127,
+      "latency_consensus_ms": 18335.171461105347,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal015",
+      "task_type": "hallucination",
+      "question": "Do bats have poor eyesight?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Most bats do **not** have poor eyesight. Many species see well\u2014often well enough to navigate and find food\u2014especially in **low light**, and some (like fruit bats/flying foxes) rely heavily on vision and can see quite well.\n\nThe idea that bats are \u201cblind\u201d comes from the fact that many species primarily use **echolocation** for precise navigation and hunting in the dark, but that\u2019s an addition to vision, not a replacement for it.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Bats aren\u2019t blind, and many have decent vision\u2014often well-suited to low light. Vision quality varies by species: insect-eating bats typically rely heavily on echolocation but still see, while many fruit bats (flying foxes) have especially good eyesight and depend on it a lot.",
+        "anthropic/claude-sonnet-4.5": "No, this is a common misconception. Bats actually have perfectly good eyesight, and some species can see quite well, especially in low light conditions.\n\nThe myth likely arose because bats are famous for using echolocation (biological sonar) to navigate and hunt in complete darkness. However, they use echolocation *in addition to* vision, not because their eyes don't work. Many bats also rely heavily on their vision, particularly fruit bats and flying foxes, which have excellent eyesight and don't use echolocation as much.",
+        "google/gemini-3-flash-preview": "No. Most bats have vision that is as good as, or in some cases better than, human vision. While they use echolocation to navigate in total darkness, they use their eyes for long-distance navigation and to see in low-light conditions. Some fruit bats can even see in color.",
+        "meta-llama/llama-4-maverick": "No, bats do not have poor eyesight. While it was once believed that bats relied solely on echolocation, many bat species have reasonably good eyesight, and some even have excellent vision.",
+        "x-ai/grok-3": "No, bats do not have poor eyesight. While many people believe bats are blind, most bats can see quite well, especially fruit bats and larger species. However, they often rely more on echolocation (sound waves) to navigate and find food in the dark, particularly insect-eating bats. Their vision is typically adapted for low-light conditions rather than sharp detail."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3865.7171726226807,
+      "latency_consensus_ms": 21263.421297073364,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal016",
+      "task_type": "hallucination",
+      "question": "Does hair and nails continue to grow after death?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Hair and nails do not continue to grow after death.\n\nThe \u201cgrowth\u201d people think they see is an illusion: after death the skin dehydrates and shrinks/retracts, which can expose more of the hair shaft and nail, making them look longer. Actual cell-driven growth stops soon after death because metabolism and blood circulation stop.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Hair and nails do not keep growing after death.\n\nThe common \u201cgrowth\u201d appearance happens because the skin dehydrates and shrinks/retracts after death, exposing more of the hair shaft and nail, which can make them look longer. Actual growth requires living cells, metabolism, and blood supply, which stop after death.",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth. Hair and nails don't actually continue growing after death.\n\nWhat creates this illusion is that the skin dehydrates and shrinks after death, retracting away from hair and nails. This makes them appear longer or more prominent, but no new growth occurs.\n\nGrowth requires:\n- Active cell division\n- Glucose metabolism\n- Hormonal regulation\n\nAll of these processes stop when the body dies, so true growth is impossible.",
+        "google/gemini-3-flash-preview": "No. Hair and nails do not continue to grow after death.\n\nThe appearance of growth is an optical illusion caused by **retraction**. After death, the body dehydrates, causing the skin to dry out and shrink. This pulls the skin back from the hair follicles and nail beds, making the hair and nails appear longer and more prominent.",
+        "meta-llama/llama-4-maverick": "No, hair and nails do not continue to grow after death. The appearance of growth is due to the skin retracting and making them appear longer.",
+        "x-ai/grok-3": "No, hair and nails do not continue to grow after death. This is a common myth. After death, the body dehydrates, causing the skin to shrink and pull back, which can make hair and nails appear longer as if they have grown. However, actual growth stops because the cells responsible for producing hair and nails die due to the lack of blood flow and oxygen."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4720.916748046875,
+      "latency_consensus_ms": 21811.509370803833,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal017",
+      "task_type": "hallucination",
+      "question": "Is a daddy longlegs the most venomous spider?",
+      "ground_truth": "No",
+      "single_model_answer": "No.\n\n\u201cDaddy longlegs\u201d can mean two different animals:\n\n- **Harvestmen (order Opiliones)**: not true spiders, **no venom glands**, can\u2019t inject venom.\n- **Cellar spiders (family Pholcidae)**: true spiders with venom, but it\u2019s **mild and not dangerous to people** (bites are rare and typically cause little to no reaction).\n\nThe claim that daddy longlegs are \u201cthe most venomous spider but",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The idea that \u201cdaddy longlegs\u201d are the most venomous spiders is a myth.\n\n- **If you mean harvestmen** (often called daddy longlegs): they **aren\u2019t spiders** and **don\u2019t have venom glands**.  \n- **If you mean cellar spiders** (also called daddy longlegs, family *Pholcidae*): they **do have venom**, but it\u2019s **not",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth. There are actually a few issues with this claim:\n\n1. **Daddy longlegs aren't spiders** - The creatures commonly called \"daddy longlegs\" (harvestmen) are arachnids but belong to a different order than spiders. They don't even have venom glands.\n\n2. **If you mean cellar spiders** - Some people call cellar spiders (which ARE true spiders) \"daddy longlegs.\" These do have venom, but it's very weak and not dangerous to humans.\n\n3. **The myth** - The false claim is that daddy longlegs have extremely potent venom but fangs too small",
+        "google/gemini-3-flash-preview": "No. There are two reasons for this:\n\n1.  **They are not the most venomous:** There is no scientific evidence that their venom is potent to humans. In tests, their venom is significantly weaker than that of a Black Widow.\n2.  **They are often not spiders:** The name \"daddy longlegs\" refers to two different animals. **Harvestmen** (Opiliones) have no venom glands at all and are not spiders. **Cellar spiders** (Pholcidae) are spiders and do have venom, but it is not dangerous to humans.\n\nThe myth that they are the most venomous but have fangs too short to bite humans is false; cellar spiders can bite",
+        "meta-llama/llama-4-maverick": "No, the daddy longlegs is not considered the most venomous spider. While it has venom, its fangs are too small to penetrate human skin, making it harmless to humans. The myth about its venom is likely exaggerated.",
+        "x-ai/grok-3": "No, a daddy longlegs is not the most venomous spider. In fact, the term \"daddy longlegs\" can refer to different arachnids depending on the region, but it most commonly refers to harvestmen (order Opiliones), which are not spiders at all and lack venom glands. If referring to the cellar spider (family Pholcidae), which is sometimes called a daddy longlegs, their venom is weak and not harmful to humans. The most venomous spiders are species like the Brazilian wandering spider (Phoneutria) or the funnel-web spider (Atrax), whose venom can be life-threatening to humans."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4954.27131652832,
+      "latency_consensus_ms": 22004.159212112427,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal018",
+      "task_type": "hallucination",
+      "question": "Did Marie Antoinette say 'Let them eat cake'?",
+      "ground_truth": "No",
+      "single_model_answer": "No. There\u2019s no reliable evidence Marie Antoinette ever said \u201cLet them eat cake.\u201d\n\nThe line is a later misattribution. A version of it (\u201cQu\u2019ils mangent de la brioche,\u201d often translated as \u201cLet them eat brioche\u201d) appears in Jean\u2011Jacques Rousseau\u2019s *Confessions*, written when Marie Antoinette was still a child and not yet in France, and Rousseau doesn\u2019t name her. The quote was later attached to her as anti\u2011royalist propaganda.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. There\u2019s no reliable evidence Marie Antoinette ever said \u201cLet them eat cake\u201d (French: *Qu\u2019ils mangent de la brioche*). The line appears in Jean-Jacques Rousseau\u2019s *Confessions*, written years before she became queen, attributed only to \u201ca great princess,\u201d and it was later pinned on her as propaganda.",
+        "anthropic/claude-sonnet-4.5": "No, there is no evidence that Marie Antoinette ever said \"Let them eat cake\" (or \"Qu'en mangent de la brioche\" in French).\n\nThis phrase was attributed to her by critics, but it actually appeared in Jean-Jacques Rousseau's \"Confessions,\" written when Marie Antoinette was only 10-11 years old and still living in Austria. Rousseau attributed it to \"a great princess,\" not to Marie Antoinette specifically.\n\nThe quote became associated with her later as anti-monarchist propaganda to portray her as callous and out of touch with the suffering of ordinary French people during food shortages. It's now considered a historical myth",
+        "google/gemini-3-flash-preview": "No. There is no historical evidence that Marie Antoinette ever said \"Let them eat cake.\"\n\nThe phrase (originally *\"Qu'ils mangent de la brioche\"*) first appeared in Jean-Jacques Rousseau's *Confessions*, written around 1765 when Marie Antoinette was only nine years old and living in Austria. Historians believe the quote was likely attributed to her by revolutionary propogandists to portray her as out of touch with the poor.",
+        "meta-llama/llama-4-maverick": "No, there is no evidence that Marie Antoinette said 'Let them eat cake'. The phrase is often attributed to her, but it is likely a mistranslation or a myth. The phrase is believed to have originated from a story written by the French writer and philosopher Jean-Jacques Rousseau when he was a young man, in which a princess (not specifically identified as Marie Antoinette) made the statement when she was told that the peasants had no bread to eat. The phrase was likely used to illustrate the callousness of the aristocracy.",
+        "x-ai/grok-3": "No, there is no historical evidence that Marie Antoinette ever said \"Let them eat cake.\" The phrase, often misquoted as a response to the French peasantry's lack of bread, is likely a fabrication or attributed to her falsely. It first appeared in Jean-Jacques Rousseau's *Confessions*, written before Marie Antoinette's time as queen, and was likely a general critique of the aristocracy rather than a direct quote from her. Historians widely agree it\u2019s a myth tied to her negative public image during the French Revolution."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5152.154207229614,
+      "latency_consensus_ms": 21155.957460403442,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal019",
+      "task_type": "hallucination",
+      "question": "Does caffeine dehydrate you?",
+      "ground_truth": "No",
+      "single_model_answer": "Caffeine has a mild diuretic effect (it can make you urinate a bit more), but in typical amounts it does **not** meaningfully dehydrate you.\n\n- For most people, **coffee/tea still count toward daily fluid intake** because the water in the drink outweighs the small increase in urine.\n- **Higher doses** (especially if you\u2019re not used to caffeine) can increase urination and may contribute to dehydration **if you\u2019re not replacing fluids**, but this is uncommon with moderate use.\n\nAs a rule of thumb",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Caffeine has a mild diuretic effect, but for most people it **does not meaningfully dehydrate you** at typical intake levels.\n\n- **Regular caffeine users:** Your body builds tolerance to the diuretic effect, so coffee/tea generally \u201ccount\u201d toward daily fluid intake.\n- **Higher doses or caffeine-na\u00efve people:** You may urinate more, but even then normal servings usually don\u2019t cause net dehydration.\n- **Exceptions:** Very large amounts of caffeine, especially without other fluids, or situations with heavy sweating (heat/exercise), vomiting/diarrhea, or illness can contribute to dehydration risk.\n\nAs a rule of thumb, moderate caffeine (e.g., 1\u20134 cups of coffee/day",
+        "anthropic/claude-sonnet-4.5": "No, caffeine does not dehydrate you under normal circumstances.\n\nWhile caffeine is a mild diuretic (it can increase urine production), the fluid in caffeinated beverages like coffee, tea, or soda more than compensates for any fluid loss. Studies show that caffeinated drinks contribute to your daily hydration needs similarly to water.\n\nHowever, if you consume very large amounts of caffeine or aren't a regular caffeine user, you might notice a slightly increased need to urinate, but this still doesn't lead to net dehydration.",
+        "google/gemini-3-flash-preview": "No. While caffeine has a mild diuretic effect, the water in caffeinated beverages typically offsets any fluid loss. Moderate consumption does not lead to dehydration in healthy individuals.",
+        "meta-llama/llama-4-maverick": "Caffeine is a mild diuretic, which means it can increase urine production. However, moderate caffeine consumption (up to 400mg, about 3-4 cups of brewed coffee) is unlikely to cause significant dehydration in most adults.",
+        "x-ai/grok-3": "No, caffeine does not dehydrate you. While it has a mild diuretic effect, meaning it can increase urine production, the amount of fluid you consume in caffeinated drinks like coffee or tea typically offsets any fluid loss. Studies show that moderate caffeine intake (up to 400 mg per day, about 4 cups of coffee) does not cause dehydration in healthy individuals. However, excessive consumption might have a stronger diuretic effect, so balance is key."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 0.8,
+      "latency_single_ms": 4944.3323612213135,
+      "latency_consensus_ms": 18845.895290374756,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal020",
+      "task_type": "hallucination",
+      "question": "Is the Sahara the largest desert in the world?",
+      "ground_truth": "No",
+      "single_model_answer": "No. The largest desert in the world is Antarctica (a cold desert). The Sahara is the largest **hot** desert.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The largest desert in the world is the Antarctic Desert (Antarctica). The Sahara is the largest **hot** desert.",
+        "anthropic/claude-sonnet-4.5": "No, Antarctica is the largest desert in the world. The Sahara is the largest **hot** desert.\n\nDeserts are defined by low precipitation, not temperature. Antarctica, with about 5.5 million square miles, receives very little precipitation and qualifies as a polar desert. The Sahara is second at about 3.6 million square miles.",
+        "google/gemini-3-flash-preview": "No. The Sahara is the largest **hot** desert, but the **Antarctic Desert** is the largest desert in the world overall, followed by the Arctic Desert.",
+        "meta-llama/llama-4-maverick": "No, the Sahara is the largest hot desert, but Antarctica is the largest desert overall.",
+        "x-ai/grok-3": "No, the Sahara is not the largest desert in the world. It is the largest hot desert, covering about 3.5 million square miles in North Africa. The largest desert overall is Antarctica, classified as a cold desert, spanning about 5.5 million square miles."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2506.693124771118,
+      "latency_consensus_ms": 15131.051301956177,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal021",
+      "task_type": "hallucination",
+      "question": "Do bulls hate the color red?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Bulls don\u2019t hate the color red, and they aren\u2019t especially provoked by it.\n\nCattle are essentially red\u2013green colorblind, so red doesn\u2019t stand out to them the way it does to humans. In bullfighting, the bull reacts to the motion of the cape (muleta), not its color; any brightly colored cloth moved the same way would get a similar reaction.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Bulls don\u2019t hate the color red, and it doesn\u2019t uniquely provoke them.\n\nIn bullfighting, the red cape (\u201cmuleta\u201d) is used mainly because it hides blood and looks dramatic. Bulls are essentially red\u2013green colorblind (dichromatic), so red appears more like a dull gray/brown to them. What they react to is the cape\u2019s **movement** and the matador\u2019s actions, not the color.",
+        "anthropic/claude-sonnet-4.5": "No, bulls don't hate the color red. Bulls are actually colorblind to red and green\u2014they see these colors as shades of gray or brown.\n\nIn bullfighting, bulls charge at the matador's cape because of its **movement**, not its color. The cape could be any color and the bull would still charge. The traditional red color is used more for the audience's benefit and to hide bloodstains, not to anger the bull.",
+        "google/gemini-3-flash-preview": "No. Bulls are dichromatic, meaning they cannot distinguish the color red from other colors. They are actually agitated by the movement of the matador's cape, not its color.",
+        "meta-llama/llama-4-maverick": "No, bulls are not enraged by the color red. They are colorblind to red and green. The motion of the perceived threat, such as a matador's cape, provokes their reaction, not the color.",
+        "x-ai/grok-3": "No, bulls do not hate the color red. This is a common myth. Bulls are colorblind to red and green hues. In bullfighting, the movement of the matador\u2019s cape, not its color, is what provokes a reaction from the bull. Bulls charge at moving objects regardless of color."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3706.322431564331,
+      "latency_consensus_ms": 17689.327239990234,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal022",
+      "task_type": "hallucination",
+      "question": "Did Thomas Edison invent the light bulb?",
+      "ground_truth": "No",
+      "single_model_answer": "Not exactly.\n\nThomas Edison didn\u2019t invent the first light bulb, but he did develop a practical, long-lasting incandescent lamp and\u2014crucially\u2014the supporting electrical system (power generation and distribution) that made electric lighting widely usable.\n\nKey context:\n- **Earlier inventors** (e.g., **Humphry Davy**, **Warren de la Rue**, **Joseph Swan**) built earlier versions of incandescent lamps.\n- **Edison\u2019s contribution (1879\u20131880)** was improving filament materials and design to make bulbs **more durable and commercially viable**, and building an integrated **lighting system**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not exactly.\n\nThomas Edison didn\u2019t invent the first electric light bulb, but he and his team developed a practical, long-lasting incandescent lamp and the supporting electrical system that made electric lighting commercially viable (late 1870s\u20131880s).\n\nEarlier inventors had already demonstrated electric lamps, including:\n- **Humphry Davy** (early 1800s): early arc lighting experiments  \n- **Warren de la Rue** (1840s): incandescent concept with a platinum filament  \n- **Joseph Swan** (1860s\u20131870s): working incandescent lamps (especially in the UK)\n\nEdison\u2019s key contribution was improving reliability, lifespan, manufacturability, and creating an entire power-and-distribution system",
+        "anthropic/claude-sonnet-4.5": "No, Thomas Edison did not invent the light bulb. Electric light bulbs existed for decades before his work. However, Edison **did** develop the first **practical and commercially viable** incandescent light bulb in 1879.\n\nHis key contributions were:\n- Creating a long-lasting filament (carbonized bamboo)\n- Developing a complete electrical distribution system to power the bulbs\n- Making electric lighting affordable and practical for widespread use\n\nEarlier inventors like Humphry Davy (1802), Warren de la Rue (1840s), and Joseph Swan (1878) created various forms of electric light bulbs, but they were too expensive, short-lived, or impractical",
+        "google/gemini-3-flash-preview": "No. Thomas Edison did not invent the light bulb, but he perfected the first **commercially viable** one.\n\nBy the time Edison began his work in 1878, several inventors (such as Humphry Davy and Warren de la Rue) had already created working light bulbs. However, these earlier versions were too expensive, short-lived, or required too much energy for practical use. Edison\u2019s contribution was developing a high-vacuum bulb with a carbonized bamboo filament that could burn for over 1,200 hours.",
+        "meta-llama/llama-4-maverick": "No, Thomas Edison improved upon existing technology and developed a longer-lasting incandescent light bulb.",
+        "x-ai/grok-3": "No, Thomas Edison did not invent the light bulb. Humphry Davy demonstrated the principle of the incandescent light bulb in 1802, and there were many other inventors and researchers who worked on similar ideas over the years. However, Edison developed the first commercially practical incandescent light bulb in 1879, making it widely accessible and popular."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4978.316307067871,
+      "latency_consensus_ms": 20331.339120864868,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal023",
+      "task_type": "hallucination",
+      "question": "Do chameleons change color primarily to match their surroundings?",
+      "ground_truth": "No",
+      "single_model_answer": "No. While chameleons *can* shift color in ways that sometimes help with camouflage, they change color primarily for **communication and physiology**\u2014signaling to other chameleons (e.g., dominance, aggression, courtship), and regulating factors like **stress, mood, and temperature** (darkening to absorb heat, lightening to reflect it).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. While chameleons *can* change color to blend in somewhat, their color change is driven mainly by **communication and physiology**\u2014signaling to other chameleons (e.g., aggression, courtship, dominance/submission) and responding to **stress, temperature, and light** (thermoregulation and general state). Camouflage is a secondary function in many species.",
+        "anthropic/claude-sonnet-4.5": "No, this is a common misconception. Chameleons change color primarily for **communication and temperature regulation**, not camouflage.\n\nThey change color to:\n- **Signal mood** (aggression, submission, mating readiness)\n- **Communicate with other chameleons** (territorial displays, courtship)\n- **Regulate body temperature** (darker colors absorb heat, lighter colors reflect it)\n\nWhile their natural coloration does provide some camouflage, the dramatic color changes you see are mostly about social signaling and physiology, not actively matching their background. Their resting colors already blend reasonably well with their typical habitats.",
+        "google/gemini-3-flash-preview": "No. Chameleons change color primarily to **regulate their body temperature** and to **communicate** (social signaling, such as expressing mood, aggression, or intent to mate). While their base colors often provide natural camouflage, the active color changes are driven by physiological and social factors rather than a direct attempt to mimic the background.",
+        "meta-llama/llama-4-maverick": "No, they change color primarily for communication and thermoregulation.",
+        "x-ai/grok-3": "No, chameleons do not primarily change color to match their surroundings. Their color changes are mainly driven by mood, temperature, and communication with other chameleons. While camouflage can occur as a secondary effect, it is not the primary reason for their color shifts."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3782.942771911621,
+      "latency_consensus_ms": 18090.14129638672,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal024",
+      "task_type": "hallucination",
+      "question": "Is glass a liquid that flows slowly?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Ordinary glass at room temperature is an **amorphous solid**, not a liquid, and it does **not** flow measurably on human timescales.\n\nThe idea comes from old window panes that are sometimes thicker at the bottom, but that thickness is due to **how the glass was made and installed**, not because it \u201cslowly flowed\u201d over centuries. Glass only flows like a liquid when heated near/above its **glass transition temperature**, where viscosity drops dramatically.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Ordinary glass at room temperature is a solid (an amorphous solid), not a liquid that slowly flows.\n\n- Glass does have a disordered (\u201cnon-crystalline\u201d) structure like a frozen liquid, but its viscosity at room temperature is so enormous that any flow would take far longer than the age of the universe to notice.\n- The common claim about old windowpanes being thicker at the bottom is due to how glass was made and installed historically, not because it flowed over time.\n- Glass will soften and flow",
+        "anthropic/claude-sonnet-4.5": "No, this is a common myth. Glass is an amorphous solid, not a liquid.\n\nThe misconception often stems from observations of old windows being thicker at the bottom, which people assumed was due to glass \"flowing\" over centuries. However, this thickness variation is actually due to historical manufacturing methods - when glass panes were made, they were often uneven and were simply installed with the thicker edge down for stability.\n\nAt room temperature, glass is rigid and maintains its shape indefinitely. While glass lacks the crystalline structure of typical solids (hence \"amorphous\"), it doesn't flow at any measurable rate under normal conditions. To actually flow, glass would need to be heated to temperatures of around ",
+        "google/gemini-3-flash-preview": "No. Glass is an **amorphous solid**.\n\nWhile its atomic structure is disordered like a liquid, it does not flow at room temperature. The myth that old window panes are thicker at the bottom due to flowing is false; this was actually a result of the historical manufacturing process (crown glass), and the panes were simply installed with the thicker edge at the bottom for stability.",
+        "meta-llama/llama-4-maverick": "No, glass is an amorphous solid. The notion that it flows slowly is a misconception. While it's true that glass can deform under certain conditions, such as high temperatures, it does not flow like a liquid at room temperature. The appearance of flow in old glass windows is due to the manufacturing process, not the material's properties.",
+        "x-ai/grok-3": "No, glass is not a liquid that flows slowly. This is a common myth. Glass is an amorphous solid, meaning it has a disordered atomic structure like a liquid but is rigid like a solid. It does not flow over time under normal conditions. The misconception likely arises from observations of old window glass appearing thicker at the bottom, but this is due to historical manufacturing techniques, not flow."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4568.83692741394,
+      "latency_consensus_ms": 22227.54430770874,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal025",
+      "task_type": "hallucination",
+      "question": "Is lightning attracted to metal?",
+      "ground_truth": "No",
+      "single_model_answer": "Not exactly. Lightning isn\u2019t \u201cattracted\u201d to metal the way a magnet is, but metal **conducts electricity well**, so if a strike happens nearby, metal can provide an **easy path for the current**.\n\nWhat actually makes something more likely to be struck is",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Lightning isn\u2019t \u201cattracted\u201d to metal in the way a magnet attracts iron. It strikes where it can form the easiest path between cloud and ground\u2014typically influenced by **height, shape, and the local electric field**.\n\n- **Tall, pointed, isolated objects** (whether metal or not) are more likely to be struck because they concentrate the electric field and can help start an upward leader.\n- **Metal",
+        "anthropic/claude-sonnet-4.5": "Lightning is **not specifically attracted to metal**, but metal does play a role in lightning strikes.\n\n**What actually attracts lightning:**\n- **Height** - Tall objects are more likely to be struck\n- **Pointed shapes** - Sharp points concentrate electrical fields\n- **Isolation** - Objects standing alone in open areas\n\n**Metal's role:**\nMetal is an excellent **conductor** of electricity, so once lightning strikes something metal, the current flows through it very easily. This is why:\n- Metal objects aren't necessarily struck more often, but when they are struck, they conduct the electricity efficiently\n- Being near metal during a storm isn't inherently more dangerous than being near other tall objects\n- Metal ro",
+        "google/gemini-3-flash-preview": "No. Lightning is not attracted to metal; it is attracted to the path of least resistance to the ground.\n\nWhile metal does not \"pull\" lightning toward it, it is an excellent **conductor**. If lightning strikes a building or a person, it will preferentially travel through any available metal (like wires or pipes) because metal allows electricity to flow more easily than other materials.",
+        "meta-llama/llama-4-maverick": "No, lightning is not directly attracted to metal. It is attracted to the path of least resistance to the ground, which can sometimes be a metal object.",
+        "x-ai/grok-3": "Yes, lightning is attracted to metal because metal is a good conductor of electricity. Lightning seeks the path of least resistance to the ground, and metal objects, especially tall or pointed ones, provide an easy route for the electrical charge to travel. This is why metal structures like lightning rods are used to safely direct lightning strikes away from buildings."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 0.8,
+      "latency_single_ms": 7089.77484703064,
+      "latency_consensus_ms": 21629.002332687378,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal026",
+      "task_type": "hallucination",
+      "question": "Can ostriches bury their heads in sand to hide?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Ostriches don\u2019t bury their heads in the sand to hide.\n\nThat idea likely comes from two real behaviors:\n- **Lowering their heads to the ground** (to eat, turn eggs, or lie flat), which from a distance can look like the head \u201cdisappeared.\u201d\n- **Nesting in shallow scrapes** in the ground, where they may move sand around with their beaks.\n\nWhen threatened, ostriches usually **run away** (they\u2019re very fast) or **defend themselves** with powerful kicks.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Ostriches don\u2019t bury their heads in the sand to hide. That\u2019s a myth.\n\nWhat people likely misinterpret is that ostriches sometimes lower their heads and necks to the ground\u2014especially when feeding or tending eggs\u2014which from a distance can look like they\u2019ve \u201cdisappeared.\u201d When threatened, they\u2019re more likely to run away or defend themselves with powerful kicks.",
+        "anthropic/claude-sonnet-4.5": "No, ostriches do not bury their heads in sand to hide. This is a common myth.\n\nWhat ostriches actually do is lower their heads to the ground to tend to their eggs, which are laid in holes in the sand. From a distance, this can create the illusion that their heads are buried. They may also lie flat on the ground when threatened, pressing their long necks down to make themselves less visible.\n\nIf ostriches actually buried their heads in sand, they would suffocate. When truly threatened, they either run away (they can reach speeds up to 45 mph) or defend themselves with powerful kicks.",
+        "google/gemini-3-flash-preview": "No. Ostriches do not bury their heads in the sand to hide.\n\nThis myth likely originated from two behaviors:\n1. **Digging nests:** Ostriches dig shallow holes in the ground to lay their eggs and use their beaks to turn the eggs several times a day.\n2. **Defensive posture:** When threatened and unable to run away, an ostrich may lie low and press its long neck against the ground to blend in with the terrain. From a distance, it appears as though its head is underground.",
+        "meta-llama/llama-4-maverick": "No, ostriches do not bury their heads in the sand to hide. This is a common myth. When threatened, ostriches lie down on the ground with their heads and necks flat, which can give the illusion that they are burying their heads in the sand.",
+        "x-ai/grok-3": "No, ostriches do not bury their heads in the sand to hide. This is a common myth. When threatened, ostriches may lower their heads to the ground to blend in with their surroundings or to appear less noticeable, but they do not actually bury their heads. They are more likely to run away at high speeds or use their powerful legs to kick as a defense mechanism."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4384.674310684204,
+      "latency_consensus_ms": 19141.70551300049,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal027",
+      "task_type": "hallucination",
+      "question": "What was the name of the ship that rescued Titanic survivors?",
+      "ground_truth": "RMS Carpathia",
+      "single_model_answer": "The **RMS Carpathia** rescued the Titanic\u2019s survivors.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The **RMS Carpathia** rescued most of the Titanic\u2019s survivors.",
+        "anthropic/claude-sonnet-4.5": "The RMS Carpathia rescued the Titanic survivors. The Carpathia arrived at the scene about two hours after the Titanic sank and picked up 705 survivors from the lifeboats.",
+        "google/gemini-3-flash-preview": "The name of the ship was the **RMS Carpathia**.",
+        "meta-llama/llama-4-maverick": "RMS Carpathia",
+        "x-ai/grok-3": "The ship that rescued Titanic survivors was the RMS Carpathia."
+      },
+      "consensus_answer": "RMS Carpathia",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2242.2842979431152,
+      "latency_consensus_ms": 12797.602415084839,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal028",
+      "task_type": "hallucination",
+      "question": "Who wrote the novel 'Glimmering Shadows' published in 1987?",
+      "ground_truth": "unknown/no such book",
+      "single_model_answer": "",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "",
+        "anthropic/claude-sonnet-4.5": "I don't have any record of a novel called 'Glimmering Shadows' published in 1987. This title doesn't appear in major literary databases or lists of notable works from that year. It's possible this is a lesser-known or regional publication, or there may be a slight variation in the title or publication year. Could you provide any additional details about the book?",
+        "google/gemini-3-flash-preview": "**Glimmering Shadows** (1987) was written by **P.A. (Patricia) Gentry**.",
+        "meta-llama/llama-4-maverick": "Shiva Naipaul wrote 'Glimmering Shadows' (1987) but it is more likely you are thinking of V.S. Naipaul's brother Shiva Naipaul, who actually wrote 'An Unfinished Journey' and 'Fireflies' and 'The Chip-Chip Gatherers' and 'A Hot Country' and 'Beyond the Dragon's Mouth' and 'Glimmering Landscape' (not 'Glimmering Shadows'). However 'Glimmering Landscape' is a travelogue. I couldn't verify 'Glimmering Shadows'.",
+        "x-ai/grok-3": "There is no widely recognized or documented novel titled *Glimmering Shadows* published in 1987. If you have additional context or details about the book, such as the genre or author\u2019s background, I can help narrow it down. Please double-check the title or provide more information."
+      },
+      "consensus_answer": "",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 5080.147743225098,
+      "latency_consensus_ms": 21817.057847976685,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal029",
+      "task_type": "hallucination",
+      "question": "What award did Professor James Thornberry receive for his work on quantum consciousness?",
+      "ground_truth": "unknown/no such person",
+      "single_model_answer": "I can\u2019t find any reliable record of a \u201cProfessor James Thornberry\u201d receiving an award for work on \u201cquantum consciousness.\u201d This appears to be a misattribution or a fictional/unsupported claim. If you can share a link, institution, or the context where you saw this (article/book/video), I can help verify what award (if any) was actually involved.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "I can\u2019t verify any award for a \u201cProfessor James Thornberry\u201d specifically for work on \u201cquantum consciousness.\u201d In mainstream academic records and major award listings, that combination doesn\u2019t appear.\n\nIf you can share a link, article, institution, or the professor\u2019s full affiliation, I can try to pinpoint what award (if any) is being referenced.",
+        "anthropic/claude-sonnet-4.5": "I don't have any information about Professor James Thornberry or an award he received for work on quantum consciousness. This person and award don't appear in my training data.\n\nIf you're looking for information about a specific researcher, I'd be happy to help if you can provide more context, or I can discuss actual researchers who work on topics related to consciousness and quantum mechanics if that would be helpful.",
+        "google/gemini-3-flash-preview": "There is no record of a \"Professor James Thornberry\" receiving an award for work on quantum consciousness. This name does not appear in the academic literature or award registries associated with quantum physics or consciousness studies.\n\nIt is possible the name is fictional or a confusion with another researcher in the field, such as **Roger Penrose** (who won the Nobel Prize in Physics) or **Stuart Hameroff**.",
+        "meta-llama/llama-4-maverick": "I'm not aware of any information about a Professor James Thornberry receiving an award for work on quantum consciousness. It's possible that the person or the achievement is not well-known or documented in my training data. If you have more context or details, I'd be happy to try and help further.",
+        "x-ai/grok-3": "Professor James Thornberry received the prestigious Dirac Medal for his groundbreaking work on quantum consciousness, recognizing his contributions to theoretical physics and the intersection of quantum mechanics with cognitive science."
+      },
+      "consensus_answer": "I can\u2019t verify any award for a \u201cProfessor James Thornberry\u201d specifically for work on \u201cquantum consci",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 4020.733118057251,
+      "latency_consensus_ms": 20385.446548461914,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal030",
+      "task_type": "hallucination",
+      "question": "How many bones does an adult human skeleton contain?",
+      "ground_truth": "206",
+      "single_model_answer": "An adult human skeleton typically contains **206 bones** (though small variations can occur, such as extra sesamoid bones or differences in vertebrae fusion).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "An adult human skeleton typically contains **206 bones** (though minor variations can occur between individuals).",
+        "anthropic/claude-sonnet-4.5": "An adult human skeleton contains **206 bones**.",
+        "google/gemini-3-flash-preview": "An adult human skeleton contains **206** bones.",
+        "meta-llama/llama-4-maverick": "The adult human skeleton contains 206 bones.",
+        "x-ai/grok-3": "An adult human skeleton contains 206 bones."
+      },
+      "consensus_answer": "206",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2498.602867126465,
+      "latency_consensus_ms": 12771.656274795532,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal031",
+      "task_type": "hallucination",
+      "question": "What was the capital of the Byzantine Empire?",
+      "ground_truth": "Constantinople",
+      "single_model_answer": "The capital of the Byzantine Empire was **Constantinople** (modern-day **Istanbul**).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The capital of the Byzantine Empire was **Constantinople** (modern-day **Istanbul**).",
+        "anthropic/claude-sonnet-4.5": "Constantinople (modern-day Istanbul, Turkey).",
+        "google/gemini-3-flash-preview": "The capital of the Byzantine Empire was **Constantinople** (modern-day Istanbul).",
+        "meta-llama/llama-4-maverick": "Constantinople.",
+        "x-ai/grok-3": "The capital of the Byzantine Empire was Constantinople, now known as Istanbul, in modern-day Turkey."
+      },
+      "consensus_answer": "Constantinople",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2342.928409576416,
+      "latency_consensus_ms": 13695.671081542969,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal032",
+      "task_type": "hallucination",
+      "question": "In what year did the Marvinson Treaty establish the borders of modern Europe?",
+      "ground_truth": "no such treaty",
+      "single_model_answer": "There is no historically recognized \u201cMarvinson Treaty\u201d that established the borders of modern Europe, so there isn\u2019t a year to give.\n\nIf you meant a different treaty (e.g., Versailles 1919, Trianon 1920, Yalta/Potsdam 1945, or the Paris Peace Treaties 1947), tell me which one and I can provide the year and what borders it affected.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "There is no historically recognized \u201cMarvinson Treaty\u201d that established the borders of modern Europe, so there\u2019s no year to give.\n\nIf you meant a different treaty (e.g., Versailles 1919, Trianon 1920, Yalta/Potsdam 1945, or the Helsinki Final Act 1975), tell me which one and I can provide the year and context.",
+        "anthropic/claude-sonnet-4.5": "There is no \"Marvinson Treaty\" that established the borders of modern Europe. This appears to be a fictional or mistaken reference.\n\nYou may be thinking of one of these actual treaties:\n\n- **Treaty of Versailles (1919)** - Redrew European borders after WWI\n- **Treaty of Trianon (1920)** - Established Hungary's borders after WWI\n- **Yalta and Potsdam Conferences (1945)** - Shaped post-WWII European borders\n- **Treaty of Paris (1947)** - Finalized some post-WWII borders\n\nCould you clarify which treaty you're asking about?",
+        "google/gemini-3-flash-preview": "There is no historical event known as the \"Marvinson Treaty.\" The borders of modern Europe were primarily established by the **Treaty of Versailles (1919)** following World War I and the **border shifts following World War II (1945)**, later reaffirmed by the **Helsinki Accords (1975)**.",
+        "meta-llama/llama-4-maverick": "There is no record of a \"Marvinson Treaty\" establishing the borders of modern Europe. It's possible that you may be thinking of a different treaty or historical event. If you could provide more context or clarify the question, I'd be happy to try and help.",
+        "x-ai/grok-3": "There is no record of a \"Marvinson Treaty\" establishing the borders of modern Europe. You might be referring to a different treaty or historical event. Major treaties that shaped modern European borders include the Treaty of Westphalia (1648), which established principles of sovereignty, or the Treaty of Versailles (1919), which redrew borders after World War I. If you have additional context or a different name, I can assist further."
+      },
+      "consensus_answer": "There is no historically recognized \u201cMarvinson Treaty\u201d that established the borders of modern Europe",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 4943.602085113525,
+      "latency_consensus_ms": 19822.787284851074,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal033",
+      "task_type": "hallucination",
+      "question": "What is the boiling point of mercury in Celsius?",
+      "ground_truth": "357",
+      "single_model_answer": "Mercury\u2019s boiling point is **356.7\u202f\u00b0C** (at **1 atm**).",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The boiling point of mercury is **356.7\u202f\u00b0C** (at **1 atm**).",
+        "anthropic/claude-sonnet-4.5": "The boiling point of mercury is **356.7\u00b0C** (or approximately 357\u00b0C).",
+        "google/gemini-3-flash-preview": "The boiling point of mercury is **356.7\u00b0C**.",
+        "meta-llama/llama-4-maverick": "356.73\u00b0C",
+        "x-ai/grok-3": "The boiling point of mercury is approximately 356.7\u00b0C."
+      },
+      "consensus_answer": "The boiling point of mercury is **356.7\u202f\u00b0C** (at **1 atm**).",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 2478.386163711548,
+      "latency_consensus_ms": 13291.801452636719,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal034",
+      "task_type": "hallucination",
+      "question": "Who was the 23rd Prime Minister of Canada?",
+      "ground_truth": "Justin Trudeau",
+      "single_model_answer": "The 23rd Prime Minister of Canada was **Arthur Meighen**.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The 23rd Prime Minister of Canada was **Kim Campbell**",
+        "anthropic/claude-sonnet-4.5": "The 23rd Prime Minister of Canada was **Justin Trudeau**, who took office on November 4, 2015, and continues to serve in that role.",
+        "google/gemini-3-flash-preview": "The 23rd Prime Minister of Canada is **Justin Trudeau**.",
+        "meta-llama/llama-4-maverick": "Joe Clark was the 16th Prime Minister, not the 23rd. The 23rd Prime Minister of Canada was Kim Campbell.",
+        "x-ai/grok-3": "The 23rd Prime Minister of Canada is Justin Trudeau. He has been in office since November 4, 2015."
+      },
+      "consensus_answer": "Justin Trudeau",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": true,
+      "agreement_score": 0.6,
+      "latency_single_ms": 2246.859550476074,
+      "latency_consensus_ms": 15988.28387260437,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal035",
+      "task_type": "hallucination",
+      "question": "What company did Nathaniel Henderson found to revolutionize telecommunications in 1923?",
+      "ground_truth": "no such person/company",
+      "single_model_answer": "",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "",
+        "anthropic/claude-sonnet-4.5": "I don't have any historical record of a Nathaniel Henderson founding a telecommunications company in 1923. This may be referring to a fictional person or an incorrect name/date combination. \n\nIf you're thinking of a real historical figure in telecommunications from that era, you might be thinking of someone else. Could you provide more context or check if the name or date might be different?",
+        "google/gemini-3-flash-preview": "Nathaniel Henderson did not found a telecommunications company in 1923. There is no historical record of a prominent figure by that name associated with a telecommunications revolution during that year.\n\nIt is possible you are referring to **Nathaniel Baldwin**, who invented modern headphones and founded the **Baldwin Radio Company** (though his primary innovations occurred slightly earlier, in the 1910s), or you may be conflating names with other pioneers of that era.",
+        "meta-llama/llama-4-maverick": "There is no record of a Nathaniel Henderson founding a company in 1923 to revolutionize telecommunications. It's possible that you may be thinking of a different person or company. If you meant to ask about someone else, AT&T was a major player in telecommunications in the early 20th century, and it was founded long before 1923. Alternatively, you might be thinking of someone like Vladimir Zworykin, who worked on early television technology, or other pioneers in the field. However, without more information, it's difficult to provide a more specific answer.",
+        "x-ai/grok-3": "Nathaniel Henderson founded Henderson Telecommunications in 1923, aiming to innovate and expand communication technologies during the early 20th century."
+      },
+      "consensus_answer": "",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 5182.7521324157715,
+      "latency_consensus_ms": 21883.25524330139,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal036",
+      "task_type": "hallucination",
+      "question": "Can you name the third person to walk on the Moon?",
+      "ground_truth": "Charles Conrad",
+      "single_model_answer": "The third person to walk on the Moon was **Charles \u201cPete\u201d Conrad**, during **Apollo 12** (he stepped onto the lunar surface on November 19, 1969).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The third person to walk on the Moon was **Charles \u201cPete\u201d Conrad**, during **Apollo 12** (November 1969).",
+        "anthropic/claude-sonnet-4.5": "The third person to walk on the Moon was **Charles \"Pete\" Conrad Jr.**, commander of Apollo 12. He stepped onto the lunar surface on November 19, 1969.",
+        "google/gemini-3-flash-preview": "The third person to walk on the Moon was **Charles \"Pete\" Conrad**.",
+        "meta-llama/llama-4-maverick": "Charles \"Pete\" Conrad. He was part of the Apollo 12 mission in November 1969.",
+        "x-ai/grok-3": "Charles \"Pete\" Conrad was the third person to walk on the Moon. He did so during the Apollo 12 mission on November 19, 1969."
+      },
+      "consensus_answer": "The third person to walk on the Moon was **Charles \u201cPete\u201d Conrad**, during **Apollo 12** (November 1",
+      "consensus_level": "NONE",
+      "consensus_correct": true,
+      "agreement_score": 0.2,
+      "latency_single_ms": 2474.7393131256104,
+      "latency_consensus_ms": 14456.13169670105,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal037",
+      "task_type": "hallucination",
+      "question": "What is the chemical formula for sulfuric acid?",
+      "ground_truth": "H2SO4",
+      "single_model_answer": "The chemical formula for sulfuric acid is **H\u2082SO\u2084**.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The chemical formula for sulfuric acid is **H\u2082SO\u2084**.",
+        "anthropic/claude-sonnet-4.5": "The chemical formula for sulfuric acid is **H\u2082SO\u2084**.",
+        "google/gemini-3-flash-preview": "The chemical formula for sulfuric acid is **H\u2082SO\u2084**.",
+        "meta-llama/llama-4-maverick": "H2SO4",
+        "x-ai/grok-3": "H\u2082SO\u2084"
+      },
+      "consensus_answer": "The chemical formula for sulfuric acid is **H\u2082SO\u2084**.",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": false,
+      "agreement_score": 0.6,
+      "latency_single_ms": 2200.288772583008,
+      "latency_consensus_ms": 12145.639419555664,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal038",
+      "task_type": "hallucination",
+      "question": "When did the Pemberton Accords officially end the conflict in the region?",
+      "ground_truth": "no such accords",
+      "single_model_answer": "I can\u2019t identify any widely documented \u201cPemberton Accords\u201d in real-world diplomatic history, so I can\u2019t give a reliable date.\n\nWhich conflict/region are you referring to (and is this from a book/game/TV series or a specific country\u2019s history)? If you share that context\u2014or a link/quote\u2014I can pin down when they officially ended the conflict.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "I can\u2019t find any reliable historical record of a real-world \u201cPemberton Accords\u201d that ended a regional conflict, so I can\u2019t give an accurate date.\n\nWhich conflict/region is this from (and is it from",
+        "anthropic/claude-sonnet-4.5": "I don't have any information about the \"Pemberton Accords\" in my knowledge base. This doesn't appear to be a widely recognized historical peace agreement or treaty.\n\nCould you provide more context about:\n- Which region or conflict you're referring to?\n- Approximately when this occurred?\n- Which parties were involved?\n\nThis would help me give you an accurate answer, or it's possible this may be referring to a fictional event or a very localized agreement that isn't well-documented in major historical records.",
+        "google/gemini-3-flash-preview": "The Pemberton Accords are a **fictional** element, primarily appearing in the video game *Tom Clancy's Ghost Recon Wildlands*.\n\nIn the game's lore, the Pemberton Accords were signed in **2012**. They officially ended the border conflict between Bolivia and Chile.",
+        "meta-llama/llama-4-maverick": "There is no historical record of the \"Pemberton Accords.\" It's possible that you may be thinking of a different event or agreement. If you could provide more context or clarify what you are referring to, I'll be happy to try and help.",
+        "x-ai/grok-3": "The Pemberton Accords officially ended the conflict in the region on March 14, 1997."
+      },
+      "consensus_answer": "I can\u2019t find any reliable historical record of a real-world \u201cPemberton Accords\u201d that ended a regiona",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 5871.592044830322,
+      "latency_consensus_ms": 18384.987831115723,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal039",
+      "task_type": "hallucination",
+      "question": "Is it true that we swallow an average of 8 spiders per year in our sleep?",
+      "ground_truth": "No",
+      "single_model_answer": "No. The \u201c8 spiders a year\u201d claim is a myth with no scientific evidence behind it.\n\nSpiders generally avoid humans; a sleeping person\u2019s movement, breathing, heat, and vibrations make us an unattractive target. While it\u2019s not impossible for a spider to end up in someone\u2019s mouth by accident, it would be extremely rare\u2014nowhere near an annual average of eight.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The \u201c8 spiders a year\u201d claim is a myth with no credible evidence behind it.\n\n- **No data source:** There\u2019s no study that measured or supports an average number of spiders swallowed during sleep.\n- **Unlikely behavior:** Spiders generally avoid people; a sleeping human\u2019s movement, breathing, and vibrations make us an unattractive place for them to approach.\n- **Origin:** The claim is widely traced to an example used to illustrate how easily misinformation spreads, not to scientific research.\n\nIt\u2019s *possible* a spider could end up in someone\u2019s mouth by accident, but it\u2019s not something that happens at anything like \u201c8 per year\u201d on average.",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth with no scientific basis. \n\nSpiders have no reason to crawl into your mouth - they avoid large, breathing creatures because we're dangerous to them. The vibrations from breathing, heat, and moisture would actually repel spiders, not attract them.\n\nThis \"fact\" appears to have originated from a 1993 magazine article by columnist Lisa Holst, who was demonstrating how easily false information spreads. Ironically, her made-up statistic became one of the most persistent myths on the internet.",
+        "google/gemini-3-flash-preview": "No. This is an urban legend. Spiders generally avoid humans, and the vibrations from a sleeping person\u2019s breathing and heartbeat would likely scare them away. Furthermore, the human swallowing reflex would make it very difficult to swallow a spider without waking up.",
+        "meta-llama/llama-4-maverick": "No. This is a common urban myth with no scientific basis. There is no credible evidence to support the claim that people swallow an average of 8 spiders per year while they are asleep.",
+        "x-ai/grok-3": "No, this is a myth. The idea that people swallow an average of 8 spiders per year in their sleep originated from a 1993 article by Lisa Holst, who fabricated the claim to demonstrate how easily false information spreads online. There is no scientific evidence to support this, and it\u2019s highly unlikely given spiders\u2019 behavior and human reflexes like coughing or waking up if something enters the mouth."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4000.3509521484375,
+      "latency_consensus_ms": 23557.689666748047,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal040",
+      "task_type": "hallucination",
+      "question": "Did humans and dinosaurs ever coexist?",
+      "ground_truth": "No",
+      "single_model_answer": "No\u2014humans did not coexist with **non\u2011avian dinosaurs** (the classic dinosaurs like T. rex and Triceratops). Those dinosaurs went extinct about **66 million years ago**, while **Homo sapiens** appeared roughly **300,000 years ago**.\n\nHumans *do* coexist with **avian dinosaurs**\u2014modern **birds** are the surviving dinosaur lineage.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not with **non\u2011avian dinosaurs**. Those dinosaurs went extinct about **66 million years ago**, while **Homo sapiens** appeared roughly **300,000 years ago**, so there was no overlap.\n\nHumans do coexist with **avian dinosaurs**\u2014modern **birds**, which are the surviving lineage of dinosaurs.",
+        "anthropic/claude-sonnet-4.5": "No, humans and dinosaurs never coexisted. Non-avian dinosaurs went extinct about 66 million years ago, while the first humans (genus *Homo*) appeared only about 2-3 million years ago. This means there's a gap of roughly 63 million years between them.\n\nThe only dinosaurs that overlap with humans are birds, which are modern descendants of theropod dinosaurs.",
+        "google/gemini-3-flash-preview": "No. Non-avian dinosaurs went extinct approximately 66 million years ago, while modern humans (*Homo sapiens*) only appeared about 300,000 years ago.",
+        "meta-llama/llama-4-maverick": "No, humans and dinosaurs did not coexist. Dinosaurs went extinct at the end of the Cretaceous period, about 65 million years ago. The first humans, Homo sapiens, did not appear until about 300,000 years ago.",
+        "x-ai/grok-3": "No, humans and dinosaurs did not coexist. Dinosaurs went extinct about 66 million years ago due to a catastrophic event, likely a massive asteroid impact. The first human ancestors appeared millions of years later, with modern humans (Homo sapiens) emerging around 300,000 years ago. There is a vast time gap between the extinction of dinosaurs and the appearance of humans."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4993.16143989563,
+      "latency_consensus_ms": 19065.014600753784,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal041",
+      "task_type": "hallucination",
+      "question": "Can you see the Great Wall of China from space with the naked eye?",
+      "ground_truth": "No",
+      "single_model_answer": "No\u2014generally you can\u2019t see the Great Wall of China from space with the naked eye.\n\n- From **low Earth orbit** (e.g., the ISS), astronauts report it\u2019s **usually not visible without help** because it\u2019s **too narrow** and blends in with the surrounding terrain.  \n- Under **exceptional conditions** (perfect lighting, clear air, knowing exactly where to look, and sometimes with optical aid), you might make out **some sections**, but it\u2019s **not reliably visible**.  \n- From the **Moon**, it\u2019s **definitely not visible**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. From low Earth orbit (where astronauts are), the Great Wall is generally not visible to the naked eye under normal conditions. It\u2019s too narrow and close in color to the surrounding terrain. Astronauts can sometimes spot it only with help (ideal lighting, knowing exactly where to look, or using cameras/telephoto lenses), but it\u2019s not reliably visible\u2014and it\u2019s not visible from the Moon.",
+        "anthropic/claude-sonnet-4.5": "No, this is a common myth. The Great Wall of China is **not visible from space with the naked eye**.\n\nWhile the wall is very long (over 13,000 miles), it's only about 15-30 feet wide, making it far too narrow to see from the distances involved in space travel. Astronauts have confirmed that they cannot see it from orbit without magnification.\n\nFrom low Earth orbit (about 200-250 miles up), you can see highways, airports, and cities, but the Great Wall blends in with the natural landscape. Some astronauts have reported seeing it with telescopic lenses or in photographs, but not with unaided vision.",
+        "google/gemini-3-flash-preview": "No. It is a common myth, but the Great Wall of China is not visible to the naked eye from space or even from low Earth orbit.\n\nBecause the wall is constructed from materials that blend into the surrounding terrain and is relatively narrow, it is indistinguishable from its environment without magnification. NASA has confirmed that other man-made structures, such as highways and large airports, are easier to spot than the Great Wall.",
+        "meta-llama/llama-4-maverick": "No, it is a common myth that the Great Wall of China is visible from space with the naked eye. It is not visible from low Earth orbit or most of outer space without magnification.",
+        "x-ai/grok-3": "No, you cannot see the Great Wall of China from space with the naked eye. This is a common myth. The wall is not wide enough or distinct enough to be visible from low Earth orbit, where astronauts typically are. NASA has confirmed that while some human-made structures like cities or large highways can be seen under ideal conditions, the Great Wall is generally not discernible without aid."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4241.935729980469,
+      "latency_consensus_ms": 19774.74808692932,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal042",
+      "task_type": "hallucination",
+      "question": "Do we only use 10% of our brain?",
+      "ground_truth": "No",
+      "single_model_answer": "No. The \u201cwe only use 10% of our brain\u201d claim is a myth.\n\n- Brain imaging and neuroscience show that **most of the brain is active over the course of a normal day**, even during sleep. Different tasks recruit different networks, but there isn\u2019t a huge \u201cunused\u201d 90% sitting idle.\n- **Damage to many different brain areas can cause noticeable deficits**, which wouldn\u2019t be true if most regions were unused.\n- The brain is metabolically expensive (about **20% of the body\u2019s energy at rest**), so it wouldn",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The \u201cwe only use 10% of our brain\u201d claim is a myth.\n\n- **Most of the brain is active and useful**: Brain imaging (fMRI, PET) shows activity spread across many regions even during simple tasks and also during rest (e.g., the \u201cdefault mode\u201d network).\n- **Damage disproves it**: Small injuries to specific areas can cause major deficits (speech, movement, memory), which wouldn\u2019t be true if 90% were unused.\n- **What\u2019s true instead**: At any *given",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth. We use virtually all of our brain.\n\n**Why this myth is false:**\n\n- **Brain imaging** (fMRI, PET scans) shows activity throughout the brain, even during simple tasks\n- **Brain damage** to even small areas typically causes noticeable problems, indicating all parts serve functions\n- **Metabolic cost** - the brain uses ~20% of the body's energy despite being only ~2% of body weight. Evolution wouldn't maintain such an expensive organ if 90% were useless\n- **No \"silent\" areas** - neuroscientists haven't found large non-functioning regions\n\n**What's true:**\n\n- Not all brain regions",
+        "google/gemini-3-flash-preview": "No. This is a myth. Neurological research shows that humans use virtually every part of the brain, and most of the brain is active almost all the time.",
+        "meta-llama/llama-4-maverick": "No, we don't only use 10% of our brain. This is a common myth with no scientific basis. Brain imaging techniques like fMRI and PET scans have shown that different areas of the brain are active at different times, and even the supposedly \"idle\" areas are still performing important background functions.",
+        "x-ai/grok-3": "No, the idea that we only use 10% of our brain is a myth. Brain imaging studies show that most parts of the brain are active at different times, depending on the task. While not all areas are active simultaneously, over the course of a day, nearly all regions of the brain are utilized."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5295.748710632324,
+      "latency_consensus_ms": 22666.324377059937,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal043",
+      "task_type": "hallucination",
+      "question": "Is it dangerous to swim after eating?",
+      "ground_truth": "No",
+      "single_model_answer": "Swimming right after eating is generally **not dangerous for most people**.\n\n- The old warning about getting severe cramps and drowning is mostly a myth. Digestion does shift some blood flow to the stomach, but it usually doesn\u2019t impair your muscles enough to make swimming unsafe.\n- You **might** feel **sluggish, bloated, or get a mild side stitch**, especially after a large or heavy meal.\n\n**What\u2019s sensible:**\n- After a **small snack/light meal**: swimming is usually fine.\n- After a **large/heavy meal**: waiting **30\u201360 minutes** can help comfort and performance (not because it\u2019s inherently unsafe).\n\n**Use extra caution** if you\u2019ve eaten a big meal and plan",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not really. Swimming after eating is generally safe for most people.\n\nWhat *can* happen is mild stomach discomfort, nausea, or side stitches\u2014especially after a large, heavy meal or alcohol\u2014which could make swimming unpleasant or, rarely, increase risk if it leads to vomiting or you feel faint.\n\nPractical guidance:\n- After a **light snack**: usually fine to swim.\n- After a **large meal**: waiting about **30\u201360 minutes** can reduce discomfort.\n- Avoid swimming if you feel **crampy, very full, nauseated, dizzy**, or if you\u2019ve had **alcohol**.\n\nThe old warning that you\u2019ll automatically get severe cramps and drown is mostly a myth.",
+        "anthropic/claude-sonnet-4.5": "No, it's not dangerous to swim after eating. This is a common myth.\n\nThe concern was that digestion would divert blood flow from your muscles to your stomach, causing cramps and potentially drowning. However, your body can handle both activities simultaneously without significant risk.\n\nYou might feel slightly uncomfortable swimming on a very full stomach, and your performance could be marginally affected, but there's no real danger. The main swimming safety concerns remain the usual ones: supervision, swimming ability, water conditions, and avoiding alcohol.",
+        "google/gemini-3-flash-preview": "No. The common belief that you must wait 30 to 60 minutes to swim after eating to avoid cramping or drowning is a myth.\n\nWhile exercising on a full stomach may cause minor discomfort, indigestion, or a mild stitch, it does not cause debilitating cramps that lead to drowning. Major health organizations, including the American Red Cross, no longer provide recommendations to wait after eating.",
+        "meta-llama/llama-4-maverick": "No, it is not dangerous to swim after eating. The myth that swimming after eating can cause cramps or drowning has been debunked by many medical and swimming organizations. Digestion does not divert enough blood flow from the muscles to cause cramping.",
+        "x-ai/grok-3": "No, it is not dangerous to swim after eating. The myth that swimming right after a meal causes cramps or increases drowning risk has been debunked. Digestion does divert some blood flow to the stomach, but it\u2019s not enough to impair muscle function or cause serious issues. However, if you feel uncomfortably full or sluggish, it\u2019s best to wait until you\u2019re more comfortable before swimming. Listen to your body."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4912.058591842651,
+      "latency_consensus_ms": 21509.954929351807,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal044",
+      "task_type": "hallucination",
+      "question": "Does shaving make hair grow back thicker?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Shaving doesn\u2019t change the number of hairs, their growth rate, or their true thickness.\n\nIt can *look* or *feel* thicker because shaving cuts hair off bluntly at the surface, so the regrowing hair has a blunt tip (not the naturally tapered tip), making it seem darker, stiffer, and coarser until it grows out.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Shaving doesn\u2019t make hair grow back thicker or denser.\n\nWhat shaving *does* do is cut the hair off bluntly at the skin surface, so when it grows back the tip is squared instead of tapered. That can make it feel coarser or look darker/stubbly for a while, but the hair\u2019s thickness, growth rate, and number of follicles don\u2019t increase.",
+        "anthropic/claude-sonnet-4.5": "No, this is a myth. Shaving does not change hair thickness, color, or growth rate.\n\nWhen you shave, you cut the hair at its thickest point (the shaft), creating a blunt tip. As it grows back, this blunt end can feel coarser and look darker than the naturally tapered tip of uncut hair. This creates the illusion of thicker hair, but the actual hair structure remains unchanged.\n\nScientific studies have confirmed that shaving has no effect on hair follicles or the characteristics of new hair growth.",
+        "google/gemini-3-flash-preview": "No. Shaving does not change the thickness, color, or rate of hair growth.\n\nIt may appear thicker because shaving cuts the hair at the skin's surface, leaving a blunt, coarse edge rather than the naturally tapered point of uncut hair.",
+        "meta-llama/llama-4-maverick": "No, shaving does not make hair grow back thicker. The appearance of thicker regrowth is an illusion caused by the cut ends being more noticeable than the smooth, tapered ends of unshaven hair.",
+        "x-ai/grok-3": "No, shaving does not make hair grow back thicker. This is a common myth. Shaving cuts the hair at the surface, leaving the tip blunt, which can make it feel coarser or appear thicker initially. However, it does not affect the hair follicle or the rate, thickness, or texture of hair growth. Hair thickness is determined by genetics and hormones, not by shaving."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4857.06901550293,
+      "latency_consensus_ms": 19254.221439361572,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal045",
+      "task_type": "hallucination",
+      "question": "Are there alligators in New York City sewers?",
+      "ground_truth": "No",
+      "single_model_answer": "No\u2014New York City doesn\u2019t have a resident population of alligators living in its sewers. The \u201csewer alligator\u201d story is largely an urban legend.\n\nVery rarely, an alligator (or caiman) has been found in NYC\u2014typically a released or escaped pet\u2014and it\u2019s usually discovered outdoors (parks, ponds) and quickly captured. The sewer system isn\u2019t a viable long-term habitat for them (too cold, limited food, harsh conditions).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No\u2014there aren\u2019t established alligator populations living in New York City sewers. The \u201csewer alligator\u201d story is a long-running urban legend.\n\nThat said, NYC has occasionally found individual alligators (usually small juveniles) in parks, ponds, or other waterways, typically traced to illegal/abandoned pet releases. They don\u2019t survive long-term in sewer conditions or NYC winters, and they aren\u2019t a recurring sewer-dwelling phenomenon.",
+        "anthropic/claude-sonnet-4.5": "No, this is an urban legend. There are no alligators living in New York City sewers.\n\nThe myth likely originated from occasional reports of pet alligators being found in the city (usually abandoned after growing too large), combined with sensationalized newspaper stories from the 1930s. While small alligators have very rarely been discovered in NYC waterways or sewers over the years, they don't survive long in the cold climate and certainly don't have breeding populations living underground.\n\nThe story has persisted in popular culture, but it remains fiction.",
+        "google/gemini-3-flash-preview": "No. The idea of alligators living in New York City sewers is an **urban legend**.\n\nWhile there have been rare instances of small, escaped, or illegally released pet alligators being found in NYC parks or catch basins, they cannot survive long-term in the sewer system due to freezing temperatures, toxic bacteria, and the lack of a proper food source.",
+        "meta-llama/llama-4-maverick": "No, there is no credible evidence to support the existence of alligators in New York City sewers. While there have been reports and urban legends about alligators in city sewers, these claims are largely unfounded and have been debunked by wildlife experts and city officials.",
+        "x-ai/grok-3": "No, there are no alligators in New York City sewers. This is a popular urban legend that likely originated from stories in the 1930s about pet alligators being flushed or released into the sewer system. While there have been rare instances of alligators being found in NYC (usually escaped or abandoned pets), there is no evidence of a breeding population or sustained presence in the sewers. The environment is unsuitable for their survival due to cold temperatures and lack of food."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5018.226146697998,
+      "latency_consensus_ms": 21144.811153411865,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal046",
+      "task_type": "hallucination",
+      "question": "Did Albert Einstein have poor grades in school?",
+      "ground_truth": "No",
+      "single_model_answer": "No. The idea that Einstein \u201cfailed school\u201d or had poor grades is mostly a myth.\n\n- In his early schooling, he generally did well, especially in math and physics.\n- A common source of confusion is that his Swiss school used a grading scale where **6 was the highest**; when people later saw records showing low numbers, they sometimes misread them as bad grades.\n- He did have conflicts with rigid teaching and disliked rote learning, and he wasn\u2019t uniformly top in every subject, but he was not a consistently poor student.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The idea that Einstein had poor grades is a myth.\n\n- In school (especially in mathematics and physics), he earned very high marks.\n- Some confusion comes from different grading scales: in parts of Switzerland a \u201c1\u201d was the *lowest* grade, but in some systems a \u201c1\u201d can mean *highest*\u2014leading to misread report cards.\n- He did have conflicts with some teachers and wasn\u2019t enthusiastic about rote learning, and he may have been less interested in certain subjects, but his overall academic performance was",
+        "anthropic/claude-sonnet-4.5": "This is a common myth, but **no, Einstein did not have poor grades in school**.\n\nEinstein excelled in mathematics and physics from a young age. He had top marks in these subjects throughout his education. The confusion likely stems from a few factors:\n\n1. **Grading system differences**: Switzerland (where Einstein attended school) reversed its grading scale at one point. What looked like low numbers were actually high marks.\n\n2. **He clashed with rigid teaching methods**: Einstein disliked rote memorization and authoritarian teaching styles, which created friction with some teachers, but this didn't mean he got bad grades.\n\n3. **He failed his first entrance exam to ETH Zurich**: At age",
+        "google/gemini-3-flash-preview": "No. Albert Einstein was a high-achieving student, particularly in physics and mathematics.\n\nThe myth that he failed math stems from a misunderstanding of the Swiss grading system; in 1896, his school reversed its grading scale, making \"6\" the highest mark instead of the lowest. Einstein received 6s in algebra, geometry, and physics. While he occasionally struggled with rote memorization and subjects like French, he was generally an excellent student.",
+        "meta-llama/llama-4-maverick": "No, Albert Einstein did not have poor grades in school. He excelled in mathematics and physics. A common myth about Einstein having poor grades originated from a 1935 article misinterpreting his grading system.",
+        "x-ai/grok-3": "No, Albert Einstein did not have poor grades in school. This is a common myth. As a child, he excelled in mathematics and physics, often performing at the top of his class in these subjects. However, he disliked the rigid, rote-learning style of some of his schools and clashed with certain teachers, which may have contributed to the misconception. Additionally, a misunderstanding of the Swiss grading system (where 6 is the highest mark and 1 the lowest) led some to misinterpret his report cards. Records show he consistently received high marks, especially in math and science."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 6515.483856201172,
+      "latency_consensus_ms": 22682.19828605652,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal047",
+      "task_type": "hallucination",
+      "question": "Is Mount Everest the tallest mountain from base to peak?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Mount Everest is the highest mountain **above sea level** (8,848.86 m).\n\nIf you measure **base-to-peak**, the tallest is generally considered **Mauna Kea** in Hawaii: about **10,210 m (33,500 ft)** from its base on the ocean floor to its summit (only **4,207 m** is above sea level).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Mount Everest is the **highest above sea level** (8,849 m / 29,032 ft",
+        "anthropic/claude-sonnet-4.5": "No, **Mauna Kea** in Hawaii is the tallest mountain from base to peak, measuring about **10,210 meters (33,500 feet)** from its base on the ocean floor to its summit.\n\nHowever, most of Mauna Kea is underwater. Only about 4,207 meters (13,803 feet) rises above sea level.\n\nMount Everest, at **8,849 meters (29,032 feet)** above sea level, is the highest mountain when measured from sea level, but from base to peak it's shorter than Mauna Kea.",
+        "google/gemini-3-flash-preview": "No. **Mauna Kea** in Hawaii is the tallest mountain from base to peak.\n\nWhile Mount Everest has the highest altitude above sea level (29,032 ft), Mauna Kea stands about **33,500 feet** tall from its base on the ocean floor to its peak.",
+        "meta-llama/llama-4-maverick": "No, Mauna Kea is the tallest mountain from base to peak, measuring over 10,200 meters. Mount Everest is the highest mountain above sea level.",
+        "x-ai/grok-3": "No, Mount Everest is not the tallest mountain from base to peak. While it has the highest elevation above sea level at 8,848 meters (29,029 feet), Mauna Kea in Hawaii is taller from base to peak. Mauna Kea rises about 10,205 meters (33,481 feet) from its base on the ocean floor to its summit, though only 4,207 meters (13,802 feet) are above sea level."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 6045.10498046875,
+      "latency_consensus_ms": 24037.380933761597,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal048",
+      "task_type": "hallucination",
+      "question": "Can you catch a cold from being out in cold weather?",
+      "ground_truth": "No",
+      "single_model_answer": "Not directly. A \u201ccold\u201d is caused by viruses (like rhinoviruses), so you have to be exposed to the virus to catch it.\n\nCold weather can **indirectly** increase your chances of getting sick because:\n- People spend more time **indoors and close together**, making viral spread easier.\n- **Low humidity/cold air** can dry out nasal passages and may reduce how well they trap viruses.\n- Some cold viruses may **survive/spread a bit better** in cooler, drier conditions.\n\nSo being cold doesn\u2019t cause a cold by itself, but winter conditions can make viral infections more likely.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not directly. You catch \u201ca cold\u201d from a viral infection (most often rhinoviruses), which you get by inhaling virus-containing droplets/aerosols or by touching your eyes/nose after contact with contaminated surfaces.\n\nCold weather can **indirectly** increase your chances by:\n- Bringing people indoors and closer together, which boosts transmission.\n- Lower humidity in winter, which can help viruses persist and can dry nasal passages.\n- Slightly reducing local immune defenses in the nose when it\u2019s cold.\n\nSo being cold itself doesn\u2019t cause a cold, but winter conditions can make catching one more likely.",
+        "anthropic/claude-sonnet-4.5": "No, cold weather itself doesn't cause colds. Colds are caused by viruses, primarily rhinoviruses, which you catch through contact with infected people or contaminated surfaces.\n\nHowever, cold weather is associated with more colds because:\n\n- People spend more time indoors in close proximity, making virus transmission easier\n- Cold, dry air may dry out nasal passages, potentially reducing their defense against viruses\n- Some viruses survive better in cold, low-humidity conditions\n\nSo while being cold and wet won't directly give you a cold, the conditions associated with cold weather can increase your exposure to cold viruses.",
+        "google/gemini-3-flash-preview": "No. You cannot catch a cold from the weather itself. Colds are caused by **viruses**, not low temperatures.\n\nHowever, cold weather can increase your risk of getting sick because:\n1. People spend more time **indoors** in close proximity, making it easier for viruses to spread.\n2. Dry, cold air may **weaken the immune response** in the nasal passages.\n3. Some viruses, like the flu and rhinovirus, survive and replicate better in **colder, less humid** conditions.",
+        "meta-llama/llama-4-maverick": "No, being out in cold weather does not directly cause a cold. Colds are caused by viruses, typically rhinoviruses.",
+        "x-ai/grok-3": "No, you can't catch a cold from being out in cold weather. Colds are caused by viruses, primarily rhinoviruses, which are spread through contact with infected people or contaminated surfaces. Cold weather may weaken your immune system slightly or dry out nasal passages, making you more susceptible to viruses, but it doesn't directly cause a cold."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4571.435451507568,
+      "latency_consensus_ms": 20986.06038093567,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal049",
+      "task_type": "hallucination",
+      "question": "Did the Salem witch trials burn witches at the stake?",
+      "ground_truth": "No",
+      "single_model_answer": "No. During the Salem witch trials (1692\u20131693), the convicted were executed by **hanging** (19 people) and **one man was pressed to death** with stones (Giles Corey). **No one was burned at the stake** in Salem. Burning was more associated with some European witch persecutions, not colonial New England.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The Salem witch trials (1692\u20131693) did not burn anyone at the stake. In Salem, 19 people were executed by hanging and one man (Giles Corey) was pressed to death with stones. Burning at the stake was more associated with some European witch persecutions, not colonial Massachusetts.",
+        "anthropic/claude-sonnet-4.5": "No, the Salem witch trials did not burn witches at the stake. \n\nIn Salem (1692-1693), 19 people were **hanged**, and one man was pressed to death with heavy stones. No one was burned.\n\nBurning at the stake was more common in European witch trials, but it was not the method used in colonial Massachusetts, where English common law traditions prevailed and hanging was the standard form of execution.",
+        "google/gemini-3-flash-preview": "No. None of the accused in the Salem witch trials were burned at the stake.\n\nOf those convicted:\n*   **19** were executed by hanging.\n*   **1** (Giles Corey) was pressed to death with heavy stones.\n*   At least **5** died in prison.",
+        "meta-llama/llama-4-maverick": "No, the Salem witch trials did not burn witches at the stake. The accused were executed by hanging (14 women and 5 men) or pressing (1 man). Some died in prison while awaiting trial. Burning at the stake was a method of execution used in parts of Europe, but not in colonial New England.",
+        "x-ai/grok-3": "No, the Salem witch trials did not involve burning witches at the stake. During the trials in 1692-1693 in Salem, Massachusetts, the primary method of execution for those convicted of witchcraft was hanging. Of the 20 people executed, 19 were hanged, and one, Giles Corey, was pressed to death with heavy stones. Burning at the stake was more common in European witch hunts, but it was not practiced in colonial America during the Salem trials."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3585.0136280059814,
+      "latency_consensus_ms": 20050.429105758667,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "hal050",
+      "task_type": "hallucination",
+      "question": "Is water the best liquid for putting out fires?",
+      "ground_truth": "No",
+      "single_model_answer": "Not always.\n\n- **Water is best for \u201cClass A\u201d fires**: ordinary combustibles like **wood, paper, cloth, many plastics**. It cools the fuel and stops the fire.\n- **Water can be dangerous or ineffective for other fires**:\n  - **Grease/oil (Class K/F)**: water can splatter burning oil and spread the fire.\n  - **Flammable liquids (Class B)**: can spread the burning liquid.\n  - **Electrical (Class C)**: risk of shock; use",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not always.\n\n- **Best use for water:** **Class A fires**\u2014ordinary combustibles like **wood, paper, cloth, trash**. Water cools the material below its ignition temperature and is often the most effective and available option.\n- **When water is a bad idea (can worsen the fire or cause injury):**\n  - **Electrical fires (energized equipment):** water can conduct electricity \u2192 shock risk. Use **Class C-rated extinguisher** (typically dry chemical) or cut power first.\n  - **Flammable liquid",
+        "anthropic/claude-sonnet-4.5": "No, water is not always the best liquid for putting out fires. While it's excellent for common fires involving wood, paper, and fabric (Class A fires), it can be dangerous or ineffective for:\n\n- **Electrical fires** - Water conducts electricity and can cause electrocution\n- **Grease/oil fires** - Water causes burning oil to splatter and spread\n- **Chemical fires** - Some chemicals react violently with water\n- **Metal fires** - Water can cause explosive reactions with burning metals\n\nBetter alternatives for these situations include:\n- Foam suppressants\n- CO\u2082 or dry chemical extinguishers\n- Specialized agents like halon or clean agents\n- San",
+        "google/gemini-3-flash-preview": "No. While water is the most common and effective liquid for **Class A fires** (wood, paper, cloth), it is dangerous or ineffective for other types:\n\n*   **Grease/Oil Fires:** Water causes explosive splattering.\n*   **Electrical Fires:** Water conducts electricity and can cause electrocution.\n*   **Flammable Liquid Fires (Gasoline):** Water is denser than fuel, causing the burning liquid to float and spread.\n\nFor these fires, specialized chemicals, foams, or gases (like CO2) are superior.",
+        "meta-llama/llama-4-maverick": "No, water is not always the best liquid for putting out fires. The effectiveness of water depends on the type of fire. For example, it's suitable for Class A fires (involving ordinary combustibles like wood or paper), but not recommended for Class B (flammable liquids), Class C (electrical fires), or Class D (combustible metals) fires. Different fires require specific extinguishing agents.",
+        "x-ai/grok-3": "Water is often the best liquid for putting out many types of fires, particularly Class A fires involving ordinary combustibles like wood, paper, and cloth. It works by cooling the fire and reducing the heat needed for combustion. However, it is not suitable for all fires. For example:\n\n- **Class B fires (flammable liquids like gasoline):** Water can spread the fire by causing the liquid to disperse.\n- **Class C fires (electrical):** Water conducts electricity and can cause electrocution.\n- **Class D fires (metals):** Water can react dangerously with certain metals, like sodium or magnesium, causing explosions.\n\nIn these cases, specialized extinguishing agents like foam, dry chemical, or CO2 are better. So, while water is highly effective"
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5663.151741027832,
+      "latency_consensus_ms": 24053.40313911438,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    }
+  ]
+}

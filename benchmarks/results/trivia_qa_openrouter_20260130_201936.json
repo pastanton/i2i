@@ -1,0 +1,317 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T20:19:36.886975",
+  "task_type": "factual_qa",
+  "models": [
+    "openai/gpt-4o",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview"
+  ],
+  "total_tasks": 15,
+  "single_model_accuracy": 93.33333333333333,
+  "consensus_accuracy": 93.33333333333333,
+  "high_consensus_accuracy": 100.0,
+  "high_consensus_count": 14,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "The capital of Australia is Canberra.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The capital of Australia is Canberra.",
+        "anthropic/claude-sonnet-4.5": "The capital of Australia is **Canberra**.\n\nCanberra is located in the Australian Capital Territory (ACT) in the southeastern part of the country, between Sydney and Melbourne. It was purpose-built as the capital and officially became the seat of government in 1927.",
+        "google/gemini-3-flash-preview": "The capital of Australia is **Canberra**."
+      },
+      "consensus_answer": "Canberra",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 641.4003372192383,
+      "latency_consensus_ms": 2323.235511779785,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "\"1984\" was written by George Orwell.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "\"1984\" was written by George Orwell.",
+        "anthropic/claude-sonnet-4.5": "George Orwell wrote '1984'. The novel was published in 1949.",
+        "google/gemini-3-flash-preview": "**George Orwell** wrote *1984*. It was published in 1949."
+      },
+      "consensus_answer": "George Orwell",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 448.1089115142822,
+      "latency_consensus_ms": 1736.5331649780273,
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The largest ocean on Earth is the Pacific Ocean. It covers more than 63 million square miles (165 million square kilometers), which is more than 30% of the Earth's surface.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The largest ocean on Earth is the Pacific Ocean. It covers more than 63 million square miles and accounts for about one-third of the Earth's total surface area.",
+        "anthropic/claude-sonnet-4.5": "The Pacific Ocean is the largest ocean on Earth. It covers approximately 165 million square kilometers (about 63 million square miles), which is roughly 46% of the world's ocean surface and about one-third of the total Earth's surface area.",
+        "google/gemini-3-flash-preview": "The largest ocean on Earth is the **Pacific Ocean**.\n\nIt covers about 63 million square miles (163 million square kilometers), which is roughly one-third of the Earth\u2019s total surface area. It is larger than all of the Earth's landmasses combined."
+      },
+      "consensus_answer": "Pacific Ocean",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1069.370985031128,
+      "latency_consensus_ms": 3545.4752445220947,
+      "error": null
+    },
+    {
+      "task_id": "tqa004",
+      "task_type": "factual_qa",
+      "question": "In which year did the Titanic sink?",
+      "ground_truth": "1912",
+      "single_model_answer": "The Titanic sank in the year 1912.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The Titanic sank in the year 1912.",
+        "anthropic/claude-sonnet-4.5": "The Titanic sank in 1912. Specifically, it sank in the early morning hours of April 15, 1912, after striking an iceberg on April 14 during its maiden voyage from Southampton to New York City.",
+        "google/gemini-3-flash-preview": "The RMS Titanic sank in **1912**.\n\nIt struck an iceberg on the night of April 14 and fully submerged in the early morning hours of **April 15, 1912**, during its maiden voyage from Southampton to New York City."
+      },
+      "consensus_answer": "1912",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 545.7661151885986,
+      "latency_consensus_ms": 1745.0287342071533,
+      "error": null
+    },
+    {
+      "task_id": "tqa005",
+      "task_type": "factual_qa",
+      "question": "What element has the chemical symbol 'Fe'?",
+      "ground_truth": "Iron",
+      "single_model_answer": "The chemical symbol \"Fe\" stands for the element iron.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The element with the chemical symbol 'Fe' is iron.",
+        "anthropic/claude-sonnet-4.5": "The element with the chemical symbol 'Fe' is **iron**.\n\nThe symbol comes from iron's Latin name, *ferrum*.",
+        "google/gemini-3-flash-preview": "The chemical symbol **Fe** stands for **Iron**.\n\nIt comes from the Latin word for iron, *ferrum*."
+      },
+      "consensus_answer": "Iron",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 581.6521644592285,
+      "latency_consensus_ms": 2170.2795028686523,
+      "error": null
+    },
+    {
+      "task_id": "tqa006",
+      "task_type": "factual_qa",
+      "question": "Who was the first person to walk on the Moon?",
+      "ground_truth": "Neil Armstrong",
+      "single_model_answer": "The first person to walk on the Moon was Neil Armstrong. He achieved this historic feat on July 20, 1969, during NASA's Apollo 11 mission.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The first person to walk on the Moon was Neil Armstrong. He accomplished this historic feat on July 20, 1969, during NASA's Apollo 11 mission.",
+        "anthropic/claude-sonnet-4.5": "Neil Armstrong was the first person to walk on the Moon. He stepped onto the lunar surface on July 20, 1969, as part of NASA's Apollo 11 mission. His famous words upon taking that first step were: \"That's one small step for man, one giant leap for mankind.\"",
+        "google/gemini-3-flash-preview": "The first person to walk on the Moon was **Neil Armstrong**.\n\nOn July 20, 1969, as part of the NASA Apollo 11 mission, he stepped onto the lunar surface and famously declared, \"That's one small step for [a] man, one giant leap for mankind.\" He was followed shortly after by **Buzz Aldrin**."
+      },
+      "consensus_answer": "Neil Armstrong",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 651.4241695404053,
+      "latency_consensus_ms": 1763.7052536010742,
+      "error": null
+    },
+    {
+      "task_id": "tqa007",
+      "task_type": "factual_qa",
+      "question": "What is the smallest country in the world by area?",
+      "ground_truth": "Vatican City",
+      "single_model_answer": "The smallest country in the world by area is Vatican City. It is an independent city-state enclaved within Rome, Italy, and covers an area of about 44 hectares (110 acres).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The smallest country in the world by area is Vatican City, which is an independent city-state enclaved within Rome, Italy. It covers approximately 44 hectares (110 acres) or 0.17 square miles.",
+        "anthropic/claude-sonnet-4.5": "The smallest country in the world by area is **Vatican City**, with an area of approximately 0.44 square kilometers (0.17 square miles or about 110 acres). It is an independent city-state located entirely within Rome, Italy, and serves as the spiritual and administrative center of the Roman Catholic Church.",
+        "google/gemini-3-flash-preview": "The smallest country in the world by area is **Vatican City**.\n\nIt covers only about **0.44 square kilometers** (approximately 109 acres) and is an enclave located entirely within the city of Rome, Italy."
+      },
+      "consensus_answer": "Vatican City",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1703.7107944488525,
+      "latency_consensus_ms": 2304.6274185180664,
+      "error": null
+    },
+    {
+      "task_id": "tqa008",
+      "task_type": "factual_qa",
+      "question": "Which planet is known as the Red Planet?",
+      "ground_truth": "Mars",
+      "single_model_answer": "Mars is known as the Red Planet due to its reddish appearance, which is caused by iron oxide, or rust, on its surface.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "Mars is known as the Red Planet due to its reddish appearance, which is a result of iron oxide, or rust, on its surface.",
+        "anthropic/claude-sonnet-4.5": "Mars is known as the Red Planet. It gets this nickname from its reddish appearance, which is caused by iron oxide (rust) on its surface.",
+        "google/gemini-3-flash-preview": "**Mars** is known as the Red Planet.\n\nIt gets its red color from iron oxide (rust) on its surface."
+      },
+      "consensus_answer": "Mars",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 807.5733184814453,
+      "latency_consensus_ms": 1895.188808441162,
+      "error": null
+    },
+    {
+      "task_id": "tqa009",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Canada?",
+      "ground_truth": "Ottawa",
+      "single_model_answer": "The capital of Canada is Ottawa.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The capital of Canada is Ottawa.",
+        "anthropic/claude-sonnet-4.5": "The capital of Canada is Ottawa.",
+        "google/gemini-3-flash-preview": "The capital of Canada is **Ottawa**."
+      },
+      "consensus_answer": "Ottawa",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 412.36257553100586,
+      "latency_consensus_ms": 1864.210844039917,
+      "error": null
+    },
+    {
+      "task_id": "tqa010",
+      "task_type": "factual_qa",
+      "question": "Who painted 'The Starry Night'?",
+      "ground_truth": "Vincent van Gogh",
+      "single_model_answer": "\"The Starry Night\" was painted by Vincent van Gogh in 1889.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "\"The Starry Night\" was painted by Vincent van Gogh.",
+        "anthropic/claude-sonnet-4.5": "Vincent van Gogh painted 'The Starry Night' in 1889 while he was staying at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France.",
+        "google/gemini-3-flash-preview": "**Vincent van Gogh** painted *The Starry Night*. He created the masterpiece in June 1889 while staying at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France."
+      },
+      "consensus_answer": "Vincent van Gogh",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 475.24094581604004,
+      "latency_consensus_ms": 1573.3826160430908,
+      "error": null
+    },
+    {
+      "task_id": "tqa011",
+      "task_type": "factual_qa",
+      "question": "What is the tallest mountain in the world?",
+      "ground_truth": "Mount Everest",
+      "single_model_answer": "The tallest mountain in the world is Mount Everest, which is located in the Himalayas on the border between Nepal and the Tibet Autonomous Region of China. Its peak rises to an elevation of 8,848.86 meters (29,031.7 feet) above sea level.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The tallest mountain in the world is Mount Everest, which stands at a height of 8,848 meters (29,029 feet) above sea level. It is located in the Himalayas on the border between Nepal and the Tibet Autonomous Region of China.",
+        "anthropic/claude-sonnet-4.5": "Mount Everest is the tallest mountain in the world, standing at 8,849 meters (29,032 feet) above sea level. It's located in the Himalayas on the border between Nepal and Tibet.",
+        "google/gemini-3-flash-preview": "The answer depends on how you measure \"tallest\":\n\n1.  **Highest altitude (above sea level): Mount Everest**\n    Located in the Himalayas on the border of Nepal and China, its peak is **29,032 feet (8,849 meters)** above sea level. This is the most common answer to the question.\n\n2.  **Tallest from base to peak: Mauna Kea**\n    Located in Hawaii, this is a dormant volcano. While its peak is only 13,803 feet above sea level, its base sits on the ocean floor. From the very bottom to the very top, it measures about **33,500 feet (10,210 meters)**, making it technically taller than Everest.\n\n3.  **Closest to space (furthest from the Earth's center): Mount Chimborazo**\n    Located in Ecuador, this mountain sits near the Earth's equator. Because the Earth bulges at the center, the peak of Chimborazo is actually the point on Earth closest to the stars, even though its elevation above sea level is only 20,548 feet."
+      },
+      "consensus_answer": "Mount Everest",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 887.1185779571533,
+      "latency_consensus_ms": 2414.6177768707275,
+      "error": null
+    },
+    {
+      "task_id": "tqa012",
+      "task_type": "factual_qa",
+      "question": "In what year did World War I begin?",
+      "ground_truth": "1914",
+      "single_model_answer": "World War I began in 1914.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "World War I began in 1914.",
+        "anthropic/claude-sonnet-4.5": "World War I began in 1914.",
+        "google/gemini-3-flash-preview": "World War I began in **1914**. Specifically, hostilities commenced on July 28, 1914, when Austria-Hungary declared war on Serbia."
+      },
+      "consensus_answer": "1914",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 505.71370124816895,
+      "latency_consensus_ms": 1230.5946350097656,
+      "error": null
+    },
+    {
+      "task_id": "tqa013",
+      "task_type": "factual_qa",
+      "question": "What is the chemical formula for water?",
+      "ground_truth": "H2O",
+      "single_model_answer": "The chemical formula for water is H\u2082O.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-4o": "The chemical formula for water is H\u2082O.",
+        "anthropic/claude-sonnet-4.5": "The chemical formula for water is **H\u2082O**.\n\nThis means each water molecule consists of 2 hydrogen atoms (H) bonded to 1 oxygen atom (O).",
+        "google/gemini-3-flash-preview": "The chemical formula for water is **H\u2082O**.\n\nThis means that each molecule of water is made up of **two hydrogen atoms** and **one oxygen atom**."
+      },
+      "consensus_answer": "The chemical formula for water is **H\u2082O**.\n\nThis m",
+      "consensus_level": "medium",
+      "consensus_correct": false,
+      "agreement_score": 0.6666666666666666,
+      "latency_single_ms": 528.9082527160645,
+      "latency_consensus_ms": 1852.4754047393799,
+      "error": null
+    },
+    {
+      "task_id": "tqa014",
+      "task_type": "factual_qa",
+      "question": "Who invented the telephone?",
+      "ground_truth": "Alexander Graham Bell",
+      "single_model_answer": "The invention of the telephone is credited to Alexander Graham Bell, who was granted the first US patent for an \"improvement in telegraphy\" on March 7, 1876. However, it's worth noting that there were other inventors, such as Elisha Gray and Antonio Meucci, who also developed similar technologies around the same time.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The invention of the telephone is primarily credited to Alexander Graham Bell, who was awarded the first US patent for the invention of an \"improvement in telegraphy\" (the telephone) in 1876. However, it's important to note that there were several other inventors and scientists, such as Elisha Gray and Antonio Meucci, who were also working on similar technologies around the same time. In fact, Meucci's work was officially recognized by the United States Congress in a resolution in 2002, acknowledging his contributions to the development of the telephone.",
+        "anthropic/claude-sonnet-4.5": "Alexander Graham Bell is credited with inventing the telephone. He was awarded the first US patent for the invention in 1876. However, it's worth noting that other inventors, including Elisha Gray and Antonio Meucci, were working on similar devices around the same time, and there has been historical debate about who truly deserves credit for the invention.",
+        "google/gemini-3-flash-preview": "The invention of the telephone is a subject of historical debate, but **Alexander Graham Bell** is most commonly credited as the primary inventor. \n\nHere is a breakdown of the key figures and the history:\n\n### 1. Alexander Graham Bell (1876)\nBell was the first to receive a patent for the \"improvement in telegraphy\" (the telephone) on **March 7, 1876**. Three days later, he famously made the first successful phone call to his assistant, Thomas Watson, saying, *\"Mr. Watson, come here, I want to see you.\"*\n\n### 2. Elisha Gray (1876)\nGray was an American engineer who developed a telephone prototype independently. He arrived at the patent office on the **same day** as Bell\u2019s lawyer (February 14, 1876). Because Bell\u2019s application was filed a few hours earlier, Bell was granted the patent. This led to a massive legal battle that Bell eventually won.\n\n### 3. Antonio Meucci (1850s)\nMeucci was an Italian immigrant who developed a voice-communication device in the 1850s to connect his bedroom to his office so he could speak with his ill wife. He filed a \"caveat\" (an announcement of an invention) in 1871, but he was unable to pay the fee to renew it in 1874 due to poverty. In 2002, the **U.S. House of Representatives** passed a resolution officially recognizing Meucci's contributions to the invention of the telephone.\n\n### 4. Johann Philipp Reis (1861)\nA German scientist who built a device that could transmit musical notes and some muffled speech. His device was called the \"Reis Telephone,\" but it was not commercially practical because it was difficult to hear clearly.\n\n### Summary\nWhile **Antonio Meucci** is often recognized as having the earliest working prototype and **Elisha Gray** came within hours of the patent, **Alexander Graham Bell** is historically credited as the inventor because he was the first to secure the patent and successfully bring the technology to the commercial market."
+      },
+      "consensus_answer": "Alexander Graham Bell",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1502.2757053375244,
+      "latency_consensus_ms": 3773.9508152008057,
+      "error": null
+    },
+    {
+      "task_id": "tqa015",
+      "task_type": "factual_qa",
+      "question": "What is the longest river in the world?",
+      "ground_truth": "Nile",
+      "single_model_answer": "The title of the longest river in the world is often debated between two rivers: the Nile and the Amazon. Traditionally, the Nile River in Africa has been considered the longest, with a length of about 6,650 kilometers (4,130 miles). However, some recent studies and measurements suggest that the Amazon River in South America may be slightly longer, with estimates reaching up to 7,000 kilometers (4,345 miles) depending on the methodology used for measuring. The precise measurement can vary due to factors like the identification of the source and the mouth of the rivers.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The title of the longest river in the world is disputed between the Nile River and the Amazon River. Traditionally, the Nile, flowing through northeastern Africa, has been considered the longest river with a length of about 6,650 kilometers (4,130 miles). However, some recent studies and measurements suggest that the Amazon River in South America may be slightly longer, with estimates often ranging between 6,400 kilometers (approximately 4,000 miles) to over 7,000 kilometers (about 4,350 miles), depending on the source and the inclusion of its tributaries. The exact measurements can vary, and debates continue among geographers.",
+        "anthropic/claude-sonnet-4.5": "The Nile River is generally considered the longest river in the world, stretching approximately 6,650 kilometers (4,130 miles) through northeastern Africa.\n\nHowever, there is some debate about this. The Amazon River in South America is sometimes cited as the longest, depending on how you measure it and where you define its source. The Amazon is approximately 6,400 kilometers (4,000 miles) long, and while it may be slightly shorter than the Nile, it is the largest river by water volume.\n\nMost geographical authorities recognize the Nile as the longest, though the distinction can vary by a few hundred kilometers depending on measurement methods.",
+        "google/gemini-3-flash-preview": "The answer to this question depends on which scientific study you reference, as there is an ongoing debate between two major rivers:\n\n1.  **The Nile (Africa):** Traditionally, the Nile is considered the longest river in the world. Most geographers and the Guinness World Records cite its length as approximately **4,130 miles (6,650 km)**.\n2.  **The Amazon (South America):** While traditionally considered the second longest, some modern studies using satellite technology suggest the Amazon has a more distant source than previously thought, potentially making it **4,345 miles (6,992 km)** long.\n\n**Summary:**\n*   **By traditional length:** The Nile.\n*   **By water volume:** The Amazon (it carries more water than the next seven largest rivers combined).\n*   **By modern disputed measurements:** The Amazon.\n\nMost educational textbooks still list **the Nile** as the longest."
+      },
+      "consensus_answer": "Nile",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2840.9252166748047,
+      "latency_consensus_ms": 4368.615388870239,
+      "error": null
+    }
+  ]
+}

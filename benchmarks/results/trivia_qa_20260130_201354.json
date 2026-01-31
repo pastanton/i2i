@@ -1,0 +1,116 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T20:13:54.827858",
+  "task_type": "factual_qa",
+  "total_tasks": 5,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "The capital of Australia is Canberra. I am highly confident in this information. The decision to establish Canberra as the capital was made to resolve a dispute between Sydney and Melbourne, both of which are major cities in Australia.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 2187.8433227539062,
+      "latency_consensus_ms": 1321.9475746154785,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "The novel '1984' was written by George Orwell. I am highly confident in this information, as George Orwell is a well-documented author of this influential dystopian novel. There are no significant caveats or limitations to this statement.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 1383.608102798462,
+      "latency_consensus_ms": 2130.1608085632324,
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The largest ocean on Earth is the Pacific Ocean. It covers an area of approximately 63 million square miles (165 million square kilometers), which accounts for more than 30% of the Earth's surface. My confidence level in this information is very high, as it is well-documented and widely accepted in geographic and scientific resources. There are no significant caveats or limitations to this fact.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "low",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 1746.5174198150635,
+      "latency_consensus_ms": 1844.1076278686523,
+      "error": null
+    },
+    {
+      "task_id": "tqa004",
+      "task_type": "factual_qa",
+      "question": "In which year did the Titanic sink?",
+      "ground_truth": "1912",
+      "single_model_answer": "The Titanic sank in the year 1912. My confidence level is very high, as this is a well-documented historical event. There are no significant caveats or limitations regarding this information.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "low",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 1178.7617206573486,
+      "latency_consensus_ms": 1877.2544860839844,
+      "error": null
+    },
+    {
+      "task_id": "tqa005",
+      "task_type": "factual_qa",
+      "question": "What element has the chemical symbol 'Fe'?",
+      "ground_truth": "Iron",
+      "single_model_answer": "The element with the chemical symbol 'Fe' is iron. I am highly confident in this information, as it is a well-established fact in chemistry. The symbol 'Fe' is derived from the Latin word \"ferrum,\" meaning iron.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": null,
+      "consensus_level": "none",
+      "consensus_correct": false,
+      "models_queried": [
+        "openai/gpt-4o",
+        "openai/gpt-4o-mini"
+      ],
+      "latency_single_ms": 1280.571460723877,
+      "latency_consensus_ms": 1996.5357780456543,
+      "error": null
+    }
+  ],
+  "single_model_accuracy": 100.0,
+  "consensus_accuracy": 0.0,
+  "high_consensus_accuracy": 0,
+  "medium_consensus_accuracy": 0,
+  "low_consensus_accuracy": 0,
+  "avg_latency_single_ms": 1555.4604053497314,
+  "avg_latency_consensus_ms": 1834.0012550354004,
+  "consensus_level_distribution": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "NONE/CONTRADICTORY": 0
+  }
+}

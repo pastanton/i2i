@@ -1,0 +1,57 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T20:12:42.049658",
+  "task_type": "factual_qa",
+  "total_tasks": 2,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "The capital of Australia is Canberra. My confidence level in this information is very high, as it is a well-established fact. There are no significant caveats or limitations with this information.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": "Synthesized answer: The models agree that the capital of Australia is **Canberra**. There are **no significant differences in perspective** among the provided responses; they consistently present this as a well-established fact. \n\n**Confidence level:** Very high.  \n**Caveats/limitations:** None significant\u2014this is a straightforward, widely documented geographic/political fact.",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "models_queried": [
+        "openai/gpt-4o"
+      ],
+      "latency_single_ms": 2476.491928100586,
+      "latency_consensus_ms": 4467.239141464233,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "'1984' was written by George Orwell. My confidence level in this response is very high, as George Orwell, a pen name for Eric Arthur Blair, is widely recognized as the author of this dystopian novel. There are no significant caveats or limitations concerning the authorship of this work.",
+      "single_model_correct": true,
+      "single_model_confidence": "medium",
+      "consensus_answer": "**Synthesized answer:**  \nAll models agree that **_1984_ was written by George Orwell**. There are no meaningful differences in perspective across the responses; they converge on the same attribution. For completeness, **George Orwell** is the **pen name of Eric Arthur Blair**, and the novel was **published in 1949**.\n\n**Confidence level:** Very high.  \n**Caveats/limitations:** None significant; this is a well-established bibliographic fact.",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "models_queried": [
+        "openai/gpt-4o"
+      ],
+      "latency_single_ms": 1777.9793739318848,
+      "latency_consensus_ms": 5112.893104553223,
+      "error": null
+    }
+  ],
+  "single_model_accuracy": 100.0,
+  "consensus_accuracy": 100.0,
+  "high_consensus_accuracy": 0,
+  "medium_consensus_accuracy": 0,
+  "low_consensus_accuracy": 0,
+  "avg_latency_single_ms": 2127.2356510162354,
+  "avg_latency_consensus_ms": 4790.066123008728,
+  "consensus_level_distribution": {
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "NONE/CONTRADICTORY": 0
+  }
+}

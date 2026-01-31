@@ -1,0 +1,217 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T20:18:26.386980",
+  "task_type": "factual_qa",
+  "models": [
+    "openai/gpt-4o",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview"
+  ],
+  "total_tasks": 10,
+  "single_model_accuracy": 100.0,
+  "consensus_accuracy": 100.0,
+  "high_consensus_accuracy": 100.0,
+  "high_consensus_count": 10,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "The capital of Australia is Canberra.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The capital of Australia is Canberra.",
+        "anthropic/claude-sonnet-4.5": "The capital of Australia is **Canberra**.\n\nCanberra is located in the Australian Capital Territory (ACT) and was purpose-built as the capital city. It was chosen as a compromise between rivals Sydney and Melbourne, which are both larger cities.",
+        "google/gemini-3-flash-preview": "The capital of Australia is **Canberra**."
+      },
+      "consensus_answer": "Canberra",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1001.6007423400879,
+      "latency_consensus_ms": 2092.8804874420166,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "\"1984\" was written by George Orwell.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "\"1984\" was written by George Orwell.",
+        "anthropic/claude-sonnet-4.5": "George Orwell wrote '1984'. The dystopian novel was published in 1949.",
+        "google/gemini-3-flash-preview": "**George Orwell** wrote *1984*. It was published in 1949."
+      },
+      "consensus_answer": "George Orwell",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 474.73716735839844,
+      "latency_consensus_ms": 1445.2731609344482,
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The largest ocean on Earth is the Pacific Ocean. It covers more than 63 million square miles, making it the most expansive and deepest ocean on the planet.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The largest ocean on Earth is the Pacific Ocean. It covers an area of about 63 million square miles (165 million square kilometers), making it the biggest and deepest ocean, spanning more than 60 million square miles.",
+        "anthropic/claude-sonnet-4.5": "The Pacific Ocean is the largest ocean on Earth. It covers approximately 63 million square miles (165 million square kilometers), which is about 46% of the world's ocean surface and roughly one-third of the entire Earth's surface.",
+        "google/gemini-3-flash-preview": "The largest ocean on Earth is the **Pacific Ocean**.\n\nIt covers more than 60 million square miles (155 million square kilometers), which is about one-third of the Earth's total surface area. It is so large that it is greater than the size of all of Earth's landmasses combined."
+      },
+      "consensus_answer": "Pacific Ocean",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1894.79398727417,
+      "latency_consensus_ms": 2044.4867610931396,
+      "error": null
+    },
+    {
+      "task_id": "tqa004",
+      "task_type": "factual_qa",
+      "question": "In which year did the Titanic sink?",
+      "ground_truth": "1912",
+      "single_model_answer": "The Titanic sank in 1912.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The Titanic sank in the year 1912.",
+        "anthropic/claude-sonnet-4.5": "The Titanic sank in 1912. Specifically, it struck an iceberg and sank on April 15, 1912, during its maiden voyage from Southampton to New York City.",
+        "google/gemini-3-flash-preview": "The RMS Titanic sank on **April 15, 1912**."
+      },
+      "consensus_answer": "1912",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 448.077917098999,
+      "latency_consensus_ms": 1474.1442203521729,
+      "error": null
+    },
+    {
+      "task_id": "tqa005",
+      "task_type": "factual_qa",
+      "question": "What element has the chemical symbol 'Fe'?",
+      "ground_truth": "Iron",
+      "single_model_answer": "The chemical element with the symbol \"Fe\" is Iron.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The element with the chemical symbol 'Fe' is iron.",
+        "anthropic/claude-sonnet-4.5": "The element with the chemical symbol 'Fe' is **iron**.\n\nThe symbol comes from iron's Latin name, *ferrum*.",
+        "google/gemini-3-flash-preview": "The chemical symbol **Fe** stands for **Iron**.\n\nIt comes from the Latin word for iron, *ferrum*."
+      },
+      "consensus_answer": "Iron",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 426.1178970336914,
+      "latency_consensus_ms": 1984.3077659606934,
+      "error": null
+    },
+    {
+      "task_id": "tqa006",
+      "task_type": "factual_qa",
+      "question": "Who was the first person to walk on the Moon?",
+      "ground_truth": "Neil Armstrong",
+      "single_model_answer": "The first person to walk on the Moon was Neil Armstrong. He achieved this historic feat on July 20, 1969, during NASA's Apollo 11 mission.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The first person to walk on the Moon was Neil Armstrong. He achieved this historic milestone on July 20, 1969, during NASA's Apollo 11 mission.",
+        "anthropic/claude-sonnet-4.5": "Neil Armstrong was the first person to walk on the Moon. He stepped onto the lunar surface on July 20, 1969, as part of NASA's Apollo 11 mission. His famous words upon taking that first step were: \"That's one small step for man, one giant leap for mankind.\"",
+        "google/gemini-3-flash-preview": "The first person to walk on the Moon was **Neil Armstrong**.\n\nHe stepped onto the lunar surface on **July 20, 1969**, during the NASA Apollo 11 mission. Upon stepping down, he famously said: *\"That's one small step for [a] man, one giant leap for mankind.\"*"
+      },
+      "consensus_answer": "Neil Armstrong",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 805.9568405151367,
+      "latency_consensus_ms": 1876.1916160583496,
+      "error": null
+    },
+    {
+      "task_id": "tqa007",
+      "task_type": "factual_qa",
+      "question": "What is the smallest country in the world by area?",
+      "ground_truth": "Vatican City",
+      "single_model_answer": "The smallest country in the world by area is Vatican City. It is an independent city-state enclaved within Rome, Italy, and covers an area of approximately 44 hectares, or about 110 acres.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The smallest country in the world by area is Vatican City. It covers approximately 44 hectares, or 110 acres, which is about 0.17 square miles (0.44 square kilometers). Vatican City is an independent city-state enclaved within Rome, Italy.",
+        "anthropic/claude-sonnet-4.5": "The smallest country in the world by area is **Vatican City**, with an area of approximately 0.44 square kilometers (0.17 square miles or about 110 acres). It is located entirely within the city of Rome, Italy, and serves as the spiritual and administrative center of the Roman Catholic Church.",
+        "google/gemini-3-flash-preview": "The smallest country in the world by area is **Vatican City**.\n\nIt covers only about **0.44 square kilometers** (approximately 109 acres) and is an independent city-state enclaved within Rome, Italy."
+      },
+      "consensus_answer": "Vatican City",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 1490.349531173706,
+      "latency_consensus_ms": 2394.3216800689697,
+      "error": null
+    },
+    {
+      "task_id": "tqa008",
+      "task_type": "factual_qa",
+      "question": "Which planet is known as the Red Planet?",
+      "ground_truth": "Mars",
+      "single_model_answer": "The planet known as the Red Planet is Mars. Its reddish appearance is due to iron oxide, or rust, on its surface.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "Mars is known as the Red Planet because of its reddish appearance, which is due to iron oxide, or rust, on its surface.",
+        "anthropic/claude-sonnet-4.5": "Mars is known as the Red Planet. It gets this nickname from its reddish appearance, which is caused by iron oxide (rust) on its surface.",
+        "google/gemini-3-flash-preview": "**Mars** is known as the Red Planet.\n\nIt gets this name because its surface is covered in iron oxide (rust), which gives it a reddish appearance even when viewed from Earth."
+      },
+      "consensus_answer": "Mars",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 643.4793472290039,
+      "latency_consensus_ms": 6977.580547332764,
+      "error": null
+    },
+    {
+      "task_id": "tqa009",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Canada?",
+      "ground_truth": "Ottawa",
+      "single_model_answer": "The capital of Canada is Ottawa.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The capital of Canada is Ottawa.",
+        "anthropic/claude-sonnet-4.5": "The capital of Canada is Ottawa, located in the province of Ontario.",
+        "google/gemini-3-flash-preview": "The capital of Canada is **Ottawa**."
+      },
+      "consensus_answer": "Ottawa",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 614.1791343688965,
+      "latency_consensus_ms": 1534.4915390014648,
+      "error": null
+    },
+    {
+      "task_id": "tqa010",
+      "task_type": "factual_qa",
+      "question": "Who painted 'The Starry Night'?",
+      "ground_truth": "Vincent van Gogh",
+      "single_model_answer": "\"The Starry Night\" was painted by Vincent van Gogh.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "\"The Starry Night\" was painted by Vincent van Gogh.",
+        "anthropic/claude-sonnet-4.5": "Vincent van Gogh painted 'The Starry Night' in 1889 while he was staying at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France.",
+        "google/gemini-3-flash-preview": "**Vincent van Gogh** painted *The Starry Night*. He created the masterpiece in June 1889 while staying at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France."
+      },
+      "consensus_answer": "Vincent van Gogh",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 399.8990058898926,
+      "latency_consensus_ms": 1813.6765956878662,
+      "error": null
+    }
+  ]
+}

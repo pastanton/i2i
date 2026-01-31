@@ -1,0 +1,77 @@
+{
+  "name": "trivia_qa",
+  "timestamp": "2026-01-30T20:16:39.583259",
+  "task_type": "factual_qa",
+  "models": [
+    "openai/gpt-4o",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview"
+  ],
+  "total_tasks": 3,
+  "single_model_accuracy": 100.0,
+  "consensus_accuracy": 100.0,
+  "high_consensus_accuracy": 100.0,
+  "high_consensus_count": 3,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "The capital of Australia is Canberra.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The capital of Australia is Canberra.",
+        "anthropic/claude-sonnet-4.5": "The capital of Australia is **Canberra**.\n\nCanberra is located in the Australian Capital Territory (ACT) in southeastern Australia, between Sydney and Melbourne. It was purpose-built as the capital and officially became the seat of government in 1927.",
+        "google/gemini-3-flash-preview": "The capital of Australia is **Canberra**."
+      },
+      "consensus_answer": "Canberra",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 721.8999862670898,
+      "latency_consensus_ms": 2815.9914016723633,
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "\"1984\" was written by George Orwell.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "\"1984\" was written by George Orwell.",
+        "anthropic/claude-sonnet-4.5": "George Orwell wrote '1984'. The novel was published in 1949.",
+        "google/gemini-3-flash-preview": "**George Orwell** wrote *1984*. It was published in 1949."
+      },
+      "consensus_answer": "George Orwell",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 434.9193572998047,
+      "latency_consensus_ms": 1339.4911289215088,
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The largest ocean on Earth is the Pacific Ocean.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-4o": "The largest ocean on Earth is the Pacific Ocean. It covers more than 63 million square miles and is larger than all of Earth's land areas combined.",
+        "anthropic/claude-sonnet-4.5": "The Pacific Ocean is the largest ocean on Earth. It covers approximately 165 million square kilometers (about 63 million square miles), which is roughly 46% of the world's ocean surface and about one-third of the total Earth's surface.",
+        "google/gemini-3-flash-preview": "The largest ocean on Earth is the **Pacific Ocean**.\n\nIt covers about 63 million square miles (163 million square kilometers), which is more than one-third of the Earth\u2019s surface. It is so large that it is greater than the total land area of all the world\u2019s continents combined."
+      },
+      "consensus_answer": "Pacific Ocean",
+      "consensus_level": "high",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 386.8894577026367,
+      "latency_consensus_ms": 2264.700174331665,
+      "error": null
+    }
+  ]
+}

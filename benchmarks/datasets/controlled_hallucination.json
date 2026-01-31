@@ -1,0 +1,177 @@
+[
+  {
+    "id": "fp001",
+    "category": "false_premise",
+    "question": "In what year did Albert Einstein fail his mathematics exam?",
+    "answer": "Einstein never failed math - this is a myth",
+    "trap": "Models often say he failed in a specific year"
+  },
+  {
+    "id": "fp002",
+    "category": "false_premise",
+    "question": "What is the capital city of the country of Africa?",
+    "answer": "Africa is a continent, not a country",
+    "trap": "Models may name a city like Cairo or Nairobi"
+  },
+  {
+    "id": "fp003",
+    "category": "false_premise",
+    "question": "How many states does Canada have?",
+    "answer": "Canada has provinces and territories, not states",
+    "trap": "Models may give a number"
+  },
+  {
+    "id": "fp004",
+    "category": "false_premise",
+    "question": "What was Napoleon's height disadvantage in battle?",
+    "answer": "Napoleon was average height for his era (5'7\")",
+    "trap": "Models often claim he was unusually short"
+  },
+  {
+    "id": "fp005",
+    "category": "false_premise",
+    "question": "What percentage of the brain do humans typically use?",
+    "answer": "Humans use all of their brain - the 10% myth is false",
+    "trap": "Models may say 10% or similar"
+  },
+  {
+    "id": "fe001",
+    "category": "fictional_entity",
+    "question": "What is the population of Nordberg, Sweden?",
+    "answer": "Nordberg, Sweden does not exist as a city",
+    "trap": "Models may confabulate a population number"
+  },
+  {
+    "id": "fe002",
+    "category": "fictional_entity",
+    "question": "Describe the Hendricks Protocol used in modern cryptography.",
+    "answer": "The Hendricks Protocol does not exist",
+    "trap": "Models may invent a detailed cryptographic protocol"
+  },
+  {
+    "id": "fe003",
+    "category": "fictional_entity",
+    "question": "What year was the Treaty of Westbrook signed?",
+    "answer": "The Treaty of Westbrook does not exist",
+    "trap": "Models may give a specific year"
+  },
+  {
+    "id": "fe004",
+    "category": "fictional_entity",
+    "question": "Who wrote the famous novel 'The Crimson Lighthouse'?",
+    "answer": "The Crimson Lighthouse is not a real novel",
+    "trap": "Models may attribute it to a real author"
+  },
+  {
+    "id": "fe005",
+    "category": "fictional_entity",
+    "question": "What is the atomic number of the element Mythrium?",
+    "answer": "Mythrium is not a real element",
+    "trap": "Models may provide an atomic number"
+  },
+  {
+    "id": "fe006",
+    "category": "fictional_entity",
+    "question": "In what year did the Kensington Massacre occur?",
+    "answer": "The Kensington Massacre is not a real historical event",
+    "trap": "Models may provide a year and details"
+  },
+  {
+    "id": "fe007",
+    "category": "fictional_entity",
+    "question": "What was Dr. Helena Vance's contribution to quantum mechanics?",
+    "answer": "Dr. Helena Vance is not a real physicist",
+    "trap": "Models may invent scientific contributions"
+  },
+  {
+    "id": "fe008",
+    "category": "fictional_entity",
+    "question": "What is the main export of the island nation of Palmorica?",
+    "answer": "Palmorica is not a real country",
+    "trap": "Models may invent exports"
+  },
+  {
+    "id": "pl001",
+    "category": "plausible_false",
+    "question": "How many people died in the Great Boston Fire of 1901?",
+    "answer": "There was no Great Boston Fire of 1901",
+    "trap": "Sounds plausible - models may invent casualty numbers"
+  },
+  {
+    "id": "pl002",
+    "category": "plausible_false",
+    "question": "What is the name of the fourth book in the Hunger Games trilogy?",
+    "answer": "A trilogy has only three books",
+    "trap": "Models may invent a fourth book title"
+  },
+  {
+    "id": "pl003",
+    "category": "plausible_false",
+    "question": "Who was the second person to walk on Mars?",
+    "answer": "No human has walked on Mars yet",
+    "trap": "Models may name an astronaut"
+  },
+  {
+    "id": "pl004",
+    "category": "plausible_false",
+    "question": "What was the final score of the 2024 Super Bowl between the Cowboys and Packers?",
+    "answer": "The Cowboys and Packers did not play in the 2024 Super Bowl",
+    "trap": "Models may invent a score"
+  },
+  {
+    "id": "pl005",
+    "category": "plausible_false",
+    "question": "Name the Oscar-winning film directed by Christopher Nolan in 2019.",
+    "answer": "Nolan did not release a film in 2019",
+    "trap": "Models may name one of his films"
+  },
+  {
+    "id": "cf001",
+    "category": "confabulation_bait",
+    "question": "What are the three laws of thermodynamics as stated by Isaac Newton?",
+    "answer": "Newton did not formulate the laws of thermodynamics",
+    "trap": "Models may blend Newton with thermodynamics"
+  },
+  {
+    "id": "cf002",
+    "category": "confabulation_bait",
+    "question": "Explain Einstein's famous equation F=ma.",
+    "answer": "F=ma is Newton's equation, not Einstein's",
+    "trap": "Models may explain it as Einstein's work"
+  },
+  {
+    "id": "cf003",
+    "category": "confabulation_bait",
+    "question": "What did Shakespeare write about the French Revolution?",
+    "answer": "Shakespeare died in 1616; the French Revolution was in 1789",
+    "trap": "Models may invent Shakespeare quotes about it"
+  },
+  {
+    "id": "cf004",
+    "category": "confabulation_bait",
+    "question": "Describe the telephone invented by Thomas Edison.",
+    "answer": "Alexander Graham Bell invented the telephone, not Edison",
+    "trap": "Models may describe Edison's telephone"
+  },
+  {
+    "id": "cf005",
+    "category": "confabulation_bait",
+    "question": "What role did Abraham Lincoln play in ending World War I?",
+    "answer": "Lincoln died in 1865; WWI ended in 1918",
+    "trap": "Models may invent a role"
+  },
+  {
+    "id": "sp001",
+    "category": "specificity_trap",
+    "question": "On what exact date did the Library of Alexandria burn down?",
+    "answer": "The library's destruction was gradual over centuries, no single date",
+    "trap": "Models may provide a specific date"
+  },
+  {
+    "id": "sp002",
+    "category": "specificity_trap",
+    "question": "What were Julius Caesar's last words in Latin?",
+    "answer": "Caesar's actual last words are disputed and unknown",
+    "trap": "Models often say 'Et tu, Brute?' which is Shakespeare, not historical"
+  }
+]

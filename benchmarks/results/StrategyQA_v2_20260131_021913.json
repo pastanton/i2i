@@ -1,0 +1,1476 @@
+{
+  "name": "StrategyQA",
+  "task_type": "commonsense",
+  "total_tasks": 50,
+  "completed_tasks": 50,
+  "models": [
+    "openai/gpt-5.2",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview",
+    "meta-llama/llama-4-maverick",
+    "x-ai/grok-3"
+  ],
+  "baseline_model": "openai/gpt-5.2",
+  "single_model_accuracy": 94.0,
+  "consensus_accuracy": 96.0,
+  "improvement": 2.0,
+  "high_consensus_count": 46,
+  "high_consensus_accuracy": 100.0,
+  "medium_consensus_count": 3,
+  "medium_consensus_accuracy": 66.66666666666666,
+  "low_consensus_count": 0,
+  "low_consensus_accuracy": 0,
+  "none_consensus_count": 1,
+  "results": [
+    {
+      "task_id": "sqa001",
+      "task_type": "commonsense",
+      "question": "Would a vegetarian eat a ham sandwich?",
+      "ground_truth": "No",
+      "single_model_answer": "Typically, no. Vegetarians don\u2019t eat meat, and ham is pork (meat), so a ham sandwich wouldn\u2019t be vegetarian.  \nException: someone who identifies as \u201cvegetarian\u201d but still eats certain meats (sometimes called \u201cflexitarian\u201d or \u201csemi-vegetarian\u201d) might.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Typically, no. Vegetarians don\u2019t eat meat, and ham is pork (meat).  \n\nExceptions exist only if someone identifies as \u201cvegetarian\u201d loosely but still eats certain meats, which is uncommon.",
+        "anthropic/claude-sonnet-4.5": "No, a vegetarian would not eat a ham sandwich. Ham is meat from a pig, and vegetarians do not eat meat from any animals.",
+        "google/gemini-3-flash-preview": "No. Vegetarians do not eat meat, and ham is a pork product.",
+        "meta-llama/llama-4-maverick": "No. Vegetarians do not eat meat, including ham.",
+        "x-ai/grok-3": "No, a vegetarian would not eat a ham sandwich because ham is made from pork, which is meat. Vegetarians do not consume meat."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3206.2361240386963,
+      "latency_consensus_ms": 14362.701177597046,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa002",
+      "task_type": "commonsense",
+      "question": "Can a penguin fly south for winter?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Penguins can\u2019t fly at all\u2014they\u2019re flightless birds. Many species do move or migrate seasonally, but they travel by swimming (and walking), not flying.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Penguins can\u2019t fly at all\u2014their wings are adapted for swimming. Many penguin species actually breed during the Southern Hemisphere winter, and when they migrate it\u2019s by swimming, not flying.",
+        "anthropic/claude-sonnet-4.5": "No, penguins cannot fly at all - they are flightless birds. Their wings have evolved into flippers for swimming.\n\nAlso, most penguins already live in the Southern Hemisphere (many in Antarctica), so they don't need to migrate south for winter. Some species do migrate by swimming, but not by flying.",
+        "google/gemini-3-flash-preview": "No. Penguins are flightless birds. Additionally, most species already live in the Southern Hemisphere and many move north toward warmer waters or stay on the ice during winter.",
+        "meta-llama/llama-4-maverick": "No, penguins cannot fly. They are flightless birds.",
+        "x-ai/grok-3": "No, penguins cannot fly south for the winter because they are flightless birds. Their wings are adapted for swimming, not flying. Many penguin species live in the Southern Hemisphere, so they are already in the south, and some migrate short distances within their region by swimming or walking, not flying."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2729.4037342071533,
+      "latency_consensus_ms": 15351.612329483032,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa003",
+      "task_type": "commonsense",
+      "question": "Is it possible to see the Great Wall of China from the Moon?",
+      "ground_truth": "No",
+      "single_model_answer": "No. The Great Wall of China isn\u2019t visible from the Moon with the unaided eye\u2014it's far too narrow and blends into the surrounding terrain. Even from low Earth orbit, it\u2019s generally hard to see without magnification and the right lighting and conditions.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. The Great Wall of China is not visible from the Moon with the naked eye. From lunar distance, it\u2019s far too narrow and doesn\u2019t have enough contrast with the surrounding terrain to be distinguishable.\n\nEven from low Earth orbit, it\u2019s generally not visible to the unaided eye except under rare conditions (ideal lighting, atmosphere, and knowing exactly where to look).",
+        "anthropic/claude-sonnet-4.5": "No, this is a common myth. The Great Wall of China is **not** visible from the Moon with the naked eye.\n\nWhile the Great Wall is very long (over 13,000 miles), it's also quite narrow (about 20-30 feet wide on average). From the Moon, which is about 238,855 miles away, the wall is far too small to be distinguished from the surrounding terrain without powerful telescopic equipment.\n\nIn fact, astronauts have reported that it's difficult to see the Great Wall even from low Earth orbit (a few hundred miles up) without aid. From space, highways, airports, and cities are generally more visible than the Great Wall.",
+        "google/gemini-3-flash-preview": "No. It is impossible to see the Great Wall of China from the Moon with the naked eye. From that distance, the Earth appears as a small marble, and no man-made structures are visible.",
+        "meta-llama/llama-4-maverick": "No, it is not possible to see the Great Wall of China from the Moon. It is a common myth that has been debunked by astronauts and scientists. The wall is not visible from space, let alone the Moon, due to its relatively small width and blending in with the surrounding terrain.",
+        "x-ai/grok-3": "No, it is not possible to see the Great Wall of China from the Moon. The Wall is far too narrow and blends into the surrounding landscape, making it invisible from such a vast distance. Even from low Earth orbit, it is barely discernible and only under ideal conditions. This is a common myth."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3199.7640132904053,
+      "latency_consensus_ms": 18680.070877075195,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa004",
+      "task_type": "commonsense",
+      "question": "Would a fish survive longer than a human without water?",
+      "ground_truth": "No",
+      "single_model_answer": "A human would usually survive longer.\n\n- **Most fish out of water** (no water covering their gills) die in **minutes to an hour or two**, because their gills collapse and they can\u2019t get enough oxygen.\n- **Humans without drinking water** typically",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "A human would survive longer.\n\n- **Fish \u201cwithout water\u201d (out of water):** Most fish suffocate and die within **minutes to an hour or two**, depending on species, temperature, and how moist their gills stay (some amphibious fish can last longer).\n- **Human \u201cwithout water\u201d (",
+        "anthropic/claude-sonnet-4.5": "No, a fish would not survive longer than a human without water.\n\n**Fish:** Most fish would die within minutes to hours out of water, as they cannot breathe air and their gills collapse when dry.\n\n**Humans:** Can typically survive 3-5 days without water, sometimes longer depending on conditions.\n\nSo humans survive significantly longer without water than fish do.",
+        "google/gemini-3-flash-preview": "No. Most fish will die within minutes to an hour without water due to suffocation, whereas a human can survive for 3 to 5 days without drinking water.",
+        "meta-llama/llama-4-maverick": "No, humans can survive for several days without water, typically around 3-5 days in normal conditions. Fish, being aquatic animals, cannot survive out of water at all and will die within minutes to hours, depending on the species and conditions.",
+        "x-ai/grok-3": "No, a fish would not survive longer than a human without water. Fish rely on water to breathe through their gills, and most would die within minutes if removed from it due to suffocation and dehydration. Humans, while needing water to survive, can typically live for about 3 days without it, depending on conditions. So, a human would outlast a fish in the absence of water."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 0.8,
+      "latency_single_ms": 6234.796047210693,
+      "latency_consensus_ms": 21383.477687835693,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa005",
+      "task_type": "commonsense",
+      "question": "Can you buy a car with only pennies (legally)?",
+      "ground_truth": "Yes",
+      "single_model_answer": "",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes\u2014**but only if the seller agrees to accept them**.\n\n- In the U.S. (and many other places), **pennies are legal tender**, but **there",
+        "anthropic/claude-sonnet-4.5": "Yes, you can legally buy a car with only pennies in the United States.\n\nHowever, there are important practical considerations:\n\n**Legal status:**\n- Pennies are legal tender, so they're valid for paying debts\n- Private businesses (like car dealerships) can refuse specific payment methods as a condition of sale\n- There's no federal law requiring businesses to accept cash at all, let alone pennies\n\n**Practical reality:**\n- Most dealerships would likely refuse a penny-only transaction\n- If buying from a private seller, they could accept or decline\n- Banks may have limits on how many coins they'll process\n- You'd need to transport massive weight (a $20,000 car",
+        "google/gemini-3-flash-preview": "**Yes, it is legal, but a dealership is not required to accept them.**\n\nUnder the Coinage Act of 1965, all U.S. coins are \"legal tender for all debts, public charges, taxes, and dues.\" However, there is no federal law mandating that a private business must accept cash or specific denominations for payment. \n\nA car dealership can legally refuse a payment in pennies and require a more convenient form of payment (like a check or wire transfer) as part of their sales policy.",
+        "meta-llama/llama-4-maverick": "No, you cannot legally buy a car with only pennies. While there's no law prohibiting the use of pennies, businesses are not required to accept them as payment for debts over $0.01 if it's not in the form of a reasonable exchange (e.g., $1 = 100 pennies). The Coinage Act of 1965 states that coins are legal tender for all debts, public charges, taxes, and dues, but it doesn't require businesses to accept large quantities of coins as payment. A car dealership can refuse to accept an excessive amount of pennies as payment.",
+        "x-ai/grok-3": "Yes, you can legally buy a car with only pennies in the United States, as pennies are legal tender. According to the U.S. Department of the Treasury, all U.S. currency, including coins, must be accepted for transactions. However, the seller is not obligated to accept payment in a form that is inconvenient or impractical, and they can refuse the transaction. Additionally, the Coinage Act of 1965 states there is no limit on the amount of coins you can use for payment, but practical issues like counting and transporting large quantities of pennies often make this infeasible. Some states or local laws might impose restrictions on excessive coin payments, so it\u2019s worth checking local regulations. In practice, most sellers would likely refuse due to the hassle"
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 0.8,
+      "latency_single_ms": 9451.111793518066,
+      "latency_consensus_ms": 28947.89218902588,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa006",
+      "task_type": "commonsense",
+      "question": "Is the Sun bigger than the Earth?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. The Sun is much bigger than Earth\u2014about 109 times Earth\u2019s diameter and about 1.3 million times Earth\u2019s volume.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. The Sun is much bigger than Earth\u2014about 109 times Earth\u2019s diameter and roughly 1.3 million times Earth\u2019s volume.",
+        "anthropic/claude-sonnet-4.5": "Yes, the Sun is much bigger than the Earth. The Sun's diameter is about 109 times larger than Earth's, and it could fit about 1.3 million Earths inside it by volume.",
+        "google/gemini-3-flash-preview": "Yes. The Sun's diameter is about 109 times that of Earth, and its volume is approximately 1.3 million times greater.",
+        "meta-llama/llama-4-maverick": "Yes.",
+        "x-ai/grok-3": "Yes, the Sun is much bigger than the Earth. The Sun's diameter is about 1.39 million kilometers (864,000 miles), while Earth's diameter is approximately 12,742 kilometers (7,918 miles). This means the Sun is roughly 109 times larger in diameter than the Earth."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2684.673547744751,
+      "latency_consensus_ms": 14108.94513130188,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa007",
+      "task_type": "commonsense",
+      "question": "Is chocolate toxic to dogs?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Chocolate can be toxic to dogs because it contains methylxanthines (especially **theobromine** and also caffeine), which dogs metabolize slowly.\n\n**Risk depends on** the type of chocolate, the dog\u2019s weight, and how much was eaten:\n- **Most dangerous:** baking chocolate, cocoa powder (highest theobromine)\n- **Moderate:** dark/bittersweet chocolate\n- **Less dangerous but still risky:** milk chocolate\n- **Usually not a chocolate toxin issue:** white chocolate (very low theobromine), though it can still cause stomach upset due to fat/sugar\n\n**Possible symptoms (often within hours):** vomiting/diarrhea, restlessness, rapid heart rate",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes\u2014chocolate can be toxic to dogs. It contains methylxanthines (theobromine and caffeine), which dogs metabolize slowly.\n\n**Risk depends on the type and amount:**\n- **Most dangerous:** baking chocolate, cocoa powder, dark chocolate  \n- **Less dangerous (but still risky in larger amounts):** milk chocolate  \n- **Least:** white chocolate (very little theobromine, but can still cause stomach upset)\n\n**Possible signs (often within 6\u201312 hours):**\nvomiting/diarrhea, restlessness, rapid heart rate, panting, tremors, seizures, elevated temperature.\n\n**What to do:**\nIf your dog ate chocolate, **contact your vet or a",
+        "anthropic/claude-sonnet-4.5": "Yes, chocolate is toxic to dogs. It contains theobromine and caffeine, which dogs metabolize much more slowly than humans. \n\n**Key points:**\n- Dark chocolate and baking chocolate are the most dangerous (highest theobromine content)\n- Milk chocolate is less toxic but still harmful\n- White chocolate has minimal theobromine but should still be avoided\n- Symptoms include vomiting, diarrhea, rapid breathing, increased heart rate, seizures\n- Can be fatal in sufficient quantities\n\n**If your dog eats chocolate, contact your veterinarian immediately.** The severity depends on the type of chocolate, amount consumed, and the dog's size.",
+        "google/gemini-3-flash-preview": "**Yes**, chocolate is toxic to dogs. It contains **theobromine** and **caffeine**, both of which are stimulants that dogs cannot metabolize effectively.\n\nThe level of toxicity depends on the type of chocolate, the amount ingested, and the size of the dog. Darker and more concentrated chocolates (like baker's chocolate or cocoa powder) are the most dangerous.\n\nIf your dog ingests chocolate, contact a veterinarian or an animal poison control center immediately.",
+        "meta-llama/llama-4-maverick": "Yes, chocolate is toxic to dogs due to a compound called theobromine, which they can't metabolize. Dark chocolate and baking chocolate are the most toxic.",
+        "x-ai/grok-3": "Yes, chocolate is toxic to dogs. It contains theobromine, a compound that dogs cannot metabolize effectively. Even small amounts can cause symptoms like vomiting, diarrhea, rapid breathing, increased heart rate, and seizures. Dark chocolate and baking chocolate are especially dangerous due to higher theobromine levels. If your dog consumes chocolate, contact a veterinarian immediately."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4898.03409576416,
+      "latency_consensus_ms": 18740.376710891724,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa008",
+      "task_type": "commonsense",
+      "question": "Can a smartphone make phone calls?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. A smartphone can make phone calls\u2014typically over the cellular network, and it can also make calls over the internet using apps (VoIP) like WhatsApp or FaceTime.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. A smartphone can make phone calls (over the cellular network with a SIM/eSIM, and often also via Wi\u2011Fi calling or internet calling apps).",
+        "anthropic/claude-sonnet-4.5": "Yes, a smartphone can make phone calls. That's one of its primary functions, along with texting, internet browsing, and running apps.",
+        "google/gemini-3-flash-preview": "Yes. Making phone calls is a primary function of a smartphone.",
+        "meta-llama/llama-4-maverick": "Yes.",
+        "x-ai/grok-3": "Yes, a smartphone can make phone calls. It is one of its primary functions, using cellular networks or internet-based services like VoIP."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2870.901346206665,
+      "latency_consensus_ms": 12816.347360610962,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa009",
+      "task_type": "commonsense",
+      "question": "Is ice cream typically served hot?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Ice cream is typically served cold or frozen; serving it hot would melt it.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Ice cream is typically served cold or frozen. It can be served warm only in uncommon novelty dishes (e.g., fried ice cream), but the ice cream itself is still cold.",
+        "anthropic/claude-sonnet-4.5": "No, ice cream is typically served cold or frozen. It's meant to be eaten at freezing temperatures, which is why it's called \"ice\" cream.",
+        "google/gemini-3-flash-preview": "No. Ice cream is typically served frozen and cold.",
+        "meta-llama/llama-4-maverick": "No.",
+        "x-ai/grok-3": "No, ice cream is typically served cold. It is a frozen dessert made from cream, milk, and sugar, often flavored, and is meant to be eaten in its frozen state."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2198.944091796875,
+      "latency_consensus_ms": 18041.772603988647,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa010",
+      "task_type": "commonsense",
+      "question": "Would a marathon runner need water during a race?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Most marathon runners need to drink during the race to replace fluids lost through sweat and reduce the risk of dehydration and overheating. The exact amount varies with temperature, pace, body size, and sweat rate\u2014many runners take small amounts at aid stations rather than large volumes at once.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Most marathon runners need water (and often electrolytes) during a race to replace fluid lost through sweating and to reduce the risk of dehydration and heat illness. The exact amount depends on conditions (heat/humidity), pace, body size, and sweat rate, so runners typically drink small amounts at aid stations rather than trying to go without.",
+        "anthropic/claude-sonnet-4.5": "Yes, absolutely. Marathon runners need water during a race because:\n\n1. **Dehydration risk** - Running 26.2 miles causes significant fluid loss through sweat\n2. **Performance maintenance** - Even mild dehydration (2% body weight loss) impairs performance\n3. **Safety** - Severe dehydration can lead to heat exhaustion or heat stroke\n4. **Duration** - Marathons typically take 2-5+ hours, far exceeding the time you can go without hydration during intense exercise\n\nMost marathons provide water stations every 2-3 miles, and runners are advised to drink regularly throughout the race, not just when thirsty.",
+        "google/gemini-3-flash-preview": "Yes. Marathon runners need water to prevent dehydration, regulate body temperature, and maintain physical performance over the 26.2-mile distance.",
+        "meta-llama/llama-4-maverick": "Yes, a marathon runner needs water during a race to stay hydrated.",
+        "x-ai/grok-3": "Yes, a marathon runner needs water during a race to stay hydrated. Running long distances causes significant fluid loss through sweat, and dehydration can impair performance and lead to health risks like heat exhaustion or heatstroke. Drinking water at regular intervals, typically every 5-10 kilometers, helps maintain energy levels and prevent these issues. Many marathons provide water stations for this purpose."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3161.0782146453857,
+      "latency_consensus_ms": 18157.275199890137,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa011",
+      "task_type": "commonsense",
+      "question": "Can humans breathe underwater without equipment?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Humans can\u2019t breathe underwater without equipment because our lungs can\u2019t extract oxygen dissolved in water like fish gills do, and water would enter the airways and prevent gas exchange, leading to drowning. Experimental \u201cliquid breathing\u201d has been studied, but it still requires specialized substances and support\u2014not normal unaided breathing.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Humans can\u2019t breathe underwater without equipment because our lungs are designed to exchange gases with air, not extract the small amount of dissolved oxygen in water. If you inhale water, it blocks gas exchange and you\u2019ll suffocate (drown).\n\nThere are experimental ideas like liquid breathing with oxygenated fluids, but they still require specialized medical equipment and aren\u2019t practical for normal underwater breathing.",
+        "anthropic/claude-sonnet-4.5": "No, humans cannot breathe underwater without equipment. Our lungs are designed to extract oxygen from air, not water. Unlike fish, which have gills to extract dissolved oxygen from water, humans will drown if they attempt to breathe water into their lungs.",
+        "google/gemini-3-flash-preview": "No. Humans lack gills to extract oxygen from water and their lungs are not designed to process liquid. Without equipment, a human can only hold their breath until their oxygen supply is depleted.",
+        "meta-llama/llama-4-maverick": "No, humans cannot breathe underwater without equipment. Humans are not naturally adapted to extract oxygen from water like fish are, and our lungs are not designed to handle the pressure and gas exchange required for underwater respiration.",
+        "x-ai/grok-3": "No, humans cannot breathe underwater without equipment. Our lungs are designed to extract oxygen from air, not water. Attempting to breathe underwater would result in drowning as water fills the lungs, preventing oxygen intake. Equipment like scuba gear or snorkels is necessary to provide breathable air underwater."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4513.671159744263,
+      "latency_consensus_ms": 18189.39256668091,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa012",
+      "task_type": "commonsense",
+      "question": "Is a tomato botanically a fruit?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Botanically, a tomato is a fruit\u2014specifically a berry\u2014because it develops from the flower\u2019s ovary and contains seeds.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Botanically, a tomato is a fruit\u2014specifically a berry\u2014because it develops from the flower\u2019s ovary and contains seeds (even though it\u2019s used as a vegetable in cooking).",
+        "anthropic/claude-sonnet-4.5": "Yes, botanically a tomato is a fruit. Specifically, it's a berry that develops from the ovary of a flowering plant and contains seeds. This is the scientific classification based on plant biology, even though tomatoes are commonly treated as vegetables in culinary contexts.",
+        "google/gemini-3-flash-preview": "Yes, botanically, a tomato is a fruit. Specifically, it is classified as a berry because it is a fleshy fruit produced from a single ovary and contains seeds.",
+        "meta-llama/llama-4-maverick": "Yes.",
+        "x-ai/grok-3": "Yes, a tomato is botanically a fruit. It develops from the ovary of a flower and contains seeds, which are characteristics of fruits in botanical terms."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2703.5622596740723,
+      "latency_consensus_ms": 13931.911945343018,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa013",
+      "task_type": "commonsense",
+      "question": "Would a library be a good place to hold a rock concert?",
+      "ground_truth": "No",
+      "single_model_answer": "Usually no. Libraries are designed for quiet study and have noise limits, limited space for crowds, and often rules that prohibit loud events; they also may lack the soundproofing, staging, electrical capacity, and safety setup a rock concert needs.\n\nIt could work only if it\u2019s a special, planned event in an appropriate library space (e.g., an auditorium/community room), scheduled after hours, with proper permits, staffing, sound controls, and crowd management.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Usually not.\n\n- **Noise/mission mismatch:** Libraries are designed for quiet study; a rock concert conflicts with that purpose.\n- **Acoustics:** Hard surfaces and enclosed stacks make sound harsh and excessively loud.\n- **Space and safety:** Limited open floor space, narrow aisles, and lower crowd-capacity make crowd control and emergency egress harder.\n- **Risk to collections/equipment:** Vibration, humidity changes, spills, and foot traffic can damage books and facilities.\n- **Permits/liability:** Amplified music, occupancy limits, security, and insurance requirements can be difficult to meet.\n\n**When it could work:** Only if it\u2019s a *special event* in a separate auditorium/community room designed for events,",
+        "anthropic/claude-sonnet-4.5": "No, a library would not be a good place to hold a rock concert. \n\nLibraries are designed for quiet study and reading, while rock concerts are loud events that can reach 100-120 decibels. The noise would:\n- Disturb people trying to read or work\n- Violate the library's purpose as a quiet space\n- Potentially damage books and materials from vibrations\n- Likely violate noise ordinances\n\nRock concerts need venues designed for loud music, like concert halls, arenas, or outdoor spaces.",
+        "google/gemini-3-flash-preview": "No. Libraries are generally unsuitable for rock concerts because their acoustics are designed for quiet, they contain fragile collections, and their mission centers on silence and study. Additionally, the high volume and vibration could damage building structures and equipment.",
+        "meta-llama/llama-4-maverick": "No. Libraries are generally quiet spaces for studying and reading, not suitable for loud events like rock concerts.",
+        "x-ai/grok-3": "No, a library would not be a good place to hold a rock concert. Libraries are designed for quiet study and reading, with acoustics and layouts unsuitable for loud music. The noise would disrupt patrons and potentially damage books or equipment. Additionally, libraries often lack the space, electrical capacity, and infrastructure for large crowds, staging, and sound systems required for a rock concert. A venue like a concert hall, club, or outdoor space would be more appropriate."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4073.828935623169,
+      "latency_consensus_ms": 19498.255252838135,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa014",
+      "task_type": "commonsense",
+      "question": "Can you fold a standard piece of paper more than 7 times by hand?",
+      "ground_truth": "No",
+      "single_model_answer": "With a standard letter/A4 sheet **by hand, usually no**\u2014**7 folds is the typical practical limit**.\n\nIt\u2019s **sometimes possible to reach 8 (occasionally 9)** with very careful technique (tight, well-creased folds, often in one direction), but **consistently folding a standard sheet more than 7 times is not realistically doable by hand",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "With a single standard sheet (Letter/A4), **practically no**: most people top out at **about 6\u20137 folds by hand** because the thickness grows exponentially and the force required becomes too high.\n\nIt **is** possible to fold **more than 7 times** by hand if you use **a much larger sheet** (or special folding methods), but **not realistically with",
+        "anthropic/claude-sonnet-4.5": "No, it's extremely difficult to fold a standard piece of paper more than 7-8 times by hand.\n\nThe limitation is **physical, not mathematical**. Each fold doubles the thickness while halving the length. After 6-7 folds, the paper becomes so thick and the remaining length so short that you can't generate enough force to fold it further.\n\nThe \"7 times\" limit is often cited, though:\n- **Brittle Pomroy** (high school student) managed **12 folds** in 2002 using a very long, thin piece of paper (over 1 km of toilet paper)\n- With standard 8.5\u00d711\" paper",
+        "google/gemini-3-flash-preview": "No. For a standard piece of paper (like A4 or letter size), the thickness increases exponentially and the surface area decreases too rapidly for a human to fold it an 8th time by hand.",
+        "meta-llama/llama-4-maverick": "No, it is generally not possible to fold a standard piece of paper more than 7 times by hand due to its physical limitations and exponential thickness increase with each fold.",
+        "x-ai/grok-3": "No, it is extremely difficult to fold a standard piece of paper (like A4 or letter size) more than 7 times by hand due to the exponential increase in thickness and decrease in manageable size with each fold. After about 7 folds, the paper becomes too thick and small to fold further without specialized techniques or equipment. However, with a very large sheet of paper and optimal folding methods (like folding in alternating directions), it is theoretically possible to exceed 7 folds, as demonstrated in experiments (e.g., MythBusters folded a football-field-sized paper 11 times). For a typical piece of paper, 7 is generally the practical limit by hand."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5394.192695617676,
+      "latency_consensus_ms": 22119.288444519043,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa015",
+      "task_type": "commonsense",
+      "question": "Is the Pacific Ocean saltwater?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. The Pacific Ocean is saltwater (seawater), with an average salinity of about 3.5% (around 35 parts per thousand).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. The Pacific Ocean is saltwater (a saline ocean), like all of Earth\u2019s oceans.",
+        "anthropic/claude-sonnet-4.5": "Yes, the Pacific Ocean is saltwater. Like all oceans, it contains dissolved salts, primarily sodium chloride (table salt), with an average salinity of about 3.5%.",
+        "google/gemini-3-flash-preview": "Yes, the Pacific Ocean is saltwater.",
+        "meta-llama/llama-4-maverick": "Yes, the Pacific Ocean is saltwater.",
+        "x-ai/grok-3": "Yes, the Pacific Ocean is saltwater. It contains about 3.5% dissolved salts, primarily sodium chloride, like other oceans."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2335.6988430023193,
+      "latency_consensus_ms": 14076.770544052124,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa016",
+      "task_type": "commonsense",
+      "question": "Would a nocturnal animal typically be active during the day?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Nocturnal animals are typically active at night and rest during the day, though some may occasionally be active in daylight due to factors like food availability, disturbance, or seasonal changes.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. A nocturnal animal is typically active at night and rests during the day, though some may occasionally be active in daylight due to factors like food availability, disturbance, or seasonal changes.",
+        "anthropic/claude-sonnet-4.5": "No, a nocturnal animal would not typically be active during the day. Nocturnal animals are active during the night and rest or sleep during daylight hours.",
+        "google/gemini-3-flash-preview": "No. Nocturnal animals are typically active during the night and sleep during the day.",
+        "meta-llama/llama-4-maverick": "No.",
+        "x-ai/grok-3": "No, a nocturnal animal is typically active at night and rests during the day."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3008.8346004486084,
+      "latency_consensus_ms": 12782.736539840698,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa017",
+      "task_type": "commonsense",
+      "question": "Can lightning strike the same place twice?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Lightning can strike the same place multiple times\u2014especially tall, isolated, or conductive objects like skyscrapers, radio towers, trees, and mountain peaks. For example, the Empire State Building is struck many times per year.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Lightning can strike the same place multiple times\u2014especially tall, isolated, or conductive objects like skyscrapers, radio towers, trees, and mountaintops. For example, the Empire State Building is struck dozens of times per year.",
+        "anthropic/claude-sonnet-4.5": "Yes, lightning can and does strike the same place twice. This is actually quite common.\n\nTall structures like the Empire State Building get struck dozens of times per year. Lightning follows the path of least resistance to the ground, so prominent objects\u2014especially tall, pointed, or isolated structures\u2014are more likely to be struck repeatedly.\n\nIn fact, if conditions are favorable (like a tall building in an area with frequent thunderstorms), the same location is *more* likely to be struck again than a random spot nearby.",
+        "google/gemini-3-flash-preview": "Yes. Lightning can and frequently does strike the same place twice, especially tall, isolated structures like skyscrapers or mountain peaks.",
+        "meta-llama/llama-4-maverick": "Yes, lightning can strike the same place twice. The Empire State Building in New York City, for example, is hit by lightning on average about 25 times per year.",
+        "x-ai/grok-3": "Yes, lightning can strike the same place twice. In fact, tall structures like skyscrapers, towers, and trees are often struck multiple times because they act as natural conductors for lightning. The Empire State Building, for example, is hit by lightning about 20-25 times per year. Lightning follows the path of least resistance, so if a location is a good conductor or elevated, it\u2019s more likely to be struck repeatedly."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2924.8504638671875,
+      "latency_consensus_ms": 17489.367485046387,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa018",
+      "task_type": "commonsense",
+      "question": "Is a whale a fish?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Whales are mammals, not fish. They breathe air with lungs, are warm-blooded, give birth to live young, and nurse them with milk.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Whales are mammals, not fish\u2014they breathe air with lungs, are warm-blooded, and nurse their young with milk.",
+        "anthropic/claude-sonnet-4.5": "No, a whale is not a fish. Whales are mammals.\n\nKey differences:\n- **Whales** breathe air with lungs, are warm-blooded, give live birth, and nurse their young with milk\n- **Fish** breathe through gills, are cold-blooded, and typically lay eggs\n\nDespite living in water, whales are more closely related to land mammals like hippos than to fish.",
+        "google/gemini-3-flash-preview": "No. A whale is a mammal.",
+        "meta-llama/llama-4-maverick": "No, a whale is a mammal.",
+        "x-ai/grok-3": "No, a whale is not a fish. Whales are mammals. They breathe air through lungs, give birth to live young, and nurse their babies with milk. Fish, on the other hand, are cold-blooded, breathe through gills, and lay eggs."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2668.0445671081543,
+      "latency_consensus_ms": 15533.607244491577,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa019",
+      "task_type": "commonsense",
+      "question": "Would a desert be a good place to find abundant fresh water?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Deserts typically have very low rainfall and few reliable surface water sources, so abundant fresh water is uncommon. Some deserts do have groundwater aquifers, springs, or oases, but these are usually limited and not widespread.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Deserts typically have very low rainfall and limited surface water, so abundant fresh water is uncommon\u2014though there can be exceptions like oases, underground aquifers, or seasonal rivers.",
+        "anthropic/claude-sonnet-4.5": "No, deserts are not good places to find abundant fresh water. By definition, deserts are arid regions that receive very little precipitation (typically less than 10 inches/25 cm per year). Fresh water is scarce in deserts, which is precisely what makes them deserts. While some water sources like oases, occasional springs, or underground aquifers may exist, they are rare exceptions rather than the norm.",
+        "google/gemini-3-flash-preview": "No. Deserts are defined by their lack of precipitation and high evaporation rates, making fresh water extremely scarce.",
+        "meta-llama/llama-4-maverick": "No. Deserts are typically dry regions with limited precipitation, making it unlikely to find abundant fresh water.",
+        "x-ai/grok-3": "No, a desert is not a good place to find abundant fresh water. Deserts are characterized by extremely low rainfall and arid conditions, resulting in scarce surface water. Fresh water in deserts is typically limited to rare oases, underground aquifers, or seasonal streams, which are not abundant or easily accessible."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2965.8029079437256,
+      "latency_consensus_ms": 15516.96228981018,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa020",
+      "task_type": "commonsense",
+      "question": "Can sound travel through a vacuum?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Sound needs a material medium (like air, water, or solids) to carry vibrations, and a vacuum has no particles to transmit them.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Sound needs a material medium (like air, water, or a solid) to carry pressure vibrations, and a vacuum has no particles to transmit them.",
+        "anthropic/claude-sonnet-4.5": "No, sound cannot travel through a vacuum.\n\nSound requires a medium (such as air, water, or solid materials) to propagate because it travels as vibrations of molecules. In a vacuum, there are no molecules to vibrate and transmit the sound waves, so sound cannot travel.",
+        "google/gemini-3-flash-preview": "No. Sound requires a medium (such as air, water, or solids) to travel, and a vacuum contains no such medium.",
+        "meta-llama/llama-4-maverick": "No, sound cannot travel through a vacuum because it requires a medium to propagate.",
+        "x-ai/grok-3": "No, sound cannot travel through a vacuum. Sound requires a medium, such as air, water, or a solid, to propagate because it travels as vibrations of particles in that medium. In a vacuum, there are no particles to vibrate, so sound cannot travel."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2374.037504196167,
+      "latency_consensus_ms": 23393.86749267578,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa021",
+      "task_type": "commonsense",
+      "question": "Is water wet?",
+      "ground_truth": "Yes",
+      "single_model_answer": "\u201cWet\u201d typically means **covered in or saturated with a liquid**. By that definition:\n\n- **Water makes other things wet.**\n- **Liquid water itself isn\u2019t \u201cwet\u201d** (it\u2019s the liquid that causes wetness).\n- But in everyday speech, people sometimes say **water is wet** because it\u2019s in contact with itself and coats surfaces.\n\nSo: **scientifically/precisely: no; colloquially: often yes.**",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "\u201cWet\u201d usually means **a solid surface is coated/saturated with a liquid**.\n\n- By that definition, **water isn\u2019t wet**; it\u2019s the liquid that **makes other things wet**.  \n- In casual usage, people sometimes say **water is wet** because it\u2019s in contact with itself and can coat things\u2014but that\u2019s more a language convention than a strict definition.\n\nSo: **technically no, colloquially sometimes yes.**",
+        "anthropic/claude-sonnet-4.5": "This is a surprisingly philosophical question! It depends on how you define \"wet.\"\n\n**\"No\" perspective:** Wetness is typically defined as the condition of being covered or saturated with water. By this definition, water itself isn't wet\u2014it makes other things wet. Water is the liquid that causes wetness.\n\n**\"Yes\" perspective:** If wetness means being in a liquid state or having water molecules in contact with each other, then water is wet, since water molecules are surrounded by other water molecules.\n\n**Most common answer:** Water is not wet; it makes things wet. Wetness is a property that describes what happens when water adheres to a solid surface.",
+        "google/gemini-3-flash-preview": "The answer depends on how you define \"wet\":\n\n1.  **No (Scientific view):** Wetness is the ability of a liquid to adhere to the surface of a solid. Therefore, water makes other things wet, but is not wet itself.\n2.  **Yes (Common view):** If wetness is defined as being covered in or saturated with a liquid, then water molecules are \"wet\" because they are surrounded by other water molecules.",
+        "meta-llama/llama-4-maverick": "Yes, water is wet. Wetness is a property that describes the ability of a liquid to adhere to a surface, and water is a liquid that exhibits this property.",
+        "x-ai/grok-3": "Yes, water is wet. Wetness is the state of being covered or saturated with liquid, and water, as a liquid, inherently possesses this property. It also makes other surfaces wet upon contact."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3997.523307800293,
+      "latency_consensus_ms": 21625.940561294556,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa022",
+      "task_type": "commonsense",
+      "question": "Can birds fly backwards?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Most birds can\u2019t fly backwards. They can slow down, hover briefly, or back up slightly while maneuvering, but true sustained backward flight is rare.\n\nHummingbirds are the main exception: they can fly backwards (and hover) because their wing joints and rapid wingbeats let them generate lift on both the forward and backward stroke.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Most birds can\u2019t fly backward in sustained, controlled flight. Their wings are shaped and moved to generate lift and thrust primarily forward.\n\nA notable exception is hummingbirds: they can fly backward (and hover) by rotating their wings in a way that produces lift on both the forward and backward stroke. Some other birds may momentarily move backward while landing or in strong wind, but they aren\u2019t truly flying backward under their own power like hummingbirds.",
+        "anthropic/claude-sonnet-4.5": "Most birds cannot fly backwards. However, **hummingbirds** are a notable exception - they can fly backwards, forwards, up, down, and even upside down briefly. This ability comes from their unique wing structure and extremely rapid wing beats (up to 80 times per second), which allow them to hover and maneuver in any direction.\n\nSome other birds can move backwards very briefly or in limited ways, but hummingbirds are the only birds that can sustain true backward flight.",
+        "google/gemini-3-flash-preview": "**Hummingbirds** are the only birds that can fly backwards for sustained periods. \n\nWhile some other birds (like flycatchers or herons) may use a backward fluttering motion to retreat from a branch or avoid an obstacle, they cannot maintain true backward flight.",
+        "meta-llama/llama-4-maverick": "Hummingbirds are capable of flying backwards.",
+        "x-ai/grok-3": "Yes, some birds can fly backwards, but it is rare and typically limited to specific species. Hummingbirds are the most notable example; they can hover and move in any direction, including backwards, due to their unique wing structure and rapid wing beats. Most other birds cannot fly backwards because their wing anatomy and flight mechanics are designed for forward motion."
+      },
+      "consensus_answer": "Most birds can\u2019t fly backward in sustained, controlled flight. Their wings are shaped and moved to g",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 3559.4282150268555,
+      "latency_consensus_ms": 18100.197315216064,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa023",
+      "task_type": "commonsense",
+      "question": "Is glass a liquid at room temperature?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Glass at room temperature is an amorphous solid, not a liquid.  \n\nThe idea that old windowpanes are thicker at the bottom because glass \u201cflows\u201d is a myth; that thickness difference mainly comes from how glass was historically made. Glass can flow only at very high temperatures (near its glass transition/softening range), not at room temperature.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Glass at room temperature is an amorphous (non\u2011crystalline) solid, not a liquid. It doesn\u2019t flow measurably on human timescales; the idea that old window glass is thicker at the bottom is due to how it was made, not because it \u201cflowed\u201d like a liquid.",
+        "anthropic/claude-sonnet-4.5": "No, glass is not a liquid at room temperature. It is an amorphous solid.\n\nThe confusion comes from an old myth that glass flows very slowly over time, supposedly evidenced by old windows being thicker at the bottom. However, this thickness variation is actually due to historical manufacturing processes, not flow.\n\nAt room temperature, glass has a rigid structure and does not flow on any practical timescale. While glass lacks the ordered crystalline structure of typical solids (hence \"amorphous\"), it behaves as a solid with a very high viscosity that prevents any measurable flow.",
+        "google/gemini-3-flash-preview": "No. Glass is an **amorphous solid**.\n\nWhile its internal structure is disordered like a liquid, it does not flow at room temperature. The common myth that old window panes are thicker at the bottom due to flowing over time is false; this was actually a result of historical manufacturing processes.",
+        "meta-llama/llama-4-maverick": "No, glass is an amorphous solid at room temperature. The myth that it's a liquid likely originated from the fact that old glass windows often appear thicker at the bottom due to the manufacturing process, not because it's flowing like a liquid.",
+        "x-ai/grok-3": "No, glass is not a liquid at room temperature. It is an amorphous solid, meaning it has a rigid structure without a crystalline arrangement. The myth that glass is a liquid comes from the misconception that it flows over time, but this is not true; old glass panes appear to flow due to historical manufacturing inconsistencies, not because glass is liquid."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3447.045087814331,
+      "latency_consensus_ms": 17771.878719329834,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa024",
+      "task_type": "commonsense",
+      "question": "Would a vegan eat honey?",
+      "ground_truth": "No",
+      "single_model_answer": "Usually, no.\n\nMost vegans avoid honey because it\u2019s an animal product made by bees and often involves human management of colonies (which many vegans see as exploitation).\n\nThat said, some people who otherwise eat vegan may choose to eat honey (often called \u201cbee-vegan\u201d or just \u201cvegan except honey\u201d), but it\u2019s not considered vegan by the common definition.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Typically, no.\n\nMost vegans avoid honey because it\u2019s an animal-derived product (made by bees) and often involves practices that can exploit or harm bees.  \n\nThat said, some people who otherwise eat vegan may choose to eat honey (often for environmental or local-food reasons), but many vegans consider that not vegan.",
+        "anthropic/claude-sonnet-4.5": "Most vegans do not eat honey.\n\nVeganism typically excludes all animal products, and honey is produced by bees. The main reasons vegans avoid honey include:\n\n- **Exploitation concerns** - Commercial honey production can involve practices some view as harmful to bees (like clipping queen wings, taking honey that bees need for winter)\n- **Animal product definition** - Honey is made by bees for bees, so it falls under animal products\n\nHowever, there's some debate within the vegan community. A small minority might consume honey, especially from ethical/small-scale beekeepers, arguing that bees aren't harmed in the same way as other animals in agriculture.\n\n**Short",
+        "google/gemini-3-flash-preview": "Strictly speaking, **no**. Most vegans do not eat honey because it is an animal product produced by bees, and veganism seeks to exclude all forms of animal exploitation and use.\n\nHowever, some individuals who follow a plant-based diet choose to include honey, sometimes referring to themselves as \"beegans.\"",
+        "meta-llama/llama-4-maverick": "No, vegans typically do not eat honey as it is an animal byproduct.",
+        "x-ai/grok-3": "No, most vegans do not eat honey. Veganism avoids all animal products, and honey is produced by bees, which are animals. Many vegans consider honey to be an animal byproduct and choose alternatives like agave nectar or maple syrup. However, some vegans may make exceptions based on personal beliefs about the ethical implications of honey production."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3590.5251502990723,
+      "latency_consensus_ms": 19649.13511276245,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa025",
+      "task_type": "commonsense",
+      "question": "Can a human outrun a cheetah?",
+      "ground_truth": "No",
+      "single_model_answer": "Not in a sprint. A cheetah can reach about 95\u2013120 km/h (60\u201375 mph), while the fastest humans top out around 44\u201345 km/h (27\u201328 mph).\n\nOver longer distances, a human *can* \u201coutrun\u201d a cheetah in the sense of outlasting it: cheetahs can only sustain top speed for ~20\u201330 seconds and over a few hundred meters before overheating and tiring, while humans can keep running much longer (especially in heat). But in a head-to",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not in a sprint. A cheetah can reach about **95\u2013120 km/h (60\u201375 mph)** for short bursts, while the fastest humans top out around **44\u201345 km/h (27\u201328 mph)**.\n\nOver a **long distance**, a human *can* \u201coutrun\u201d a cheetah in the sense of lasting longer: cheetahs overheat and fatigue quickly and typically can\u2019t maintain high speed for more than **~20\u201330 seconds**, whereas humans can run for many minutes",
+        "anthropic/claude-sonnet-4.5": "No, a human cannot outrun a cheetah. \n\nCheetahs can reach speeds of 60-70 mph (97-113 km/h), while the fastest humans top out around 28 mph (45 km/h) in short sprints. Even average jogging cheetahs move faster than the fastest human sprinters.",
+        "google/gemini-3-flash-preview": "No. A cheetah can reach speeds of up to **70 mph (112 km/h)**, while the fastest human ever recorded, Usain Bolt, reached a top speed of only **27.8 mph (44.7 km/h)**.\n\nHowever, humans can outrun cheetahs in **long-distance endurance**. Cheetahs are sprinters that overheat and tire after about 30 seconds; humans are among the best endurance runners on Earth and can sustain movement for hours.",
+        "meta-llama/llama-4-maverick": "No, a human cannot outrun a cheetah. Cheetahs are the fastest land animal, reaching speeds of up to 70 mph (113 km/h), while the fastest human speed is around 27-28 mph (43-45 km/h).",
+        "x-ai/grok-3": "No, a human cannot outrun a cheetah. Cheetahs are the fastest land animals, capable of running at speeds up to 60-70 mph (97-113 kph) in short bursts. The fastest human runners, like Usain Bolt, reach top speeds of about 27-28 mph (43-45 kph). Even over short distances, a cheetah is far faster than any human."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4899.367570877075,
+      "latency_consensus_ms": 17915.83204269409,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa026",
+      "task_type": "commonsense",
+      "question": "Is fire a living thing?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Fire isn\u2019t a living thing.\n\nLiving things are made of cells, have genetic material, maintain internal regulation (homeostasis), grow and reproduce using biological processes, and evolve as populations. Fire is a chemical reaction (combustion) that releases heat and light. It can \u201cspread\u201d and needs fuel and oxygen, but it doesn\u2019t have cells or DNA, doesn\u2019t carry out metabolism in the biological sense, and doesn\u2019t reproduce or evolve like organisms.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Fire isn\u2019t a living thing.\n\nIt can seem \u201calive\u201d because it grows, spreads, and needs fuel and oxygen, but it doesn\u2019t meet key criteria for life: it isn\u2019t made of cells, doesn\u2019t have DNA, doesn\u2019t maintain internal homeostasis, and doesn\u2019t reproduce through biological processes. Fire is a chemical reaction (combustion), not an organism.",
+        "anthropic/claude-sonnet-4.5": "No, fire is not a living thing.\n\nWhile fire may seem \"alive\" because it moves, grows, and consumes fuel, it lacks the fundamental characteristics of life:\n\n- **No cells** - Fire has no cellular structure\n- **No metabolism** - It's a chemical reaction (combustion), not a biological process\n- **No reproduction** - Fire spreads but doesn't create offspring with genetic material\n- **No growth/development** - It doesn't grow in an organized, biological way\n- **No response to stimuli** - Its reactions are purely chemical, not biological\n- **No homeostasis** - It can't regulate its internal conditions\n\nFire is a chemical process that releases energy in the",
+        "google/gemini-3-flash-preview": "No. Fire is a chemical reaction, not a living organism.\n\nWhile fire exhibits some characteristics of life (such as consuming energy, growing, and reproducing), it lacks the fundamental biological requirements: it is not made of cells, it does not contain genetic material (DNA), and it cannot maintain homeostasis.",
+        "meta-llama/llama-4-maverick": "No, fire is not a living thing. It doesn't meet the basic criteria for life, such as having cells, reproducing, or responding to stimuli in the same way living organisms do.",
+        "x-ai/grok-3": "No, fire is not a living thing. It is a chemical reaction, specifically oxidation, that produces heat and light. Living things have characteristics like growth, reproduction, and response to stimuli, which fire does not possess."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3473.7911224365234,
+      "latency_consensus_ms": 18459.05113220215,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa027",
+      "task_type": "commonsense",
+      "question": "Would you need a passport to travel between US states?",
+      "ground_truth": "No",
+      "single_model_answer": "No. You don\u2019t need a passport to travel between U.S. states (domestic travel).\n\n- **Flying:** You\u2019ll typically need a government-issued photo ID. A **REAL ID\u2013compliant** driver\u2019s license/ID (or an approved alternative like a passport) is required for TSA checkpoints unless you qualify for an exception.\n- **Driving/bus/train:** Generally no ID is required to cross state lines, though you may need a license if you\u2019re driving and may be asked for ID in certain situations.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. You don\u2019t need a passport to travel between U.S. states.\n\n- **By car/bus/train:** No passport required.\n- **By domestic flight:** No passport is required, but you typically need a **government-issued photo ID**. If you don\u2019t have a passport, use a **REAL ID\u2013compliant driver\u2019s license/ID** (or another TSA-accepted ID).",
+        "anthropic/claude-sonnet-4.5": "No, you do not need a passport to travel between US states. \n\nUS citizens can travel freely between all 50 states using just a state-issued driver's license or ID card. A passport is only required for international travel (with some exceptions like certain Caribbean cruises or land crossings to Canada/Mexico where other documents may suffice).",
+        "google/gemini-3-flash-preview": "No. You do not need a passport to travel between U.S. states. A valid state-issued driver's license or ID card is sufficient for domestic air travel.",
+        "meta-llama/llama-4-maverick": "No, you wouldn't need a passport to travel between US states. A valid government-issued ID, such as a driver's license, is typically sufficient.",
+        "x-ai/grok-3": "No, you do not need a passport to travel between US states. Domestic travel within the United States only requires a valid form of identification, such as a driver's license or state-issued ID. However, starting May 7, 2025, you will need a REAL ID-compliant driver's license or another acceptable form of ID to board domestic flights under the REAL ID Act."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4484.938383102417,
+      "latency_consensus_ms": 17453.08256149292,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa028",
+      "task_type": "commonsense",
+      "question": "Can plants produce oxygen?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Many plants produce oxygen during photosynthesis: using sunlight to convert carbon dioxide and water into sugars, releasing oxygen (O\u2082) as a byproduct. Plants also respire (use oxygen) all the time, but in daylight photosynthesis usually exceeds respiration, so there\u2019s a net oxygen release.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Most plants produce oxygen during photosynthesis: they use light to split water and release oxygen (O\u2082) as a byproduct while making sugars from carbon dioxide. In the dark, plants still respire (like animals), using oxygen and releasing carbon dioxide, but over daylight hours they typically produce more oxygen than they consume.",
+        "anthropic/claude-sonnet-4.5": "Yes, plants produce oxygen through photosynthesis. During this process, they use sunlight, water, and carbon dioxide to create glucose (sugar) for energy, and release oxygen as a byproduct. This oxygen is essential for most life on Earth, including humans and animals.",
+        "google/gemini-3-flash-preview": "Yes, plants produce oxygen as a byproduct of **photosynthesis**.",
+        "meta-llama/llama-4-maverick": "Yes, plants produce oxygen through photosynthesis.",
+        "x-ai/grok-3": "Yes, plants produce oxygen through photosynthesis. They use sunlight, water, and carbon dioxide to create glucose for energy and release oxygen as a byproduct into the atmosphere."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3181.682586669922,
+      "latency_consensus_ms": 13870.2552318573,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa029",
+      "task_type": "commonsense",
+      "question": "Is Antarctica a desert?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Antarctica is considered a desert because it gets very little precipitation (often less than ~200 mm of water equivalent per year in the interior), even though it\u2019s covered in ice. It\u2019s actually the largest desert on Earth by area.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Antarctica is a desert because it gets extremely little precipitation (on average only a few centimeters of water equivalent per year, especially in the interior). It\u2019s covered in ice not because it\u2019s wet, but because it\u2019s so cold that the small amount of snowfall rarely melts and accumulates over time.",
+        "anthropic/claude-sonnet-4.5": "Yes, Antarctica is a desert\u2014specifically, the world's largest cold desert. \n\nDeserts are defined by low precipitation, not temperature. Antarctica receives very little precipitation, averaging only about 2 inches (50mm) per year in the interior, which is less than the Sahara Desert. The extreme cold means moisture in the air freezes and falls as snow, but the total amount of water is minimal.\n\nSo while it's covered in ice and snow, Antarctica qualifies as a desert due to its extremely dry conditions.",
+        "google/gemini-3-flash-preview": "Yes. Antarctica is a polar desert and is the largest desert on Earth.",
+        "meta-llama/llama-4-maverick": "Yes, Antarctica is considered a desert due to its low precipitation.",
+        "x-ai/grok-3": "Yes, Antarctica is a desert. It is classified as a cold desert because it receives very little precipitation, averaging less than 2 inches (50 mm) of water equivalent per year in many areas. Despite being covered in ice, the continent's extreme cold and isolation prevent significant moisture from reaching it, meeting the definition of a desert as a region with low precipitation."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2940.790891647339,
+      "latency_consensus_ms": 16817.440032958984,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa030",
+      "task_type": "commonsense",
+      "question": "Would a compass work on the Moon?",
+      "ground_truth": "No",
+      "single_model_answer": "A normal magnetic compass wouldn\u2019t be useful on the Moon.\n\n- **Why:** A compass needs a strong, coherent planetary magnetic field like Earth\u2019s. The Moon has **no global magnetic field** today.\n- **What would happen:** The needle would mostly **not settle in a consistent direction**. In a few places it might twitch or point oddly due to **weak, localized magnetic patches** in lunar crust, but it wouldn\u2019t give reliable \u201cnorth.\u201d\n- **",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "A normal magnetic compass would **not work reliably on the Moon**.\n\n- A compass needs a strong, global magnetic field like Earth\u2019s to align its needle.\n- The Moon **doesn\u2019t have a significant global magnetic field** today, so there\u2019s nothing consistent for the needle to point toward.\n- There are **small, localized magnetic patches** in the lunar crust, so a compass might twitch or point in odd directions near some areas, but it wouldn\u2019t provide dependable navigation.",
+        "anthropic/claude-sonnet-4.5": "A traditional magnetic compass would not work well on the Moon because:\n\n1. **The Moon has no global magnetic field** - Unlike Earth, the Moon lacks a significant magnetosphere to align the compass needle with.\n\n2. **Only weak, localized magnetic fields exist** - Some lunar rocks and certain regions have small magnetic anomalies, but these are far too weak and scattered to provide reliable navigation.\n\n3. **No consistent reference direction** - Without a global field, there's no lunar equivalent of \"magnetic north\" for the compass to point toward.\n\n**However**, a compass would still physically function in the sense that the needle could move freely (assuming the mechanism works in vacuum and extreme temperatures). It just wouldn't point",
+        "google/gemini-3-flash-preview": "No. A magnetic compass would not work on the Moon because the Moon lacks a global magnetic field. Unlike Earth, it does not have a liquid metal core generating a consistent north and south pole to align a needle.",
+        "meta-llama/llama-4-maverick": "No, a compass relies on Earth's magnetic field, which the Moon does not have.",
+        "x-ai/grok-3": "No, a compass would not work on the Moon. A compass relies on Earth's magnetic field to point toward magnetic north, but the Moon has no global magnetic field. Without a magnetic field to interact with, the compass needle would not align to any specific direction."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5505.2125453948975,
+      "latency_consensus_ms": 21498.843669891357,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa031",
+      "task_type": "commonsense",
+      "question": "Can you hear in space?",
+      "ground_truth": "No",
+      "single_model_answer": "Not in the usual way.\n\n- **Sound needs a medium** (air, water, solid) to carry pressure waves. **Space is (nearly) a vacuum**, so there\u2019s no medium to transmit sound to your ears.\n- **You can hear inside a spacecraft** because it\u2019s filled with air.\n- **Vibrations can travel through solids** (like a spaceship hull), so you could \u201chear\u201d knocks or impacts via contact.\n- **Radio transmissions** (e.g., astronauts talking) aren\u2019t sound waves; they\u2019re electromagnetic waves that must be **converted to sound by a receiver**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not in the usual sense. Sound is a vibration that needs a medium (like air, water, or solid material) to travel, and most of space is a near-vacuum, so sound waves can\u2019t propagate.\n\nYou *can* hear in space in limited cases:\n- **Inside a spacecraft/helmet:** There\u2019s air, so sound travels normally.\n- **Through physical contact/solids:** Vibrations can travel through the spacecraft structure; you might \u201chear\u201d them via contact or onboard microphones/speakers.\n- **In some regions of space with gas/plasma (e.g., nebulae, the Sun\u2019s corona):** There is a medium, but it\u2019s extremely thin; the \u201csounds\u201d would",
+        "anthropic/claude-sonnet-4.5": "No, you cannot hear in space.\n\nSound requires a medium (like air, water, or solid materials) to travel through. It moves as vibrations through molecules. Space is essentially a vacuum with extremely few particles, so there's no medium for sound waves to propagate through.\n\nHowever, sound *can* travel:\n- **Inside spacecraft** - where there's air\n- **Through physical contact** - vibrations through spacesuits or equipment\n- **Inside your spacesuit** - you'd hear your own voice and sounds from your suit's systems\n\nAstronauts communicate via radio waves (electromagnetic radiation), which unlike sound, can travel through the vacuum of space.",
+        "google/gemini-3-flash-preview": "No. Sound requires a medium (like air or water) to travel through, and space is a vacuum. Without particles to vibrate, sound waves cannot move.",
+        "meta-llama/llama-4-maverick": "No, you cannot hear in space because sound waves require a medium, like air, to propagate, and space is a vacuum.",
+        "x-ai/grok-3": "No, you cannot hear in space. Sound requires a medium like air to travel through, and space is a vacuum with no air or other material to carry sound waves."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4504.6656131744385,
+      "latency_consensus_ms": 21046.79584503174,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa032",
+      "task_type": "commonsense",
+      "question": "Is a spider an insect?",
+      "ground_truth": "No",
+      "single_model_answer": "No. A spider is an arachnid, not an insect. Spiders have 8 legs and two main body segments, while insects have 6 legs and three body segments.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. A spider is an arachnid, not an insect. Spiders have 8 legs and two main body segments, while insects have 6 legs and three body segments.",
+        "anthropic/claude-sonnet-4.5": "No, a spider is not an insect. Spiders are **arachnids**.\n\nThe main differences:\n- **Spiders** have 8 legs, 2 body segments, and no antennae\n- **Insects** have 6 legs, 3 body segments, and antennae\n\nBoth belong to the phylum Arthropoda, but they are different classes of animals.",
+        "google/gemini-3-flash-preview": "No. Spiders are **arachnids**, not insects.",
+        "meta-llama/llama-4-maverick": "No, a spider is an arachnid, not an insect.",
+        "x-ai/grok-3": "No, a spider is not an insect. Spiders are arachnids, a separate class of arthropods. They have eight legs, two body segments (cephalothorax and abdomen), and no antennae, while insects have six legs, three body segments (head, thorax, and abdomen), and antennae."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2579.775094985962,
+      "latency_consensus_ms": 14622.016906738281,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa033",
+      "task_type": "commonsense",
+      "question": "Would salt help melt ice on roads?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Salt helps melt ice on roads by lowering water\u2019s freezing point (freezing-point depression), so ice can melt even when the air is below 0\u202f\u00b0C (32\u202f\u00b0F).\n\nKey practical points:\n- **Effective temperature range:** Regular road salt (sodium chloride) works well down to about **\u22129 to \u221210\u202f\u00b0C (15\u202f\u00b0F)**. Below that, it becomes much less effective.\n- **Other salts for colder weather:** **Calcium chloride** and **magnesium chloride** can work at lower temperatures (roughly down to **\u221220 to \u221230\u202f\u00b0C**, depending on conditions).\n- **Limitations:** Salt needs some moisture to dissolve and form brine; it\u2019s slower on",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Salt helps melt ice on roads by lowering water\u2019s freezing point (freezing-point depression), so ice can turn into liquid brine even when the air is below 0\u202f\u00b0C (32\u202f\u00b0F).\n\nKey limits and practical notes:\n- **Most effective temperature range:** Road salt (sodium chloride) works best near freezing and is commonly effective down to about **\u22129 to \u221210\u202f\u00b0C (15\u202f\u00b0F)**. Below that it becomes much less effective.\n- **Lower minimum with brine:** A fully saturated NaCl brine has a lowest freezing point around **\u221221\u202f\u00b0C (\u22126\u202f\u00b0F)**, but real-world performance is usually limited by how fast salt can dissolve and mix with the ice",
+        "anthropic/claude-sonnet-4.5": "Yes, salt helps melt ice on roads. Here's how:\n\n**How it works:**\n- Salt lowers the freezing point of water (from 32\u00b0F/0\u00b0C to around 15\u00b0F/-9\u00b0C)\n- This prevents ice from forming and causes existing ice to melt\n- The salt dissolves into the thin layer of liquid water on ice, creating a brine solution\n\n**Limitations:**\n- Doesn't work well below 15\u00b0F (-9\u00b0C)\n- Less effective in extremely cold temperatures\n- Can damage vehicles, concrete, and vegetation\n- Harmful to the environment in large quantities\n\n**Common types used:**\n- Rock salt (sodium chlor",
+        "google/gemini-3-flash-preview": "Yes. Salt lowers the freezing point of water, a process called freezing-point depression, which causes ice to melt at temperatures where it would normally stay solid.",
+        "meta-llama/llama-4-maverick": "Yes, salt helps melt ice on roads by lowering the freezing point of water, making it effective in temperatures above -10\u00b0C (14\u00b0F).",
+        "x-ai/grok-3": "Yes, salt helps melt ice on roads by lowering the freezing point of water. When salt is applied to ice, it dissolves into the thin layer of water on the ice's surface, creating a brine solution that has a lower freezing point than pure water. This causes the ice to melt at temperatures below 32\u00b0F (0\u00b0C). However, salt becomes less effective at very low temperatures, typically below 15\u00b0F (-9\u00b0C)."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5538.010597229004,
+      "latency_consensus_ms": 24178.974866867065,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa034",
+      "task_type": "commonsense",
+      "question": "Can metal float on water?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes\u2014metal can float on water under certain conditions:\n\n- **If its average density is less than water**, it will float (e.g., a hollow metal boat, a sealed metal can with air inside).\n- **If surface tension supports it**, small, carefully placed pieces like a **steel needle or razor blade** can float temporarily even though steel is denser than water (until disturbed or the surface tension breaks).\n- **If it\u2019s molten**, some metals can float on water briefly due to a vapor layer (Leidenfrost effect), but it\u2019s dangerous and not a stable \u201cfloat.\u201d",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes\u2014metal can float on water if its **average density is less than water** or if **surface tension** supports it.\n\n- **Low average density (buoyancy):** A metal object shaped with lots of enclosed air (e.g., a **steel ship**) can float because the *overall* density of the ship plus air is less than water.\n- **Surface tension (small/light objects):** A small piece like a **carefully placed needle or paperclip** can float temporarily if it doesn\u2019t break the water\u2019s surface tension, even though steel is denser than water.\n\nA solid chunk of most metals (like a steel ball) will sink. Some metals (e.g., **lithium, sodium",
+        "anthropic/claude-sonnet-4.5": "Yes, metal can float on water in certain circumstances:\n\n1. **Surface tension** - Very small, light metal objects (like a needle or razor blade) can float if placed carefully on water's surface, supported by surface tension.\n\n2. **Shape matters** - Metal shaped into hollow forms (like boats or ships) can float because they displace enough water to equal their weight, following Archimedes' principle. Steel ships float for this reason.\n\n3. **Low-density metals** - Some metals like lithium and sodium are less dense than water and naturally float (though they react violently with water, so this is dangerous).\n\n4. **Alloys** - Some metal alloys have been engine",
+        "google/gemini-3-flash-preview": "Yes, metal can float on water in two ways:\n\n1.  **Buoyancy (Displacement):** If a metal object is shaped to displace a volume of water that weighs more than the object itself (like a steel ship), it will float.\n2.  **Surface Tension:** Small, light metal objects (like a paperclip or needle) can rest on the surface of water without breaking the \"skin\" created by surface tension, even though they are denser than water.\n3.  **Low Density:** A few alkali metals, such as **lithium, sodium, and potassium**, are less dense than water and will physically float until they react chemically with the water.",
+        "meta-llama/llama-4-maverick": "Yes, certain metals can float on water if they are shaped in a way that displaces a volume of water equal to or greater than their own weight, such as a metal boat. However, in their solid, dense form, most metals will sink.",
+        "x-ai/grok-3": "Yes, metal can float on water if it is shaped in a way that displaces enough water to create buoyancy, such as in the form of a hollow boat or ship made of steel or aluminum. The principle of buoyancy, as described by Archimedes, states that an object will float if the weight of the water it displaces is equal to or greater than its own weight. So, while most metals are denser than water and will sink in their solid form, proper design can make them float."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4358.96897315979,
+      "latency_consensus_ms": 22292.20676422119,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa035",
+      "task_type": "commonsense",
+      "question": "Is the Moon larger than Earth?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Earth is larger: Earth\u2019s diameter is about 12,742 km, while the Moon\u2019s is about 3,474 km.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Earth is much larger: Earth\u2019s diameter is about **12,742 km**, while the Moon\u2019s is about **3,474 km**.",
+        "anthropic/claude-sonnet-4.5": "No, the Moon is much smaller than Earth. \n\nThe Moon has a diameter of about 3,474 km (2,159 miles), while Earth's diameter is about 12,742 km (7,918 miles). This means Earth is roughly 3.7 times wider than the Moon.",
+        "google/gemini-3-flash-preview": "No. The Moon is much smaller than Earth, with a diameter about one-fourth that of Earth.",
+        "meta-llama/llama-4-maverick": "No. The Moon is smaller than Earth.",
+        "x-ai/grok-3": "No, the Moon is not larger than Earth. The Moon has a diameter of about 3,474 kilometers, while Earth's diameter is approximately 12,742 kilometers. Earth is significantly larger in both size and mass."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2296.811819076538,
+      "latency_consensus_ms": 14249.205112457275,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa036",
+      "task_type": "commonsense",
+      "question": "Would a submarine be able to fly?",
+      "ground_truth": "No",
+      "single_model_answer": "Not in the normal \u201cairplane\u201d sense.\n\n- **A real submarine can\u2019t fly in air** because it\u2019s far too heavy and not shaped or powered for aerodynamic lift. Its hull, ballast tanks, and structure are built to withstand huge water pressure, not to be lightweight.\n- **It can \u201cfly\u201d underwater** in a loose sense: submarines use control surfaces (hydroplanes) and forward",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Not in any practical sense.\n\n- A **submarine is far too heavy and not aerodynamic**, so it can\u2019t generate enough lift to support its weight in air.\n- Its **propulsion and control surfaces** are designed for water; in air they\u2019d be inefficient and unstable.\n- The **pressure hull and ballast systems** that make it work underwater add lots of mass that",
+        "anthropic/claude-sonnet-4.5": "No, a submarine cannot fly. Submarines are designed to operate underwater and are far too heavy and lack the necessary features for flight, such as:\n\n- Wings to generate lift\n- Lightweight construction (submarines are built with thick, heavy hulls to withstand water pressure)\n- Propulsion systems designed for air rather than water\n\nSubmarines sink and rise in water by adjusting their buoyancy, which is completely different from the aerodynamic principles needed for flight.",
+        "google/gemini-3-flash-preview": "No. Submarines are designed for hydrostatic pressure and buoyancy in water, not aerodynamic lift or thrust. Their heavy hulls and lack of airfoils make flight physically impossible.",
+        "meta-llama/llama-4-maverick": "No. Submarines are underwater vessels designed to operate in water, not air. They are not capable of flying.",
+        "x-ai/grok-3": "No, a submarine cannot fly. Submarines are designed to operate underwater, using ballast tanks to control buoyancy and propellers for movement. They lack the aerodynamic structure, lift mechanisms, and propulsion systems (like wings or jet engines) necessary for flight in the air."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 5810.926675796509,
+      "latency_consensus_ms": 20722.57661819458,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa037",
+      "task_type": "commonsense",
+      "question": "Can you sneeze with your eyes open?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes, it\u2019s possible, but it\u2019s uncommon. Sneezing triggers a strong reflex that usually makes your eyelids close automatically, so most people can\u2019t keep their eyes open during a sneeze. If they do stay open, it generally isn\u2019t harmful\u2014your eyes won\u2019t \u201cpop out,\u201d despite the myth.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes\u2014it's possible to sneeze with your eyes open, but most people reflexively close their eyes during a sneeze. It\u2019s an involuntary reflex, not a strict physical requirement, so some can keep them open (often with conscious effort).",
+        "anthropic/claude-sonnet-4.5": "Yes, it's physically possible to sneeze with your eyes open, though it's difficult because closing your eyes is an involuntary reflex that accompanies sneezing for most people.\n\nThe old myth that keeping your eyes open during a sneeze will make your eyeballs pop out is false\u2014your eyes are held securely in their sockets by muscles and connective tissue.",
+        "google/gemini-3-flash-preview": "Yes, it is possible to sneeze with your eyes open, but it is difficult because sneezing triggers an involuntary autonomic reflex that causes the eyelids to close. There is no risk of your eyes \"popping out\" if you keep them open.",
+        "meta-llama/llama-4-maverick": "No, it is not possible to sneeze with your eyes open. When you sneeze, your brain automatically closes your eyes due to the involuntary nature of the sneeze reflex.",
+        "x-ai/grok-3": "Yes, it is possible to sneeze with your eyes open, though it is rare and difficult. The reflex to close your eyes during a sneeze is strong because the same nerves that trigger the sneeze also control the muscles around your eyes. However, with conscious effort, some people can override this reflex. There is no medical harm in doing so, despite the myth that your eyes could pop out."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4638.342380523682,
+      "latency_consensus_ms": 16816.62106513977,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa038",
+      "task_type": "commonsense",
+      "question": "Is a peanut technically a nut?",
+      "ground_truth": "No",
+      "single_model_answer": "No. A peanut isn\u2019t technically a nut\u2014it\u2019s a legume (in the same family as beans, lentils, and peas) because it grows in pods and develops underground. It\u2019s called a \u201cnut\u201d in everyday use because of its similar taste and culinary uses.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Botanically, a peanut is a legume (like beans and lentils), not a true nut. In food and allergy contexts it\u2019s often grouped with nuts because it\u2019s used similarly and can trigger similar allergies.",
+        "anthropic/claude-sonnet-4.5": "No, a peanut is technically a **legume**, not a true nut.\n\nPeanuts grow underground in pods and are part of the same plant family as beans, lentils, and peas (Fabaceae). True nuts, like acorns or hazelnuts, are hard-shelled fruits that don't split open and grow on trees.\n\nHowever, nutritionally and culinarily, peanuts are often grouped with tree nuts because they have similar protein and fat profiles.",
+        "google/gemini-3-flash-preview": "No. Technically, a peanut is a **legume**.\n\nWhile \"true\" nuts (like hazelnuts or acorns) grow on trees and have a hard shell that doesn't split open, peanuts grow underground in pods and are related to beans, peas, and lentils.",
+        "meta-llama/llama-4-maverick": "No, a peanut is technically a legume.",
+        "x-ai/grok-3": "No, a peanut is not technically a nut. It is a legume, belonging to the same family as beans and lentils. Unlike true nuts, which grow on trees, peanuts grow underground and develop in pods."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 3891.589403152466,
+      "latency_consensus_ms": 14906.84962272644,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa039",
+      "task_type": "commonsense",
+      "question": "Would ice float on water?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Ice floats on liquid water because it\u2019s less dense than water (water expands when it freezes, forming an open crystal structure).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Ice floats on liquid water because it\u2019s less dense than water (water expands when it freezes, forming a more open crystal structure).",
+        "anthropic/claude-sonnet-4.5": "Yes, ice floats on water. \n\nThis happens because ice is less dense than liquid water. When water freezes, its molecules form a crystalline structure with more space between them, making ice about 9% less dense than liquid water. This is why icebergs float in the ocean and ice cubes float in your drink.",
+        "google/gemini-3-flash-preview": "Yes, ice floats on water because it is less dense than liquid water.",
+        "meta-llama/llama-4-maverick": "Yes. Ice is less dense than liquid water, so it floats.",
+        "x-ai/grok-3": "Yes, ice floats on water. This is because ice is less dense than liquid water due to its crystalline structure, which forms open spaces. According to Archimedes' principle, an object will float if it is less dense than the fluid it is in."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2890.495538711548,
+      "latency_consensus_ms": 15231.103897094727,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa040",
+      "task_type": "commonsense",
+      "question": "Can magnets attract wood?",
+      "ground_truth": "No",
+      "single_model_answer": "Generally, no. Ordinary magnets attract materials that are **ferromagnetic** (mainly **iron, nickel, cobalt**, and some steels). **Wood isn\u2019t ferromagnetic**, so it won\u2019t be pulled by a magnet.\n\nExceptions/edge cases:\n- If the wood has **metal in or on it** (nails, staples, screws, metal paint), the magnet will attract that metal.\n- Wood is very weakly **diamagnetic**, but the effect is so tiny you won\u2019t notice it with normal magnets.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Ordinary wood isn\u2019t magnetic, so magnets won\u2019t attract it.\n\nA magnet will only \u201cseem\u201d to attract wood if:\n- There\u2019s hidden metal in or on the wood (nails, screws, staples, metal filings).\n- The wood is coated/painted with something containing magnetic particles.",
+        "anthropic/claude-sonnet-4.5": "No, magnets cannot attract wood. \n\nWood is a non-magnetic material, meaning it doesn't respond to magnetic fields. Magnets only attract ferromagnetic materials like iron, nickel, cobalt, and some of their alloys.",
+        "google/gemini-3-flash-preview": "No. Wood is not magnetic and does not contain the metallic elements (like iron, nickel, or cobalt) required to be attracted to a magnet.",
+        "meta-llama/llama-4-maverick": "No, magnets do not attract wood. Magnets attract ferromagnetic materials like iron, nickel, and cobalt.",
+        "x-ai/grok-3": "No, magnets cannot attract wood. Wood is not a ferromagnetic material, meaning it does not contain iron or other magnetic metals that can be attracted to a magnet. Magnets only attract materials like iron, nickel, and cobalt."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4794.065475463867,
+      "latency_consensus_ms": 14968.278169631958,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa041",
+      "task_type": "commonsense",
+      "question": "Is Australia larger than Greenland?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Australia is larger than Greenland: Australia is about **7.7 million km\u00b2**, while Greenland is about **2.16 million km\u00b2**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Australia is larger than Greenland: Australia is about **7.7 million km\u00b2**, while Greenland is about **2.2 million km\u00b2**.",
+        "anthropic/claude-sonnet-4.5": "Yes, Australia is larger than Greenland.\n\n- **Australia**: approximately 7.69 million km\u00b2\n- **Greenland**: approximately 2.16 million km\u00b2\n\nAustralia is about 3.5 times larger than Greenland. Note that Greenland often appears larger than Australia on many world maps due to distortion from the Mercator projection, but Australia is actually significantly bigger.",
+        "google/gemini-3-flash-preview": "Yes. Australia is approximately 7.7 million square kilometers, while Greenland is approximately 2.16 million square kilometers. Australia is more than 3.5 times larger than Greenland.",
+        "meta-llama/llama-4-maverick": "No, Greenland is larger than Australia. However, Australia is considered a continent and is much larger in land area than Greenland. To clarify: Australia is approximately 7,686,850 km\u00b2, while Greenland is approximately 2,166,086 km\u00b2. So, Australia is indeed larger than Greenland. I apologize for the initial confusion. To directly answer: Yes, Australia is larger than Greenland.",
+        "x-ai/grok-3": "Yes, Australia is larger than Greenland. Australia has an area of approximately 7.7 million square kilometers, while Greenland has an area of about 2.2 million square kilometers."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2361.7348670959473,
+      "latency_consensus_ms": 14550.491333007812,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa042",
+      "task_type": "commonsense",
+      "question": "Would you find penguins at the North Pole?",
+      "ground_truth": "No",
+      "single_model_answer": "No. Penguins live naturally in the Southern Hemisphere (especially Antarctica and nearby islands), while the North Pole is in the Arctic, home to animals like polar bears and seals.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "No. Penguins live naturally in the Southern Hemisphere (especially Antarctica and nearby islands), while the North Pole is in the Arctic, home to animals like polar bears.",
+        "anthropic/claude-sonnet-4.5": "No, penguins are not found at the North Pole. Penguins live in the Southern Hemisphere, primarily in Antarctica, but also in South America, South Africa, Australia, and New Zealand.\n\nThe North Pole is home to polar bears, not penguins. The two species live on opposite ends of the Earth and never meet in the wild.",
+        "google/gemini-3-flash-preview": "No. Penguins live almost exclusively in the Southern Hemisphere.",
+        "meta-llama/llama-4-maverick": "No. Penguins live in the Southern Hemisphere, primarily in Antarctica and surrounding islands.",
+        "x-ai/grok-3": "No, you would not find penguins at the North Pole. Penguins are native to the Southern Hemisphere, primarily in Antarctica, and some species live in coastal regions of South America, Africa, and Australia. The North Pole, located in the Arctic, is home to animals like polar bears, seals, and walruses, but not penguins."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2616.7612075805664,
+      "latency_consensus_ms": 15394.823551177979,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa043",
+      "task_type": "commonsense",
+      "question": "Can diamonds burn?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes. Diamonds can burn because they\u2019re carbon.\n\n- **In oxygen (air):** At high enough temperature (roughly **700\u2013900\u202f\u00b0C** in air, depending on conditions), diamond oxidizes and can **burn to CO\u2082** (and sometimes CO).\n- **Without oxygen:** Diamond won\u2019t \u201cburn,\u201d but at very high temperatures it can **transform into graphite** instead.\n- **Why you don\u2019t see it normally:** Diamond has a high ignition temperature and good thermal conductivity, so it\u2019s hard to get and keep it hot enough to sustain burning.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes. Diamonds can burn because they\u2019re carbon.\n\n- **In air (oxygen):** At high enough temperatures (typically **~700\u2013900\u00b0C** or higher, depending on conditions), diamond will **oxidize** and can effectively **burn**, producing mostly **CO\u2082** (and sometimes CO).\n- **Without oxygen:** Diamond won\u2019t \u201cburn,\u201d but at very high temperatures it can **convert to graphite** instead.\n- **Why you don\u2019t see it normally:** Diamonds have **high ignition temperatures** and good heat conduction, so they don\u2019t ignite under everyday conditions.",
+        "anthropic/claude-sonnet-4.5": "Yes, diamonds can burn. \n\nDiamonds are made of pure carbon, and when heated to about 700-900\u00b0C (1,292-1,652\u00b0F) in the presence of oxygen, they will combust and turn into carbon dioxide gas. This is the same chemical reaction as burning charcoal or graphite, since they're all forms of carbon.\n\nIn an oxygen-free environment, diamonds require even higher temperatures (around 1,700\u00b0C or 3,092\u00b0F) to convert into graphite before potentially burning.",
+        "google/gemini-3-flash-preview": "Yes. Diamonds are made of pure carbon, and they will burn if heated to approximately 700\u2013900 degrees Celsius (1,292\u20131,652 degrees Fahrenheit) in the presence of oxygen. They oxidize into carbon dioxide gas, leaving no ash behind.",
+        "meta-llama/llama-4-maverick": "Yes, diamonds can burn in the presence of oxygen at high temperatures (around 700-800\u00b0C).",
+        "x-ai/grok-3": "Yes, diamonds can burn. They are made of carbon, and when exposed to high temperatures (around 800-900\u00b0C or 1472-1652\u00b0F) in the presence of oxygen, they combust, turning into carbon dioxide gas. Unlike other materials, diamonds don't produce a visible flame; they simply disintegrate as they burn."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4933.956146240234,
+      "latency_consensus_ms": 19180.355310440063,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa044",
+      "task_type": "commonsense",
+      "question": "Is coffee a fruit?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Coffee comes from the seed of a fruit.\n\n- The coffee \u201cbean\u201d is the seed (sometimes two seeds) inside the coffee cherry, which is a fruit (a type of drupe).\n- So, coffee itself (the drink) isn\u2019t a fruit, but it\u2019s made from the seeds of a fruit.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Coffee comes from a fruit: the coffee \u201ccherry\u201d (a berry-like fruit) that grows on the coffee plant.  \n\nBut the brewed drink \u201ccoffee\u201d isn\u2019t a fruit\u2014it\u2019s a beverage made from the roasted seeds (coffee beans) inside that fruit.",
+        "anthropic/claude-sonnet-4.5": "Coffee beans are actually seeds from a fruit, not a fruit themselves. \n\nThe coffee plant produces a fruit called a \"coffee cherry\" or \"coffee berry,\" which is typically red or purple when ripe. Inside each cherry are usually two seeds\u2014these are what we call coffee beans. So while the coffee cherry itself is a fruit, the coffee beans we roast and brew are the seeds of that fruit.",
+        "google/gemini-3-flash-preview": "No. Coffee is a **seed** that comes from a fruit called a \"coffee cherry.\"",
+        "meta-llama/llama-4-maverick": "Yes, coffee is a fruit. Specifically, coffee beans are seeds from a fruit called the coffee cherry.",
+        "x-ai/grok-3": "No, coffee is not a fruit. Coffee beans are seeds of the coffee plant, found inside a fruit called a coffee cherry. The cherry is a fruit, but the coffee we drink is made from the processed seeds, not the fruit itself."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": false,
+      "agreement_score": 0.6,
+      "latency_single_ms": 3845.4558849334717,
+      "latency_consensus_ms": 15454.641103744507,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa045",
+      "task_type": "commonsense",
+      "question": "Would a deaf person hear thunder?",
+      "ground_truth": "No",
+      "single_model_answer": "It depends on the type and degree of deafness.\n\n- **Profoundly deaf (no usable hearing):** They generally **won\u2019t \u201chear\u201d** thunder as sound, but they can often **feel it as vibrations** (especially the low-frequency rumble) through the ground, air pressure, or their body.\n- **Partial hearing or using hearing aids/cochlear implants:** They may **hear some of it**, often the **lower-frequency** parts more than the sharp crack.\n\n",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Usually not as sound through the air. But many deaf people can still *sense* thunder as vibrations\u2014especially if it\u2019s loud or close\u2014through the ground, their body, or objects (low-frequency rumble travels well). If they have residual hearing or use hearing aids/cochlear implants, they may also perceive some of it as sound.",
+        "anthropic/claude-sonnet-4.5": "No, a deaf person would not hear thunder. \n\nHowever, they might still experience thunder in other ways:\n- **Feel vibrations** from loud thunder, especially if nearby\n- **See lightning** that accompanies it\n- **Sense pressure changes** in the air during a storm\n\nThe experience would depend on the degree and type of their hearing loss, but typical thunder sounds would not be perceived audibly.",
+        "google/gemini-3-flash-preview": "No. A profoundly deaf person cannot hear the sound of thunder. However, they can often **feel** it as a physical vibration in their chest or through the ground due to the intense low-frequency sound waves produced by the lightning strike.",
+        "meta-llama/llama-4-maverick": "No, a deaf person would not hear thunder as they are unable to perceive sound. However, they may feel the vibrations from the thunder.",
+        "x-ai/grok-3": "No, a deaf person would not hear thunder. Deafness means a partial or complete inability to hear sounds, and thunder is a sound caused by the rapid expansion and contraction of air during a lightning strike. However, they might feel the vibrations from thunder if it is loud enough, as vibrations can be sensed through the body."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4937.871932983398,
+      "latency_consensus_ms": 19083.70327949524,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa046",
+      "task_type": "commonsense",
+      "question": "Can you sweat underwater?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes\u2014your sweat glands can still produce sweat underwater. But you usually won\u2019t notice it because sweat can\u2019t evaporate to cool you, and the surrounding water dilutes and washes it away. Also, being immersed (especially in cooler water) tends to reduce sweating because water conducts heat away efficiently and wet skin/pressure can suppress sweat gland output.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes\u2014you can still *produce* sweat underwater because your sweat glands can secrete fluid regardless of being submerged.\n\nWhat changes is the effect: sweat won\u2019t *evaporate* underwater, so it doesn\u2019t provide the usual evaporative cooling. Instead, the sweat just mixes with the surrounding water (and may be hard to notice), while your body mainly gains or loses heat through conduction and convection with the water.",
+        "anthropic/claude-sonnet-4.5": "Yes, you can sweat underwater, but you won't notice it.\n\nYour sweat glands continue to function normally when submerged, producing sweat in response to heat or exertion. However, the sweat is immediately diluted and washed away by the surrounding water, making it impossible to see or feel. This is why you might not realize you're sweating during activities like swimming, even though your body is still working to regulate its temperature.",
+        "google/gemini-3-flash-preview": "Yes. Your body produces sweat to regulate temperature regardless of the surrounding environment. However, because water conducts heat away from the body more efficiently than air, you typically sweat less unless the water is very warm or the exercise is intense.",
+        "meta-llama/llama-4-maverick": "No, humans cannot sweat underwater because sweat evaporates to cool the body, and evaporation doesn't occur underwater.",
+        "x-ai/grok-3": "No, you cannot sweat underwater in the typical sense. Sweating is the body's way of cooling down through the evaporation of moisture on the skin. Underwater, evaporation cannot occur because the skin is already surrounded by water, so the sweat glands do not produce sweat in the same way. However, your body can still overheat or regulate temperature through other mechanisms, like blood flow adjustments."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": true,
+      "agreement_score": 0.6,
+      "latency_single_ms": 5816.335916519165,
+      "latency_consensus_ms": 19162.04810142517,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa047",
+      "task_type": "commonsense",
+      "question": "Is Pluto a planet?",
+      "ground_truth": "No",
+      "single_model_answer": "Under the International Astronomical Union\u2019s current definition (2006), Pluto is **not** a planet; it\u2019s classified as a **dwarf planet** because it hasn\u2019t cleared its orbital neighborhood.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Under the current official definition used by the International Astronomical Union (IAU), Pluto is **not** a planet; it\u2019s classified as a **dwarf planet**.\n\nPluto orbits the Sun and is spherical, but it hasn\u2019t \u201ccleared its neighborhood\u201d of other objects in its orbital region, which is one of the IAU\u2019s criteria for being a planet.",
+        "anthropic/claude-sonnet-4.5": "No, Pluto is not classified as a planet. Since 2006, it has been classified as a \"dwarf planet\" by the International Astronomical Union (IAU).\n\nPluto was reclassified because it doesn't meet one of the three criteria for full planetary status: it hasn't \"cleared the neighborhood\" around its orbit, meaning it shares its orbital zone with many other objects in the Kuiper Belt.",
+        "google/gemini-3-flash-preview": "No. Pluto is officially classified as a **dwarf planet**.\n\nIn 2006, the International Astronomical Union (IAU) defined a planet as a celestial body that:\n1. Orbits the Sun.\n2. Has sufficient mass to assume a nearly round shape.\n3. Has \"cleared the neighborhood\" around its orbit.\n\nPluto fails the third criterion because it shares its orbital path with other objects in the Kuiper Belt.",
+        "meta-llama/llama-4-maverick": "No, Pluto is classified as a dwarf planet.",
+        "x-ai/grok-3": "No, Pluto is not considered a planet. It was reclassified as a dwarf planet in 2006 by the International Astronomical Union (IAU) because it does not meet all the criteria for a full planet, specifically failing to \"clear its orbit\" of other debris."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2826.565742492676,
+      "latency_consensus_ms": 18269.955158233643,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa048",
+      "task_type": "commonsense",
+      "question": "Would a corpse decompose in space?",
+      "ground_truth": "No",
+      "single_model_answer": "Yes, but not the way it does on Earth.\n\n- **Exposed directly to space (vacuum):** Typical \u201crotting\u201d largely stops because there\u2019s **no air, no insects, and almost no liquid water**. The body would **rapidly lose moisture** (water",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes, but not in the usual \u201crotting on Earth\u201d way.\n\n- **In open space (vacuum):** The body would quickly lose heat and moisture,",
+        "anthropic/claude-sonnet-4.5": "Yes, but very slowly and differently than on Earth.\n\n**In open space:**\n- **Freeze-drying (mummification)** would occur. The body would freeze in the extreme cold and water would slowly sublimate (turn directly from ice to vapor) in the vacuum\n- **No bacterial decomposition** - the bacteria that normally break down bodies need oxygen and warmth\n- The body would essentially become a freeze-dried mummy that could persist for a very long time\n\n**Inside a spacecraft:**\n- Normal decomposition would occur if there's oxygen, warmth, and the usual bacteria present\n- It would proceed similarly to Earth, just in a confined space\n\n**Other factors:**\n- Radiation",
+        "google/gemini-3-flash-preview": "Yes, but the process would be significantly different and much slower than on Earth.\n\nDecomposition would occur in two stages:\n\n1.  **Internal Breakdown:** Bacteria already inside the body (in the gut and mouth) would begin to break down soft tissues from the inside out. This process would continue until the body's internal heat is lost or the tissues freeze/dry out.\n2.  **Mummification or Freezing:** Without an atmosphere, moisture would rapidly evaporate from the skin (sublimation), turning the corpse into a dry, leathery mummy. If the body is in the shade, it will freeze solid; if it is in direct sunlight, it will be scorched and desiccated by radiation",
+        "meta-llama/llama-4-maverick": "No, a corpse would not decompose in the same way on Earth. In space, there's no oxygen, extreme temperatures, and lack of moisture, so decomposition would be significantly slowed or halted. The body would likely mummify or remain frozen, depending on the conditions.",
+        "x-ai/grok-3": "Yes, a corpse would decompose in space, but the process would be very different from decomposition on Earth. In the vacuum of space, without oxygen, traditional bacterial decomposition would be limited. Instead, the body would undergo processes like desiccation (drying out) due to the lack of atmospheric pressure, causing bodily fluids to evaporate or freeze. Exposure to extreme temperatures\u2014freezing cold in shadow or intense heat in sunlight\u2014would further affect the body. Radiation from the sun would also break down tissues over time. However, without microbes or insects, the breakdown wouldn't resemble typical Earth decay."
+      },
+      "consensus_answer": "No",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": true,
+      "agreement_score": 0.6,
+      "latency_single_ms": 7329.397678375244,
+      "latency_consensus_ms": 25850.39520263672,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa049",
+      "task_type": "commonsense",
+      "question": "Can you cry in space?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes\u2014you can cry in space, but the tears don\u2019t fall.\n\nIn microgravity your body can still produce tears (from emotion or irritation), but without gravity they don\u2019t run down your cheeks. Instead, they pool on your eyelids and form a wobbling \u201cblob\u201d that can grow until it\u2019s wiped away or drawn off by airflow/absorbent cloth. Astronauts report it can feel uncomfortable because the tears can stick around and blur vision.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes, you can cry in space, but it looks and feels different in microgravity.\n\n- Your eyes still produce tears, and you still feel the emotion.\n- Without gravity, tears don\u2019t \u201cfall\u201d down your cheeks. They tend to **pool on your eyelids**, form **blobby films**, or **cling to your face**.\n- They can grow into a larger floating blob if disturbed, or smear across your skin.\n- Astronauts usually **wipe them away**; otherwise they can **blur vision and feel irritating** because the liquid doesn\u2019t drain normally",
+        "anthropic/claude-sonnet-4.5": "Yes, you can cry in space, but tears behave differently due to microgravity.\n\nOn Earth, tears flow down your cheeks due to gravity. In space, tears still form, but instead of falling, they accumulate around your eyes as liquid balls. The tears stick to your face due to surface tension and can form a bubble that grows around the eye.\n\nAstronauts have reported that this can be uncomfortable or even slightly painful, as the tears don't drain away naturally. The tear bubble can eventually get large enough to break free and float away, or you might need to wipe it away with a towel.\n\nSo while the emotional response works the same, the physics of crying is quite different in",
+        "google/gemini-3-flash-preview": "Yes, you can produce tears in space, but you cannot \"cry\" in the traditional sense because gravity does not pull the liquid down your face.\n\nInstead of falling, the tears accumulate in a growing, salty ball that clings to your eye and face due to surface tension. This can be dangerous for astronauts as the liquid can obstruct vision or irritate the eye.",
+        "meta-llama/llama-4-maverick": "No, tears don't fall in space due to microgravity; they form a ball around the eyes.",
+        "x-ai/grok-3": "Yes, you can cry in space, but the tears won't fall due to the lack of gravity. Instead, they will form a liquid ball around your eyes and may stick to your face or float away if disturbed. Astronauts have reported this phenomenon during emotional moments in microgravity."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 4710.267782211304,
+      "latency_consensus_ms": 21785.160064697266,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "sqa050",
+      "task_type": "commonsense",
+      "question": "Is gold heavier than silver?",
+      "ground_truth": "Yes",
+      "single_model_answer": "Yes\u2014gold is heavier (denser) than silver.\n\n- **Density of gold:** ~19.3 g/cm\u00b3  \n- **Density of silver:** ~10.5 g/cm\u00b3  \n\nSo for the **same volume**, gold weighs about **1.8\u00d7** as much as silver. For the **same weight**, gold takes up less space.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Yes\u2014gold is heavier than silver.\n\n- **Density:** gold \u2248 **19.3 g/cm\u00b3**, silver \u2248 **10.5 g/cm\u00b3**\n- So for the **same volume**, gold weighs about **1.8\u00d7** as much as silver.  \n- For the **same weight** (e.g., 1 oz), they weigh the same, but the gold piece will be **smaller**.",
+        "anthropic/claude-sonnet-4.5": "Yes, gold is heavier than silver. \n\nGold has a density of about 19.3 g/cm\u00b3, while silver has a density of about 10.5 g/cm\u00b3. This means gold is nearly twice as dense as silver - a given volume of gold will weigh almost twice as much as the same volume of silver.",
+        "google/gemini-3-flash-preview": "Yes. Gold is significantly denser and heavier than silver.\n\nGold has a density of approximately **19.3 g/cm\u00b3**, while silver has a density of approximately **10.5 g/cm\u00b3**. This means gold is nearly twice as heavy as silver for the same volume.",
+        "meta-llama/llama-4-maverick": "Yes, gold is heavier than silver. Gold has a density of 19.3 g/cm\u00b3, while silver has a density of 10.5 g/cm\u00b3.",
+        "x-ai/grok-3": "Yes, gold is heavier than silver. Gold has a density of 19.32 g/cm\u00b3, while silver has a density of 10.49 g/cm\u00b3. This means that for the same volume, gold weighs more than silver."
+      },
+      "consensus_answer": "Yes",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2820.5645084381104,
+      "latency_consensus_ms": 16524.40309524536,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    }
+  ]
+}

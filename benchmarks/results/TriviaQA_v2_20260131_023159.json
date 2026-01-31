@@ -1,0 +1,1476 @@
+{
+  "name": "TriviaQA",
+  "task_type": "factual_qa",
+  "total_tasks": 50,
+  "completed_tasks": 50,
+  "models": [
+    "openai/gpt-5.2",
+    "anthropic/claude-sonnet-4.5",
+    "google/gemini-3-flash-preview",
+    "meta-llama/llama-4-maverick",
+    "x-ai/grok-3"
+  ],
+  "baseline_model": "openai/gpt-5.2",
+  "single_model_accuracy": 96.0,
+  "consensus_accuracy": 96.0,
+  "improvement": 0.0,
+  "high_consensus_count": 46,
+  "high_consensus_accuracy": 97.82608695652173,
+  "medium_consensus_count": 2,
+  "medium_consensus_accuracy": 100.0,
+  "low_consensus_count": 1,
+  "low_consensus_accuracy": 100.0,
+  "none_consensus_count": 1,
+  "results": [
+    {
+      "task_id": "tqa001",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Australia?",
+      "ground_truth": "Canberra",
+      "single_model_answer": "Canberra.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Canberra.",
+        "anthropic/claude-sonnet-4.5": "The capital of Australia is Canberra.",
+        "google/gemini-3-flash-preview": "Canberra",
+        "meta-llama/llama-4-maverick": "Canberra.",
+        "x-ai/grok-3": "Canberra"
+      },
+      "consensus_answer": "Canberra",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2097.2018241882324,
+      "latency_consensus_ms": 11574.496984481812,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa002",
+      "task_type": "factual_qa",
+      "question": "Who wrote '1984'?",
+      "ground_truth": "George Orwell",
+      "single_model_answer": "George Orwell wrote *1984*.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "George Orwell wrote *1984*.",
+        "anthropic/claude-sonnet-4.5": "George Orwell wrote '1984'. The novel was published in 1949.",
+        "google/gemini-3-flash-preview": "George Orwell wrote *1984*.",
+        "meta-llama/llama-4-maverick": "George Orwell.",
+        "x-ai/grok-3": "George Orwell"
+      },
+      "consensus_answer": "George Orwell",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2651.09920501709,
+      "latency_consensus_ms": 15328.837871551514,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa003",
+      "task_type": "factual_qa",
+      "question": "What is the largest ocean on Earth?",
+      "ground_truth": "Pacific Ocean",
+      "single_model_answer": "The largest ocean on Earth is the **Pacific Ocean**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The largest ocean on Earth is the **Pacific Ocean**.",
+        "anthropic/claude-sonnet-4.5": "The Pacific Ocean is the largest ocean on Earth. It covers approximately 63 million square miles (165 million square kilometers), which is about 46% of the world's ocean surface and roughly one-third of the total Earth's surface.",
+        "google/gemini-3-flash-preview": "The Pacific Ocean.",
+        "meta-llama/llama-4-maverick": "The Pacific Ocean.",
+        "x-ai/grok-3": "The Pacific Ocean is the largest ocean on Earth, covering an area of about 63 million square miles (165 million square kilometers) and containing more than half of the planet's open water supply."
+      },
+      "consensus_answer": "Pacific Ocean",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2614.520311355591,
+      "latency_consensus_ms": 12475.125551223755,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa004",
+      "task_type": "factual_qa",
+      "question": "In which year did the Titanic sink?",
+      "ground_truth": "1912",
+      "single_model_answer": "The Titanic sank in **1912** (early morning of **April 15, 1912**).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The Titanic sank in **1912** (on **April 15, 1912**).",
+        "anthropic/claude-sonnet-4.5": "The Titanic sank in 1912.",
+        "google/gemini-3-flash-preview": "1912",
+        "meta-llama/llama-4-maverick": "1912",
+        "x-ai/grok-3": "1912"
+      },
+      "consensus_answer": "1912",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2285.569667816162,
+      "latency_consensus_ms": 11466.275691986084,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa005",
+      "task_type": "factual_qa",
+      "question": "What element has the chemical symbol 'Fe'?",
+      "ground_truth": "Iron",
+      "single_model_answer": "Fe is the chemical symbol for **iron**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The chemical symbol **Fe** stands for **iron**.",
+        "anthropic/claude-sonnet-4.5": "The element with the chemical symbol 'Fe' is **iron**.\n\nThe symbol comes from iron's Latin name, \"ferrum.\"",
+        "google/gemini-3-flash-preview": "Iron",
+        "meta-llama/llama-4-maverick": "Iron.",
+        "x-ai/grok-3": "Iron"
+      },
+      "consensus_answer": "Iron",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2232.6948642730713,
+      "latency_consensus_ms": 12979.97784614563,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa006",
+      "task_type": "factual_qa",
+      "question": "Who was the first person to walk on the Moon?",
+      "ground_truth": "Neil Armstrong",
+      "single_model_answer": "Neil Armstrong was the first person to walk on the Moon, on July 20, 1969, during NASA\u2019s Apollo 11 mission.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Neil Armstrong was the first person to walk on the Moon, on July 20, 1969, during NASA\u2019s Apollo 11 mission.",
+        "anthropic/claude-sonnet-4.5": "Neil Armstrong was the first person to walk on the Moon. He stepped onto the lunar surface on July 20, 1969, during the Apollo 11 mission.",
+        "google/gemini-3-flash-preview": "Neil Armstrong.",
+        "meta-llama/llama-4-maverick": "Neil Armstrong was the first person to walk on the Moon.",
+        "x-ai/grok-3": "Neil Armstrong was the first person to walk on the Moon on July 20, 1969, during the Apollo 11 mission."
+      },
+      "consensus_answer": "Neil Armstrong",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2352.167844772339,
+      "latency_consensus_ms": 13185.035943984985,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa007",
+      "task_type": "factual_qa",
+      "question": "What is the smallest country in the world by area?",
+      "ground_truth": "Vatican City",
+      "single_model_answer": "Vatican City is the smallest country in the world by area, at about **0.49 km\u00b2** (around **0.19 square miles**).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The smallest country in the world by area is **Vatican City**, at about **0.49 km\u00b2** (roughly **0.19 square miles**).",
+        "anthropic/claude-sonnet-4.5": "Vatican City is the smallest country in the world by area, measuring approximately 0.44 square kilometers (0.17 square miles).",
+        "google/gemini-3-flash-preview": "The smallest country in the world is **Vatican City**. It covers approximately 0.44 square kilometers (about 109 acres).",
+        "meta-llama/llama-4-maverick": "The Vatican City is the smallest country in the world by area, covering approximately 0.44 km\u00b2 (0.17 sq mi).",
+        "x-ai/grok-3": "The smallest country in the world by area is Vatican City, with a total area of approximately 0.44 square kilometers (0.17 square miles)."
+      },
+      "consensus_answer": "Vatican City",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2566.0104751586914,
+      "latency_consensus_ms": 16346.49395942688,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa008",
+      "task_type": "factual_qa",
+      "question": "Which planet is known as the Red Planet?",
+      "ground_truth": "Mars",
+      "single_model_answer": "Mars is known as the Red Planet.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Mars is known as the Red Planet.",
+        "anthropic/claude-sonnet-4.5": "Mars is known as the Red Planet.\n\nThis nickname comes from its reddish appearance, which is caused by iron oxide (rust) on its surface.",
+        "google/gemini-3-flash-preview": "Mars",
+        "meta-llama/llama-4-maverick": "Mars.",
+        "x-ai/grok-3": "Mars is known as the Red Planet due to its reddish appearance caused by iron oxide (rust) on its surface."
+      },
+      "consensus_answer": "Mars",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2146.1541652679443,
+      "latency_consensus_ms": 12798.2017993927,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa009",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Canada?",
+      "ground_truth": "Ottawa",
+      "single_model_answer": "Ottawa.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Ottawa.",
+        "anthropic/claude-sonnet-4.5": "The capital of Canada is Ottawa.",
+        "google/gemini-3-flash-preview": "The capital of Canada is Ottawa.",
+        "meta-llama/llama-4-maverick": "Ottawa.",
+        "x-ai/grok-3": "Ottawa"
+      },
+      "consensus_answer": "Ottawa",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2069.8742866516113,
+      "latency_consensus_ms": 11367.932319641113,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa010",
+      "task_type": "factual_qa",
+      "question": "Who painted 'The Starry Night'?",
+      "ground_truth": "Vincent van Gogh",
+      "single_model_answer": "*The Starry Night* was painted by **Vincent van Gogh** (in 1889).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "*The Starry Night* was painted by **Vincent van Gogh**.",
+        "anthropic/claude-sonnet-4.5": "Vincent van Gogh painted 'The Starry Night' in 1889.",
+        "google/gemini-3-flash-preview": "Vincent van Gogh painted **The Starry Night**.",
+        "meta-llama/llama-4-maverick": "Vincent van Gogh.",
+        "x-ai/grok-3": "Vincent van Gogh"
+      },
+      "consensus_answer": "Vincent van Gogh",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2276.671886444092,
+      "latency_consensus_ms": 13531.71682357788,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa011",
+      "task_type": "factual_qa",
+      "question": "What is the tallest mountain in the world?",
+      "ground_truth": "Mount Everest",
+      "single_model_answer": "Mount Everest is the tallest mountain in the world above sea level, at about **8,849 meters (29,032 feet)**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Mount Everest is the tallest mountain in the world, with an elevation of about **8,849 meters (29,032 feet)** above sea level.",
+        "anthropic/claude-sonnet-4.5": "Mount Everest is the tallest mountain in the world, standing at 8,849 meters (29,032 feet) above sea level.",
+        "google/gemini-3-flash-preview": "**Mount Everest** is the tallest mountain in the world, with an elevation of 29,032 feet (8,849 meters) above sea level.",
+        "meta-llama/llama-4-maverick": "Mount Everest.",
+        "x-ai/grok-3": "The tallest mountain in the world is Mount Everest, located in the Himalayas on the border between Nepal and the Tibet Autonomous Region of China. It stands at 8,848 meters (29,029 feet) above sea level."
+      },
+      "consensus_answer": "Mount Everest",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2780.0064086914062,
+      "latency_consensus_ms": 13294.662952423096,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa012",
+      "task_type": "factual_qa",
+      "question": "In what year did World War I begin?",
+      "ground_truth": "1914",
+      "single_model_answer": "World War I began in **1914**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "World War I began in **1914**.",
+        "anthropic/claude-sonnet-4.5": "World War I began in 1914.",
+        "google/gemini-3-flash-preview": "1914",
+        "meta-llama/llama-4-maverick": "1914.",
+        "x-ai/grok-3": "1914"
+      },
+      "consensus_answer": "1914",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2095.8614349365234,
+      "latency_consensus_ms": 15301.893711090088,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa013",
+      "task_type": "factual_qa",
+      "question": "What is the chemical formula for water?",
+      "ground_truth": "H2O",
+      "single_model_answer": "H\u2082O",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "H\u2082O",
+        "anthropic/claude-sonnet-4.5": "H\u2082O",
+        "google/gemini-3-flash-preview": "H\u2082O",
+        "meta-llama/llama-4-maverick": "H2O",
+        "x-ai/grok-3": "H\u2082O"
+      },
+      "consensus_answer": "H\u2082O",
+      "consensus_level": "HIGH",
+      "consensus_correct": false,
+      "agreement_score": 0.8,
+      "latency_single_ms": 2109.2264652252197,
+      "latency_consensus_ms": 12199.132442474365,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa014",
+      "task_type": "factual_qa",
+      "question": "Who invented the telephone?",
+      "ground_truth": "Alexander Graham Bell",
+      "single_model_answer": "Alexander Graham Bell is widely credited with inventing the telephone; he patented it in 1876. (Elisha Gray filed a similar patent application the same day, and Antonio Meucci had earlier prototypes, but Bell received the first U.S. patent.)",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Alexander Graham Bell is widely credited with inventing the first practical telephone and received the key patent for it in 1876. (Elisha Gray filed a similar claim the same day, and others like Antonio Meucci also developed earlier prototypes.)",
+        "anthropic/claude-sonnet-4.5": "Alexander Graham Bell is credited with inventing the telephone. He was awarded the first U.S. patent for the telephone in 1876.\n\nHowever, it's worth noting that Elisha Gray filed a patent caveat for a similar device on the same day, and Antonio Meucci had developed earlier telephone-like devices but failed to maintain his patent. The invention has been historically controversial, but Bell is most commonly recognized as the inventor.",
+        "google/gemini-3-flash-preview": "**Alexander Graham Bell** is officially credited with inventing the first practical telephone, receiving the first U.S. patent for the device in 1876.\n\nHowever, other inventors contributed significantly to its development, most notably **Antonio Meucci**, who is recognized by the U.S. House of Representatives for his early work on the device, and **Elisha Gray**, who filed a patent caveat on the same day as Bell.",
+        "meta-llama/llama-4-maverick": "Alexander Graham Bell.",
+        "x-ai/grok-3": "Alexander Graham Bell invented the telephone. He was awarded the first U.S. patent for it on March 7, 1876."
+      },
+      "consensus_answer": "Alexander Graham Bell",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2864.7661209106445,
+      "latency_consensus_ms": 15917.744159698486,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa015",
+      "task_type": "factual_qa",
+      "question": "What is the longest river in the world?",
+      "ground_truth": "Nile",
+      "single_model_answer": "The **Nile River** is commonly considered the longest river in the world, at about **6,650 km (4,130 miles)**. (Some studies argue the **Amazon** may be slightly longer depending on how its source is measured.)",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The **Nile River** is traditionally considered the longest river in the world (about **6,650 km / 4,130 miles**), though some measurements rank the **Amazon River** as slightly longer depending on how its source is defined.",
+        "anthropic/claude-sonnet-4.5": "The Nile River is generally considered the longest river in the world at approximately 6,650 kilometers (4,130 miles) in length.\n\nNote: The Amazon River is sometimes cited as longer (around 6,800 km) depending on how its source is measured, making this a subject of some debate among geographers.",
+        "google/gemini-3-flash-preview": "The **Nile** is traditionally considered the longest river in the world, measuring approximately 4,130 miles (6,650 km). \n\n(Note: Some scientists argue the Amazon is longer based on different measurement points, but the Nile remains the most widely accepted answer.)",
+        "meta-llama/llama-4-maverick": "The Nile River, approximately 6,695 kilometers (4,160 miles) long.",
+        "x-ai/grok-3": "The longest river in the world is the Nile River, stretching approximately 4,160 miles (6,695 kilometers) through northeastern Africa, primarily in Egypt and Sudan."
+      },
+      "consensus_answer": "Nile",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2611.3734245300293,
+      "latency_consensus_ms": 14686.726808547974,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa016",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Brazil?",
+      "ground_truth": "Brasilia",
+      "single_model_answer": "Bras\u00edlia.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Bras\u00edlia.",
+        "anthropic/claude-sonnet-4.5": "The capital of Brazil is Bras\u00edlia.",
+        "google/gemini-3-flash-preview": "Bras\u00edlia",
+        "meta-llama/llama-4-maverick": "Bras\u00edlia.",
+        "x-ai/grok-3": "Bras\u00edlia"
+      },
+      "consensus_answer": "Bras\u00edlia.",
+      "consensus_level": "LOW",
+      "consensus_correct": true,
+      "agreement_score": 0.4,
+      "latency_single_ms": 2101.9375324249268,
+      "latency_consensus_ms": 11294.532537460327,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa017",
+      "task_type": "factual_qa",
+      "question": "Who wrote 'Hamlet'?",
+      "ground_truth": "William Shakespeare",
+      "single_model_answer": "William Shakespeare wrote *Hamlet*.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "*Hamlet* was written by **William Shakespeare**.",
+        "anthropic/claude-sonnet-4.5": "William Shakespeare wrote 'Hamlet'.",
+        "google/gemini-3-flash-preview": "William Shakespeare wrote *Hamlet*.",
+        "meta-llama/llama-4-maverick": "William Shakespeare.",
+        "x-ai/grok-3": "William Shakespeare"
+      },
+      "consensus_answer": "William Shakespeare",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2095.2885150909424,
+      "latency_consensus_ms": 11977.788925170898,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa018",
+      "task_type": "factual_qa",
+      "question": "What is the hardest natural substance on Earth?",
+      "ground_truth": "Diamond",
+      "single_model_answer": "The hardest natural substance on Earth is **diamond** (on the Mohs hardness scale, it\u2019s a 10).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Diamond is generally considered the hardest natural substance on Earth, ranking 10 on the Mohs scale of mineral hardness.",
+        "anthropic/claude-sonnet-4.5": "Diamond is the hardest natural substance on Earth.",
+        "google/gemini-3-flash-preview": "The hardest natural substance on Earth is **diamond**.",
+        "meta-llama/llama-4-maverick": "Diamond.",
+        "x-ai/grok-3": "Diamond is the hardest natural substance on Earth, measuring 10 on the Mohs hardness scale."
+      },
+      "consensus_answer": "Diamond",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2500.516176223755,
+      "latency_consensus_ms": 12689.070463180542,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa019",
+      "task_type": "factual_qa",
+      "question": "In which city is the Eiffel Tower located?",
+      "ground_truth": "Paris",
+      "single_model_answer": "The Eiffel Tower is located in **Paris, France**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The Eiffel Tower is located in **Paris, France**.",
+        "anthropic/claude-sonnet-4.5": "Paris",
+        "google/gemini-3-flash-preview": "Paris.",
+        "meta-llama/llama-4-maverick": "Paris",
+        "x-ai/grok-3": "Paris, France"
+      },
+      "consensus_answer": "Paris",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2228.044033050537,
+      "latency_consensus_ms": 11665.021657943726,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa020",
+      "task_type": "factual_qa",
+      "question": "What is the largest mammal?",
+      "ground_truth": "Blue whale",
+      "single_model_answer": "The largest mammal is the **blue whale** (*Balaenoptera musculus*).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The largest mammal is the **blue whale** (*Balaenoptera musculus*).",
+        "anthropic/claude-sonnet-4.5": "The blue whale is the largest mammal. It can grow up to 100 feet (30 meters) long and weigh up to 200 tons (180 metric tonnes).",
+        "google/gemini-3-flash-preview": "The **blue whale** (*Balaenoptera musculus*) is the largest mammal.",
+        "meta-llama/llama-4-maverick": "The blue whale.",
+        "x-ai/grok-3": "The largest mammal is the blue whale (Balaenoptera musculus). It can grow up to 100 feet (30 meters) in length and weigh as much as 200 tons."
+      },
+      "consensus_answer": "Blue whale",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2346.0237979888916,
+      "latency_consensus_ms": 12673.148393630981,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa021",
+      "task_type": "factual_qa",
+      "question": "Who developed the theory of relativity?",
+      "ground_truth": "Albert Einstein",
+      "single_model_answer": "The theory of relativity was developed by **Albert Einstein** (special relativity in 1905 and general relativity in 1915).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The theory of relativity was developed by **Albert Einstein** (special relativity in 1905 and general relativity in 1915).",
+        "anthropic/claude-sonnet-4.5": "Albert Einstein developed the theory of relativity. He published the special theory of relativity in 1905 and the general theory of relativity in 1915.",
+        "google/gemini-3-flash-preview": "Albert Einstein developed the theory of relativity (special relativity in 1905 and general relativity in 1915).",
+        "meta-llama/llama-4-maverick": "Albert Einstein.",
+        "x-ai/grok-3": "Albert Einstein developed the theory of relativity, with special relativity published in 1905 and general relativity in 1915."
+      },
+      "consensus_answer": "Albert Einstein",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2439.673662185669,
+      "latency_consensus_ms": 13488.53087425232,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa022",
+      "task_type": "factual_qa",
+      "question": "What is the currency of Japan?",
+      "ground_truth": "Yen",
+      "single_model_answer": "Japan\u2019s currency is the **Japanese yen (JPY)**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Japan\u2019s currency is the **Japanese yen (JPY)**.",
+        "anthropic/claude-sonnet-4.5": "The currency of Japan is the Japanese yen (\u00a5, JPY).",
+        "google/gemini-3-flash-preview": "The currency of Japan is the **Japanese yen** (JPY).",
+        "meta-llama/llama-4-maverick": "The currency of Japan is the Japanese yen (\u00a5).",
+        "x-ai/grok-3": "The currency of Japan is the Japanese yen (\u00a5), abbreviated as JPY."
+      },
+      "consensus_answer": "Yen",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2299.630880355835,
+      "latency_consensus_ms": 11422.463655471802,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa023",
+      "task_type": "factual_qa",
+      "question": "Which planet has the most moons?",
+      "ground_truth": "Saturn",
+      "single_model_answer": "As of current confirmed counts, **Saturn** has the most moons, with **146 confirmed moons**, more than Jupiter.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Saturn currently has the most known moons in the Solar System (over 140 confirmed, depending on the latest counts).",
+        "anthropic/claude-sonnet-4.5": "Saturn has the most moons with 146 confirmed moons as of 2023, surpassing Jupiter which has 95 confirmed moons.",
+        "google/gemini-3-flash-preview": "**Saturn** has the most moons, with a total of **146** confirmed natural satellites.",
+        "meta-llama/llama-4-maverick": "Jupiter has the most moons, with a total of 95 known moons.",
+        "x-ai/grok-3": "Jupiter has the most moons, with 95 confirmed as of the latest data."
+      },
+      "consensus_answer": "Saturn",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": true,
+      "agreement_score": 0.6,
+      "latency_single_ms": 2553.1904697418213,
+      "latency_consensus_ms": 12749.92823600769,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa024",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Egypt?",
+      "ground_truth": "Cairo",
+      "single_model_answer": "Cairo.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Cairo.",
+        "anthropic/claude-sonnet-4.5": "The capital of Egypt is Cairo.",
+        "google/gemini-3-flash-preview": "The capital of Egypt is Cairo.",
+        "meta-llama/llama-4-maverick": "Cairo.",
+        "x-ai/grok-3": "Cairo"
+      },
+      "consensus_answer": "Cairo",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2181.8013191223145,
+      "latency_consensus_ms": 11365.605115890503,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa025",
+      "task_type": "factual_qa",
+      "question": "Who wrote 'Pride and Prejudice'?",
+      "ground_truth": "Jane Austen",
+      "single_model_answer": "Jane Austen wrote *Pride and Prejudice*.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Jane Austen wrote *Pride and Prejudice*.",
+        "anthropic/claude-sonnet-4.5": "Jane Austen wrote 'Pride and Prejudice'. It was published in 1813.",
+        "google/gemini-3-flash-preview": "Jane Austen wrote *Pride and Prejudice*.",
+        "meta-llama/llama-4-maverick": "Jane Austen.",
+        "x-ai/grok-3": "Jane Austen"
+      },
+      "consensus_answer": "Jane Austen",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2094.0864086151123,
+      "latency_consensus_ms": 18864.83597755432,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa026",
+      "task_type": "factual_qa",
+      "question": "What is the boiling point of water in Celsius?",
+      "ground_truth": "100",
+      "single_model_answer": "Water boils at **100\u202f\u00b0C** at **standard atmospheric pressure (1 atm, sea level)**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Water boils at **100\u202f\u00b0C** at **standard atmospheric pressure (1 atm, sea level)**.",
+        "anthropic/claude-sonnet-4.5": "The boiling point of water is 100\u00b0C (degrees Celsius) at standard atmospheric pressure (1 atmosphere or 101.325 kPa).",
+        "google/gemini-3-flash-preview": "The boiling point of water is **100\u00b0C** at standard atmospheric pressure.",
+        "meta-llama/llama-4-maverick": "100 degrees Celsius.",
+        "x-ai/grok-3": "100\u00b0C at standard atmospheric pressure."
+      },
+      "consensus_answer": "100",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2355.9062480926514,
+      "latency_consensus_ms": 12147.19533920288,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa027",
+      "task_type": "factual_qa",
+      "question": "Which element is the most abundant in the Earth's atmosphere?",
+      "ground_truth": "Nitrogen",
+      "single_model_answer": "Nitrogen (N\u2082) is the most abundant element in Earth\u2019s atmosphere, making up about 78% by volume.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Nitrogen is the most abundant element in Earth\u2019s atmosphere (about 78% by volume).",
+        "anthropic/claude-sonnet-4.5": "Nitrogen is the most abundant element in Earth's atmosphere, making up approximately 78% of the air by volume.",
+        "google/gemini-3-flash-preview": "**Nitrogen** (approximately 78%).",
+        "meta-llama/llama-4-maverick": "Nitrogen.",
+        "x-ai/grok-3": "Nitrogen, making up about 78% of the Earth's atmosphere."
+      },
+      "consensus_answer": "Nitrogen",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2321.998119354248,
+      "latency_consensus_ms": 11456.725597381592,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa028",
+      "task_type": "factual_qa",
+      "question": "What year did the Berlin Wall fall?",
+      "ground_truth": "1989",
+      "single_model_answer": "The Berlin Wall fell in **1989** (on **November 9, 1989**).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The Berlin Wall fell in **1989** (on **November 9, 1989**).",
+        "anthropic/claude-sonnet-4.5": "The Berlin Wall fell in 1989, specifically on November 9, 1989.",
+        "google/gemini-3-flash-preview": "The Berlin Wall fell in **1989**.",
+        "meta-llama/llama-4-maverick": "1989.",
+        "x-ai/grok-3": "1989"
+      },
+      "consensus_answer": "1989",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2232.883930206299,
+      "latency_consensus_ms": 11201.05767250061,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa029",
+      "task_type": "factual_qa",
+      "question": "Who composed the 'Moonlight Sonata'?",
+      "ground_truth": "Beethoven",
+      "single_model_answer": "The \u201cMoonlight Sonata\u201d (Piano Sonata No. 14) was composed by **Ludwig van Beethoven**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The \u201cMoonlight Sonata\u201d (Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2) was composed by **Ludwig van Beethoven**.",
+        "anthropic/claude-sonnet-4.5": "Ludwig van Beethoven composed the \"Moonlight Sonata\" (officially titled \"Piano Sonata No. 14 in C-sharp minor, Op. 27, No. 2\") in 1801.",
+        "google/gemini-3-flash-preview": "Ludwig van Beethoven composed the \"Moonlight Sonata.\"",
+        "meta-llama/llama-4-maverick": "Ludwig van Beethoven.",
+        "x-ai/grok-3": "Ludwig van Beethoven composed the 'Moonlight Sonata,' officially known as Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2, in 1801."
+      },
+      "consensus_answer": "Beethoven",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2377.450942993164,
+      "latency_consensus_ms": 13354.833364486694,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa030",
+      "task_type": "factual_qa",
+      "question": "What is the largest desert in the world?",
+      "ground_truth": "Sahara",
+      "single_model_answer": "The largest desert in the world is the **Antarctic Desert** (Antarctica), at about **14 million km\u00b2**.",
+      "single_model_correct": false,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The largest desert in the world is the **Antarctic Desert** (Antarctica), at about **14 million km\u00b2**.",
+        "anthropic/claude-sonnet-4.5": "The largest desert in the world is **Antarctica**, which is a cold (polar) desert covering about 5.5 million square miles (14.2 million square kilometers).\n\nIf you're asking about the largest *hot* desert, that would be the **Sahara Desert** in North Africa, covering about 3.6 million square miles (9.2 million square kilometers).",
+        "google/gemini-3-flash-preview": "The **Antarctic Desert** is the largest desert in the world.",
+        "meta-llama/llama-4-maverick": "The Antarctic Desert, covering 14 million km\u00b2.",
+        "x-ai/grok-3": "The largest desert in the world is the Antarctic Desert, covering approximately 14.2 million square kilometers. It is classified as a cold desert due to its extremely low precipitation."
+      },
+      "consensus_answer": "The largest desert in the world is the **Antarctic Desert** (Antarctica), at about **14 million km\u00b2*",
+      "consensus_level": "NONE",
+      "consensus_correct": false,
+      "agreement_score": 0.2,
+      "latency_single_ms": 2409.735918045044,
+      "latency_consensus_ms": 14501.365661621094,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa031",
+      "task_type": "factual_qa",
+      "question": "Which blood type is the universal donor?",
+      "ground_truth": "O negative",
+      "single_model_answer": "The universal donor blood type (for red blood cell transfusions) is **O negative (O\u2212)**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The universal donor for red blood cell transfusions is **O negative (O\u2212)**.",
+        "anthropic/claude-sonnet-4.5": "O negative (O-) is the universal donor blood type.\n\nThis is because O negative blood lacks A, B, and Rh antigens, so it can be given to patients of any blood type without causing an immune reaction.",
+        "google/gemini-3-flash-preview": "**O negative (O-)** is the universal donor.",
+        "meta-llama/llama-4-maverick": "O negative (O-) is the universal donor blood type.",
+        "x-ai/grok-3": "Blood type O negative is the universal donor because it can be transfused to any blood type without causing an immune reaction, as it lacks A, B, and Rh antigens."
+      },
+      "consensus_answer": "O negative",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2869.2188262939453,
+      "latency_consensus_ms": 13971.422672271729,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa032",
+      "task_type": "factual_qa",
+      "question": "What is the capital of South Korea?",
+      "ground_truth": "Seoul",
+      "single_model_answer": "Seoul.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Seoul.",
+        "anthropic/claude-sonnet-4.5": "The capital of South Korea is Seoul.",
+        "google/gemini-3-flash-preview": "Seoul",
+        "meta-llama/llama-4-maverick": "Seoul.",
+        "x-ai/grok-3": "Seoul"
+      },
+      "consensus_answer": "Seoul",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2042.372703552246,
+      "latency_consensus_ms": 11327.426671981812,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa033",
+      "task_type": "factual_qa",
+      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "ground_truth": "Michelangelo",
+      "single_model_answer": "The ceiling of the Sistine Chapel was painted by **Michelangelo** (Michelangelo Buonarroti).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The ceiling of the Sistine Chapel was painted by **Michelangelo Buonarroti**.",
+        "anthropic/claude-sonnet-4.5": "Michelangelo painted the ceiling of the Sistine Chapel between 1508 and 1512.",
+        "google/gemini-3-flash-preview": "**Michelangelo** (Michelangelo Buonarroti) painted the ceiling of the Sistine Chapel.",
+        "meta-llama/llama-4-maverick": "Michelangelo Buonarroti.",
+        "x-ai/grok-3": "Michelangelo painted the ceiling of the Sistine Chapel."
+      },
+      "consensus_answer": "Michelangelo",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2397.731065750122,
+      "latency_consensus_ms": 11540.560483932495,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa034",
+      "task_type": "factual_qa",
+      "question": "What is the most spoken language in the world by total speakers?",
+      "ground_truth": "English",
+      "single_model_answer": "**English** is the most spoken language in the world by **total number of speakers** (native + second-language), with roughly **1.4\u20131.5 billion** speakers worldwide.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "**English** is generally considered the most spoken language in the world by **total number of speakers** (native + second-language speakers), at roughly **1.4\u20131.5 billion**.",
+        "anthropic/claude-sonnet-4.5": "English is the most spoken language in the world by total speakers, with approximately 1.5 billion speakers when combining native speakers (~380 million) and non-native speakers who use it as a second or foreign language.\n\nIf counting only **native speakers**, Mandarin Chinese ranks first with about 920 million native speakers.",
+        "google/gemini-3-flash-preview": "**English** is the most spoken language in the world by total speakers (native and non-native).",
+        "meta-llama/llama-4-maverick": "Mandarin Chinese.",
+        "x-ai/grok-3": "Mandarin Chinese is the most spoken language in the world by total speakers, with over 1 billion speakers, including both native and non-native speakers."
+      },
+      "consensus_answer": "English",
+      "consensus_level": "MEDIUM",
+      "consensus_correct": true,
+      "agreement_score": 0.6,
+      "latency_single_ms": 5649.580001831055,
+      "latency_consensus_ms": 16660.097122192383,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa035",
+      "task_type": "factual_qa",
+      "question": "In which year did humans first land on the Moon?",
+      "ground_truth": "1969",
+      "single_model_answer": "Humans first landed on the Moon in **1969** (Apollo 11, July 20, 1969).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Humans first landed on the Moon in **1969** (Apollo 11).",
+        "anthropic/claude-sonnet-4.5": "1969\n\nHumans first landed on the Moon on July 20, 1969, during NASA's Apollo 11 mission.",
+        "google/gemini-3-flash-preview": "Humans first landed on the Moon in **1969**.",
+        "meta-llama/llama-4-maverick": "1969.",
+        "x-ai/grok-3": "1969"
+      },
+      "consensus_answer": "1969",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2454.674243927002,
+      "latency_consensus_ms": 12105.397939682007,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa036",
+      "task_type": "factual_qa",
+      "question": "What is the atomic number of hydrogen?",
+      "ground_truth": "1",
+      "single_model_answer": "Hydrogen\u2019s atomic number is **1**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The atomic number of hydrogen is **1**.",
+        "anthropic/claude-sonnet-4.5": "The atomic number of hydrogen is 1.",
+        "google/gemini-3-flash-preview": "The atomic number of hydrogen is 1.",
+        "meta-llama/llama-4-maverick": "1",
+        "x-ai/grok-3": "The atomic number of hydrogen is 1."
+      },
+      "consensus_answer": "1",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2220.028877258301,
+      "latency_consensus_ms": 12809.253692626953,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa037",
+      "task_type": "factual_qa",
+      "question": "Which country invented pizza?",
+      "ground_truth": "Italy",
+      "single_model_answer": "Pizza as we know it today was invented in **Italy**, specifically in **Naples** (the modern pizza\u2014like Margherita\u2014developed there in the late 18th to 19th century).",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Pizza as we know it today was invented in **Italy**, specifically in **Naples** (often credited to the late 18th to 19th century, with the Margherita popularized in 1889).",
+        "anthropic/claude-sonnet-4.5": "Italy invented pizza. Specifically, modern pizza as we know it originated in Naples, Italy in the 18th-19th century.",
+        "google/gemini-3-flash-preview": "**Italy** invented pizza, specifically in the city of Naples. While flatbreads with toppings existed in ancient cultures, the modern pizza we recognize today originated there in the late 18th and early 19th centuries.",
+        "meta-llama/llama-4-maverick": "Italy. Specifically, Naples, Italy is credited with inventing modern pizza.",
+        "x-ai/grok-3": "Italy invented pizza. It originated in Naples in the late 18th century as a flatbread dish for the working class, later evolving with toppings like tomatoes and cheese."
+      },
+      "consensus_answer": "Italy",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2718.914031982422,
+      "latency_consensus_ms": 13345.751762390137,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa038",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Russia?",
+      "ground_truth": "Moscow",
+      "single_model_answer": "Moscow.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Moscow.",
+        "anthropic/claude-sonnet-4.5": "The capital of Russia is Moscow.",
+        "google/gemini-3-flash-preview": "The capital of Russia is Moscow.",
+        "meta-llama/llama-4-maverick": "Moscow.",
+        "x-ai/grok-3": "Moscow"
+      },
+      "consensus_answer": "Moscow",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2033.442497253418,
+      "latency_consensus_ms": 11574.101209640503,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa039",
+      "task_type": "factual_qa",
+      "question": "Who discovered gravity (formulated the laws)?",
+      "ground_truth": "Isaac Newton",
+      "single_model_answer": "The laws of gravity were formulated by **Sir Isaac Newton**, especially in his 1687 work *Philosophi\u00e6 Naturalis Principia Mathematica*, where he stated the **law of universal gravitation** and the **laws of motion**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The laws of gravity were formulated by **Sir Isaac Newton**, who published the **law of universal gravitation** in **1687** in *Philosophi\u00e6 Naturalis Principia Mathematica*. (Gravity itself wasn\u2019t \u201cdiscovered\u201d by one person\u2014Newton provided the first widely accepted mathematical formulation.)",
+        "anthropic/claude-sonnet-4.5": "Isaac Newton formulated the laws of gravity. He developed his law of universal gravitation in the 1680s, published in his work *Philosophi\u00e6 Naturalis Principia Mathematica* (1687).",
+        "google/gemini-3-flash-preview": "**Sir Isaac Newton** formulated the laws of universal gravitation, publishing them in his 1687 work *Philosophi\u00e6 Naturalis Principia Mathematica*.",
+        "meta-llama/llama-4-maverick": "Sir Isaac Newton formulated the laws of gravity.",
+        "x-ai/grok-3": "Sir Isaac Newton formulated the laws of gravity in the late 17th century, publishing them in his work *Philosophi\u00e6 Naturalis Principia Mathematica* in 1687."
+      },
+      "consensus_answer": "Isaac Newton",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2906.3003063201904,
+      "latency_consensus_ms": 13377.767562866211,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa040",
+      "task_type": "factual_qa",
+      "question": "What is the largest continent?",
+      "ground_truth": "Asia",
+      "single_model_answer": "Asia is the largest continent by land area.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Asia is the largest continent by land area.",
+        "anthropic/claude-sonnet-4.5": "Asia is the largest continent, covering approximately 44.58 million square kilometers (17.21 million square miles) and containing about 60% of the world's population.",
+        "google/gemini-3-flash-preview": "Asia.",
+        "meta-llama/llama-4-maverick": "Asia is the largest continent.",
+        "x-ai/grok-3": "Asia is the largest continent, covering approximately 44.58 million square kilometers (17.21 million square miles) and comprising about 30% of Earth's total land area."
+      },
+      "consensus_answer": "Asia",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2151.268482208252,
+      "latency_consensus_ms": 16012.829542160034,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa041",
+      "task_type": "factual_qa",
+      "question": "Which gas do plants absorb from the atmosphere?",
+      "ground_truth": "Carbon dioxide",
+      "single_model_answer": "Plants absorb **carbon dioxide (CO\u2082)** from the atmosphere for photosynthesis.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Plants absorb **carbon dioxide (CO\u2082)** from the atmosphere (mainly for photosynthesis).",
+        "anthropic/claude-sonnet-4.5": "Plants absorb **carbon dioxide (CO\u2082)** from the atmosphere during photosynthesis.",
+        "google/gemini-3-flash-preview": "Plants absorb **carbon dioxide** (CO\u2082).",
+        "meta-llama/llama-4-maverick": "Carbon dioxide.",
+        "x-ai/grok-3": "Plants absorb carbon dioxide (CO2) from the atmosphere during photosynthesis."
+      },
+      "consensus_answer": "Carbon dioxide",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2237.4207973480225,
+      "latency_consensus_ms": 12234.208583831787,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa042",
+      "task_type": "factual_qa",
+      "question": "What is the capital of Germany?",
+      "ground_truth": "Berlin",
+      "single_model_answer": "Berlin.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Berlin.",
+        "anthropic/claude-sonnet-4.5": "The capital of Germany is Berlin.",
+        "google/gemini-3-flash-preview": "The capital of Germany is Berlin.",
+        "meta-llama/llama-4-maverick": "Berlin.",
+        "x-ai/grok-3": "Berlin"
+      },
+      "consensus_answer": "Berlin",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2042.1743392944336,
+      "latency_consensus_ms": 10806.291341781616,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa043",
+      "task_type": "factual_qa",
+      "question": "Who wrote 'The Great Gatsby'?",
+      "ground_truth": "F. Scott Fitzgerald",
+      "single_model_answer": "*The Great Gatsby* was written by F. Scott Fitzgerald.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "*The Great Gatsby* was written by **F. Scott Fitzgerald**.",
+        "anthropic/claude-sonnet-4.5": "F. Scott Fitzgerald wrote 'The Great Gatsby'. It was published in 1925.",
+        "google/gemini-3-flash-preview": "F. Scott Fitzgerald.",
+        "meta-llama/llama-4-maverick": "F. Scott Fitzgerald.",
+        "x-ai/grok-3": "F. Scott Fitzgerald"
+      },
+      "consensus_answer": "F. Scott Fitzgerald",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2971.160411834717,
+      "latency_consensus_ms": 12100.204467773438,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa044",
+      "task_type": "factual_qa",
+      "question": "What is the fastest land animal?",
+      "ground_truth": "Cheetah",
+      "single_model_answer": "The fastest land animal is the cheetah, which can reach speeds of about 60\u201370 mph (97\u2013113 km/h) in short bursts.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The fastest land animal is the cheetah, which can reach speeds of about 60\u201370 mph (97\u2013113 km/h) in short bursts.",
+        "anthropic/claude-sonnet-4.5": "The cheetah is the fastest land animal, capable of reaching speeds up to 70 mph (112 km/h) in short bursts covering distances up to 1,600 feet.",
+        "google/gemini-3-flash-preview": "The **cheetah** is the fastest land animal, capable of reaching speeds up to 70 mph (112 km/h).",
+        "meta-llama/llama-4-maverick": "The cheetah.",
+        "x-ai/grok-3": "The cheetah is the fastest land animal, capable of running at speeds up to 60-70 miles per hour (97-113 kilometers per hour) in short bursts."
+      },
+      "consensus_answer": "Cheetah",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2588.4814262390137,
+      "latency_consensus_ms": 13945.754528045654,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa045",
+      "task_type": "factual_qa",
+      "question": "In what year did the French Revolution begin?",
+      "ground_truth": "1789",
+      "single_model_answer": "The French Revolution began in **1789**.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The French Revolution began in **1789**.",
+        "anthropic/claude-sonnet-4.5": "The French Revolution began in 1789.",
+        "google/gemini-3-flash-preview": "1789",
+        "meta-llama/llama-4-maverick": "1789",
+        "x-ai/grok-3": "1789"
+      },
+      "consensus_answer": "1789",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2102.959394454956,
+      "latency_consensus_ms": 11689.815282821655,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa046",
+      "task_type": "factual_qa",
+      "question": "What is the chemical symbol for sodium?",
+      "ground_truth": "Na",
+      "single_model_answer": "Na",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The chemical symbol for sodium is **Na**.",
+        "anthropic/claude-sonnet-4.5": "The chemical symbol for sodium is **Na**.",
+        "google/gemini-3-flash-preview": "Na",
+        "meta-llama/llama-4-maverick": "Na",
+        "x-ai/grok-3": "Na"
+      },
+      "consensus_answer": "Na",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2073.744773864746,
+      "latency_consensus_ms": 10708.283185958862,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa047",
+      "task_type": "factual_qa",
+      "question": "Which organ pumps blood through the body?",
+      "ground_truth": "Heart",
+      "single_model_answer": "The heart pumps blood through the body.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The **heart** pumps blood through the body.",
+        "anthropic/claude-sonnet-4.5": "The heart pumps blood through the body.",
+        "google/gemini-3-flash-preview": "The heart.",
+        "meta-llama/llama-4-maverick": "The heart.",
+        "x-ai/grok-3": "The heart."
+      },
+      "consensus_answer": "Heart",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2119.896173477173,
+      "latency_consensus_ms": 12032.456159591675,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa048",
+      "task_type": "factual_qa",
+      "question": "What is the capital of India?",
+      "ground_truth": "New Delhi",
+      "single_model_answer": "New Delhi.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "New Delhi.",
+        "anthropic/claude-sonnet-4.5": "The capital of India is New Delhi.",
+        "google/gemini-3-flash-preview": "New Delhi",
+        "meta-llama/llama-4-maverick": "New Delhi.",
+        "x-ai/grok-3": "New Delhi"
+      },
+      "consensus_answer": "New Delhi",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2117.7172660827637,
+      "latency_consensus_ms": 10555.474281311035,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa049",
+      "task_type": "factual_qa",
+      "question": "Who is credited with inventing the practical light bulb?",
+      "ground_truth": "Thomas Edison",
+      "single_model_answer": "Thomas Alva Edison is most commonly credited with inventing the first commercially practical incandescent light bulb (1879), though others\u2014especially Joseph Swan\u2014made important earlier contributions.",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "Thomas Alva Edison is most commonly credited with inventing the practical incandescent light bulb (1879), though others\u2014especially Joseph Swan\u2014made key earlier contributions.",
+        "anthropic/claude-sonnet-4.5": "Thomas Edison is credited with inventing the practical light bulb in 1879. While he wasn't the first to create an incandescent light, he developed the first commercially viable version with a long-lasting filament and practical electrical system.",
+        "google/gemini-3-flash-preview": "**Thomas Edison** is credited with inventing the first commercially practical incandescent light bulb. While others had developed early versions, Edison\u2019s 1879 design was the first to be long-lasting and economically viable.",
+        "meta-llama/llama-4-maverick": "Thomas Edison is credited with inventing the practical light bulb in 1879.",
+        "x-ai/grok-3": "Thomas Edison is credited with inventing the practical incandescent light bulb in 1879."
+      },
+      "consensus_answer": "Thomas Edison",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 0.8,
+      "latency_single_ms": 3793.318510055542,
+      "latency_consensus_ms": 13242.028951644897,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    },
+    {
+      "task_id": "tqa050",
+      "task_type": "factual_qa",
+      "question": "What is the chemical symbol for gold?",
+      "ground_truth": "Au",
+      "single_model_answer": "Au",
+      "single_model_correct": true,
+      "consensus_answers": {
+        "openai/gpt-5.2": "The chemical symbol for gold is **Au**.",
+        "anthropic/claude-sonnet-4.5": "The chemical symbol for gold is **Au** (from its Latin name, *aurum*).",
+        "google/gemini-3-flash-preview": "Au",
+        "meta-llama/llama-4-maverick": "Au.",
+        "x-ai/grok-3": "Au"
+      },
+      "consensus_answer": "Au",
+      "consensus_level": "HIGH",
+      "consensus_correct": true,
+      "agreement_score": 1.0,
+      "latency_single_ms": 2042.694330215454,
+      "latency_consensus_ms": 11010.868072509766,
+      "models_used": [
+        "openai/gpt-5.2",
+        "anthropic/claude-sonnet-4.5",
+        "google/gemini-3-flash-preview",
+        "meta-llama/llama-4-maverick",
+        "x-ai/grok-3"
+      ],
+      "error": null
+    }
+  ]
+}
