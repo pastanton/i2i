@@ -199,6 +199,11 @@ class I2IVerifiedOutput:
     task_category: Optional[str] = None
     consensus_appropriate: Optional[bool] = None
     models_queried: List[str] = field(default_factory=list)
+    
+    @property
+    def confidence(self) -> Optional[float]:
+        """Alias for confidence_calibration for backwards compatibility."""
+        return self.confidence_calibration
     original_metadata: Dict[str, Any] = field(default_factory=dict)
     verification_details: Dict[str, Any] = field(default_factory=dict)
 
@@ -267,13 +272,20 @@ class I2IVerifier(Runnable[Input, I2IVerifiedOutput]):
     def __init__(
         self,
         models: Optional[List[str]] = None,
-        min_confidence: float = 0.6,
+        min_confidence: float = 0.7,
+        confidence_threshold: Optional[float] = None,  # Alias for min_confidence
+        min_consensus_level: ConsensusLevel = ConsensusLevel.MEDIUM,
         task_category: Optional[str] = None,
         task_aware: bool = True,
         aicp: Optional[AICP] = None,
+        protocol: Optional[AICP] = None,  # Alias for aicp
         config: Optional[VerificationConfig] = None,
         raise_on_failure: bool = False,
         fallback_on_error: bool = True,
+        statistical_mode: bool = False,
+        n_runs: int = 3,
+        temperature: float = 0.7,
+        include_verification_metadata: bool = True,
     ):
         """
         Initialize the I2IVerifier.
@@ -317,27 +329,64 @@ class I2IVerifier(Runnable[Input, I2IVerifiedOutput]):
                 )
                 verifier = I2IVerifier(config=config)
         """
+        # Handle protocol alias
+        effective_aicp = aicp or protocol
+        
+        # Handle confidence_threshold alias
+        effective_confidence = confidence_threshold if confidence_threshold is not None else min_confidence
+        
         if config:
             self.models = config.models
             self.min_confidence = config.confidence_threshold
+            self.min_consensus_level = config.min_consensus_level
             self.task_category = config.task_category
             self.task_aware = config.task_aware
             self.raise_on_failure = config.raise_on_failure
             self.fallback_on_error = config.fallback_on_error
+            self.statistical_mode = config.statistical_mode
+            self.n_runs = config.n_runs
+            self.temperature = config.temperature
+            self.include_verification_metadata = config.include_verification_metadata
             self._config = config
         else:
             self.models = models
-            self.min_confidence = min_confidence
+            self.min_confidence = effective_confidence
+            self.min_consensus_level = min_consensus_level
             self.task_category = task_category
             self.task_aware = task_aware
             self.raise_on_failure = raise_on_failure
             self.fallback_on_error = fallback_on_error
+            self.statistical_mode = statistical_mode
+            self.n_runs = n_runs
+            self.temperature = temperature
+            self.include_verification_metadata = include_verification_metadata
             self._config = None
 
         if not 0.0 <= self.min_confidence <= 1.0:
             raise ValueError("min_confidence must be between 0.0 and 1.0")
 
-        self._aicp = aicp or AICP()
+        self._aicp = effective_aicp or AICP()
+        self.protocol = self._aicp  # Expose as protocol too
+
+    @property
+    def config(self) -> VerificationConfig:
+        """Return configuration as VerificationConfig object."""
+        if self._config is not None:
+            return self._config
+        # Create config from individual attributes
+        return VerificationConfig(
+            models=self.models,
+            min_consensus_level=self.min_consensus_level,
+            confidence_threshold=self.min_confidence,
+            task_aware=self.task_aware,
+            task_category=self.task_category,
+            raise_on_failure=self.raise_on_failure,
+            fallback_on_error=self.fallback_on_error,
+            statistical_mode=self.statistical_mode,
+            n_runs=self.n_runs,
+            temperature=self.temperature,
+            include_verification_metadata=self.include_verification_metadata,
+        )
 
     @property
     def InputType(self) -> Type[Input]:

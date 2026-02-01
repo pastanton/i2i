@@ -53,6 +53,9 @@ if _LANGCHAIN_AVAILABLE:
         VerificationError,
         create_verified_chain,
     )
+    
+    # Alias for backwards compatibility
+    VerificationOutput = I2IVerifiedOutput
 
     __all__ = [
         "I2IVerifiedOutput",
@@ -61,6 +64,7 @@ if _LANGCHAIN_AVAILABLE:
         "I2IVerifiedChain",
         "VerificationConfig",
         "VerificationError",
+        "VerificationOutput",  # Alias
         "create_verified_chain",
     ]
 else:
