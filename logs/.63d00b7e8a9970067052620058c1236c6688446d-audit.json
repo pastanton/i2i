@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/lj/dev/.vibe-kanban-data/worktrees/1398-3-6-add-lcel-run/i2i/logs/.63d00b7e8a9970067052620058c1236c6688446d-audit.json",
+    "files": [
+        {
+            "date": 1769919047582,
+            "name": "/home/lj/dev/.vibe-kanban-data/worktrees/1398-3-6-add-lcel-run/i2i/logs/mcp-puppeteer-2026-02-01.log",
+            "hash": "bf92e1bdbb4ab286e32cef5800b9ec6051ed5b6578f17535427f512e2a6eb6a5"
+        }
+    ],
+    "hashType": "sha256"
+}
