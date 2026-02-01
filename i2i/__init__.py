@@ -80,7 +80,16 @@ from .task_classifier import (
     router_task_to_consensus_category,
 )
 
-__version__ = "0.2.0"  # Bump for task-aware consensus
+# Optional LangChain integration (available when langchain-core is installed)
+try:
+    from .integrations.langchain import I2IVerifier, I2IVerifiedOutput
+    _LANGCHAIN_AVAILABLE = True
+except ImportError:
+    _LANGCHAIN_AVAILABLE = False
+    I2IVerifier = None
+    I2IVerifiedOutput = None
+
+__version__ = "0.2.1"  # Bump for LangChain LCEL integration
 __all__ = [
     # Core protocol
     "AICP",
@@ -153,4 +162,7 @@ __all__ = [
     "should_warn_about_consensus",
     "get_confidence_calibration",
     "router_task_to_consensus_category",
+    # LangChain integration (optional)
+    "I2IVerifier",
+    "I2IVerifiedOutput",
 ]
