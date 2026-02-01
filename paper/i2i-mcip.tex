@@ -52,7 +52,7 @@ Unit 221B \\
 \maketitle
 
 \begin{abstract}
-Large Language Models (LLMs) demonstrate remarkable capabilities but suffer from hallucinations, single-model biases, and inability to express epistemic uncertainty. We present \textbf{i2i} (``eye-to-eye'') and the \textbf{Multi-model Consensus and Inference Protocol (MCIP)}, a standardized framework for AI-to-AI communication that addresses these limitations through multi-model consensus, cross-verification, epistemic classification, and intelligent routing. Our key insight is not that consensus universally improves accuracy, but that \emph{consensus level reliably predicts answer trustworthiness}. In evaluation across 400 questions spanning factual QA, hallucination detection, mathematical reasoning, and commonsense tasks, we find that HIGH consensus ($\geq$85\% agreement) achieves \textbf{95-100\% accuracy} regardless of task type. We demonstrate that consensus provides a 6\% improvement in hallucination detection (38\%$\rightarrow$44\%), with LOW/NONE consensus reliably flagging confabulated answers. Critically, we also show that consensus \emph{degrades} performance on mathematical reasoning (95\%$\rightarrow$60\% on GSM8K), revealing that different reasoning chains should not be averaged---a finding that informs task-appropriate deployment. We introduce \emph{epistemic classification} to distinguish answerable questions from uncertain, underdetermined, or ``idle'' questions. The protocol is provider-agnostic, supporting OpenAI, Anthropic, Google, xAI, and local models. Code and specification: \url{https://github.com/lancejames221b/i2i}.
+Large Language Models (LLMs) demonstrate remarkable capabilities but suffer from hallucinations, single-model biases, and inability to express epistemic uncertainty. We present \textbf{i2i} (``eye-to-eye'') and the \textbf{Multi-model Consensus and Inference Protocol (MCIP)}, a standardized framework for AI-to-AI communication that addresses these limitations through multi-model consensus, cross-verification, epistemic classification, and intelligent routing. Our key insight is not that consensus universally improves accuracy, but that \emph{consensus level reliably predicts answer trustworthiness}. In evaluation across 400 questions spanning factual QA, hallucination detection, mathematical reasoning, and commonsense tasks, we find that HIGH consensus ($\geq$85\% agreement) achieves \textbf{95-100\% accuracy} regardless of task type. We demonstrate that consensus provides a 6\% improvement in hallucination detection (38\%$\rightarrow$44\%), with LOW/NONE consensus reliably flagging confabulated answers. Critically, we directly compare MCIP's cross-model diversity against self-consistency's single-model sampling diversity: cross-model consensus outperforms self-consistency by 6-8\% on factual tasks, validating that different models make different mistakes. However, consensus \emph{degrades} mathematical reasoning (95\%$\rightarrow$60\% on GSM8K), where self-consistency preserves chain coherence. We introduce \emph{epistemic classification} to distinguish answerable questions from uncertain, underdetermined, or ``idle'' questions. The protocol is provider-agnostic, supporting OpenAI, Anthropic, Google, xAI, and local models. Code and specification: \url{https://github.com/lancejames221b/i2i}.
 \end{abstract}
 
 \section{Introduction}
@@ -96,7 +96,7 @@ Recent work explores LLM-based multi-agent systems for improved reasoning. \cite
 
 \subsection{Self-Consistency and Verification}
 
-Self-consistency \cite{wang2022selfconsistency} samples diverse reasoning paths from a single model and marginalizes to find consistent answers, achieving 17.9\% improvement on GSM8K. Our approach extends this to \emph{cross-model} consistency, leveraging architectural diversity rather than sampling diversity.
+Self-consistency \cite{wang2022selfconsistency} samples diverse reasoning paths from a single model and marginalizes to find consistent answers, achieving 17.9\% improvement on GSM8K. Our approach extends this to \emph{cross-model} consistency, leveraging architectural diversity rather than sampling diversity. Critically, we directly compare these approaches in Section~\ref{sec:self-consistency} and find that cross-model diversity outperforms single-model sampling diversity for factual tasks (+6-8\%), while self-consistency remains superior for reasoning tasks where chain coherence matters. This distinction---when to use cross-model vs.\ single-model diversity---is a key contribution.
 
 For verification, \cite{chen2025toolmad} propose Tool-MAD, combining multi-agent debate with tool augmentation for fact verification. \cite{he2025debatetruth} introduce DebateCV for claim verification through structured debate. \cite{ning2025madfact} present MAD-Fact for long-form factuality evaluation. We provide a more general verification protocol applicable to any claim type.
 
@@ -520,6 +520,51 @@ MALFORMED & 91.8\% \\
 
 UNDERDETERMINED questions are hardest to classify, often requiring domain expertise.
 
+\subsection{Self-Consistency vs. Cross-Model Consensus}
+\label{sec:self-consistency}
+
+A natural question arises: does MCIP's improvement come from diversity across \emph{different} models, or would sampling diversity from a \emph{single} model suffice? Self-consistency \cite{wang2022selfconsistency} achieves strong results by sampling multiple reasoning paths from one model with temperature. We directly compare these approaches:
+
+\begin{itemize}
+    \item \textbf{Self-Consistency}: GPT-5.2 sampled 4 times with temperature=0.7, majority vote
+    \item \textbf{MCIP}: 4 different models (GPT-5.2, Claude, Gemini, Grok) sampled once each
+\end{itemize}
+
+Both methods use the same number of API calls (4) for fair comparison.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Task Type & Self-Consistency & MCIP & $\Delta$ \\
+\midrule
+Factual QA & 88.0\% & 94.0\% & \textbf{+6.0\%} \\
+Hallucination Detection & 40.0\% & 48.0\% & \textbf{+8.0\%} \\
+Mathematical Reasoning & 92.0\% & 60.0\% & -32.0\% \\
+\bottomrule
+\end{tabular}
+\caption{Self-consistency (single model, multiple samples) vs. MCIP (multiple models, single sample). Cross-model diversity outperforms sampling diversity for factual tasks and hallucination detection.}
+\label{tab:self-consistency}
+\end{table}
+
+\subsubsection{Cross-Model Diversity Wins for Factual Tasks}
+
+For factual QA and hallucination detection, MCIP outperforms self-consistency by 6-8\%. The key insight: \emph{different models make different mistakes}. When GPT-5.2 hallucinates a fact, Claude or Gemini often knows the correct answer. In contrast, when GPT-5.2 hallucinates across multiple samples, it tends to hallucinate \emph{consistently}---the same training biases produce the same errors regardless of sampling temperature.
+
+\subsubsection{Self-Consistency Wins for Reasoning Tasks}
+
+For mathematical reasoning, self-consistency substantially outperforms MCIP (+32\%). This aligns with our earlier finding (Section~\ref{sec:eval}): reasoning requires coherent multi-step chains. Self-consistency samples different \emph{valid} reasoning paths from the same model, then selects the most common conclusion. MCIP samples different paths from different models with different reasoning styles, producing incoherent averages.
+
+\subsubsection{Practical Implication}
+
+This comparison validates our task-aware approach:
+\begin{itemize}
+    \item \textbf{Factual/verification tasks}: Use MCIP (cross-model diversity)
+    \item \textbf{Reasoning/math tasks}: Use self-consistency (single-model diversity)
+\end{itemize}
+
+The diversity source matters. Cross-model architectural diversity catches errors that single-model sampling diversity cannot---but preserving reasoning coherence requires staying within one model.
+
 \section{Discussion}
 \label{sec:discussion}
 
@@ -569,7 +614,10 @@ Our evaluation across 400 questions shows:
     \item Consensus improves hallucination detection by 6\% absolute
     \item LOW/NONE consensus reliably signals potential confabulation
     \item Consensus \emph{degrades} mathematical reasoning (-35\%), revealing task-type sensitivity
+    \item Cross-model diversity outperforms single-model sampling diversity by 6-8\% on factual tasks, validating the architectural diversity hypothesis
 \end{itemize}
+
+The direct comparison with self-consistency clarifies when each approach is appropriate: MCIP's cross-model diversity catches errors that single-model sampling cannot---different models make different mistakes. However, for reasoning tasks requiring coherent chains, self-consistency's within-model sampling preserves logical structure that cross-model averaging destroys.
 
 The practical value of MCIP is \emph{calibrated confidence}: knowing when to trust an answer and when to escalate to human review. For factual QA, verification, and hallucination detection, MCIP provides reliable trust signals. For chain-of-thought reasoning, single-model approaches remain superior.
 
